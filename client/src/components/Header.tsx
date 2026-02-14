@@ -57,19 +57,14 @@ export default function Header({ cartCount = 0 }: HeaderProps) {
 
   const products = [
     {
-      label: t('product.m11.title'),
-      href: '/products/m11-monochrom',
-      description: t('product.m11.tagline'),
+      label: 'E35',
+      href: '/products/e35',
+      description: language === 'zh' ? '经典焦段，纯粹视角' : 'Classic Focal Length, Pure Perspective',
     },
     {
-      label: t('product.q3.title'),
-      href: '/products/q3-classic',
-      description: t('product.q3.tagline'),
-    },
-    {
-      label: t('product.sl3.title'),
-      href: '/products/sl3-professional',
-      description: t('product.sl3.tagline'),
+      label: 'E35 ' + (language === 'zh' ? '特别版' : 'Special Edition'),
+      href: '/products/e35-special',
+      description: language === 'zh' ? '匠心之作，限量典藏' : 'Crafted Excellence, Limited Collection',
     },
   ];
 
