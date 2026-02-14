@@ -1,12 +1,14 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-/* Design Philosophy: Minimalism + Cinematic Aesthetics
-   - Black, white, and neutral grays only
-   - Ample whitespace and low information density
-   - Subtle parallax scrolling for depth
-   - Editorial/magazine-style typography
-   - Smooth transitions and refined interactions */
+/* Design Philosophy: Leica Industrial Aesthetics × Contemporary Refined UI
+   - Deep gray (not pure black), warm white (not bright white)
+   - Low saturation metal colors (bronze, cold gray, warm gray)
+   - Strict grid system, strong alignment, minimal decoration
+   - Heavy weight and industrial precision feeling
+   - Slow, damped interactions with mechanical startup sensation
+   - Information is discovered, not pushed
+   - UI elements placed with precision, not floating freely */
 
 @custom-variant dark (&:is(.dark *));
 
@@ -60,22 +62,22 @@
   --chart-3: oklch(0.3 0.015 65);
   --chart-4: oklch(0.2 0.015 65);
   --chart-5: oklch(0.1 0.015 65);
-  --radius: 0.25rem;                    /* Minimal rounding */
-  --background: oklch(0.98 0.001 0);    /* Off-white/ivory */
-  --foreground: oklch(0.15 0.01 65);    /* Near-black */
-  --card: oklch(1 0 0);                 /* Pure white */
+  --radius: 0px;                        /* No rounding - industrial precision */
+  --background: oklch(0.96 0.002 65);   /* Warm white, not bright */
+  --foreground: oklch(0.12 0.008 65);   /* Deep gray, not pure black */
+  --card: oklch(0.97 0.001 65);        /* Warm white card background */
   --card-foreground: oklch(0.15 0.01 65);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.15 0.01 65);
-  --secondary: oklch(0.5 0.01 65);      /* Medium gray */
+  --secondary: oklch(0.45 0.008 65);   /* Warm gray - low saturation */
   --secondary-foreground: oklch(1 0 0);
-  --muted: oklch(0.85 0.005 65);        /* Light gray */
+  --muted: oklch(0.82 0.004 65);       /* Muted light gray */
   --muted-foreground: oklch(0.4 0.01 65);
   --accent: oklch(0.2 0.01 65);         /* Dark gray accent */
   --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.9 0.005 65);        /* Very light gray border */
+  --border: oklch(0.88 0.003 65);      /* Fine industrial line */
   --input: oklch(0.95 0.002 65);
   --ring: oklch(0.3 0.01 65);
   --sidebar: oklch(0.98 0.001 0);
@@ -127,7 +129,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
@@ -198,38 +200,105 @@
 
   /* Subtle hover effect for interactive elements */
   .hover-lift {
-    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease-out;
   }
 
   .hover-lift:hover {
     transform: translateY(-2px);
-    opacity: 0.9;
+    opacity: 0.85;
   }
 
-  /* Editorial typography styles */
+  /* Damped mechanical interaction */
+  .damped-transition {
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  /* Startup delay for mechanical sensation */
+  @keyframes slideInWithDelay {
+    0% {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .startup-delay {
+    animation: slideInWithDelay 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+
+  /* Fine line divider - industrial aesthetic */
+  .industrial-divider {
+    height: 0.5px;
+    background-color: currentColor;
+    opacity: 0.25;
+  }
+
+  /* Precision alignment and grid */
+  .grid-strict {
+    display: grid;
+    gap: 2rem;
+    grid-auto-flow: dense;
+  }
+
+  /* Left alignment - no random centering */
+  .align-strict {
+    text-align: left;
+  }
+
+  /* Heavy weight typography for industrial feel */
+  .text-heavy {
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  /* Editorial typography styles with industrial precision */
   .text-display {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.015em;
+    line-height: 1.1;
   }
 
   .text-subtitle {
     font-family: 'Playfair Display', serif;
-    font-weight: 400;
-    letter-spacing: 0.02em;
+    font-weight: 500;
+    letter-spacing: 0.015em;
+    line-height: 1.4;
   }
 
   .text-body {
     font-family: 'Lato', sans-serif;
     font-weight: 400;
-    line-height: 1.7;
-    letter-spacing: 0.01em;
+    line-height: 1.65;
+    letter-spacing: 0.005em;
   }
 
-  /* Divider line */
+  /* Parameter table - calibration panel style */
+  .param-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Lato', monospace;
+    font-size: 0.875rem;
+  }
+
+  .param-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 0.5px solid currentColor;
+    opacity: 0.5;
+  }
+
+  .param-table td:first-child {
+    font-weight: 600;
+    opacity: 0.7;
+  }
+
+  /* Divider line - fine industrial line */
   .divider-line {
-    height: 1px;
+    height: 0.5px;
     background-color: currentColor;
-    opacity: 0.3;
+    opacity: 0.25;
   }
 }
