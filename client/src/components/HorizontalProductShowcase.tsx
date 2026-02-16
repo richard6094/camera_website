@@ -192,7 +192,7 @@ export default function HorizontalProductShowcase({
   };
 
   return (
-    <section className="relative w-full" style={{ height: '100vh', minHeight: '600px' }}>
+    <section className="relative w-full" style={{ height: '100vh', minHeight: '700px', maxHeight: '1080px' }}>
       {/* Horizontal Scroll Container */}
       <div
         ref={scrollContainerRef}
@@ -378,7 +378,7 @@ export default function HorizontalProductShowcase({
                       </p>
                       <button
                         onClick={() => onItemClick?.(item.id)}
-                        className="px-6 sm:px-7 md:px-8 py-3 sm:py-3.5 md:py-4 border border-white text-white hover:bg-white/10 damped-transition text-xs sm:text-sm tracking-widest"
+                        className="px-6 sm:px-7 md:px-8 py-3 sm:py-3.5 md:py-4 border border-white text-white hover:bg-white/10 damped-transition text-xs sm:text-sm tracking-widest mb-20 sm:mb-24 md:mb-28"
                         style={{ borderWidth: '0.5px' }}
                       >
                         {t('hero.cta')}
