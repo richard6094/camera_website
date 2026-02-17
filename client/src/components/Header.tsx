@@ -57,13 +57,13 @@ export default function Header({ cartCount = 0 }: HeaderProps) {
 
   const products = [
     {
-      label: 'E35',
-      href: '/products/e35',
+      label: 'E39',
+      href: '/products/e39',
       description: language === 'zh' ? '经典焦段，纯粹视角' : 'Classic Focal Length, Pure Perspective',
     },
     {
-      label: 'E35 ' + (language === 'zh' ? '特别版' : 'Special Edition'),
-      href: '/products/e35-special',
+      label: 'E39 ' + (language === 'zh' ? '特别版' : 'Special Edition'),
+      href: '/products/e39-special',
       description: language === 'zh' ? '匠心之作，限量典藏' : 'Crafted Excellence, Limited Collection',
     },
   ];

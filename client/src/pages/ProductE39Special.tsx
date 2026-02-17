@@ -6,11 +6,11 @@ import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 
 /**
- * E35 Special Edition Product Detail Page
+ * E39 Special Edition Product Detail Page
  * Design Philosophy: Premium limited edition showcase
  */
 
-export default function ProductE35Special() {
+export default function ProductE39Special() {
   const { language } = useLanguage();
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
@@ -138,8 +138,8 @@ export default function ProductE35Special() {
   const handleAddToCart = () => {
     toast.success(
       language === 'zh'
-        ? `已将 ${quantity} 件 E35 特别版加入购物车`
-        : `Added ${quantity} E35 Special Edition to cart`
+        ? `已将 ${quantity} 件 E39 特别版加入购物车`
+        : `Added ${quantity} E39 Special Edition to cart`
     );
   };
 
@@ -172,7 +172,7 @@ export default function ProductE35Special() {
             <div className="aspect-square bg-muted rounded-lg overflow-hidden relative">
               <img
                 src={productImages[selectedImage]}
-                alt="E35 Special Edition"
+                alt="E39 Special Edition"
                 className="w-full h-full object-cover"
               />
               {/* Limited Edition Badge */}
@@ -196,7 +196,7 @@ export default function ProductE35Special() {
                 >
                   <img
                     src={img}
-                    alt={`E35 Special Edition view ${idx + 1}`}
+                    alt={`E39 Special Edition view ${idx + 1}`}
                     className="w-full h-full object-cover"
                   />
                 </button>
@@ -213,7 +213,7 @@ export default function ProductE35Special() {
                 {pricing.limitedBadge}
               </div>
               <h1 className="text-4xl md:text-5xl font-light tracking-tight">
-                {language === 'zh' ? 'E35 特别版' : 'E35 Special Edition'}
+                {language === 'zh' ? 'E39 特别版' : 'E39 Special Edition'}
               </h1>
               <p className="text-lg text-muted-foreground">
                 {language === 'zh'
@@ -332,7 +332,7 @@ export default function ProductE35Special() {
         <div className="grid md:grid-cols-2 gap-6">
           {(language === 'zh'
             ? [
-                'E35 特别版镜头 × 1',
+              'E39 特别版镜头 × 1',
                 '定制皮革镜头袋 × 1',
                 '金属遮光罩 × 1',
                 '52mm UV 滤镜 × 1',
@@ -342,7 +342,7 @@ export default function ProductE35Special() {
                 '清洁布 × 1',
               ]
             : [
-                'E35 Special Edition Lens × 1',
+              'E39 Special Edition Lens × 1',
                 'Custom Leather Lens Pouch × 1',
                 'Metal Lens Hood × 1',
                 '52mm UV Filter × 1',

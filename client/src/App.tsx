@@ -13,8 +13,8 @@ import ProductDetail from "./pages/ProductDetail";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import BrandStory from "./pages/BrandStory";
-import ProductE35 from "./pages/ProductE35";
-import ProductE35Special from "./pages/ProductE35Special";
+import ProductE39 from "./pages/ProductE39";
+import ProductE39Special from "./pages/ProductE39Special";
 
 
 function Router() {
@@ -26,8 +26,8 @@ function Router() {
         <Route path="/" component={Home} />
         <Route path="/story" component={BrandStory} />
         <Route path="/products" component={Products} />
-        <Route path="/products/e35" component={ProductE35} />
-        <Route path="/products/e35-special" component={ProductE35Special} />
+        <Route path="/products/e39" component={ProductE39} />
+        <Route path="/products/e39-special" component={ProductE39Special} />
         <Route path="/products/:id" component={ProductDetail} />
         <Route path="/product/:id" component={ProductDetail} />
         <Route path="/cart" component={Cart} />

@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This is a premium brand homepage for **Mandler**, a fictional high-end camera lens manufacturer inspired by Leica's design philosophy and craftsmanship. The website showcases the brand's heritage, products (E35 and E35 Special Edition lenses), and commitment to optical excellence.
+This is a premium brand homepage for **Mandler**, a fictional high-end camera lens manufacturer inspired by Leica's design philosophy and craftsmanship. The website showcases the brand's heritage, products (E39 and E39 Special Edition lenses), and commitment to optical excellence.
 
 ## Design Philosophy
 
@@ -27,14 +27,14 @@ This is a premium brand homepage for **Mandler**, a fictional high-end camera le
    - Tagline: "光，拥有自己的语言" (Light has its own language)
    - Description: Continuing the legendary optical designer's classic
 
-2. **E35**
+2. **E39**
    - Type: 35mm prime lens
    - Price: ¥12,800
    - Tagline: "经典焦段，纯粹视角" (Classic focal length, pure perspective)
    - Key Features: f/1.4 aperture, 8 groups 11 elements, 320g weight
    - Stock: In stock
 
-3. **E35 Special Edition**
+3. **E39 Special Edition**
    - Type: Limited edition 35mm prime lens
    - Price: ¥28,800 (original ¥32,000)
    - Tagline: "匠心之作，限量典藏" (Crafted excellence, limited collection)
@@ -94,10 +94,10 @@ shared/               # Shared constants and types
   - Reappears on scroll up
   - Always visible at page top (< 10px scroll)
   - Smooth 300ms transition
-  - Responsive product menu (E35, E35 Special Edition)
+  - Responsive product menu (E39, E39 Special Edition)
 
 ### 3. Product Detail Pages
-- **Pages**: `ProductE35.tsx`, `ProductE35Special.tsx`
+- **Pages**: `ProductE39.tsx`, `ProductE39Special.tsx`
 - **Features**:
   - Image gallery with thumbnails
   - Detailed specifications table

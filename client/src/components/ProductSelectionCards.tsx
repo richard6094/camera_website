@@ -13,11 +13,11 @@ export function ProductSelectionCards() {
 
   const products: ProductCard[] = [
     {
-      id: 'e35',
-      name: 'E35',
+      id: 'e39',
+      name: 'E39',
       image: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663314029101/vSofWRJBURelufNk.jpg',
       available: true,
-      link: '/products/e35',
+      link: '/products/e39',
     },
     {
       id: 'coming-soon',

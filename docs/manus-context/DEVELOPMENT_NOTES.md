@@ -2,6 +2,30 @@
 
 ## Recent Changes & Optimizations
 
+### 2026-02-17: Product Naming Rename (E35 → E39)
+**Change**: Renamed all product naming and related slugs from E35 to E39 across app code and Manus context documentation.
+
+**Scope**:
+- Updated UI product labels to `E39` / `E39 Special Edition`
+- Updated routes and links from `/products/e35*` to `/products/e39*`
+- Renamed page files and component identifiers:
+   - `ProductE35.tsx` → `ProductE39.tsx`
+   - `ProductE35Special.tsx` → `ProductE39Special.tsx`
+- Synchronized docs under `docs/manus-context/`
+
+**Files Changed**:
+- `client/src/App.tsx`
+- `client/src/components/Header.tsx`
+- `client/src/components/ProductSelectionCards.tsx`
+- `client/src/pages/Home.tsx`
+- `client/src/pages/ProductE39.tsx` (renamed from `ProductE35.tsx`)
+- `client/src/pages/ProductE39Special.tsx` (renamed from `ProductE35Special.tsx`)
+- `docs/manus-context/PROJECT_CONTEXT.md`
+- `docs/manus-context/DEVELOPMENT_NOTES.md`
+- `docs/manus-context/COMPONENT_GUIDE.md`
+
+---
+
 ### 2026-02-16: Ultra-Wide Screen Optimization
 **Problem**: On ultra-wide displays, Hero images were stretched/compressed and CTA button was too close to bottom navigation.
 
@@ -20,19 +44,19 @@
 ---
 
 ### 2026-02-14: Header Menu Product Update
-**Change**: Replaced old products (M11 Monochrom, Q3 Classic, SL3 Professional) with E35 products in header dropdown menu.
+**Change**: Replaced old products (M11 Monochrom, Q3 Classic, SL3 Professional) with E39 products in header dropdown menu.
 
 **Implementation**:
 ```tsx
 const products = [
   {
-    label: 'E35',
-    href: '/products/e35',
+   label: 'E39',
+   href: '/products/e39',
     description: language === 'zh' ? '经典焦段，纯粹视角' : 'Classic Focal Length, Pure Perspective',
   },
   {
-    label: 'E35 ' + (language === 'zh' ? '特别版' : 'Special Edition'),
-    href: '/products/e35-special',
+   label: 'E39 ' + (language === 'zh' ? '特别版' : 'Special Edition'),
+   href: '/products/e39-special',
     description: language === 'zh' ? '匠心之作，限量典藏' : 'Crafted Excellence, Limited Collection',
   },
 ];
@@ -41,7 +65,7 @@ const products = [
 **Files Changed**:
 - `client/src/components/Header.tsx`
 
-**Commit**: `2cdb2bb` - "Update Header menu: Replace old products with E35 and E35 Special Edition"
+**Commit**: `2cdb2bb` - "Update Header menu: Replace old products with E39 and E39 Special Edition"
 
 ---
 
@@ -50,13 +74,13 @@ const products = [
 1. Header auto-hide on scroll down (after 100px)
 2. Header reappears on scroll up
 3. Always visible at page top (< 10px scroll)
-4. Product detail pages for E35 and E35 Special Edition
+4. Product detail pages for E39 and E39 Special Edition
 5. Fixed product page layouts to prevent header overlap (added `pt-16 md:pt-20`)
 
 **Files Changed**:
 - `client/src/components/Header.tsx`
-- `client/src/pages/ProductE35.tsx` (new)
-- `client/src/pages/ProductE35Special.tsx` (new)
+- `client/src/pages/ProductE39.tsx` (new)
+- `client/src/pages/ProductE39Special.tsx` (new)
 - `client/src/App.tsx` (added routes)
 
 **Commit**: `7d25a15f` - "Implemented Header auto-hide on scroll and fixed product page layouts"
@@ -64,12 +88,12 @@ const products = [
 ---
 
 ### 2026-02-14: Hero Content Update
-**Change**: Updated Hero showcase from "Mandler + 3 products" to "Mandler + E35 + E35 Special Edition"
+**Change**: Updated Hero showcase from "Mandler + 3 products" to "Mandler + E39 + E39 Special Edition"
 
 **Implementation**:
 - Mandler: Brand hero with artisan craftsmanship image
-- E35: Product card with film photography image
-- E35 Special Edition: Product card with tripod/equipment image
+- E39: Product card with film photography image
+- E39 Special Edition: Product card with tripod/equipment image
 
 **Auto-Scroll Behavior**:
 - Interval: 5 seconds

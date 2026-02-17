@@ -6,11 +6,11 @@ import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 
 /**
- * E35 Product Detail Page
+ * E39 Product Detail Page
  * Design Philosophy: Premium product showcase with detailed specifications
  */
 
-export default function ProductE35() {
+export default function ProductE39() {
   const { language } = useLanguage();
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
@@ -112,8 +112,8 @@ export default function ProductE35() {
   const handleAddToCart = () => {
     toast.success(
       language === 'zh'
-        ? `已将 ${quantity} 件 E35 加入购物车`
-        : `Added ${quantity} E35 to cart`
+        ? `已将 ${quantity} 件 E39 加入购物车`
+        : `Added ${quantity} E39 to cart`
     );
   };
 
@@ -146,7 +146,7 @@ export default function ProductE35() {
             <div className="aspect-square bg-muted rounded-lg overflow-hidden">
               <img
                 src={productImages[selectedImage]}
-                alt="E35"
+                  alt="E39"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -165,7 +165,7 @@ export default function ProductE35() {
                 >
                   <img
                     src={img}
-                    alt={`E35 view ${idx + 1}`}
+                    alt={`E39 view ${idx + 1}`}
                     className="w-full h-full object-cover"
                   />
                 </button>
@@ -178,7 +178,7 @@ export default function ProductE35() {
             {/* Title & Price */}
             <div className="space-y-4">
               <h1 className="text-4xl md:text-5xl font-light tracking-tight">
-                E35
+                E39
               </h1>
               <p className="text-lg text-muted-foreground">
                 {language === 'zh'
