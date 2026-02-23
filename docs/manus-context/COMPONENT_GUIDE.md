@@ -75,7 +75,7 @@ const showcaseItems = [
 ```
 
 **Important Notes**:
-- Images should use CDN URLs (via `manus-upload-file`)
+- Images should use local static paths under `client/public/images` (e.g. `/images/xxx.jpg`)
 - Hero items display logo, subtitle, description, and CTA button
 - Product items display tagline, description, and "发现更多" button
 - Auto-scroll can be paused by user interaction (touch/mouse)
@@ -95,7 +95,8 @@ const showcaseItems = [
 - Smooth 300ms transition
 - Responsive product dropdown menu
 - Language toggle (CN/EN)
-- Shopping cart icon with count badge
+- Shopping cart icon shown as disabled state (non-clickable)
+- Hover notice for cart icon (`商城正在开发中` / `Store is under development`)
 
 **Props**: None (uses contexts: `LanguageContext`, `CartContext`)
 
@@ -110,12 +111,12 @@ The product menu is defined internally:
 const products = [
   {
     label: 'E39',
-    href: '/products/e39',
+    href: '/products/e39-intro',
     description: language === 'zh' ? '经典焦段，纯粹视角' : 'Classic Focal Length, Pure Perspective',
   },
   {
     label: 'E39 ' + (language === 'zh' ? '特别版' : 'Special Edition'),
-    href: '/products/e39-special',
+    href: '/products/e39-special-intro',
     description: language === 'zh' ? '匠心之作，限量典藏' : 'Crafted Excellence, Limited Collection',
   },
 ];
@@ -172,6 +173,7 @@ if (scrollY < 10) {
 - Square aspect ratio (`aspect-square`)
 - Responsive grid (2 cols mobile, 3 cols desktop)
 - Hover effects (scale, border highlight)
+- Direct entry cards for `E39` and `E39 Special Edition` intro pages
 - "Coming Soon" placeholder cards
 
 **Props**:

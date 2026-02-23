@@ -93,7 +93,7 @@ export default function BrandStory() {
             {/* Left Column - Image */}
             <div className="lg:col-span-2">
               <img
-                src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663314029101/lBJOMWzNjnWnJDwx.jpg"
+                src="/images/brand-story-heritage.jpg"
                 alt="Heritage cameras"
                 className="w-full h-auto rounded-lg shadow-2xl"
               />

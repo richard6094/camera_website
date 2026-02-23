@@ -37,10 +37,10 @@ const productsConfig: Record<string, ProductData> = {
     descriptionKey: 'product.m11.detail.description',
     price: '¥68,000',
     images: [
-      'https://files.manuscdn.com/user_upload_by_module/session_file/310519663314029101/RUoxiVydxVKbmaZL.jpg',
-      'https://files.manuscdn.com/user_upload_by_module/session_file/310519663314029101/qIjVXgTYnyqlkEee.jpg',
-      'https://files.manuscdn.com/user_upload_by_module/session_file/310519663314029101/xPJzPulQrgUbYHaT.jpg',
-      'https://files.manuscdn.com/user_upload_by_module/session_file/310519663314029101/OZKQCLXhUvJitQHI.jpg',
+      '/images/银色镜头+相机+暖色背景.jpg',
+      '/images/银色镜头挂机特写.jpg',
+      '/images/银色镜头不挂机特写.jpg',
+      '/images/银色镜头套装.jpg',
     ],
     specsKeys: [
       { labelKey: 'product.m11.spec.sensor', valueKey: 'product.m11.spec.sensor.value' },
@@ -88,9 +88,9 @@ const productsConfig: Record<string, ProductData> = {
     descriptionKey: 'product.q3.detail.description',
     price: '¥52,000',
     images: [
-      'https://files.manuscdn.com/user_upload_by_module/session_file/310519663314029101/SaoNsZgdGxgySPBt.jpg',
-      'https://files.manuscdn.com/user_upload_by_module/session_file/310519663314029101/kwEHPsIOLNFGFTOW.jpg',
-      'https://files.manuscdn.com/user_upload_by_module/session_file/310519663314029101/kWieMCVZYbNhXQqi.jpg',
+      '/images/3色镜头+相机+木质背景.jpg',
+      '/images/3色镜头+相机+白色背景.jpg',
+      '/images/3色镜头+相机+不同角度.jpg',
     ],
     specsKeys: [
       { labelKey: 'product.q3.spec.sensor', valueKey: 'product.q3.spec.sensor.value' },
@@ -138,9 +138,9 @@ const productsConfig: Record<string, ProductData> = {
     descriptionKey: 'product.sl3.detail.description',
     price: '¥78,000',
     images: [
-      'https://files.manuscdn.com/user_upload_by_module/session_file/310519663314029101/PtCGeSPBGqoqxYLl.jpg',
-      'https://files.manuscdn.com/user_upload_by_module/session_file/310519663314029101/lBJOMWzNjnWnJDwx.jpg',
-      'https://files.manuscdn.com/user_upload_by_module/session_file/310519663314029101/VHanNGjuzYlUbPqf.jpg',
+      '/images/两种颜色镜头+遮光罩特写.jpg',
+      '/images/brand-story-heritage.jpg',
+      '/images/银色镜头+相机+包装盒.jpg',
     ],
     specsKeys: [
       { labelKey: 'product.sl3.spec.sensor', valueKey: 'product.sl3.spec.sensor.value' },

@@ -107,6 +107,15 @@ shared/               # Shared constants and types
   - Back to home navigation
   - Responsive layout (pt-16 md:pt-20 to prevent header overlap)
 
+### 3.1 Product Introduction Pages (Editorial Style)
+- **Pages**: `ProductE39Intro.tsx`, `ProductE39SpecialIntro.tsx`
+- **Features**:
+  - Brand-story-like full-screen hero with cinematic imagery
+  - Two-column editorial narrative sections
+  - Full-bleed image transitions and pull-text rhythm
+  - Non-commerce storytelling focused on product philosophy and craftsmanship
+  - Route separation from store pages to keep presentation and shopping flows distinct
+
 ### 4. Internationalization
 - **Implementation**: `LanguageContext.tsx` + `translations.ts`
 - **Languages**: Chinese (zh) and English (en)
@@ -173,7 +182,7 @@ shared/               # Shared constants and types
 - Use semantic HTML elements
 - Ensure keyboard accessibility
 - Test on multiple screen sizes
-- Optimize images (use CDN URLs from `manus-upload-file`)
+- Optimize images and keep runtime references in `client/public/images` (`/images/*` paths)
 - Avoid inline styles except for dynamic values
 
 ## Deployment
@@ -193,4 +202,4 @@ shared/               # Shared constants and types
 
 - **Repository**: https://github.com/richard6094/camera_website
 - **Design Inspiration**: Leica Camera AG, premium lens manufacturers
-- **Asset Sources**: Generated images, Unsplash, custom photography
+- **Asset Sources**: Local static assets in `client/public/images` (some originally migrated from Manus CDN)

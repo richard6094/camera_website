@@ -9,20 +9,27 @@ interface ProductCard {
 }
 
 export function ProductSelectionCards() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const products: ProductCard[] = [
     {
       id: 'e39',
       name: 'E39',
-      image: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663314029101/vSofWRJBURelufNk.jpg',
+      image: '/images/银色镜头挂机特写1.jpg',
       available: true,
-      link: '/products/e39',
+      link: '/products/e39-intro',
+    },
+    {
+      id: 'e39-special',
+      name: language === 'zh' ? 'E39 特别版' : 'E39 Special Edition',
+      image: '/images/3色镜头+相机+木质背景.jpg',
+      available: true,
+      link: '/products/e39-special-intro',
     },
     {
       id: 'coming-soon',
       name: t('product.comingSoon'),
-      image: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663314029101/BHhLmQfWmDHLVNJL.jpg',
+      image: '/images/hero-bg.jpg',
       available: false,
     },
   ];

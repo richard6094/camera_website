@@ -284,7 +284,7 @@ Start with mobile layout, progressively enhance for larger screens:
 - Use responsive images with `srcset`
 - Lazy load below-the-fold images
 - Serve WebP with fallbacks
-- Use CDN URLs from `manus-upload-file`
+- Store runtime image assets in `client/public/images` and reference via `/images/*`
 
 ## Best Practices
 

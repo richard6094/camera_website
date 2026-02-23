@@ -3,7 +3,6 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { ShoppingCart, Check, ChevronLeft, Award } from 'lucide-react';
 import { Link } from 'wouter';
 import { Button } from '@/components/ui/button';
-import { toast } from 'sonner';
 
 /**
  * E39 Special Edition Product Detail Page
@@ -16,9 +15,9 @@ export default function ProductE39Special() {
   const [quantity, setQuantity] = useState(1);
 
   const productImages = [
-    'https://files.manuscdn.com/user_upload_by_module/session_file/310519663314029101/dbkHWzIemGfChxZS.jpg',
-    'https://files.manuscdn.com/user_upload_by_module/session_file/310519663314029101/rSqFyXSHzVYsqTci.jpg',
-    'https://files.manuscdn.com/user_upload_by_module/session_file/310519663314029101/RUCXspLnsSdMKWPE.jpg',
+    '/images/4种颜色镜头产品照-带包装.jpg',
+    '/images/4种颜色镜头产品照-不带包装.jpg',
+    '/images/3色镜头+相机+白色背景.jpg',
   ];
 
   const specifications = language === 'zh' ? {
@@ -135,21 +134,9 @@ export default function ProductE39Special() {
     limitedBadge: 'Limited Edition',
   };
 
-  const handleAddToCart = () => {
-    toast.success(
-      language === 'zh'
-        ? `已将 ${quantity} 件 E39 特别版加入购物车`
-        : `Added ${quantity} E39 Special Edition to cart`
-    );
-  };
-
-  const handleBuyNow = () => {
-    toast.info(
-      language === 'zh'
-        ? '即将跳转到结账页面...'
-        : 'Redirecting to checkout...'
-    );
-  };
+  const storeNotice = language === 'zh'
+    ? '在线商城正在准备中，敬请期待！'
+    : 'Our online store is in preparation. Stay tuned!';
 
   return (
     <div className="min-h-screen bg-background pt-16 md:pt-20">
@@ -278,16 +265,19 @@ export default function ProductE39Special() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="flex-1 gap-2"
-                  onClick={handleAddToCart}
+                  className="flex-1 gap-2 disabled:cursor-not-allowed"
+                  disabled
                 >
                   <ShoppingCart className="w-4 h-4" />
                   {pricing.addToCart}
                 </Button>
-                <Button size="lg" className="flex-1" onClick={handleBuyNow}>
+                <Button size="lg" className="flex-1 disabled:cursor-not-allowed" disabled>
                   {pricing.buyNow}
                 </Button>
               </div>
+              <p className="text-sm text-muted-foreground">
+                {storeNotice}
+              </p>
             </div>
           </div>
         </div>

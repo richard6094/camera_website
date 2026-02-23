@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useLocation } from 'wouter';
 import { ShoppingCart, ChevronRight, X } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { toast } from 'sonner';
 
 /**
@@ -33,7 +34,7 @@ const products: Product[] = [
     name: 'Classic Film Camera',
     category: 'Film Cameras',
     price: 2499,
-    image: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663314029101/oHZJxwvhISskTVVi.jpg',
+    image: '/images/3色镜头+相机+木质背景.jpg',
     description: 'A timeless mechanical camera with exceptional build quality and optical precision.',
     specs: ['35mm Film', 'Manual Focus', 'Mechanical Shutter', 'All-Metal Body'],
     inStock: true,
@@ -43,7 +44,7 @@ const products: Product[] = [
     name: 'Professional Digital SLR',
     category: 'Digital Cameras',
     price: 3999,
-    image: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663314029101/oHZJxwvhISskTVVi.jpg',
+    image: '/images/银色镜头+相机+暖色背景.jpg',
     description: 'Full-frame digital camera with advanced autofocus and 4K video capabilities.',
     specs: ['Full-Frame Sensor', '45MP Resolution', '4K Video', 'Weather Sealed'],
     inStock: true,
@@ -53,7 +54,7 @@ const products: Product[] = [
     name: 'Compact Travel Camera',
     category: 'Compact Cameras',
     price: 1299,
-    image: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663314029101/oHZJxwvhISskTVVi.jpg',
+    image: '/images/银色镜头挂机特写1.jpg',
     description: 'Lightweight and portable camera perfect for travel and street photography.',
     specs: ['APS-C Sensor', '24MP Resolution', 'Compact Design', 'Silent Mode'],
     inStock: true,
@@ -63,7 +64,7 @@ const products: Product[] = [
     name: 'Vintage Rangefinder',
     category: 'Film Cameras',
     price: 1899,
-    image: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663314029101/oHZJxwvhISskTVVi.jpg',
+    image: '/images/brand-story-heritage.jpg',
     description: 'Beautifully restored vintage rangefinder with pristine optics.',
     specs: ['35mm Film', 'Rangefinder Focus', 'Coated Lens', 'Fully Functional'],
     inStock: true,
@@ -73,7 +74,7 @@ const products: Product[] = [
     name: 'Medium Format Camera',
     category: 'Digital Cameras',
     price: 5999,
-    image: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663314029101/oHZJxwvhISskTVVi.jpg',
+    image: '/images/4种颜色镜头产品照-带包装.jpg',
     description: 'Professional-grade medium format camera for studio and fashion photography.',
     specs: ['Medium Format Sensor', '100MP Resolution', 'Phase Detection AF', 'Tethering Support'],
     inStock: false,
@@ -83,7 +84,7 @@ const products: Product[] = [
     name: 'Instant Film Camera',
     category: 'Instant Cameras',
     price: 899,
-    image: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663314029101/oHZJxwvhISskTVVi.jpg',
+    image: '/images/银色镜头+相机+包装盒.jpg',
     description: 'Modern instant camera combining retro aesthetics with digital precision.',
     specs: ['Instant Film', 'Digital Sensor', 'Built-in Flash', 'Manual Controls'],
     inStock: true,
@@ -93,7 +94,7 @@ const products: Product[] = [
     name: 'Professional Video Camera',
     category: 'Video Cameras',
     price: 4499,
-    image: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663314029101/oHZJxwvhISskTVVi.jpg',
+    image: '/images/两种颜色镜头+遮光罩特写.jpg',
     description: 'Cinema-grade video camera with professional color science and codec options.',
     specs: ['8K Recording', 'RAW Output', 'Professional Codecs', 'Modular Design'],
     inStock: true,
@@ -103,7 +104,7 @@ const products: Product[] = [
     name: 'Mirrorless Hybrid',
     category: 'Digital Cameras',
     price: 2799,
-    image: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663314029101/oHZJxwvhISskTVVi.jpg',
+    image: '/images/4种颜色镜头产品照-不带包装.jpg',
     description: 'Versatile mirrorless camera excelling in both photography and videography.',
     specs: ['Full-Frame Sensor', '61MP Resolution', '8K Video', 'AI Autofocus'],
     inStock: true,
@@ -113,7 +114,7 @@ const products: Product[] = [
     name: 'Disposable Film Camera',
     category: 'Film Cameras',
     price: 299,
-    image: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663314029101/oHZJxwvhISskTVVi.jpg',
+    image: '/images/3色镜头+相机+白色背景.jpg',
     description: 'Single-use film camera with simple operation and authentic film aesthetic.',
     specs: ['35mm Film', 'Fixed Focus', 'Built-in Flash', 'Pre-loaded'],
     inStock: true,
@@ -123,7 +124,7 @@ const products: Product[] = [
     name: 'Action Camera Pro',
     category: 'Compact Cameras',
     price: 699,
-    image: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663314029101/oHZJxwvhISskTVVi.jpg',
+    image: '/images/银色镜头挂机特写2-正面.jpg',
     description: 'Rugged action camera designed for extreme conditions and underwater use.',
     specs: ['4K Recording', 'Waterproof', 'Stabilization', 'Compact Form Factor'],
     inStock: true,
@@ -132,9 +133,11 @@ const products: Product[] = [
 
 export default function Products() {
   const [, navigate] = useLocation();
+  const { language } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const { items, addItem, itemCount } = useCart();
+  const cartComingSoonText = language === 'zh' ? '商城正在开发中' : 'Store is under development';
 
   const categories = ['All', ...Array.from(new Set(products.map((p) => p.category)))];
 
@@ -166,7 +169,12 @@ export default function Products() {
           >
             HOME
           </button>
-            <button className="relative">
+            <button
+              type="button"
+              aria-disabled="true"
+              className="relative text-foreground/50 cursor-not-allowed"
+              title={cartComingSoonText}
+            >
               <ShoppingCart className="w-5 h-5" />
               {itemCount > 0 && (
                 <span className="absolute -top-2 -right-2 bg-foreground text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">

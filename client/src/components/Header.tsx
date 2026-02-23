@@ -32,6 +32,7 @@ export default function Header({ cartCount = 0 }: HeaderProps) {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const { language, setLanguage, t } = useLanguage();
+  const cartComingSoonText = language === 'zh' ? '商城正在开发中' : 'Store is under development';
 
   // Auto-hide header on scroll down, show on scroll up
   useEffect(() => {
@@ -58,12 +59,12 @@ export default function Header({ cartCount = 0 }: HeaderProps) {
   const products = [
     {
       label: 'E39',
-      href: '/products/e39',
+      href: '/products/e39-intro',
       description: language === 'zh' ? '经典焦段，纯粹视角' : 'Classic Focal Length, Pure Perspective',
     },
     {
       label: 'E39 ' + (language === 'zh' ? '特别版' : 'Special Edition'),
-      href: '/products/e39-special',
+      href: '/products/e39-special-intro',
       description: language === 'zh' ? '匠心之作，限量典藏' : 'Crafted Excellence, Limited Collection',
     },
   ];
@@ -157,9 +158,10 @@ export default function Header({ cartCount = 0 }: HeaderProps) {
 
             {/* Shopping Cart */}
             <button
-              onClick={() => navigate('/cart')}
-              className="relative p-2 text-foreground/70 hover:text-foreground damped-transition"
-              title="Shopping Cart"
+              type="button"
+              aria-disabled="true"
+              className="relative p-2 text-foreground/50 cursor-not-allowed damped-transition"
+              title={cartComingSoonText}
             >
               <ShoppingCart className="w-6 h-6 md:w-7 md:h-7" strokeWidth={1.5} />
               {cartCount > 0 && (

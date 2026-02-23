@@ -33,7 +33,7 @@ export default function Home() {
       title: 'Mandler',
       subtitle: t('hero.tagline'),
       description: t('hero.description'),
-      image: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663314029101/RUCXspLnsSdMKWPE.jpg',
+      image: '/images/AI-generated-images/封面.jpg',
     },
     {
       id: 'e39',
@@ -41,7 +41,7 @@ export default function Home() {
       name: 'E39',
       tagline: language === 'zh' ? '经典焦段，纯粹视角' : 'Classic Focal Length, Pure Vision',
       productDescription: language === 'zh' ? '35mm 定焦镜头，街头摄影的理想伴侣。轻巧便携，成像锐利，捕捉生活中每一个真实瞬间。' : '35mm prime lens, the ideal companion for street photography. Compact and portable, with sharp imaging to capture every authentic moment in life.',
-      image: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663314029101/KbkaOzYHAtTpuzfQ.jpg',
+      image: '/images/银色镜头+相机+暖色背景.jpg',
     },
     {
       id: 'e39-special',
@@ -49,7 +49,7 @@ export default function Home() {
       name: language === 'zh' ? 'E39 特别版' : 'E39 Special Edition',
       tagline: language === 'zh' ? '匠心之作，限量典藏' : 'Masterpiece, Limited Collection',
       productDescription: language === 'zh' ? '精选材质，手工打磨。每一支镜头都经过严格的光学校准，呈现无与伦比的成像品质。限量发售，独一无二。' : 'Premium materials, hand-polished. Each lens undergoes rigorous optical calibration for unparalleled imaging quality. Limited edition, one of a kind.',
-      image: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663314029101/dbkHWzIemGfChxZS.jpg',
+      image: '/images/3色镜头+相机+木质背景.jpg',
     },
   ];
 
@@ -60,21 +60,21 @@ export default function Home() {
       title: '品牌故事',
       titleEn: 'OUR STORY',
       content: 'Every mandler camera represents decades of engineering excellence and artistic vision. We believe that the best tools are those that disappear into the background, allowing you to focus on what truly matters: capturing the moment.',
-      image: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663314029101/RUCXspLnsSdMKWPE.jpg',
+      image: '/images/brand-story-workshop.jpg',
     },
     {
       id: 'innovation',
       title: '技术创新',
       titleEn: 'INNOVATION',
       content: 'From the finest optical glass to precision-engineered mechanics, every component is selected and tested to ensure your camera performs flawlessly, shot after shot, year after year.',
-      image: '/images/product-1.jpg',
+      image: '/images/两种颜色镜头+遮光罩特写.jpg',
     },
     {
       id: 'support',
       title: '服务支持',
       titleEn: 'SUPPORT',
       content: 'Our commitment extends beyond the purchase. With lifetime support, expert maintenance, and a global network of service centers, your mandler camera is built to last generations.',
-      image: '/images/product-2.jpg',
+      image: '/images/银色镜头+相机+包装盒.jpg',
     },
   ];
 
@@ -86,6 +86,10 @@ export default function Home() {
         onItemClick={(itemId) => {
           if (itemId === 'hero') {
             navigate('/products');
+          } else if (itemId === 'e39') {
+            navigate('/products/e39-intro');
+          } else if (itemId === 'e39-special') {
+            navigate('/products/e39-special-intro');
           } else {
             navigate(`/products/${itemId}`);
           }
@@ -106,7 +110,7 @@ export default function Home() {
             <div className="md:order-1">
               <div className="relative aspect-[4/3] overflow-hidden">
                 <img 
-                  src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663314029101/RUCXspLnsSdMKWPE.jpg" 
+                  src="/images/brand-story-workshop.jpg" 
                   alt="品牌故事"
                   className="w-full h-full object-cover"
                 />
@@ -139,7 +143,7 @@ export default function Home() {
 
       {/* ===== PARALLAX QUOTE 1 ===== */}
       <ParallaxQuote
-        image="https://files.manuscdn.com/user_upload_by_module/session_file/310519663314029101/KbAigLQEvYhVIhbQ.jpg"
+        image="/images/银色镜头挂机特写1.jpg"
         quote={t('quote.1')}
       />
 
@@ -175,7 +179,7 @@ export default function Home() {
 
       {/* ===== PARALLAX QUOTE 2 ===== */}
       <ParallaxQuote
-        image="https://files.manuscdn.com/user_upload_by_module/session_file/310519663314029101/dOLtfxwBscxxxMgu.jpg"
+        image="/images/银色镜头不挂机特写.jpg"
         quote={t('quote.2')}
       />
 
