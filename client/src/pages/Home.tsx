@@ -24,6 +24,13 @@ export default function Home() {
   const [videoProgress, setVideoProgress] = useState<number>(0);
   const { t, language } = useLanguage();
 
+  const navigateWithTop = (path: string) => {
+    navigate(path);
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    });
+  };
+
   // Unified showcase items - Hero + Products
   const showcaseItems = [
     {
@@ -85,13 +92,13 @@ export default function Home() {
         items={showcaseItems}
         onItemClick={(itemId) => {
           if (itemId === 'hero') {
-            navigate('/products');
+            navigateWithTop('/products');
           } else if (itemId === 'e39') {
-            navigate('/products/e39-intro');
+            navigateWithTop('/products/e39-intro');
           } else if (itemId === 'e39-special') {
-            navigate('/products/e39-special-intro');
+            navigateWithTop('/products/e39-special-intro');
           } else {
-            navigate(`/products/${itemId}`);
+            navigateWithTop(`/products/${itemId}`);
           }
         }}
         videoLoaded={videoLoaded}
@@ -130,7 +137,7 @@ export default function Home() {
                 {t('story.content')}
               </p>
               <button
-                onClick={() => navigate('/story')}
+                onClick={() => navigateWithTop('/story')}
                 className="inline-flex items-center gap-2 px-6 py-3 border border-foreground/20 text-foreground hover:bg-foreground hover:text-background damped-transition"
               >
                 <span className="text-sm tracking-wide">{language === 'zh' ? '了解更多' : 'LEARN MORE'}</span>
@@ -229,7 +236,7 @@ export default function Home() {
             {t('cta.tagline')}
           </p>
           <button 
-            onClick={() => navigate('/products')}
+            onClick={() => navigateWithTop('/products')}
             className="px-10 py-4 border border-background text-background hover:bg-background/10 damped-transition text-sm tracking-widest inline-flex items-center gap-2"
             style={{borderWidth: '0.5px'}}
           >

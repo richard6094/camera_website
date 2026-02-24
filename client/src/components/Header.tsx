@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useLocation } from 'wouter';
 import { ShoppingCart, Menu, X, ChevronRight } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { toast } from 'sonner';
 
 /**
  * Header Navigation Component
@@ -32,7 +33,11 @@ export default function Header({ cartCount = 0 }: HeaderProps) {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const { language, setLanguage, t } = useLanguage();
-  const cartComingSoonText = language === 'zh' ? '商城正在开发中' : 'Store is under development';
+  const cartComingSoonText = language === 'zh' ? '商城正在开发中，敬请期待' : 'Store is under development, coming soon';
+
+  const handleCartComingSoon = () => {
+    toast.info(cartComingSoonText);
+  };
 
   // Auto-hide header on scroll down, show on scroll up
   useEffect(() => {
@@ -159,9 +164,10 @@ export default function Header({ cartCount = 0 }: HeaderProps) {
             {/* Shopping Cart */}
             <button
               type="button"
-              aria-disabled="true"
-              className="relative p-2 text-foreground/50 cursor-not-allowed damped-transition"
+              onClick={handleCartComingSoon}
+              className="relative p-2 text-foreground/50 hover:text-foreground/70 damped-transition"
               title={cartComingSoonText}
+              aria-label={cartComingSoonText}
             >
               <ShoppingCart className="w-6 h-6 md:w-7 md:h-7" strokeWidth={1.5} />
               {cartCount > 0 && (

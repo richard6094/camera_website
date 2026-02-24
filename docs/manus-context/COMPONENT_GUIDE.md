@@ -95,8 +95,8 @@ const showcaseItems = [
 - Smooth 300ms transition
 - Responsive product dropdown menu
 - Language toggle (CN/EN)
-- Shopping cart icon shown as disabled state (non-clickable)
-- Hover notice for cart icon (`商城正在开发中` / `Store is under development`)
+- Shopping cart icon click shows coming-soon notice toast
+- Hover notice for cart icon (`商城正在开发中，敬请期待` / `Store is under development, coming soon`)
 
 **Props**: None (uses contexts: `LanguageContext`, `CartContext`)
 

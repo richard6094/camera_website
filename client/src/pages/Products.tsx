@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, type MouseEvent } from 'react';
 import { useLocation } from 'wouter';
 import { ShoppingCart, ChevronRight, X } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
@@ -18,142 +18,140 @@ import { toast } from 'sonner';
  */
 
 interface Product {
-  id: number;
+  id: 'e39' | 'e39-special';
+  route: string;
+  categoryKey: 'standard' | 'special';
   name: string;
-  category: string;
+  categoryLabel: string;
   price: number;
+  priceLabel: string;
   image: string;
   description: string;
   specs: string[];
   inStock: boolean;
+  stockLabel: string;
 }
-
-const products: Product[] = [
-  {
-    id: 1,
-    name: 'Classic Film Camera',
-    category: 'Film Cameras',
-    price: 2499,
-    image: '/images/3色镜头+相机+木质背景.jpg',
-    description: 'A timeless mechanical camera with exceptional build quality and optical precision.',
-    specs: ['35mm Film', 'Manual Focus', 'Mechanical Shutter', 'All-Metal Body'],
-    inStock: true,
-  },
-  {
-    id: 2,
-    name: 'Professional Digital SLR',
-    category: 'Digital Cameras',
-    price: 3999,
-    image: '/images/银色镜头+相机+暖色背景.jpg',
-    description: 'Full-frame digital camera with advanced autofocus and 4K video capabilities.',
-    specs: ['Full-Frame Sensor', '45MP Resolution', '4K Video', 'Weather Sealed'],
-    inStock: true,
-  },
-  {
-    id: 3,
-    name: 'Compact Travel Camera',
-    category: 'Compact Cameras',
-    price: 1299,
-    image: '/images/银色镜头挂机特写1.jpg',
-    description: 'Lightweight and portable camera perfect for travel and street photography.',
-    specs: ['APS-C Sensor', '24MP Resolution', 'Compact Design', 'Silent Mode'],
-    inStock: true,
-  },
-  {
-    id: 4,
-    name: 'Vintage Rangefinder',
-    category: 'Film Cameras',
-    price: 1899,
-    image: '/images/brand-story-heritage.jpg',
-    description: 'Beautifully restored vintage rangefinder with pristine optics.',
-    specs: ['35mm Film', 'Rangefinder Focus', 'Coated Lens', 'Fully Functional'],
-    inStock: true,
-  },
-  {
-    id: 5,
-    name: 'Medium Format Camera',
-    category: 'Digital Cameras',
-    price: 5999,
-    image: '/images/4种颜色镜头产品照-带包装.jpg',
-    description: 'Professional-grade medium format camera for studio and fashion photography.',
-    specs: ['Medium Format Sensor', '100MP Resolution', 'Phase Detection AF', 'Tethering Support'],
-    inStock: false,
-  },
-  {
-    id: 6,
-    name: 'Instant Film Camera',
-    category: 'Instant Cameras',
-    price: 899,
-    image: '/images/银色镜头+相机+包装盒.jpg',
-    description: 'Modern instant camera combining retro aesthetics with digital precision.',
-    specs: ['Instant Film', 'Digital Sensor', 'Built-in Flash', 'Manual Controls'],
-    inStock: true,
-  },
-  {
-    id: 7,
-    name: 'Professional Video Camera',
-    category: 'Video Cameras',
-    price: 4499,
-    image: '/images/两种颜色镜头+遮光罩特写.jpg',
-    description: 'Cinema-grade video camera with professional color science and codec options.',
-    specs: ['8K Recording', 'RAW Output', 'Professional Codecs', 'Modular Design'],
-    inStock: true,
-  },
-  {
-    id: 8,
-    name: 'Mirrorless Hybrid',
-    category: 'Digital Cameras',
-    price: 2799,
-    image: '/images/4种颜色镜头产品照-不带包装.jpg',
-    description: 'Versatile mirrorless camera excelling in both photography and videography.',
-    specs: ['Full-Frame Sensor', '61MP Resolution', '8K Video', 'AI Autofocus'],
-    inStock: true,
-  },
-  {
-    id: 9,
-    name: 'Disposable Film Camera',
-    category: 'Film Cameras',
-    price: 299,
-    image: '/images/3色镜头+相机+白色背景.jpg',
-    description: 'Single-use film camera with simple operation and authentic film aesthetic.',
-    specs: ['35mm Film', 'Fixed Focus', 'Built-in Flash', 'Pre-loaded'],
-    inStock: true,
-  },
-  {
-    id: 10,
-    name: 'Action Camera Pro',
-    category: 'Compact Cameras',
-    price: 699,
-    image: '/images/银色镜头挂机特写2-正面.jpg',
-    description: 'Rugged action camera designed for extreme conditions and underwater use.',
-    specs: ['4K Recording', 'Waterproof', 'Stabilization', 'Compact Form Factor'],
-    inStock: true,
-  },
-];
 
 export default function Products() {
   const [, navigate] = useLocation();
   const { language } = useLanguage();
-  const [selectedCategory, setSelectedCategory] = useState<string>('All');
+  const [selectedCategory, setSelectedCategory] = useState<'all' | 'standard' | 'special'>('all');
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  const { items, addItem, itemCount } = useCart();
-  const cartComingSoonText = language === 'zh' ? '商城正在开发中' : 'Store is under development';
+  const { itemCount } = useCart();
+  const cartComingSoonText = language === 'zh' ? '商城正在开发中，敬请期待' : 'Store is under development, coming soon';
 
-  const categories = ['All', ...Array.from(new Set(products.map((p) => p.category)))];
+  const copy = language === 'zh'
+    ? {
+      pageTitle: '产品系列',
+      home: '首页',
+      filterTitle: '按产品筛选',
+      categoryAll: '全部',
+      categoryStandard: '标准版',
+      categorySpecial: '特别版',
+      quickPreview: '快速预览',
+      outOfStock: '缺货',
+      inStock: '现货供应',
+      limitedStock: '限量供应',
+      specifications: '规格参数',
+      addToCart: '加入购物车',
+      addedToCart: '已加入购物车',
+      storeComingSoon: '商城正在开发中，敬请期待',
+      resultsText: (shown: number, total: number) => `显示 ${shown} / ${total} 款产品`,
+      closePreview: '关闭预览',
+    }
+    : {
+      pageTitle: 'Our Collection',
+      home: 'Home',
+      filterTitle: 'Filter by Product',
+      categoryAll: 'All',
+      categoryStandard: 'Standard',
+      categorySpecial: 'Special Edition',
+      quickPreview: 'Quick Preview',
+      outOfStock: 'Out of Stock',
+      inStock: 'In Stock',
+      limitedStock: 'Limited Availability',
+      specifications: 'Specifications',
+      addToCart: 'Add to Cart',
+      addedToCart: 'Added to cart',
+      storeComingSoon: 'Store is under development, coming soon',
+      resultsText: (shown: number, total: number) => `Showing ${shown} of ${total} products`,
+      closePreview: 'Close preview',
+    };
 
-  const filteredProducts = selectedCategory === 'All'
+  const products: Product[] = language === 'zh'
+    ? [
+      {
+        id: 'e39',
+        route: '/products/e39-intro',
+        categoryKey: 'standard',
+        name: 'E39',
+        categoryLabel: copy.categoryStandard,
+        price: 12800,
+        priceLabel: '¥12,800',
+        image: '/images/银色镜头+相机+暖色背景.jpg',
+        description: '35mm 定焦镜头，兼顾环境叙事与主体表现，是街头与日常拍摄的理想选择。',
+        specs: ['35mm 焦距', 'f/1.4 最大光圈', '8 组 11 片', '约 320g'],
+        inStock: true,
+        stockLabel: copy.inStock,
+      },
+      {
+        id: 'e39-special',
+        route: '/products/e39-special-intro',
+        categoryKey: 'special',
+        name: 'E39 特别版',
+        categoryLabel: copy.categorySpecial,
+        price: 28800,
+        priceLabel: '¥28,800',
+        image: '/images/3色镜头+相机+木质背景.jpg',
+        description: '限量特别版，黄铜与钛合金机身，强化光学结构与收藏价值。',
+        specs: ['35mm 焦距', 'f/1.4 ASPH', '9 组 12 片（含非球面）', '全球限量 500 支'],
+        inStock: true,
+        stockLabel: copy.limitedStock,
+      },
+    ]
+    : [
+      {
+        id: 'e39',
+        route: '/products/e39-intro',
+        categoryKey: 'standard',
+        name: 'E39',
+        categoryLabel: copy.categoryStandard,
+        price: 1899,
+        priceLabel: '$1,899',
+        image: '/images/银色镜头+相机+暖色背景.jpg',
+        description: 'A 35mm prime lens balancing environmental storytelling and subject emphasis for street and everyday photography.',
+        specs: ['35mm focal length', 'f/1.4 max aperture', '11 elements in 8 groups', 'Approx. 320g'],
+        inStock: true,
+        stockLabel: copy.inStock,
+      },
+      {
+        id: 'e39-special',
+        route: '/products/e39-special-intro',
+        categoryKey: 'special',
+        name: 'E39 Special Edition',
+        categoryLabel: copy.categorySpecial,
+        price: 4299,
+        priceLabel: '$4,299',
+        image: '/images/3色镜头+相机+木质背景.jpg',
+        description: 'A limited special edition with brass and titanium alloy construction, upgraded optics, and collector appeal.',
+        specs: ['35mm focal length', 'f/1.4 ASPH', '12 elements in 9 groups (aspherical)', 'Limited to 500 units worldwide'],
+        inStock: true,
+        stockLabel: copy.limitedStock,
+      },
+    ];
+
+  const categories = [
+    { key: 'all' as const, label: copy.categoryAll },
+    { key: 'standard' as const, label: copy.categoryStandard },
+    { key: 'special' as const, label: copy.categorySpecial },
+  ];
+
+  const filteredProducts = selectedCategory === 'all'
     ? products
-    : products.filter((p) => p.category === selectedCategory);
+    : products.filter((p) => p.categoryKey === selectedCategory);
 
-  const handleAddToCart = (product: Product) => {
-    addItem({
-      id: product.id,
-      name: product.name,
-      price: product.price,
-      quantity: 1,
-      image: product.image,
-    });
-    toast.success(`${product.name} 已添加到购物车`);
+  const handleStoreComingSoon = () => {
+    toast.info(copy.storeComingSoon);
   };
 
   return (
@@ -161,19 +159,20 @@ export default function Products() {
       {/* Header */}
       <header className="sticky top-0 z-40 bg-white border-b border-foreground/10">
         <div className="container max-w-6xl mx-auto px-4 py-6 flex items-center justify-between">
-          <h1 className="text-display text-2xl">Our Collection</h1>
+          <h1 className="text-display text-2xl">{copy.pageTitle}</h1>
           <div className="flex items-center gap-4">
             <button 
             onClick={() => navigate('/')}
             className="text-sm tracking-widest text-foreground/60 hover:text-foreground transition-colors"
           >
-            HOME
+            {copy.home}
           </button>
             <button
               type="button"
-              aria-disabled="true"
-              className="relative text-foreground/50 cursor-not-allowed"
+              onClick={handleStoreComingSoon}
+              className="relative text-foreground/50 hover:text-foreground/70 transition-colors"
               title={cartComingSoonText}
+              aria-label={cartComingSoonText}
             >
               <ShoppingCart className="w-5 h-5" />
               {itemCount > 0 && (
@@ -191,19 +190,19 @@ export default function Products() {
         <div className="container max-w-6xl mx-auto px-4">
           {/* Category filter */}
           <div className="mb-16">
-            <h2 className="text-subtitle text-lg mb-8 tracking-wide">Filter by Category</h2>
+            <h2 className="text-subtitle text-lg mb-8 tracking-wide">{copy.filterTitle}</h2>
             <div className="flex flex-wrap gap-4">
               {categories.map((category) => (
                 <button
-                  key={category}
-                  onClick={() => setSelectedCategory(category)}
+                  key={category.key}
+                  onClick={() => setSelectedCategory(category.key)}
                   className={`px-6 py-2 border transition-all duration-300 ${
-                    selectedCategory === category
+                    selectedCategory === category.key
                       ? 'border-foreground bg-foreground text-white'
                       : 'border-foreground/30 text-foreground/60 hover:border-foreground hover:text-foreground'
                   }`}
                 >
-                  {category}
+                  {category.label}
                 </button>
               ))}
             </div>
@@ -218,7 +217,12 @@ export default function Products() {
               <div
                 key={product.id}
                 className="group cursor-pointer"
-                onClick={() => navigate(`/product/${product.id}`)}
+                onClick={() => {
+                  navigate(product.route);
+                  requestAnimationFrame(() => {
+                    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+                  });
+                }}
               >
                 {/* Product image */}
                 <div className="relative overflow-hidden aspect-square mb-6">
@@ -229,7 +233,7 @@ export default function Products() {
                   />
                   {!product.inStock && (
                     <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-                      <span className="text-white text-sm tracking-widest">OUT OF STOCK</span>
+                      <span className="text-white text-sm tracking-widest">{copy.outOfStock}</span>
                     </div>
                   )}
                 </div>
@@ -237,7 +241,7 @@ export default function Products() {
                 {/* Product info */}
                 <div className="space-y-3">
                   <p className="text-xs tracking-widest text-foreground/50 uppercase">
-                    {product.category}
+                    {product.categoryLabel}
                   </p>
                   <h3 className="text-subtitle text-lg group-hover:text-foreground/80 transition-colors">
                     {product.name}
@@ -246,31 +250,29 @@ export default function Products() {
                     {product.description}
                   </p>
                   <div className="flex items-center justify-between pt-4">
-                    <span className="text-display text-xl">${product.price}</span>
+                    <span className="text-display text-xl">{product.priceLabel}</span>
                     <div className="flex items-center gap-2">
                       {/* Quick Preview Button */}
                       <button
-                        onClick={(e: React.MouseEvent) => {
+                        onClick={(e: MouseEvent) => {
                           e.stopPropagation();
                           setSelectedProduct(product);
                         }}
                         className="px-3 py-2 border border-foreground/30 text-foreground/60 hover:border-foreground hover:bg-foreground/5 transition-all duration-300 text-xs"
-                        title="Quick Preview"
+                        title={copy.quickPreview}
+                        aria-label={copy.quickPreview}
                       >
                         <ChevronRight className="w-4 h-4" />
                       </button>
                       {/* Add to Cart Button */}
                       <button
-                        onClick={(e: React.MouseEvent) => {
+                        onClick={(e: MouseEvent) => {
                           e.stopPropagation();
-                          handleAddToCart(product);
+                          handleStoreComingSoon();
                         }}
-                        disabled={!product.inStock}
-                        className={`px-4 py-2 border transition-all duration-300 ${
-                          product.inStock
-                            ? 'border-foreground/30 text-foreground/60 hover:border-foreground hover:bg-foreground/5'
-                            : 'border-foreground/10 text-foreground/30 cursor-not-allowed'
-                        }`}
+                        className="px-4 py-2 border transition-all duration-300 border-foreground/30 text-foreground/60 hover:border-foreground hover:bg-foreground/5"
+                        title={copy.addToCart}
+                        aria-label={copy.addToCart}
                       >
                         <ShoppingCart className="w-4 h-4" />
                       </button>
@@ -283,7 +285,7 @@ export default function Products() {
 
           {/* Results count */}
           <div className="text-center text-sm text-foreground/50 tracking-widest">
-            Showing {filteredProducts.length} of {products.length} products
+            {copy.resultsText(filteredProducts.length, products.length)}
           </div>
         </div>
       </main>
@@ -303,6 +305,8 @@ export default function Products() {
               <button
                 onClick={() => setSelectedProduct(null)}
                 className="float-right text-foreground/50 hover:text-foreground transition-colors mb-6"
+                title={copy.closePreview}
+                aria-label={copy.closePreview}
               >
                 <X className="w-5 h-5" />
               </button>
@@ -321,7 +325,7 @@ export default function Products() {
                 <div className="space-y-6">
                   <div>
                     <p className="text-xs tracking-widest text-foreground/50 uppercase mb-2">
-                      {selectedProduct.category}
+                      {selectedProduct.categoryLabel}
                     </p>
                     <h2 className="text-display text-3xl mb-4">{selectedProduct.name}</h2>
                     <p className="text-body text-foreground/70 leading-relaxed">
@@ -331,7 +335,7 @@ export default function Products() {
 
                   {/* Specs */}
                   <div>
-                    <h3 className="text-subtitle text-sm mb-3 tracking-widest">SPECIFICATIONS</h3>
+                    <h3 className="text-subtitle text-sm mb-3 tracking-widest">{copy.specifications}</h3>
                     <ul className="space-y-2">
                       {selectedProduct.specs.map((spec, i) => (
                         <li key={i} className="text-sm text-foreground/70 flex items-center">
@@ -345,24 +349,19 @@ export default function Products() {
                   {/* Price and stock */}
                   <div className="border-t border-foreground/10 pt-6">
                     <div className="flex items-center justify-between mb-4">
-                      <span className="text-display text-2xl">${selectedProduct.price}</span>
+                      <span className="text-display text-2xl">{selectedProduct.priceLabel}</span>
                       <span className={`text-xs tracking-widest ${selectedProduct.inStock ? 'text-green-600' : 'text-red-600'}`}>
-                        {selectedProduct.inStock ? 'IN STOCK' : 'OUT OF STOCK'}
+                        {selectedProduct.inStock ? selectedProduct.stockLabel : copy.outOfStock}
                       </span>
                     </div>
                     <button
                       onClick={() => {
-                        handleAddToCart(selectedProduct);
+                        handleStoreComingSoon();
                         setSelectedProduct(null);
                       }}
-                      disabled={!selectedProduct.inStock}
-                      className={`w-full py-3 border transition-all duration-300 ${
-                        selectedProduct.inStock
-                          ? 'border-foreground/30 text-foreground hover:border-foreground hover:bg-foreground/5'
-                          : 'border-foreground/10 text-foreground/30 cursor-not-allowed'
-                      }`}
+                      className="w-full py-3 border transition-all duration-300 border-foreground/30 text-foreground hover:border-foreground hover:bg-foreground/5"
                     >
-                      ADD TO CART
+                      {copy.addToCart}
                     </button>
                   </div>
                 </div>

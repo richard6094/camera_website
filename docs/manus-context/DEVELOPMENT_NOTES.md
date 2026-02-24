@@ -2,6 +2,282 @@
 
 ## Recent Changes & Optimizations
 
+### 2026-02-24: Products Card Route Clarification to Intro Detail Pages
+**Change**: Updated `/products` card click targets to the introduction-style detail pages as clarified by user intent.
+
+**Scope**:
+- Changed E39 card route from `/products/e39` to `/products/e39-intro`
+- Changed E39 Special card route from `/products/e39-special` to `/products/e39-special-intro`
+- Applied to both `zh` and `en` product datasets
+
+**Files Changed**:
+- `client/src/pages/Products.tsx`
+- `docs/manus-context/DEVELOPMENT_NOTES.md`
+
+**Rationale**:
+- Align “详情页” behavior with the intended editorial introduction pages rather than store pages
+
+---
+
+### 2026-02-24: Cart Click Prompt + Product Card Detail Navigation Confirmation
+**Change**: Updated cart interactions to show a coming-soon prompt on click, and ensured both product cards on `/products` navigate to their detail pages.
+
+**Scope**:
+- Header cart icon changed from non-clickable state to clickable prompt behavior
+- Products page top-right cart icon click now shows prompt toast
+- Products page card-level/cart buttons now show prompt toast: `商城正在开发中，敬请期待` / `Store is under development, coming soon`
+- Products page two product cards keep click-through to detail pages (`/products/e39`, `/products/e39-special`) with top reset on navigation
+
+**Files Changed**:
+- `client/src/components/Header.tsx`
+- `client/src/pages/Products.tsx`
+- `docs/manus-context/COMPONENT_GUIDE.md`
+- `docs/manus-context/DEVELOPMENT_NOTES.md`
+
+**Rationale**:
+- Provide explicit user feedback instead of silent disabled cart interactions
+- Keep product browsing flow clear by making card-level detail entry deterministic
+
+---
+
+### 2026-02-24: Brand Story Classic Reborn Year Correction
+**Change**: Updated the Brand Story “经典重生 / Classic Reborn” milestone year from `2025` to `2024`.
+
+**Scope**:
+- Updated milestone year in both `zh` and `en` brand story translations
+
+**Files Changed**:
+- `client/src/lib/translations.ts`
+- `docs/manus-context/DEVELOPMENT_NOTES.md`
+
+**Rationale**:
+- Keep timeline year aligned with requested chronology
+
+---
+
+### 2026-02-24: Brand Story Copy Refinement (Timeline + Lens Positioning)
+**Change**: Fine-tuned Brand Story timeline and wording to align with current products and lens-first brand positioning.
+
+**Scope**:
+- Updated timeline item 3 year from `2020` to `2023`
+- Updated “经典重生 / Classic Reborn” product reference to `E39` and `E39 Special Edition` lens series
+- Replaced `Mandler 相机` / `Mandler camera` wording with `Mandler 镜头` / `Mandler lens` in Brand Story narrative text
+- Synced both `zh` and `en`
+
+**Files Changed**:
+- `client/src/lib/translations.ts`
+- `docs/manus-context/DEVELOPMENT_NOTES.md`
+
+**Rationale**:
+- Keep milestone timeline consistent with requested chronology
+- Ensure story copy matches actual product lineup and brand category (lenses)
+
+---
+
+### 2026-02-24: Home Navigation Scroll-Top Fix for Brand Story Entry
+**Change**: Fixed the issue where entering the brand story page from Home did not land at the top of the page.
+
+**Scope**:
+- Added `navigateWithTop` helper in Home page
+- Updated Home “了解更多 / LEARN MORE” story entry to navigate with forced top reset
+- Unified Home outbound route interactions (showcase and final CTA) to use the same top-reset navigation behavior
+
+**Files Changed**:
+- `client/src/pages/Home.tsx`
+- `docs/manus-context/DEVELOPMENT_NOTES.md`
+
+**Rationale**:
+- Ensure consistent page-entry experience when navigating from long-scroll Home sections
+- Eliminate route transitions that preserve an unintended deep scroll position
+
+---
+
+### 2026-02-24: Signature Section Boundary Shifted to Tonal Contrast
+**Change**: Replaced line-based boundary treatment in the `SIGNATURE FINISH` section with subtle tonal separation.
+
+**Scope**:
+- Removed section top/bottom border divider (`border-y border-foreground/15`)
+- Introduced low-contrast background layer (`bg-foreground/[0.03]`) to define section boundary
+- Removed inner horizontal accent line under signature description to avoid explicit split-line feeling
+
+**Files Changed**:
+- `client/src/pages/ProductE39SpecialIntro.tsx`
+- `docs/manus-context/DEVELOPMENT_NOTES.md`
+
+**Rationale**:
+- Align with requested visual direction: boundary should be communicated by slight color difference rather than dividing lines
+- Keep Leica-like restrained editorial continuity across adjacent sections
+
+---
+
+### 2026-02-24: Signature Section Typography Unified With Page System
+**Change**: Unified the `SIGNATURE FINISH` block typography and section rhythm to match the established editorial style used across the rest of the page.
+
+**Scope**:
+- Aligned signature label and protocol note styles to the same label token pattern used in other sections
+- Aligned signature title style to section-heading pattern (`text-display`, shared scale/weight behavior)
+- Adjusted desktop vertical padding from `md:py-24` to `md:py-32` for consistent section cadence
+
+**Files Changed**:
+- `client/src/pages/ProductE39SpecialIntro.tsx`
+- `docs/manus-context/DEVELOPMENT_NOTES.md`
+
+**Rationale**:
+- Ensure local typography and overall section rhythm no longer feel detached from surrounding modules
+- Preserve Leica-style restraint while improving whole-page consistency
+
+---
+
+### 2026-02-24: Signature Meta Text Readability Tweak
+**Change**: Fine-tuned only the left meta text lines in `SIGNATURE FINISH` section for better readability and less aggressive letter spacing.
+
+**Scope**:
+- Increased legibility of `SIGNATURE FINISH` label and protocol text
+- Reduced excessive tracking and raised text contrast opacity
+- Kept layout/grid structure unchanged (text-only adjustment)
+
+**Files Changed**:
+- `client/src/pages/ProductE39SpecialIntro.tsx`
+- `docs/manus-context/DEVELOPMENT_NOTES.md`
+
+**Rationale**:
+- Improve editorial readability while preserving Leica-style restrained aesthetics
+
+---
+
+### 2026-02-24: E39 Special Intro Typography Scale Alignment
+**Change**: Reduced oversized heading scale in the `SIGNATURE FINISH` section to keep typography consistent with the page-wide editorial rhythm.
+
+**Scope**:
+- Adjusted signature section title from `md:text-5xl` to `md:text-4xl`
+
+**Files Changed**:
+- `client/src/pages/ProductE39SpecialIntro.tsx`
+- `docs/manus-context/DEVELOPMENT_NOTES.md`
+
+**Rationale**:
+- Maintain a coherent type hierarchy and avoid abrupt font-size jumps across sections
+
+---
+
+### 2026-02-24: Signature Section Switched to Open Horizontal Layout
+**Change**: Replaced the centered closed-border signature block in `E39 Special Edition` intro page with an open editorial layout.
+
+**Scope**:
+- Removed boxed centered panel (`border + centered stack`)
+- Added open `border-y` section with left meta column + right content column
+- Kept existing bilingual content and section hierarchy unchanged
+
+**Files Changed**:
+- `client/src/pages/ProductE39SpecialIntro.tsx`
+- `docs/manus-context/DEVELOPMENT_NOTES.md`
+
+**Rationale**:
+- Match the page-wide horizontal rhythm and avoid isolated closed visual blocks
+- Better align with Leica-like magazine editorial composition
+
+---
+
+### 2026-02-24: E39 Special Intro Leica-Magazine Style Pass
+**Change**: Applied a Leica-editorial visual pass to `E39 Special Edition` intro page for cleaner and more consistent layout language.
+
+**Scope**:
+- Reduced high-contrast visual noise and unified section rhythm
+- Added consistent editorial labels and spacing cadence across key sections
+- Refactored premium identity and milestone blocks into structured repeatable layouts
+- Replaced cinematic signature background block with restrained bordered editorial panel
+- Added subtle detail line (`Mandler Quality Protocol · Since 1978`) as a minimal “clever touch”
+
+**Files Changed**:
+- `client/src/pages/ProductE39SpecialIntro.tsx`
+- `docs/manus-context/DEVELOPMENT_NOTES.md`
+
+**Rationale**:
+- Improve readability and hierarchy in long-form product storytelling
+- Align visual tone with Leica-like magazine aesthetics: restrained, ordered, detail-first
+
+---
+
+### 2026-02-24: E39 Special Intro Layout Consistency Refinement
+**Change**: Refined E39 Special Edition introduction page to improve visual consistency and reading rhythm while keeping a premium identity.
+
+**Scope**:
+- Unified section cadence (headings, spacing, container rhythm) across major blocks
+- Normalized premium identity section styling to align with overall page language
+- Added subtle premium detail treatment in milestone section (`01 / 03` style protocol markers)
+- Kept bilingual parity (`zh` / `en`) for all newly adjusted labels and text
+
+**Files Changed**:
+- `client/src/pages/ProductE39SpecialIntro.tsx`
+- `docs/manus-context/DEVELOPMENT_NOTES.md`
+
+**Rationale**:
+- Reduce visual fragmentation and improve narrative flow
+- Preserve high-end tone with restrained, detail-driven “small clever touches”
+
+---
+
+### 2026-02-24: Removed Edition Number Element from E39 Special Intro
+**Change**: Removed the `限量编号 / Edition Number` element from the E39 Special Edition introduction page hero section.
+
+**Scope**:
+- Deleted edition-number copy fields (`editionLabel`, `editionValue`) in both `zh` and `en`
+- Removed corresponding hero badge UI block
+- Cleaned up now-unused `Award` icon import
+
+**Files Changed**:
+- `client/src/pages/ProductE39SpecialIntro.tsx`
+- `docs/manus-context/DEVELOPMENT_NOTES.md`
+
+**Rationale**:
+- Align page presentation with current content direction by removing explicit serial-number style display
+
+---
+
+### 2026-02-24: E39 Special Intro Premium Differentiation Upgrade
+**Change**: Enhanced `E39 Special Edition` introduction page to look and feel more premium than the standard E39 intro page.
+
+**Scope**:
+- Added a limited-edition identity badge in hero section (`Edition Number`)
+- Added a dedicated premium identity band with three high-end attributes:
+   - material system
+   - release strategy
+   - calibration standard
+- Added a signature finishing section with stronger cinematic treatment
+- Kept bilingual parity (`zh` / `en`) for all newly added content
+
+**Files Changed**:
+- `client/src/pages/ProductE39SpecialIntro.tsx`
+- `docs/manus-context/DEVELOPMENT_NOTES.md`
+
+**Rationale**:
+- Strengthen visual and narrative hierarchy between standard and special edition product intros
+- Better communicate the collectible and craftsmanship positioning of the special edition
+
+---
+
+### 2026-02-24: Products Page Realignment (E39 only) + Full zh/en Support
+**Change**: Refactored `/products` page to match actual catalog (only E39 and E39 Special Edition) and implemented complete Chinese/English UI copy switching.
+
+**Scope**:
+- Removed legacy placeholder catalog items and kept only two real products: `E39` and `E39 Special Edition`
+- Added bilingual text handling for all user-facing content on this page:
+   - page title, home button, filter title and category labels
+   - quick preview / add-to-cart actions and toast text
+   - stock labels, specifications title, results count text
+   - modal close label and related UI strings
+- Updated product card click targets to corresponding actual product detail routes
+
+**Files Changed**:
+- `client/src/pages/Products.tsx`
+- `docs/manus-context/DEVELOPMENT_NOTES.md`
+
+**Rationale**:
+- Keep product listing consistent with current business scope
+- Eliminate language mismatch and ensure parity across `zh` and `en`
+
+---
+
 ### 2026-02-24: Added E39 Special Card Entry + Intro CTA Scroll Reset
 **Change**: Added E39 Special Edition card entry on homepage product selection cards, and fixed intro-page CTA navigation to always land at page top.
 
