@@ -2,253 +2,89 @@
 
 ## Recent Changes & Optimizations
 
-### 2026-02-26: Hero Product Card Mobile Bottom Spacing
-**Change**: Increased bottom spacing for E39/E39 Special Edition product card text and buttons on mobile to avoid overlap with dot indicators and bottom navigation.
+### 2026-02-26: Azure SWA Deployment & CI/CD Pipeline
+**Summary**: Established fully working Azure SWA deployment pipeline from scratch, including SPA routing fix and release-branch strategy.
 
 **Scope**:
-- Changed product content container from `bottom-20 sm:bottom-24 md:bottom-32` to `bottom-32 sm:bottom-28 md:bottom-32`
-
-**Files Changed**:
-- `client/src/components/HorizontalProductShowcase.tsx`
-
-**Rationale**:
-- On mobile, text and CTA button were too close to the bottom navigation bar
-
----
-
-### 2026-02-26: SWA Navigation Fallback for SPA Routing
-**Change**: Added `staticwebapp.config.json` to fix 404 errors when directly accessing sub-routes on Azure Static Web Apps.
-
-**Scope**:
-- Created `client/public/staticwebapp.config.json` with `navigationFallback` rewrite to `/index.html`
-- Excludes `/images/*` and `/assets/*` from fallback
-
-**Files Changed**:
-- `client/public/staticwebapp.config.json` (new)
-
-**Rationale**:
-- SPA routes like `/products/e39-intro` returned 404 on direct access or refresh because the server had no fallback rule
-
----
-
-### 2026-02-26: CI/CD Cleanup — Remove Old Workflow + Zip Artifact
-**Change**: Removed the orphaned `ashy-stone` workflow file (pointed to deleted SWA resource) and cleaned up an accidentally committed SWA CLI zip file.
-
-**Scope**:
-- Deleted `.github/workflows/azure-static-web-apps-ashy-stone-052e5ec00.yml`
-- Removed accidental 14MB zip file from repo history
-- Added `*.zip` to `.gitignore`
-
-**Files Changed**:
-- `.github/workflows/azure-static-web-apps-ashy-stone-052e5ec00.yml` (deleted)
-- `.gitignore`
-
-**Rationale**:
-- Old workflow was triggering on every `main` push and always failing (deleted SWA resource token)
-- Zip file was an artifact from manual SWA CLI deployment
-
----
-
-### 2026-02-26: Release Branch Deployment Strategy
-**Change**: Configured deployment workflow to trigger on `release` branch instead of `main`, enabling controlled deployments.
-
-**Scope**:
-- Changed workflow trigger from `main` to `release` branch (push + PR events)
-- Created `release` branch from `main`
-- Deployment flow: develop on `main` → merge to `release` → auto-deploy
+- Deleted broken SWA resource (`ashy-stone-052e5ec00`), created new one: `zealous-stone-00bf12300.1.azurestaticapps.net` (Free tier, East Asia)
+- Workflow: Corepack + pnpm, Node 20, Vite build, `skip_app_build: true`
+- Trigger changed from `main` to `release` branch (push + PR); flow: develop on `main` → merge to `release` → auto-deploy
+- Removed orphaned `ashy-stone` workflow + accidental 14MB zip artifact; added `*.zip` to `.gitignore`
+- Added `client/public/staticwebapp.config.json` with `navigationFallback` rewrite to `/index.html` (fixes SPA 404 on direct sub-route access)
 
 **Files Changed**:
 - `.github/workflows/azure-static-web-apps-zealous-stone-00bf12300.yml`
-
-**Rationale**:
-- Separates development commits from deployment triggers
-- Gives explicit control over when new code goes live
+- `client/public/staticwebapp.config.json` (new)
+- `.gitignore`
 
 ---
 
-### 2026-02-26: Hero Dot Scroll Position Indicators
-**Change**: Added dot-style scroll position indicators above the Hero bottom thumbnail navigation.
+### 2026-02-26: Hero Section UI Enhancements
+**Summary**: Added dot-style scroll indicators and fixed mobile product card bottom spacing in the Hero showcase.
 
 **Scope**:
-- Active dot: elongated capsule (`w-6 h-1.5 bg-white`)
-- Inactive dots: small circles (`w-1.5 h-1.5 bg-white/40`)
-- Clickable, triggers `handleManualNavigation`
-- Positioned at `bottom-[72px]`, horizontally centered, z-20
-- 300ms transition on shape/opacity changes
+- Dot indicators: active capsule (`w-6 h-1.5 bg-white`) / inactive circles (`w-1.5 h-1.5 bg-white/40`), clickable, `bottom-[72px]`, 300ms transition
+- Mobile spacing: product content container changed from `bottom-20 sm:bottom-24 md:bottom-32` to `bottom-32 sm:bottom-28 md:bottom-32` to avoid overlap with dots and bottom nav
 
 **Files Changed**:
 - `client/src/components/HorizontalProductShowcase.tsx`
-
-**Rationale**:
-- User requested visual scroll position feedback in the Hero section
-
----
-
-### 2026-02-26: Support Section Button Style Consistency
-**Change**: Fixed the "了解详情 / LEARN MORE" button in the Home page support section to match the bordered button style used elsewhere.
-
-**Scope**:
-- Changed from text-link style to bordered button: `px-6 py-3 border border-foreground/20 hover:bg-foreground hover:text-background damped-transition`
-
-**Files Changed**:
-- `client/src/pages/Home.tsx`
-
-**Rationale**:
-- Visual consistency with brand story section button
 
 ---
 
 ### 2026-02-26: Service & Support Dedicated Page
-**Change**: Created a full dedicated Service & Support page covering warranty, repair, 7-day return policy, and contact info.
+**Summary**: Created a full `/support` page and unified Home support section button style.
 
 **Scope**:
-- New page `ServiceSupport.tsx` with magazine-style editorial layout matching BrandStory aesthetic
-- Sections: Hero, Lifetime Warranty, Professional Repair & Maintenance, 7-Day Return Policy (dark full-width), Contact, Closing
-- Full bilingual content (zh/en) inline in the component
-- Route `/support` added in `App.tsx`
-- Header nav "服务支持 / Support" now links to `/support` (was `/#support` scroll anchor)
-- Home page support section gains "了解详情 / LEARN MORE" CTA linking to `/support`
+- New page `ServiceSupport.tsx`: magazine-style editorial layout (Hero, Lifetime Warranty, Repair & Maintenance, 7-Day Return Policy dark section, Contact, Closing); full zh/en bilingual content
+- Route `/support` added; Header nav "服务支持 / Support" updated from `/#support` scroll anchor to `/support`
+- Home support section: added "了解详情 / LEARN MORE" CTA linking to `/support`; button restyled to bordered `px-6 py-3 border border-foreground/20` for consistency
 
 **Files Changed**:
 - `client/src/pages/ServiceSupport.tsx` (new)
 - `client/src/App.tsx`
 - `client/src/components/Header.tsx`
 - `client/src/pages/Home.tsx`
-- `docs/manus-context/DEVELOPMENT_NOTES.md`
-
-**Rationale**:
-- User requested a standalone page for service/repair/return policies
-- 7-day no-reason return policy prominently featured as required
 
 ---
 
-### 2026-02-26: Azure SWA CI/CD Pipeline — Fully Working
-**Change**: Recreated Azure Static Web App resource and established fully working GitHub Actions CI/CD pipeline.
+### 2026-02-24: Navigation & Scroll-Top Fixes
+**Summary**: Fixed multiple routing/navigation issues where pages landed at wrong scroll positions, and clarified product card click targets.
 
 **Scope**:
-- Deleted broken SWA resource (`ashy-stone-052e5ec00`) which rejected all deployment tokens
-- Created new SWA resource: `zealous-stone-00bf12300.1.azurestaticapps.net` (Free tier, East Asia)
-- Renamed workflow file to `azure-static-web-apps-zealous-stone-00bf12300.yml`
-- Updated GitHub Secret name to `AZURE_STATIC_WEB_APPS_API_TOKEN_ZEALOUS_STONE_00BF12300`
-- Workflow uses Corepack for pnpm bootstrap, Node 20, Vite build, `skip_app_build: true`
-- GitHub Actions Run #1 completed successfully (1m 0s)
-
-**Files Changed**:
-- `.github/workflows/azure-static-web-apps-zealous-stone-00bf12300.yml` (renamed from ashy-stone variant)
-- `docs/manus-context/DEVELOPMENT_NOTES.md`
-
-**Rationale**:
-- Original SWA resource was in an irrecoverable broken state (all tokens rejected)
-- Fresh resource + clean workflow produces reliable automated deployments
-- Previous iterative CI fixes (step order, corepack, token diagnostics) are all consolidated in the final working workflow
-
----
-
-### 2026-02-24: Header Menu Story Entry Scroll-Top Fix
-**Change**: Fixed the issue where opening `品牌故事 / Story` from header menu could retain previous scroll position instead of landing at top.
-
-**Scope**:
-- Added `navigateWithTop` in header navigation flow for non-anchor routes
-- Updated `品牌故事 / Story` entry to use top-reset route navigation
-- Improved `/#gallery` and `/#support` handling by navigating to home first, then section scrolling
+- Added `navigateWithTop` helper in Header and Home for forced scroll-top on route entry
+- Header: Story entry now uses top-reset navigation; `/#gallery` and `/#support` navigate to home first then scroll
+- Home: "LEARN MORE" story entry + showcase CTAs unified with top-reset behavior
+- Products page: card click targets changed from `/products/e3- Products page: card click targets changed from `/match editorial intro intent
 
 **Files Changed**:
 - `client/src/components/Header.tsx`
-- `docs/manus-context/COMPONENT_GUIDE.md`
-- `docs/manus-context/DEVELOPMENT_NOTES.md`
-
-**Rationale**:
-- Ensure consistent entry behavior from header menu across pages and scroll states
-
----
-
-### 2026-02-24: Products Card Route Clarification to Intro Detail Pages
-**Change**: Updated `/products` card click targets to the introduction-style detail pages as clarified by user intent.
-
-**Scope**:
-- Changed E39 card route from `/products/e39` to `/products/e39-intro`
-- Changed E39 Special card route from `/products/e39-special` to `/products/e39-special-intro`
-- Applied to both `zh` and `en` product datasets
-
-**Files Changed**:
+- `client/src/pages/Home.tsx`
 - `client/src/pages/Products.tsx`
-- `docs/manus-context/DEVELOPMENT_NOTES.md`
-
-**Rationale**:
-- Align “详情页” behavior with the intended editorial introduction pages rather than store pages
 
 ---
 
-### 2026-02-24: Cart Click Prompt + Product Card Detail Navigation Confirmation
-**Change**: Updated cart interactions to show a coming-soon prompt on click, and ensured both product cards on `/products` navigate to their detail pages.
+### 2026-02-24: Cart Click Prompt + Product Card Detail Navigation
+**Summary**: Replaced silent disabled cart with clickable coming-soon prompt, ensured product card detail navigation.
 
 **Scope**:
-- Header cart icon changed from non-clickable state to clickable prompt behavior
-- Products page top-right cart icon click now shows prompt toast
-- Products page card-level/cart buttons now show prompt toast: `商城正在开发中，敬请期待` / `Store is under development, coming soon`
-- Products page two product cards keep click-through to detail pages (`/products/e39`, `/products/e39-special`) with top reset on navigation
-
-**Files Changed**:
+- Header & Products page cart icons now show toast on click (store under development notice)
+- Products page card-leve- Products page card-leve- Products page card-leve- Products page card-leve- Products page card-leve- Products page ca*Files Changed**:
 - `client/src/components/Header.tsx`
 - `client/src/pages/Products.tsx`
-- `docs/manus-context/COMPONENT_GUIDE.md`
-- `docs/manus-context/DEVELOPMENT_NOTES.md`
-
-**Rationale**:
-- Provide explicit user feedback instead of silent disabled cart interactions
-- Keep product browsing flow clear by making card-level detail entry deterministic
 
 ---
 
-### 2026-02-24: Brand Story Classic Reborn Year Correction
-**Change**: Updated the Brand Story “经典重生 / Classic Reborn” milestone year from `2025` to `2024`.
+### 2026-02-24: Brand Story Copy & Timeline Corrections
+**Summary**: Corrected Brand Story milestone years and updated wording to lens-first positioning.
 
 **Scope**:
-- Updated milestone year in both `zh` and `en` brand story translations
-
-**Files Changed**:
-- `client/src/lib/translations.ts`
-- `docs/manus-context/DEVELOPMENT_NOTES.md`
-
-**Rationale**:
-- Keep timeline year aligned with requested chronology
-
----
-
-### 2026-02-24: Brand Story Copy Refinement (Timeline + Lens Positioning)
-**Change**: Fine-tuned Brand Story timeline and wording to align with current products and lens-first brand positioning.
-
-**Scope**:
-- Updated timeline item 3 year from `2020` to `2023`
-- Updated “经典重生 / Classic Reborn” product reference to `E39` and `E39 Special Edition` lens series
-- Replaced `Mandler 相机` / `Mandler camera` wording with `Mandler 镜头` / `Mandler lens` in Brand Story narrative text
+- "Classic Reborn" year: `2025` → `2024`; Timeline item 3 year: `2020` → `2023`
+- Product reference updated to `E39` and `E39 Special Edition` lens series
+- Replaced camera wording with lens throughout Brand Story
 - Synced both `zh` and `en`
 
 **Files Changed**:
 - `client/src/lib/translations.ts`
-- `docs/manus-context/DEVELOPMENT_NOTES.md`
-
-**Rationale**:
-- Keep milestone timeline consistent with requested chronology
-- Ensure story copy matches actual product lineup and brand category (lenses)
-
----
-
-### 2026-02-24: Home Navigation Scroll-Top Fix for Brand Story Entry
-**Change**: Fixed the issue where entering the brand story page from Home did not land at the top of the page.
-
-**Scope**:
-- Added `navigateWithTop` helper in Home page
-- Updated Home “了解更多 / LEARN MORE” story entry to navigate with forced top reset
-- Unified Home outbound route interactions (showcase and final CTA) to use the same top-reset navigation behavior
-
-**Files Changed**:
-- `client/src/pages/Home.tsx`
-- `docs/manus-context/DEVELOPMENT_NOTES.md`
-
-**Rationale**:
-- Ensure consistent page-entry experience when navigating from long-scroll Home sections
-- Eliminate route transitions that preserve an unintended deep scroll position
 
 ---
 
