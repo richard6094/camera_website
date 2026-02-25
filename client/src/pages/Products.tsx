@@ -2,6 +2,7 @@ import { useState, type MouseEvent } from 'react';
 import { useLocation } from 'wouter';
 import { ShoppingCart, ChevronRight, X } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import Breadcrumb from '@/components/Breadcrumb';
 import { toast } from 'sonner';
 
 /**
@@ -154,8 +155,18 @@ export default function Products() {
 
   return (
     <div className="w-full bg-background text-foreground">
+      {/* Breadcrumb */}
+      <div className="container max-w-6xl mx-auto px-4 pt-20 md:pt-24">
+        <Breadcrumb
+          items={[
+            { label: language === 'zh' ? '首页' : 'Home', href: '/' },
+            { label: language === 'zh' ? '产品' : 'Products' },
+          ]}
+        />
+      </div>
+
       {/* Main content */}
-      <main className="pt-28 md:pt-32 pb-16 md:pb-24">
+      <main className="pt-8 pb-16 md:pb-24">
         <div className="container max-w-6xl mx-auto px-4">
           {/* Category filter */}
           <div className="mb-16">
