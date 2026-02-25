@@ -2,6 +2,23 @@
 
 ## Recent Changes & Optimizations
 
+### 2026-02-25: Azure SWA Workflow Setup Node Failure Fix (Step Order)
+**Change**: Fixed GitHub Actions `Setup Node` failure by correcting step order in Azure Static Web Apps workflow.
+
+**Scope**:
+- Moved `Setup pnpm` before `Setup Node`
+- Kept `actions/setup-node@v4` `cache: pnpm` enabled after pnpm is available
+
+**Files Changed**:
+- `.github/workflows/azure-static-web-apps-ashy-stone-052e5ec00.yml`
+- `docs/manus-context/DEVELOPMENT_NOTES.md`
+
+**Rationale**:
+- `actions/setup-node` with `cache: pnpm` can fail if `pnpm` is not yet installed on runner
+- Reordering steps ensures cache initialization has required package manager available
+
+---
+
 ### 2026-02-25: Azure Static Web Apps Workflow Build Fix (pnpm + Vite)
 **Change**: Fixed GitHub Actions deployment workflow failure for Azure Static Web Apps caused by npm dependency resolution conflicts and mismatched output directory.
 
