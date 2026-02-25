@@ -2,6 +2,26 @@
 
 ## Recent Changes & Optimizations
 
+### 2026-02-25: Azure SWA Workflow pnpm Bootstrap Hardening (Corepack)
+**Change**: Replaced `pnpm/action-setup` with Corepack-based pnpm activation in workflow to resolve runner-side setup failure.
+
+**Scope**:
+- Removed `Setup pnpm` action step
+- Kept `actions/setup-node@v4` for Node runtime setup
+- Added explicit Corepack bootstrap:
+   - `corepack enable`
+   - `corepack prepare pnpm@10.4.1 --activate`
+
+**Files Changed**:
+- `.github/workflows/azure-static-web-apps-ashy-stone-052e5ec00.yml`
+- `docs/manus-context/DEVELOPMENT_NOTES.md`
+
+**Rationale**:
+- Avoid intermittent/action-specific pnpm setup issues on GitHub-hosted runners
+- Use Node-native package manager bootstrap path for more deterministic CI behavior
+
+---
+
 ### 2026-02-25: Azure SWA Workflow Setup Node Failure Fix (Step Order)
 **Change**: Fixed GitHub Actions `Setup Node` failure by correcting step order in Azure Static Web Apps workflow.
 
