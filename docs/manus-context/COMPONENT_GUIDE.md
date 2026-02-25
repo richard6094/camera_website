@@ -94,6 +94,7 @@ const showcaseItems = [
 - Always visible at page top (< 10px scroll)
 - Smooth 300ms transition
 - Responsive product dropdown menu
+- Non-anchor route navigation resets to page top
 - Language toggle (CN/EN)
 - Shopping cart icon click shows coming-soon notice toast
 - Hover notice for cart icon (`商城正在开发中，敬请期待` / `Store is under development, coming soon`)

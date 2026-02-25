@@ -81,17 +81,28 @@ export default function Header({ cartCount = 0 }: HeaderProps) {
     { label: t('header.support'), href: '/#support' },
   ];
 
+  const navigateWithTop = (href: string) => {
+    navigate(href);
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    });
+  };
+
   const handleNavigate = (href: string) => {
     if (href.startsWith('/#')) {
-      // Scroll to section
+      // Navigate to home first, then scroll to section
       const sectionId = href.substring(2);
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
       navigate('/');
+      requestAnimationFrame(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+        }
+      });
     } else {
-      navigate(href);
+      navigateWithTop(href);
     }
     setMenuOpen(false);
     setActiveSubmenu(null);
@@ -134,7 +145,7 @@ export default function Header({ cartCount = 0 }: HeaderProps) {
           {/* Center: Brand Logo */}
           <div
             className="cursor-pointer flex-shrink-0 damped-transition hover:opacity-80"
-            onClick={() => navigate('/')}
+            onClick={() => navigateWithTop('/')}
           >
             <img 
               src="/images/mandler-logo.png" 

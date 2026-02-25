@@ -2,6 +2,24 @@
 
 ## Recent Changes & Optimizations
 
+### 2026-02-24: Header Menu Story Entry Scroll-Top Fix
+**Change**: Fixed the issue where opening `品牌故事 / Story` from header menu could retain previous scroll position instead of landing at top.
+
+**Scope**:
+- Added `navigateWithTop` in header navigation flow for non-anchor routes
+- Updated `品牌故事 / Story` entry to use top-reset route navigation
+- Improved `/#gallery` and `/#support` handling by navigating to home first, then section scrolling
+
+**Files Changed**:
+- `client/src/components/Header.tsx`
+- `docs/manus-context/COMPONENT_GUIDE.md`
+- `docs/manus-context/DEVELOPMENT_NOTES.md`
+
+**Rationale**:
+- Ensure consistent entry behavior from header menu across pages and scroll states
+
+---
+
 ### 2026-02-24: Products Card Route Clarification to Intro Detail Pages
 **Change**: Updated `/products` card click targets to the introduction-style detail pages as clarified by user intent.
 
