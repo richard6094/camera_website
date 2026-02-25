@@ -126,6 +126,18 @@ shared/               # Shared constants and types
 - **Status**: Structure implemented, full functionality pending
 - **Features**: Add to cart, cart count display
 
+### 6. Service & Support Page
+- **Page**: `ServiceSupport.tsx`
+- **Route**: `/support`
+- **Features**:
+  - Full-screen hero with service commitment messaging
+  - Lifetime limited warranty details (optical, mechanical, electronic)
+  - Professional repair & maintenance service cards with turnaround times
+  - 7-day no-reason return/exchange policy (dark full-width section)
+  - Contact information (phone, email, hours, global network)
+  - Bilingual (zh/en) inline content
+  - "了解详情 / LEARN MORE" CTA from Home page support section
+
 ## Design Decisions & Optimizations
 
 ### Ultra-Wide Screen Adaptation

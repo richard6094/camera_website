@@ -2,6 +2,30 @@
 
 ## Recent Changes & Optimizations
 
+### 2026-02-26: Service & Support Dedicated Page
+**Change**: Created a full dedicated Service & Support page covering warranty, repair, 7-day return policy, and contact info.
+
+**Scope**:
+- New page `ServiceSupport.tsx` with magazine-style editorial layout matching BrandStory aesthetic
+- Sections: Hero, Lifetime Warranty, Professional Repair & Maintenance, 7-Day Return Policy (dark full-width), Contact, Closing
+- Full bilingual content (zh/en) inline in the component
+- Route `/support` added in `App.tsx`
+- Header nav "服务支持 / Support" now links to `/support` (was `/#support` scroll anchor)
+- Home page support section gains "了解详情 / LEARN MORE" CTA linking to `/support`
+
+**Files Changed**:
+- `client/src/pages/ServiceSupport.tsx` (new)
+- `client/src/App.tsx`
+- `client/src/components/Header.tsx`
+- `client/src/pages/Home.tsx`
+- `docs/manus-context/DEVELOPMENT_NOTES.md`
+
+**Rationale**:
+- User requested a standalone page for service/repair/return policies
+- 7-day no-reason return policy prominently featured as required
+
+---
+
 ### 2026-02-26: Azure SWA CI/CD Pipeline — Fully Working
 **Change**: Recreated Azure Static Web App resource and established fully working GitHub Actions CI/CD pipeline.
 

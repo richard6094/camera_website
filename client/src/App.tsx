@@ -17,6 +17,7 @@ import ProductE39 from "./pages/ProductE39";
 import ProductE39Special from "./pages/ProductE39Special";
 import ProductE39Intro from "./pages/ProductE39Intro";
 import ProductE39SpecialIntro from "./pages/ProductE39SpecialIntro";
+import ServiceSupport from "./pages/ServiceSupport";
 
 
 function Router() {
@@ -34,6 +35,7 @@ function Router() {
         <Route path="/products/e39-special" component={ProductE39Special} />
         <Route path="/products/:id" component={ProductDetail} />
         <Route path="/product/:id" component={ProductDetail} />
+        <Route path="/support" component={ServiceSupport} />
         <Route path="/cart" component={Cart} />
         <Route path="/checkout" component={Checkout} />
         <Route path="/404" component={NotFound} />
