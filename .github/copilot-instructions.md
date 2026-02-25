@@ -26,6 +26,12 @@ When code changes are made, update the relevant Manus context docs in the same t
 
 If no documentation update is needed, explicitly state why in the final summary.
 
+### Development log consolidation
+When `DEVELOPMENT_NOTES.md` contains more than 20 individual change entries (### headings under "Recent Changes & Optimizations"), consolidate older entries:
+- Keep the most recent ~15 entries as-is for detailed reference.
+- Group older entries by date or theme into summary sections (e.g. "2026-02-14: Initial Setup & Core Features") with a brief bullet list of what was done, without full Files Changed / Rationale detail.
+- Preserve all information that is still architecturally relevant; only compress routine/incremental tweaks.
+
 ## Prioritization
 If there is any conflict:
 1. User request
