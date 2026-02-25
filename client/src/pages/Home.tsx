@@ -222,9 +222,10 @@ export default function Home() {
               </p>
               <button
                 onClick={() => navigateWithTop('/support')}
-                className="mt-8 inline-flex items-center gap-2 text-sm tracking-widest text-foreground/70 hover:text-foreground transition-colors duration-300"
+                className="mt-8 inline-flex items-center gap-2 px-6 py-3 border border-foreground/20 text-foreground hover:bg-foreground hover:text-background damped-transition"
               >
-                {language === 'zh' ? '了解详情' : 'LEARN MORE'} <ChevronRight className="w-4 h-4" />
+                <span className="text-sm tracking-wide">{language === 'zh' ? '了解详情' : 'LEARN MORE'}</span>
+                <ChevronRight className="w-4 h-4" strokeWidth={1.5} />
               </button>
             </div>
           </div>
