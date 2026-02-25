@@ -485,6 +485,26 @@ export default function HorizontalProductShowcase({
         ))}
       </div>
 
+      {/* Dot Scroll Indicators */}
+      <div className="absolute bottom-[72px] left-1/2 -translate-x-1/2 z-20 flex items-center gap-2.5">
+        {items.map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => handleManualNavigation(idx)}
+            className="group p-1"
+            aria-label={`Slide ${idx + 1}`}
+          >
+            <span
+              className={`block rounded-full transition-all duration-300 ${
+                activeIndex === idx
+                  ? 'w-6 h-1.5 bg-white'
+                  : 'w-1.5 h-1.5 bg-white/40 group-hover:bg-white/70'
+              }`}
+            />
+          </button>
+        ))}
+      </div>
+
       {/* Bottom Thumbnail Navigation */}
       <div className="absolute bottom-0 left-0 right-0 z-20 bg-background/95 backdrop-blur-sm border-t border-foreground/10" style={{ borderTopWidth: '0.5px' }}>
         <div className="max-w-7xl mx-auto px-8 md:px-12 lg:px-16 py-4">
