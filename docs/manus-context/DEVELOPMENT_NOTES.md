@@ -2,83 +2,25 @@
 
 ## Recent Changes & Optimizations
 
-### 2026-02-25: Azure SWA Token Diagnostics + Secret Name Fallback
-**Change**: Added explicit SWA token preflight validation and dual-secret-name fallback in deployment workflow.
+### 2026-02-26: Azure SWA CI/CD Pipeline — Fully Working
+**Change**: Recreated Azure Static Web App resource and established fully working GitHub Actions CI/CD pipeline.
 
 **Scope**:
-- Added job-level token variable fallback:
-   - `AZURE_STATIC_WEB_APPS_API_TOKEN_ASHY_STONE_052E5EC00`
-   - `AZURE_STATIC_WEB_APPS_API_TOKEN`
-- Added `Validate SWA token presence` step before deploy
-- Switched deploy action token input to the unified env token
+- Deleted broken SWA resource (`ashy-stone-052e5ec00`) which rejected all deployment tokens
+- Created new SWA resource: `zealous-stone-00bf12300.1.azurestaticapps.net` (Free tier, East Asia)
+- Renamed workflow file to `azure-static-web-apps-zealous-stone-00bf12300.yml`
+- Updated GitHub Secret name to `AZURE_STATIC_WEB_APPS_API_TOKEN_ZEALOUS_STONE_00BF12300`
+- Workflow uses Corepack for pnpm bootstrap, Node 20, Vite build, `skip_app_build: true`
+- GitHub Actions Run #1 completed successfully (1m 0s)
 
 **Files Changed**:
-- `.github/workflows/azure-static-web-apps-ashy-stone-052e5ec00.yml`
+- `.github/workflows/azure-static-web-apps-zealous-stone-00bf12300.yml` (renamed from ashy-stone variant)
 - `docs/manus-context/DEVELOPMENT_NOTES.md`
 
 **Rationale**:
-- Quickly distinguish token missing/scope/name issues from Azure resource mismatch issues
-- Improve compatibility with common SWA secret naming conventions
-
----
-
-### 2026-02-25: Azure SWA Workflow pnpm Bootstrap Hardening (Corepack)
-**Change**: Replaced `pnpm/action-setup` with Corepack-based pnpm activation in workflow to resolve runner-side setup failure.
-
-**Scope**:
-- Removed `Setup pnpm` action step
-- Kept `actions/setup-node@v4` for Node runtime setup
-- Added explicit Corepack bootstrap:
-   - `corepack enable`
-   - `corepack prepare pnpm@10.4.1 --activate`
-
-**Files Changed**:
-- `.github/workflows/azure-static-web-apps-ashy-stone-052e5ec00.yml`
-- `docs/manus-context/DEVELOPMENT_NOTES.md`
-
-**Rationale**:
-- Avoid intermittent/action-specific pnpm setup issues on GitHub-hosted runners
-- Use Node-native package manager bootstrap path for more deterministic CI behavior
-
----
-
-### 2026-02-25: Azure SWA Workflow Setup Node Failure Fix (Step Order)
-**Change**: Fixed GitHub Actions `Setup Node` failure by correcting step order in Azure Static Web Apps workflow.
-
-**Scope**:
-- Moved `Setup pnpm` before `Setup Node`
-- Kept `actions/setup-node@v4` `cache: pnpm` enabled after pnpm is available
-
-**Files Changed**:
-- `.github/workflows/azure-static-web-apps-ashy-stone-052e5ec00.yml`
-- `docs/manus-context/DEVELOPMENT_NOTES.md`
-
-**Rationale**:
-- `actions/setup-node` with `cache: pnpm` can fail if `pnpm` is not yet installed on runner
-- Reordering steps ensures cache initialization has required package manager available
-
----
-
-### 2026-02-25: Azure Static Web Apps Workflow Build Fix (pnpm + Vite)
-**Change**: Fixed GitHub Actions deployment workflow failure for Azure Static Web Apps caused by npm dependency resolution conflicts and mismatched output directory.
-
-**Scope**:
-- Removed OIDC helper install step (`npm install @actions/core @actions/http-client`) that triggered peer dependency conflict
-- Added explicit Node 20 + pnpm setup in workflow
-- Added deterministic install/build steps:
-   - `pnpm install --frozen-lockfile`
-   - `pnpm exec vite build`
-- Switched deploy input to built directory and skipped remote app build:
-   - `app_location: dist/public`
-   - `skip_app_build: true`
-
-**Files Changed**:
-- `.github/workflows/azure-static-web-apps-ashy-stone-052e5ec00.yml`
-- `docs/manus-context/DEVELOPMENT_NOTES.md`
-
-**Rationale**:
-- Align CI with repository package manager (`pnpm`) and Vite output path
-- Avoid remote Oryx/npm dependency tree conflicts during SWA deployment
+- Original SWA resource was in an irrecoverable broken state (all tokens rejected)
+- Fresh resource + clean workflow produces reliable automated deployments
+- Previous iterative CI fixes (step order, corepack, token diagnostics) are all consolidated in the final working workflow
 
 ---
 
