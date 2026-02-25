@@ -456,7 +456,7 @@ export default function HorizontalProductShowcase({
                 </div>
 
                 {/* Product Content */}
-                <div className="absolute bottom-20 sm:bottom-24 md:bottom-32 left-0 right-0 z-10">
+                <div className="absolute bottom-32 sm:bottom-28 md:bottom-32 left-0 right-0 z-10">
                   <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 lg:px-16">
                     <div className="max-w-2xl">
                       <p className="text-white/60 text-xs sm:text-sm md:text-base tracking-widest mb-3 sm:mb-4 uppercase">
