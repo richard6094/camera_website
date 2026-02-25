@@ -2,6 +2,29 @@
 
 ## Recent Changes & Optimizations
 
+### 2026-02-25: Azure Static Web Apps Workflow Build Fix (pnpm + Vite)
+**Change**: Fixed GitHub Actions deployment workflow failure for Azure Static Web Apps caused by npm dependency resolution conflicts and mismatched output directory.
+
+**Scope**:
+- Removed OIDC helper install step (`npm install @actions/core @actions/http-client`) that triggered peer dependency conflict
+- Added explicit Node 20 + pnpm setup in workflow
+- Added deterministic install/build steps:
+   - `pnpm install --frozen-lockfile`
+   - `pnpm exec vite build`
+- Switched deploy input to built directory and skipped remote app build:
+   - `app_location: dist/public`
+   - `skip_app_build: true`
+
+**Files Changed**:
+- `.github/workflows/azure-static-web-apps-ashy-stone-052e5ec00.yml`
+- `docs/manus-context/DEVELOPMENT_NOTES.md`
+
+**Rationale**:
+- Align CI with repository package manager (`pnpm`) and Vite output path
+- Avoid remote Oryx/npm dependency tree conflicts during SWA deployment
+
+---
+
 ### 2026-02-24: Header Menu Story Entry Scroll-Top Fix
 **Change**: Fixed the issue where opening `品牌故事 / Story` from header menu could retain previous scroll position instead of landing at top.
 
