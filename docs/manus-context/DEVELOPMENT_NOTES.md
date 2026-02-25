@@ -2,6 +2,19 @@
 
 ## Recent Changes & Optimizations
 
+### 2026-02-26: Products Page Duplicate Header Removed
+**Change**: Removed the Products page's own local `<header>` which duplicated the global `Header` component and became visible after the global header auto-hid on scroll.
+
+**Scope**:
+- Removed local sticky `<header>` block (page title, home button, cart icon)
+- Changed `<main>` padding from `py-16 md:py-24` to `pt-28 md:pt-32 pb-16 md:pb-24` to account for global header height
+- Cleaned up unused imports (`useCart`, `itemCount`, `cartComingSoonText`)
+
+**Files Changed**:
+- `client/src/pages/Products.tsx`
+
+---
+
 ### 2026-02-26: Azure SWA Deployment & CI/CD Pipeline
 **Summary**: Established fully working Azure SWA deployment pipeline from scratch, including SPA routing fix and release-branch strategy.
 

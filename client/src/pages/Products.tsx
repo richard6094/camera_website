@@ -1,7 +1,6 @@
 import { useState, type MouseEvent } from 'react';
 import { useLocation } from 'wouter';
 import { ShoppingCart, ChevronRight, X } from 'lucide-react';
-import { useCart } from '@/contexts/CartContext';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { toast } from 'sonner';
 
@@ -37,8 +36,7 @@ export default function Products() {
   const { language } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState<'all' | 'standard' | 'special'>('all');
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  const { itemCount } = useCart();
-  const cartComingSoonText = language === 'zh' ? '商城正在开发中，敬请期待' : 'Store is under development, coming soon';
+
 
   const copy = language === 'zh'
     ? {
@@ -156,37 +154,8 @@ export default function Products() {
 
   return (
     <div className="w-full bg-background text-foreground">
-      {/* Header */}
-      <header className="sticky top-0 z-40 bg-white border-b border-foreground/10">
-        <div className="container max-w-6xl mx-auto px-4 py-6 flex items-center justify-between">
-          <h1 className="text-display text-2xl">{copy.pageTitle}</h1>
-          <div className="flex items-center gap-4">
-            <button 
-            onClick={() => navigate('/')}
-            className="text-sm tracking-widest text-foreground/60 hover:text-foreground transition-colors"
-          >
-            {copy.home}
-          </button>
-            <button
-              type="button"
-              onClick={handleStoreComingSoon}
-              className="relative text-foreground/50 hover:text-foreground/70 transition-colors"
-              title={cartComingSoonText}
-              aria-label={cartComingSoonText}
-            >
-              <ShoppingCart className="w-5 h-5" />
-              {itemCount > 0 && (
-                <span className="absolute -top-2 -right-2 bg-foreground text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                  {itemCount}
-                </span>
-              )}
-            </button>
-          </div>
-        </div>
-      </header>
-
       {/* Main content */}
-      <main className="py-16 md:py-24">
+      <main className="pt-28 md:pt-32 pb-16 md:pb-24">
         <div className="container max-w-6xl mx-auto px-4">
           {/* Category filter */}
           <div className="mb-16">
