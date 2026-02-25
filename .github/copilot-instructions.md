@@ -31,6 +31,7 @@ When `DEVELOPMENT_NOTES.md` contains more than 20 individual change entries (###
 - Keep the most recent ~15 entries as-is for detailed reference.
 - Group older entries by date or theme into summary sections (e.g. "2026-02-14: Initial Setup & Core Features") with a brief bullet list of what was done, without full Files Changed / Rationale detail.
 - Preserve all information that is still architecturally relevant; only compress routine/incremental tweaks.
+- For same-day entries, merge thematically related changes into a single entry (e.g. multiple navigation fixes → one "Navigation & Scroll-Top Fixes" entry) while preserving all key scope details and affected files.
 
 ## Prioritization
 If there is any conflict:
