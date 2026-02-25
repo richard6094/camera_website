@@ -2,6 +2,26 @@
 
 ## Recent Changes & Optimizations
 
+### 2026-02-25: Azure SWA Token Diagnostics + Secret Name Fallback
+**Change**: Added explicit SWA token preflight validation and dual-secret-name fallback in deployment workflow.
+
+**Scope**:
+- Added job-level token variable fallback:
+   - `AZURE_STATIC_WEB_APPS_API_TOKEN_ASHY_STONE_052E5EC00`
+   - `AZURE_STATIC_WEB_APPS_API_TOKEN`
+- Added `Validate SWA token presence` step before deploy
+- Switched deploy action token input to the unified env token
+
+**Files Changed**:
+- `.github/workflows/azure-static-web-apps-ashy-stone-052e5ec00.yml`
+- `docs/manus-context/DEVELOPMENT_NOTES.md`
+
+**Rationale**:
+- Quickly distinguish token missing/scope/name issues from Azure resource mismatch issues
+- Improve compatibility with common SWA secret naming conventions
+
+---
+
 ### 2026-02-25: Azure SWA Workflow pnpm Bootstrap Hardening (Corepack)
 **Change**: Replaced `pnpm/action-setup` with Corepack-based pnpm activation in workflow to resolve runner-side setup failure.
 
