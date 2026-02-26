@@ -108,10 +108,10 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <Mail className="w-4 h-4 text-background/70 mt-0.5 flex-shrink-0" strokeWidth={1.5} />
                 <a 
-                  href="mailto:info@mandler.com" 
+                  href="mailto:mandler_optics@163.com" 
                   className="text-background/70 hover:text-background text-sm damped-transition"
                 >
-                  info@mandler.com
+                  mandler_optics@163.com
                 </a>
               </li>
               <li className="flex items-start gap-3">
