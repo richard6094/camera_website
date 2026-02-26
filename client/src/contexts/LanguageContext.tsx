@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, ReactNode } from 'react';
 import { getTranslation } from '@/lib/translations';
 
-type Language = 'zh' | 'en';
+type Language = 'zh' | 'en' | 'ja';
 
 interface LanguageContextType {
   language: Language;
@@ -15,7 +15,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguageState] = useState<Language>(() => {
     // Load language from localStorage or default to Chinese
     const saved = localStorage.getItem('language');
-    return (saved === 'zh' || saved === 'en') ? saved : 'zh';
+    return (saved === 'zh' || saved === 'en' || saved === 'ja') ? saved : 'zh';
   });
 
   const setLanguage = (lang: Language) => {

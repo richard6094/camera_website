@@ -118,7 +118,7 @@ shared/               # Shared constants and types
 
 ### 4. Internationalization
 - **Implementation**: `LanguageContext.tsx` + `translations.ts`
-- **Languages**: Chinese (zh) and English (en)
+- **Languages**: Chinese (zh), English (en), and Japanese (ja)
 - **Coverage**: All UI text, product descriptions, navigation
 
 ### 5. Shopping Cart (Placeholder)
@@ -135,7 +135,7 @@ shared/               # Shared constants and types
   - Professional repair & maintenance service cards with turnaround times
   - 7-day no-reason return/exchange policy (dark full-width section)
   - Contact information (phone, email, hours, global network)
-  - Bilingual (zh/en) inline content
+  - Trilingual (zh/en/ja) inline content
   - "了解详情 / LEARN MORE" CTA from Home page support section
 
 ## Design Decisions & Optimizations
@@ -162,9 +162,9 @@ shared/               # Shared constants and types
 ## Known Issues & Future Work
 
 ### TypeScript Errors
-- `translations.ts` line 425: Type mismatch in brand story translations
+- ~~`translations.ts` type mismatch~~ — Fixed (2026-02-27, `as string` cast)
 - **Impact**: Does not affect runtime, only type checking
-- **TODO**: Fix type definitions for nested translation objects
+- ~~Fixed~~: Type definitions resolved with `as string` cast in `getTranslation`
 
 ### Pending Features
 1. Shopping cart functionality (add/remove items, checkout)

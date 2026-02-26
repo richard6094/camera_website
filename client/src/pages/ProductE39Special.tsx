@@ -36,6 +36,22 @@ export default function ProductE39Special() {
       { label: '镜身材质', value: '黄铜 + 钛合金' },
       { label: '限量编号', value: '全球限量 500 支' },
     ],
+  } : language === 'ja' ? {
+    title: '技術仕様',
+    items: [
+      { label: '焦点距離', value: '35mm' },
+      { label: '最大口径', value: 'f/1.4 ASPH' },
+      { label: '最小絞り', value: 'f/16' },
+      { label: '光学設計', value: '9群 12枚（非球面レンズ2枚含む）' },
+      { label: '絞り羽根', value: '11枚（円形絞り）' },
+      { label: '最短撮影距離', value: '0.25m' },
+      { label: 'フィルターサイズ', value: '52mm' },
+      { label: 'サイズ', value: '直径 66mm × 長さ 54mm' },
+      { label: '重量', value: '約 340g' },
+      { label: 'マウント', value: 'M マウント' },
+      { label: 'ボディ素材', value: '真鍮 + チタン合金' },
+      { label: '限定ナンバリング', value: '世界限定 500本' },
+    ],
   } : {
     title: 'Technical Specifications',
     items: [
@@ -82,6 +98,34 @@ export default function ProductE39Special() {
         description: '配备定制皮革镜头袋、金属遮光罩和 52mm UV 滤镜。',
       },
     ],
+  } : language === 'ja' ? {
+    title: '特別版の特徴',
+    items: [
+      {
+        title: '限定コレクション',
+        description: '世界限定500本、各レンズに個別番号と真正性証明書が付属。',
+      },
+      {
+        title: 'プレミアム素材',
+        description: '真鍮ボディとチタン合金部品、手作業で磨き上げた独自の質感と重量感。',
+      },
+      {
+        title: '強化光学',
+        description: '2枚の非球面レンズがエッジのシャープネスと色差制御をさらに向上。',
+      },
+      {
+        title: 'より近いフォーカス',
+        description: '最短撮影距離0.25mで、より多くのクリエイティブな可能性を提供。',
+      },
+      {
+        title: '精密校正',
+        description: '各レンズは厳密な光学校正とテストを経て最高の描写品質を保証。',
+      },
+      {
+        title: '専用アクセサリー',
+        description: 'カスタムレザーレンズポーチ、金属レンズフード、52mm UVフィルター付属。',
+      },
+    ],
   } : {
     title: 'Special Edition Features',
     items: [
@@ -122,6 +166,16 @@ export default function ProductE39Special() {
     buyNow: '立即购买',
     quantityLabel: '数量',
     limitedBadge: '限量版',
+  } : language === 'ja' ? {
+    price: '¥628,000',
+    originalPrice: '¥698,000',
+    currency: 'JPY',
+    inStock: '限定供給',
+    remaining: '残り 12本',
+    addToCart: 'カートに追加',
+    buyNow: '今すぐ購入',
+    quantityLabel: '数量',
+    limitedBadge: '限定版',
   } : {
     price: '$4,299',
     originalPrice: '$4,799',
@@ -136,6 +190,8 @@ export default function ProductE39Special() {
 
   const storeNotice = language === 'zh'
     ? '在线商城正在准备中，敬请期待！'
+    : language === 'ja'
+    ? 'オンラインストアは準備中です。お楽しみに！'
     : 'Our online store is in preparation. Stay tuned!';
 
   return (
@@ -145,7 +201,7 @@ export default function ProductE39Special() {
         <Link to="/">
           <Button variant="outline" size="lg" className="gap-2 hover:bg-muted">
             <ChevronLeft className="w-5 h-5" />
-            <span className="font-medium">{language === 'zh' ? '返回首页' : 'Back to Home'}</span>
+            <span className="font-medium">{language === 'zh' ? '返回首页' : language === 'ja' ? 'ホームに戻る' : 'Back to Home'}</span>
           </Button>
         </Link>
       </div>
@@ -200,11 +256,13 @@ export default function ProductE39Special() {
                 {pricing.limitedBadge}
               </div>
               <h1 className="text-4xl md:text-5xl font-light tracking-tight">
-                {language === 'zh' ? 'E39 特别版' : 'E39 Special Edition'}
+                {language === 'zh' ? 'E39 特别版' : language === 'ja' ? 'E39 特別版' : 'E39 Special Edition'}
               </h1>
               <p className="text-lg text-muted-foreground">
                 {language === 'zh'
                   ? '匠心之作，限量典藏'
+                  : language === 'ja'
+                  ? '匠の技、限定コレクション'
                   : 'Masterpiece, Limited Collection'}
               </p>
               <div className="space-y-2">
@@ -231,6 +289,8 @@ export default function ProductE39Special() {
               <p>
                 {language === 'zh'
                   ? '精选材质，手工打磨。每一支镜头都经过严格的光学校准，呈现无与伦比的成像品质。全球限量 500 支，每支镜头均刻有独立编号，配有收藏证书。黄铜镜身配合钛合金部件，采用 2 片非球面镜片，进一步提升边缘锐度和色差控制。'
+                  : language === 'ja'
+                  ? '庄選素材、手作業で磨き上げ。各レンズは厳密な光学校正を経て比類なき描写品質を実現。世界限定500本、各レンズに個別番号と真正性証明書付き。真鍮ボディとチタン合金部品、2枚の非球面レンズでエッジのシャープネスと色差制御を強化。'
                   : 'Premium materials, hand-polished. Each lens undergoes rigorous optical calibration for unparalleled imaging quality. Limited to 500 units worldwide, each individually numbered with a certificate of authenticity. Brass body with titanium alloy components, featuring 2 aspherical elements for enhanced edge sharpness and chromatic aberration control.'}
               </p>
             </div>
@@ -257,7 +317,7 @@ export default function ProductE39Special() {
                   </button>
                 </div>
                 <span className="text-sm text-muted-foreground">
-                  {language === 'zh' ? '每人限购 3 支' : 'Max 3 per customer'}
+                  {language === 'zh' ? '每人限购 3 支' : language === 'ja' ? 'お一人様最大3本まで' : 'Max 3 per customer'}
                 </span>
               </div>
 
@@ -317,7 +377,7 @@ export default function ProductE39Special() {
       {/* What's Included */}
       <section className="container py-16 border-t">
         <h2 className="text-3xl font-light mb-12">
-          {language === 'zh' ? '包装清单' : "What's Included"}
+          {language === 'zh' ? '包装清单' : language === 'ja' ? 'パッケージ内容' : "What's Included"}
         </h2>
         <div className="grid md:grid-cols-2 gap-6">
           {(language === 'zh'
@@ -330,6 +390,17 @@ export default function ProductE39Special() {
                 '限量版收藏证书 × 1',
                 '产品保修卡 × 1',
                 '清洁布 × 1',
+              ]
+            : language === 'ja'
+            ? [
+              'E39 特別版レンズ × 1',
+                'カスタムレザーレンズポーチ × 1',
+                '金属レンズフード × 1',
+                '52mm UVフィルター × 1',
+                '前後レンズキャップ × 各 1',
+                '限定版証明書 × 1',
+                '製品保証カード × 1',
+                'クリーニングクロス × 1',
               ]
             : [
               'E39 Special Edition Lens × 1',

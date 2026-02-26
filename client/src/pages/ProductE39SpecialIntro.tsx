@@ -55,6 +55,48 @@ export default function ProductE39SpecialIntro() {
       primaryButton: '查看商城页',
       secondaryButton: '返回首页',
     }
+    : language === 'ja'
+    ? {
+      breadcrumbTitle: 'E39 特別版紹介',
+      heroLabel: 'LIMITED COLLECTION',
+      heroTitle: 'E39 特別版',
+      heroQuote: '匠心の作、限定典蔵。精密光学とコレクション価値を一本のレンズに凝縮。',
+      introLabel: 'SPECIAL EDITION ESSAY',
+      premiumTitle: '特別版アイデンティティ',
+      premiumItem1Label: '素材システム',
+      premiumItem1Value: '真鍮主構造 + チタン合金部品',
+      premiumItem2Label: '発行戦略',
+      premiumItem2Value: '世界限定 500本',
+      premiumItem3Label: '校正基準',
+      premiumItem3Value: '一本ずつ手作業で検証・署名',
+      introTitle: 'ツールから作品への転換',
+      introPara1:
+        'E39 特別版は単なるカラーバリエーションではなく、素材、加工、組立基準のシステム的アップグレードです。各シリアルナンバーは完全な手作業校正プロセスに対応しています。',
+      introPara2:
+        'レンズが創作パートナーとなるとき、それは時間の記録者にもなります。撮影結果だけでなく、あなたと影像の間の進化する関係を記録します。',
+      craftLabel: 'CRAFT & MATERIAL',
+      craftTitle: '真鍮とチタン合金のバランス',
+      craftPara1:
+        '特別版は真鍮ボディとチタン合金部品を組み合わせ、機械的安定性と触感の温かみを両立。研磨とブラシ仕上げが光の変化の中で抑制された繊細な層を生み出します。',
+      craftPara2:
+        'アップグレードされた光学設計は非球面レンズを導入し、エッジ描写と色差制御を強化。高コントラストシーンでもクリアなトーンを維持します。',
+      milestonesTitle: 'コレクター価値',
+      milestonesLabel: 'COLLECTOR PROTOCOL',
+      milestone1Title: '個別シリアル',
+      milestone1Desc: '各レンズに固有のシリアル番号と証明書が付属、追跡可能なコレクションアイデンティティを確立。',
+      milestone2Title: '限定発行',
+      milestone2Desc: '世界限定500本、工芸の一貫性と長期的価値を保証。',
+      milestone3Title: '手作業校正',
+      milestone3Desc: '全てのユニットが光学・機械検証を受け、特別版基準を満たします。',
+      signatureLabel: 'SIGNATURE FINISH',
+      signatureTitle: 'すべての工程が、見える時間となる',
+      signatureDesc:
+        '特別版は組立後も複数回の細部検査を経ます：エッジの移行、彫刻の深さ、ダンピングの一貫性、光学中心検証。真の高級感は派手ではなく、細部の正確さと克制にあります。',
+      signatureNote: 'Mandler Quality Protocol · Since 1978',
+      closing: 'E39 特別版、創作のために生まれ、時間のために存在する。',
+      primaryButton: 'ストアページを見る',
+      secondaryButton: 'ホームに戻る',
+    }
     : {
       breadcrumbTitle: 'E39 Special Edition Intro',
       heroLabel: 'LIMITED COLLECTION',
@@ -114,8 +156,8 @@ export default function ProductE39SpecialIntro() {
       <div className="container max-w-7xl mx-auto px-6 pt-20 md:pt-24">
         <Breadcrumb
           items={[
-            { label: language === 'zh' ? '首页' : 'Home', href: '/' },
-            { label: language === 'zh' ? '产品' : 'Products', href: '/products' },
+            { label: language === 'zh' ? '首页' : language === 'ja' ? 'ホーム' : 'Home', href: '/' },
+            { label: language === 'zh' ? '产品' : language === 'ja' ? '製品' : 'Products', href: '/products' },
             { label: content.breadcrumbTitle },
           ]}
         />

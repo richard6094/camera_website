@@ -58,6 +58,25 @@ export default function Products() {
       resultsText: (shown: number, total: number) => `显示 ${shown} / ${total} 款产品`,
       closePreview: '关闭预览',
     }
+    : language === 'ja'
+    ? {
+      pageTitle: '製品シリーズ',
+      home: 'ホーム',
+      filterTitle: '製品で絞り込む',
+      categoryAll: 'すべて',
+      categoryStandard: 'スタンダード',
+      categorySpecial: '特別版',
+      quickPreview: 'クイックプレビュー',
+      outOfStock: '在庫なし',
+      inStock: '在庫あり',
+      limitedStock: '限定供給',
+      specifications: 'スペック',
+      addToCart: 'カートに追加',
+      addedToCart: 'カートに追加しました',
+      storeComingSoon: 'ストアは開発中です。お楽しみに',
+      resultsText: (shown: number, total: number) => `${total}点中${shown}点を表示`,
+      closePreview: 'プレビューを閉じる',
+    }
     : {
       pageTitle: 'Our Collection',
       home: 'Home',
@@ -104,6 +123,37 @@ export default function Products() {
         image: '/images/3色镜头+相机+木质背景.jpg',
         description: '限量特别版，黄铜与钛合金机身，强化光学结构与收藏价值。',
         specs: ['35mm 焦距', 'f/1.4 ASPH', '9 组 12 片（含非球面）', '全球限量 500 支'],
+        inStock: true,
+        stockLabel: copy.limitedStock,
+      },
+    ]
+    : language === 'ja'
+    ? [
+      {
+        id: 'e39',
+        route: '/products/e39-intro',
+        categoryKey: 'standard',
+        name: 'E39',
+        categoryLabel: copy.categoryStandard,
+        price: 278000,
+        priceLabel: '¥278,000',
+        image: '/images/银色镜头+相机+暖色背景.jpg',
+        description: '35mm単焦点レンズ、環境描写と被写体表現のバランスに優れ、ストリートや日常撮影に最適。',
+        specs: ['35mm 焦点距離', 'f/1.4 最大口径', '8群11枚', '約320g'],
+        inStock: true,
+        stockLabel: copy.inStock,
+      },
+      {
+        id: 'e39-special',
+        route: '/products/e39-special-intro',
+        categoryKey: 'special',
+        name: 'E39 特別版',
+        categoryLabel: copy.categorySpecial,
+        price: 628000,
+        priceLabel: '¥628,000',
+        image: '/images/3色镜头+相机+木质背景.jpg',
+        description: '限定特別版、真鍮とチタン合金ボディ、強化光学構造とコレクション価値。',
+        specs: ['35mm 焦点距離', 'f/1.4 ASPH', '9群12枚（非球面あり）', '世界限定500本'],
         inStock: true,
         stockLabel: copy.limitedStock,
       },
@@ -159,8 +209,8 @@ export default function Products() {
       <div className="container max-w-6xl mx-auto px-4 pt-20 md:pt-24">
         <Breadcrumb
           items={[
-            { label: language === 'zh' ? '首页' : 'Home', href: '/' },
-            { label: language === 'zh' ? '产品' : 'Products' },
+            { label: language === 'zh' ? '首页' : language === 'ja' ? 'ホーム' : 'Home', href: '/' },
+            { label: language === 'zh' ? '产品' : language === 'ja' ? '製品' : 'Products' },
           ]}
         />
       </div>

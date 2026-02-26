@@ -46,16 +46,16 @@ export default function Home() {
       id: 'e39',
       type: 'product' as const,
       name: 'E39',
-      tagline: language === 'zh' ? '经典焦段，纯粹视角' : 'Classic Focal Length, Pure Vision',
-      productDescription: language === 'zh' ? '35mm 定焦镜头，街头摄影的理想伴侣。轻巧便携，成像锐利，捕捉生活中每一个真实瞬间。' : '35mm prime lens, the ideal companion for street photography. Compact and portable, with sharp imaging to capture every authentic moment in life.',
+      tagline: language === 'zh' ? '经典焦段，纯粹视角' : language === 'ja' ? 'クラシックな焦点距離、ピュアなビジョン' : 'Classic Focal Length, Pure Vision',
+      productDescription: language === 'zh' ? '35mm 定焦镜头，街头摄影的理想伴侣。轻巧便携，成像锐利，捕捉生活中每一个真实瞬间。' : language === 'ja' ? '35mm単焦点レンズ、ストリートフォトの理想的なパートナー。コンパクトで携帯性に優れ、シャープな描写で日常のあらゆる真実の瞬間を捕らえます。' : '35mm prime lens, the ideal companion for street photography. Compact and portable, with sharp imaging to capture every authentic moment in life.',
       image: '/images/银色镜头+相机+暖色背景.jpg',
     },
     {
       id: 'e39-special',
       type: 'product' as const,
-      name: language === 'zh' ? 'E39 特别版' : 'E39 Special Edition',
-      tagline: language === 'zh' ? '匠心之作，限量典藏' : 'Masterpiece, Limited Collection',
-      productDescription: language === 'zh' ? '精选材质，手工打磨。每一支镜头都经过严格的光学校准，呈现无与伦比的成像品质。限量发售，独一无二。' : 'Premium materials, hand-polished. Each lens undergoes rigorous optical calibration for unparalleled imaging quality. Limited edition, one of a kind.',
+      name: language === 'zh' ? 'E39 特别版' : language === 'ja' ? 'E39 特別版' : 'E39 Special Edition',
+      tagline: language === 'zh' ? '匠心之作，限量典藏' : language === 'ja' ? '匠の技、限定コレクション' : 'Masterpiece, Limited Collection',
+      productDescription: language === 'zh' ? '精选材质，手工打磨。每一支镜头都经过严格的光学校准，呈现无与伦比的成像品质。限量发售，独一无二。' : language === 'ja' ? '厄選素材、手作業で磨き上げ。各レンズは厳密な光学キャリブレーションを経て、比類なき描写品質を実現。限定発売、唯一無二。' : 'Premium materials, hand-polished. Each lens undergoes rigorous optical calibration for unparalleled imaging quality. Limited edition, one of a kind.',
       image: '/images/3色镜头+相机+木质背景.jpg',
     },
   ];
@@ -140,7 +140,7 @@ export default function Home() {
                 onClick={() => navigateWithTop('/story')}
                 className="inline-flex items-center gap-2 px-6 py-3 border border-foreground/20 text-foreground hover:bg-foreground hover:text-background damped-transition"
               >
-                <span className="text-sm tracking-wide">{language === 'zh' ? '了解更多' : 'LEARN MORE'}</span>
+                <span className="text-sm tracking-wide">{language === 'zh' ? '了解更多' : language === 'ja' ? '詳しく見る' : 'LEARN MORE'}</span>
                 <ChevronRight className="w-4 h-4" strokeWidth={1.5} />
               </button>
             </div>
@@ -224,7 +224,7 @@ export default function Home() {
                 onClick={() => navigateWithTop('/support')}
                 className="mt-8 inline-flex items-center gap-2 px-6 py-3 border border-foreground/20 text-foreground hover:bg-foreground hover:text-background damped-transition"
               >
-                <span className="text-sm tracking-wide">{language === 'zh' ? '了解详情' : 'LEARN MORE'}</span>
+                <span className="text-sm tracking-wide">{language === 'zh' ? '了解详情' : language === 'ja' ? '詳細を見る' : 'LEARN MORE'}</span>
                 <ChevronRight className="w-4 h-4" strokeWidth={1.5} />
               </button>
             </div>

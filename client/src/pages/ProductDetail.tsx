@@ -221,8 +221,8 @@ export default function ProductDetail() {
       <div className="container max-w-7xl mx-auto px-6 pt-20 md:pt-24">
         <Breadcrumb 
           items={[
-            { label: language === 'zh' ? '首页' : 'Home', href: '/' },
-            { label: language === 'zh' ? '产品系列' : 'Products', href: '/products' },
+            { label: language === 'zh' ? '首页' : language === 'ja' ? 'ホーム' : 'Home', href: '/' },
+            { label: language === 'zh' ? '产品系列' : language === 'ja' ? '製品シリーズ' : 'Products', href: '/products' },
             { label: product.name }
           ]}
         />

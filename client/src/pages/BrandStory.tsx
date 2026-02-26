@@ -25,8 +25,8 @@ export default function BrandStory() {
       <div className="container max-w-7xl mx-auto px-6 pt-20 md:pt-24">
         <Breadcrumb 
           items={[
-            { label: language === 'zh' ? '首页' : 'Home', href: '/' },
-            { label: language === 'zh' ? '品牌故事' : 'Our Story' }
+            { label: language === 'zh' ? '首页' : language === 'ja' ? 'ホーム' : 'Home', href: '/' },
+            { label: language === 'zh' ? '品牌故事' : language === 'ja' ? 'ブランドストーリー' : 'Our Story' }
           ]}
         />
       </div>
