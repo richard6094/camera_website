@@ -14,14 +14,14 @@ export function ProductSelectionCards() {
   const products: ProductCard[] = [
     {
       id: 'e39',
-      name: 'E39',
+      name: '35mm F/2',
       image: '/images/银色镜头挂机特写1.jpg',
       available: true,
       link: '/products/e39-intro',
     },
     {
       id: 'e39-special',
-      name: language === 'zh' ? 'E39 特别版' : language === 'ja' ? 'E39 特別版' : 'E39 Special Edition',
+      name: language === 'zh' ? '35mm F/2 特别版' : language === 'ja' ? '35mm F/2 特別版' : '35mm F/2 Special Edition',
       image: '/images/3色镜头+相机+木质背景.jpg',
       available: true,
       link: '/products/e39-special-intro',
@@ -62,9 +62,18 @@ export function ProductSelectionCards() {
               </div>
 
               {/* Product Name */}
-              <div className="p-6 md:p-8">
-                <h3 className="text-2xl md:text-3xl font-light tracking-wide text-foreground">
-                  {product.name}
+              <div className="p-4 md:p-6">
+                <h3 className="text-lg md:text-xl font-light tracking-wide text-foreground">
+                  {product.id === 'e39-special' ? (
+                    <>
+                      35mm F/2{' '}
+                      <span className="whitespace-nowrap">
+                        {language === 'zh' ? '特别版' : language === 'ja' ? '特別版' : 'Special Edition'}
+                      </span>
+                    </>
+                  ) : (
+                    product.name
+                  )}
                 </h3>
                 {!product.available && (
                   <p className="mt-2 text-sm text-muted-foreground tracking-wider">

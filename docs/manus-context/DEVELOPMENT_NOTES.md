@@ -2,6 +2,24 @@
 
 ## Recent Changes & Optimizations
 
+### 2026-02-27: Product Naming — Remove "7-element" Suffix
+**Summary**: Removed "7-element" suffix from all product display names. Products now display as "35mm F/2" (standard) and "35mm F/2 特别版/特別版/Special Edition" (special). Also fixed `heroEdition` content key in ProductE39SpecialIntro.tsx so the edition label renders on a separate line in the hero section.
+
+**Files Changed**:
+- `client/src/components/Header.tsx` — nav labels
+- `client/src/components/ProductSelectionCards.tsx` — card names
+- `client/src/pages/Home.tsx` — showcase names
+- `client/src/pages/Products.tsx` — product listing names (zh/en/ja)
+- `client/src/pages/ProductE39.tsx` — h1 title, alt tags
+- `client/src/pages/ProductE39Special.tsx` — alt tags, package list
+- `client/src/pages/ProductE39Intro.tsx` — breadcrumb, heroTitle, inline paragraphs, alt tags
+- `client/src/pages/ProductE39SpecialIntro.tsx` — split heroTitle/heroEdition keys, breadcrumb, inline paragraphs
+- `client/src/lib/translations.ts` — timeline4Desc
+
+**Rationale**: User decided "7-element" suffix didn't look good and requested removal.
+
+---
+
 ### 2026-02-27: E39 Product Introduction Page — Content Expansion
 **Summary**: Significantly expanded `ProductE39Intro.tsx` with detailed product information covering optical structure, aperture characteristics, craftsmanship, optical performance data, and additional usage scenarios. All content trilingual (zh/en/ja).
 

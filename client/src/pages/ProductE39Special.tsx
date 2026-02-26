@@ -215,7 +215,7 @@ export default function ProductE39Special() {
             <div className="aspect-square bg-muted rounded-lg overflow-hidden relative">
               <img
                 src={productImages[selectedImage]}
-                alt="E39 Special Edition"
+                alt="35mm F/2 Special Edition"
                 className="w-full h-full object-cover"
               />
               {/* Limited Edition Badge */}
@@ -239,7 +239,7 @@ export default function ProductE39Special() {
                 >
                   <img
                     src={img}
-                    alt={`E39 Special Edition view ${idx + 1}`}
+                    alt={`35mm F/2 Special Edition view ${idx + 1}`}
                     className="w-full h-full object-cover"
                   />
                 </button>
@@ -256,7 +256,11 @@ export default function ProductE39Special() {
                 {pricing.limitedBadge}
               </div>
               <h1 className="text-4xl md:text-5xl font-light tracking-tight">
-                {language === 'zh' ? 'E39 特别版' : language === 'ja' ? 'E39 特別版' : 'E39 Special Edition'}
+                35mm F/2
+                <br />
+                <span className="text-2xl md:text-3xl opacity-70">
+                  {language === 'zh' ? '特别版' : language === 'ja' ? '特別版' : 'Special Edition'}
+                </span>
               </h1>
               <p className="text-lg text-muted-foreground">
                 {language === 'zh'
@@ -382,7 +386,7 @@ export default function ProductE39Special() {
         <div className="grid md:grid-cols-2 gap-6">
           {(language === 'zh'
             ? [
-              'E39 特别版镜头 × 1',
+              '35mm F/2 特别版镜头 × 1',
                 '定制皮革镜头袋 × 1',
                 '金属遮光罩 × 1',
                 '52mm UV 滤镜 × 1',
@@ -393,7 +397,7 @@ export default function ProductE39Special() {
               ]
             : language === 'ja'
             ? [
-              'E39 特別版レンズ × 1',
+              '35mm F/2 特別版レンズ × 1',
                 'カスタムレザーレンズポーチ × 1',
                 '金属レンズフード × 1',
                 '52mm UVフィルター × 1',
@@ -403,7 +407,7 @@ export default function ProductE39Special() {
                 'クリーニングクロス × 1',
               ]
             : [
-              'E39 Special Edition Lens × 1',
+              '35mm F/2 Special Edition Lens × 1',
                 'Custom Leather Lens Pouch × 1',
                 'Metal Lens Hood × 1',
                 '52mm UV Filter × 1',

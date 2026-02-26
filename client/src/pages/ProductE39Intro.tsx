@@ -15,14 +15,14 @@ export default function ProductE39Intro() {
 
   const content = language === 'zh'
     ? {
-      breadcrumbTitle: 'E39 产品介绍',
+      breadcrumbTitle: '35mm F/2 产品介绍',
       heroLabel: 'PRODUCT ESSAY',
-      heroTitle: 'E39',
+      heroTitle: '35mm F/2',
       heroQuote: '经典焦段，纯粹视角。为街头与日常而生的 35mm 叙事镜头。',
 
       introTitle: '一种与世界保持适当距离的方式',
       introPara1:
-        'E39 以 35mm 为核心，将环境与人物自然地编织在同一画面。它继承经典双高斯光学设计的精髓，并融入现代优化，是观察现实最克制、也最诚实的焦段。',
+        '35mm F/2 以 35mm 为核心，将环境与人物自然地编织在同一画面。它继承经典双高斯光学设计的精髓，并融入现代优化，是观察现实最克制、也最诚实的焦段。',
       introPara2:
         '从光学结构到对焦手感，每一处细节都服务于"快速、准确、稳定"的拍摄节奏。你抬起相机的瞬间，构图与表达几乎同时完成。',
 
@@ -30,7 +30,7 @@ export default function ProductE39Intro() {
       opticalTitle: '传奇光学结构',
       opticalSubtitle: '7 片 5 组双高斯设计',
       opticalPara1:
-        'E39 采用经典双高斯（Double Gaussian）光学结构，7 片镜片分布于 5 组中，在继承传统设计精髓的同时融入现代光学优化。紫金黄多层镀膜有效抑制眩光与鬼影，在逆光与复杂光源环境下依然保持干净的画面表现。',
+        '35mm F/2 采用经典双高斯（Double Gaussian）光学结构，7 片镜片分布于 5 组中，在继承传统设计精髓的同时融入现代光学优化。紫金黄多层镀膜有效抑制眩光与鬼影，在逆光与复杂光源环境下依然保持干净的画面表现。',
       opticalPara2:
         '这一结构天生具备出色的中心锐度与自然的焦外过渡。双高斯的对称式布局使场曲得到良好控制，即使在最大光圈下也能维持画面边缘的可用细节。',
       opticalSpec1Label: '光学结构',
@@ -43,7 +43,7 @@ export default function ProductE39Intro() {
       apertureLabel: 'APERTURE CHARACTER',
       apertureTitle: 'F2 大光圈的临场表现',
       aperturePara1:
-        '全开 F2.0 时，E39 展现出独特的影像个性——中心区域锐度优秀，边缘柔化自然渐进，二线性散景被有效抑制。光斑圆润，过渡柔和，适合在杂乱场景中自然分离主体与背景。',
+        '全开 F2.0 时，35mm F/2 展现出独特的影像个性——中心区域锐度优秀，边缘柔化自然渐进，二线性散景被有效抑制。光斑圆润，过渡柔和，适合在杂乱场景中自然分离主体与背景。',
       aperturePara2:
         '收小至 F4–F8 后，画面进入全域锐利状态，中心与边缘的分辨率差异显著缩小。整体对比度与色彩饱和度提升，适用于风光与建筑等需要全画面一致性的创作场景。',
       apertureHighlight: '全开时的柔润，收缩后的锐利——一支镜头，两种性格。',
@@ -80,20 +80,20 @@ export default function ProductE39Intro() {
       scene4Desc: '顺滑的手动对焦阻尼适合拉焦操作，10 叶片圆形光圈在视频中呈现电影级焦外，呼吸效应控制在可接受范围内。',
 
       closing:
-        'E39 不是一支炫技之作，而是一支愿意陪你长期创作、日常携带的镜头。经典光学结构与现代工艺的交汇，让每一次按下快门都值得信赖。',
+        '35mm F/2 不是一支炫技之作，而是一支愿意陪你长期创作、日常携带的镜头。经典光学结构与现代工艺的交汇，让每一次按下快门都值得信赖。',
       primaryButton: '查看商城页',
       secondaryButton: '返回首页',
     }
     : language === 'ja'
     ? {
-      breadcrumbTitle: 'E39 製品紹介',
+      breadcrumbTitle: '35mm F/2 製品紹介',
       heroLabel: 'PRODUCT ESSAY',
-      heroTitle: 'E39',
+      heroTitle: '35mm F/2',
       heroQuote: 'クラシックな焦点距離、ピュアな視点。ストリートと日常のための35mmナラティブレンズ。',
 
       introTitle: '世界との適切な距離を保つ方法',
       introPara1:
-        'E39は35mmを核として、環境と人物を一つの画面に自然に織り込みます。伝統的なダブルガウス光学設計の系譜を受け継ぎ、現代の最適化により磨き上げられた、現実を観察する最も誠実な視点です。',
+        '35mm F/2は35mmを核として、環境と人物を一つの画面に自然に織り込みます。伝統的なダブルガウス光学設計の系譜を受け継ぎ、現代の最適化により磨き上げられた、現実を観察する最も誠実な視点です。',
       introPara2:
         '光学構造からフォーカスの手触りまで、すべてのディテールが「速く、正確に、安定して」という撮影リズムに応えます。カメラを構えた瞬間、構図と表現がひとつになります。',
 
@@ -101,7 +101,7 @@ export default function ProductE39Intro() {
       opticalTitle: '伝説の光学構造',
       opticalSubtitle: '7枚5群 ダブルガウス設計',
       opticalPara1:
-        'E39はクラシックなダブルガウス（Double Gaussian）光学構成を採用し、7枚のレンズを5群に配置。伝統的な設計の精髄を継承しながら、現代の光学最適化を融合しています。紫金黄マルチコーティングがフレアとゴーストを効果的に抑制し、逆光や複雑な光源環境でもクリーンな描写を維持します。',
+        '35mm F/2はクラシックなダブルガウス（Double Gaussian）光学構成を採用し、7枚のレンズを5群に配置。伝統的な設計の精髄を継承しながら、現代の光学最適化を融合しています。紫金黄マルチコーティングがフレアとゴーストを効果的に抑制し、逆光や複雑な光源環境でもクリーンな描写を維持します。',
       opticalPara2:
         'この構造は本質的に優れた中心解像力と自然なボケの遷移を備えています。ダブルガウスの対称配置により像面湾曲が良好に制御され、最大開放でも画面周辺に実用的なディテールを保ちます。',
       opticalSpec1Label: '光学構成',
@@ -114,7 +114,7 @@ export default function ProductE39Intro() {
       apertureLabel: 'APERTURE CHARACTER',
       apertureTitle: 'F2大口径の実写性能',
       aperturePara1:
-        '開放F2.0では、E39は独特の描写個性を見せます——中心部の解像力は優秀で、周辺に向かって自然にソフトになり、二線ボケは効果的に抑制されています。点光源は丸く滑らかに描写され、雑多な背景から主体を自然に分離するのに最適です。',
+        '開放F2.0では、35mm F/2は独特の描写個性を見せます——中心部の解像力は優秀で、周辺に向かって自然にソフトになり、二線ボケは効果的に抑制されています。点光源は丸く滑らかに描写され、雑多な背景から主体を自然に分離するのに最適です。',
       aperturePara2:
         'F4〜F8に絞ると、画面全域がシャープな状態に入り、中心と周辺の解像力差が著しく縮小します。全体的なコントラストと彩度が向上し、風景や建築など画面全体の均一性が求められるシーンに適しています。',
       apertureHighlight: '開放のやわらかさ、絞った時のシャープさ——一本で二つの個性。',
@@ -151,19 +151,19 @@ export default function ProductE39Intro() {
       scene4Desc: 'スムーズなMFダンピングはフォーカス送りに最適。10枚羽根の円形絞りが動画でシネマティックなボケを演出。フォーカスブリージングは許容範囲内に制御されています。',
 
       closing:
-        'E39は技術の誇示ではなく、長期的な創作と日常の携帯に寄り添うレンズです。クラシックな光学設計と現代の精密工芸が交わる場所で、すべてのシャッターが信頼に値するものになります。',
+        '35mm F/2は技術の誇示ではなく、長期的な創作と日常の携帯に寄り添うレンズです。クラシックな光学設計と現代の精密工芸が交わる場所で、すべてのシャッターが信頼に値するものになります。',
       primaryButton: 'ストアページを見る',
       secondaryButton: 'ホームに戻る',
     }
     : {
-      breadcrumbTitle: 'E39 Introduction',
+      breadcrumbTitle: '35mm F/2 Introduction',
       heroLabel: 'PRODUCT ESSAY',
-      heroTitle: 'E39',
+      heroTitle: '35mm F/2',
       heroQuote: 'Classic focal length, pure perspective. A 35mm narrative lens built for streets and everyday life.',
 
       introTitle: 'A Balanced Distance from the World',
       introPara1:
-        'Centered around 35mm, E39 weaves people and environment into one coherent frame. Built upon the time-tested Double Gaussian optical heritage and refined with modern optimization, it delivers an honest perspective for observing reality.',
+        'Centered around 35mm, the 35mm F/2 weaves people and environment into one coherent frame. Built upon the time-tested Double Gaussian optical heritage and refined with modern optimization, it delivers an honest perspective for observing reality.',
       introPara2:
         'From optical structure to focus feel, every detail is engineered for a fast, precise, and steady shooting rhythm. The moment you raise the camera, framing and expression happen as one.',
 
@@ -171,7 +171,7 @@ export default function ProductE39Intro() {
       opticalTitle: 'Legendary Optical Architecture',
       opticalSubtitle: '7 Elements in 5 Groups \u2014 Double Gaussian Design',
       opticalPara1:
-        'E39 employs the classic Double Gaussian optical configuration, with 7 elements arranged in 5 groups. While honoring the traditional design lineage, modern optical optimization ensures peak performance. The signature purple-gold multi-layer coating effectively suppresses flare and ghosting, maintaining clean image rendering even in backlit and complex lighting conditions.',
+        'The 35mm F/2 employs the classic Double Gaussian optical configuration, with 7 elements arranged in 5 groups. While honoring the traditional design lineage, modern optical optimization ensures peak performance. The signature purple-gold multi-layer coating effectively suppresses flare and ghosting, maintaining clean image rendering even in backlit and complex lighting conditions.',
       opticalPara2:
         'This architecture inherently delivers excellent center sharpness with naturally smooth bokeh transitions. The symmetrical Double Gaussian layout controls field curvature effectively, preserving usable edge detail even at maximum aperture.',
       opticalSpec1Label: 'Construction',
@@ -184,7 +184,7 @@ export default function ProductE39Intro() {
       apertureLabel: 'APERTURE CHARACTER',
       apertureTitle: 'The F2 Aperture in Practice',
       aperturePara1:
-        'Wide open at F2.0, E39 reveals a distinctive imaging character \u2014 excellent center sharpness with naturally gradual edge softening, and effectively suppressed onion-ring bokeh. Specular highlights render smooth and round, ideal for naturally separating the subject from busy backgrounds.',
+        'Wide open at F2.0, the 35mm F/2 reveals a distinctive imaging character \u2014 excellent center sharpness with naturally gradual edge softening, and effectively suppressed onion-ring bokeh. Specular highlights render smooth and round, ideal for naturally separating the subject from busy backgrounds.',
       aperturePara2:
         'Stopped down to F4\u2013F8, the image enters a state of across-the-frame sharpness, with the center-to-edge resolution gap narrowing significantly. Overall contrast and color saturation increase, well-suited for landscape and architectural work demanding full-frame consistency.',
       apertureHighlight: 'Soft and smooth wide open, razor-sharp stopped down \u2014 one lens, two personalities.',
@@ -221,7 +221,7 @@ export default function ProductE39Intro() {
       scene4Desc: 'Smooth manual focus damping suits pull-focus operation, while the 10-blade circular aperture delivers cinematic bokeh in video. Focus breathing is controlled within acceptable limits.',
 
       closing:
-        'E39 is not a technical showpiece but a lens designed for long-term creative companionship and everyday carry. Where classic optical design meets modern craftsmanship, every shutter press becomes an act of trust.',
+        'The 35mm F/2 is not a technical showpiece but a lens designed for long-term creative companionship and everyday carry. Where classic optical design meets modern craftsmanship, every shutter press becomes an act of trust.',
       primaryButton: 'Open Store Page',
       secondaryButton: 'Back to Home',
     };
@@ -287,7 +287,7 @@ export default function ProductE39Intro() {
 
       {/* ── Full-bleed image ── */}
       <section className="relative h-[60vh] md:h-[70vh]">
-        <img src="/images/银色镜头挂机特写1.jpg" alt="E39 detail" className="w-full h-full object-cover" />
+        <img src="/images/银色镜头挂机特写1.jpg" alt="35mm F/2 detail" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
       </section>
 
@@ -298,7 +298,7 @@ export default function ProductE39Intro() {
             <div className="lg:col-span-2">
               <img
                 src="/images/银色镜头挂机特写2-正面.jpg"
-                alt="E39 front element"
+                alt="35mm F/2 front element"
                 className="w-full h-auto rounded-lg shadow-2xl"
               />
             </div>
@@ -374,7 +374,7 @@ export default function ProductE39Intro() {
       <section className="relative h-[50vh] md:h-[60vh]">
         <img
           src="/images/银色镜头不挂机特写.jpg"
-          alt="E39 lens body"
+          alt="35mm F/2 lens body"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-background/30" />
@@ -395,7 +395,7 @@ export default function ProductE39Intro() {
             <div className="lg:col-span-2 order-1 lg:order-2">
               <img
                 src="/images/银色镜头套装.jpg"
-                alt="E39 kit"
+                alt="35mm F/2 kit"
                 className="w-full h-auto rounded-lg shadow-2xl"
               />
             </div>
