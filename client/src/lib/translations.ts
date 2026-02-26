@@ -76,12 +76,12 @@ export const translations = {
     // User Gallery
     'gallery.heading': '用户样片',
     'gallery.label': '用户样片',
-    'gallery.description': '由世界各地的摄影师拍摄，这些图像展示了 Mandler 相机的卓越品质和多功能性。',
+    'gallery.description': '由世界各地的摄影师拍摄，这些图像展示了 Mandler 镜头的卓越品质和多功能性。',
 
     // Support
     'support.heading': '服务支持',
     'support.label': '服务支持',
-    'support.content': '我们的承诺超越了购买本身。凭借终身支持、专家维护和全球服务中心网络，您的 Mandler 相机将伴随您世代传承。',
+    'support.content': '我们的承诺超越了购买本身。凭借终身支持、专家维护和全球服务中心网络，您的 Mandler 镜头将伴随您世代传承。',
 
     // CTA Section
     'cta.heading': '开启您的摄影之旅',
@@ -286,12 +286,12 @@ export const translations = {
     // User Gallery
     'gallery.heading': 'User Gallery',
     'gallery.label': 'USER GALLERY',
-    'gallery.description': 'Captured by photographers around the world, these images showcase the exceptional quality and versatility of mandler cameras.',
+    'gallery.description': 'Captured by photographers around the world, these images showcase the exceptional quality and versatility of Mandler lenses.',
 
     // Support
     'support.heading': 'Service & Support',
     'support.label': 'SUPPORT',
-    'support.content': 'Our commitment extends beyond the purchase. With lifetime support, expert maintenance, and a global network of service centers, your mandler camera is built to last generations.',
+    'support.content': 'Our commitment extends beyond the purchase. With lifetime support, expert maintenance, and a global network of service centers, your Mandler lens is built to last generations.',
 
     // CTA Section
     'cta.heading': 'Begin Your Photography Journey',
@@ -496,12 +496,12 @@ export const translations = {
     // User Gallery
     'gallery.heading': 'ギャラリー',
     'gallery.label': 'ギャラリー',
-    'gallery.description': '世界中の写真家によって撮影されたこれらの作品は、Mandlerカメラの卓越した品質と多用途性を示しています。',
+    'gallery.description': '世界中の写真家によって撮影されたこれらの作品は、Mandlerレンズの卓越した品質と多用途性を示しています。',
 
     // Support
     'support.heading': 'サービス＆サポート',
     'support.label': 'サポート',
-    'support.content': '私たちの約束は購入を超えて続きます。生涯サポート、専門メンテナンス、そしてグローバルなサービスセンターネットワークにより、あなたのMandlerカメラは世代を超えて受け継がれます。',
+    'support.content': '私たちの約束は購入を超えて続きます。生涯サポート、専門メンテナンス、そしてグローバルなサービスセンターネットワークにより、あなたのMandlerレンズは世代を超えて受け継がれます。',
 
     // CTA Section
     'cta.heading': '写真の旅を始めましょう',

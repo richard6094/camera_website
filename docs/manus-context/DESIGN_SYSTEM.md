@@ -2,7 +2,7 @@
 
 ## Design Philosophy
 
-The Mandler brand embodies the intersection of **optical precision** and **artisan craftsmanship**. Our design system reflects this through minimalist aesthetics, monochromatic color schemes, and attention to detail inspired by legendary camera manufacturers like Leica.
+The Mandler brand embodies the intersection of **optical precision** and **artisan craftsmanship**. Our design system reflects this through minimalist aesthetics, monochromatic color schemes, and attention to detail inspired by legendary optical manufacturers like Leica.
 
 ## Color Palette
 
