@@ -176,7 +176,7 @@ export default function ProductE39() {
             <div className="aspect-square bg-muted rounded-lg overflow-hidden">
               <img
                 src={productImages[selectedImage]}
-                  alt="E39"
+                  alt="35mm F/2"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -195,7 +195,7 @@ export default function ProductE39() {
                 >
                   <img
                     src={img}
-                    alt={`E39 view ${idx + 1}`}
+                    alt={`35mm F/2 view ${idx + 1}`}
                     className="w-full h-full object-cover"
                   />
                 </button>
@@ -208,7 +208,7 @@ export default function ProductE39() {
             {/* Title & Price */}
             <div className="space-y-4">
               <h1 className="text-4xl md:text-5xl font-light tracking-tight">
-                E39
+                35mm F/2
               </h1>
               <p className="text-lg text-muted-foreground">
                 {language === 'zh'

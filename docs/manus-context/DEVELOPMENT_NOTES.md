@@ -2,6 +2,46 @@
 
 ## Recent Changes & Optimizations
 
+### 2026-02-27: Product Naming — Remove "7-element" Suffix
+**Summary**: Removed "7-element" suffix from all product display names. Products now display as "35mm F/2" (standard) and "35mm F/2 特别版/特別版/Special Edition" (special). Also fixed `heroEdition` content key in ProductE39SpecialIntro.tsx so the edition label renders on a separate line in the hero section.
+
+**Files Changed**:
+- `client/src/components/Header.tsx` — nav labels
+- `client/src/components/ProductSelectionCards.tsx` — card names
+- `client/src/pages/Home.tsx` — showcase names
+- `client/src/pages/Products.tsx` — product listing names (zh/en/ja)
+- `client/src/pages/ProductE39.tsx` — h1 title, alt tags
+- `client/src/pages/ProductE39Special.tsx` — alt tags, package list
+- `client/src/pages/ProductE39Intro.tsx` — breadcrumb, heroTitle, inline paragraphs, alt tags
+- `client/src/pages/ProductE39SpecialIntro.tsx` — split heroTitle/heroEdition keys, breadcrumb, inline paragraphs
+- `client/src/lib/translations.ts` — timeline4Desc
+
+**Rationale**: User decided "7-element" suffix didn't look good and requested removal.
+
+---
+
+### 2026-02-27: E39 Product Introduction Page — Content Expansion
+**Summary**: Significantly expanded `ProductE39Intro.tsx` with detailed product information covering optical structure, aperture characteristics, craftsmanship, optical performance data, and additional usage scenarios. All content trilingual (zh/en/ja).
+
+**Scope**:
+- Replaced existing "Optical Design" section with new **Legendary Optical Architecture** section: 7E/5G Double Gaussian design, purple-gold multi-layer coating, spec mini-cards (construction, design type, coating)
+- Added **Aperture Highlight** parallax quote section with cinematic background image
+- Added **F2 Large Aperture** section: two-column layout comparing wide-open (F2.0) vs stopped-down (F4–F8) characteristics
+- Added **Full-Metal Craftsmanship** section: crescent focus ring, 10-blade circular aperture, mechanical damping, reversed image/text layout
+- Added **Optical Performance Data** section: 4-card grid (field curvature, distortion < ±0.5%, aperture blades, max aperture)
+- Expanded **Usage Scenes** from 3 to 4: street documentary, environmental portrait, travel documentary, video/motion
+- Added full-bleed image divider using `银色镜头不挂机特写.jpg`
+- Updated product specs throughout from f/1.4 to F2.0, from 8组11片 to 7片5组, from 320g to 34mm compact length
+- Updated closing statement to reflect new positioning
+- Refactored scenes/perfStats into mapped arrays for cleaner JSX
+
+**Files Changed**:
+- `client/src/pages/ProductE39Intro.tsx` (full rewrite, ~221 → ~350 lines)
+
+**Rationale**: User provided detailed E39 lens specifications and requested richer editorial content aligned with the existing magazine-style design language.
+
+---
+
 ### 2026-02-27: Japanese Language Support (Trilingual)
 **Summary**: Added full Japanese (日本語) language support, expanding the site from bilingual (zh/en) to trilingual (zh/en/ja).
 

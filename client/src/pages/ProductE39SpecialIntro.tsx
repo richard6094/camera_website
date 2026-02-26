@@ -15,9 +15,10 @@ export default function ProductE39SpecialIntro() {
 
   const content = language === 'zh'
     ? {
-      breadcrumbTitle: 'E39 特别版介绍',
+      breadcrumbTitle: '35mm F/2 特别版介绍',
       heroLabel: 'LIMITED COLLECTION',
-      heroTitle: 'E39 特别版',
+      heroTitle: '35mm F/2',
+      heroEdition: '特别版',
       heroQuote: '匠心之作，限量典藏。将精密光学与收藏价值凝练于一支镜头。',
       introLabel: 'SPECIAL EDITION ESSAY',
       premiumTitle: '特别版身份',
@@ -29,7 +30,7 @@ export default function ProductE39SpecialIntro() {
       premiumItem3Value: '逐支手工复核与签发',
       introTitle: '从工具到作品的转变',
       introPara1:
-        'E39 特别版并非普通配色变化，而是围绕材质、加工和装配标准的系统升级。每一枚编号都对应一次完整的手工校准流程。',
+        '35mm F/2 特别版并非普通配色变化，而是围绕材质、加工和装配标准的系统升级。每一枚编号都对应一次完整的手工校准流程。',
       introPara2:
         '当镜头成为创作伙伴，也成为时间的记录者。它不仅服务拍摄结果，也记录你与影像之间不断演进的关系。',
       craftLabel: 'CRAFT & MATERIAL',
@@ -51,15 +52,16 @@ export default function ProductE39SpecialIntro() {
       signatureDesc:
         '特别版在装配完成后仍经历多轮细节检视：边缘过渡、刻字深浅、阻尼一致性与光学中心复核。真正的高级感，不在喧哗，而在细节始终保持克制与准确。',
       signatureNote: 'Mandler Quality Protocol · Since 1978',
-      closing: 'E39 特别版，为创作而生，也为时间而存。',
+      closing: '35mm F/2 特别版，为创作而生，也为时间而存。',
       primaryButton: '查看商城页',
       secondaryButton: '返回首页',
     }
     : language === 'ja'
     ? {
-      breadcrumbTitle: 'E39 特別版紹介',
+      breadcrumbTitle: '35mm F/2 特別版紹介',
       heroLabel: 'LIMITED COLLECTION',
-      heroTitle: 'E39 特別版',
+      heroTitle: '35mm F/2',
+      heroEdition: '特別版',
       heroQuote: '匠心の作、限定典蔵。精密光学とコレクション価値を一本のレンズに凝縮。',
       introLabel: 'SPECIAL EDITION ESSAY',
       premiumTitle: '特別版アイデンティティ',
@@ -71,7 +73,7 @@ export default function ProductE39SpecialIntro() {
       premiumItem3Value: '一本ずつ手作業で検証・署名',
       introTitle: 'ツールから作品への転換',
       introPara1:
-        'E39 特別版は単なるカラーバリエーションではなく、素材、加工、組立基準のシステム的アップグレードです。各シリアルナンバーは完全な手作業校正プロセスに対応しています。',
+        '35mm F/2 特別版は単なるカラーバリエーションではなく、素材、加工、組立基準のシステム的アップグレードです。各シリアルナンバーは完全な手作業校正プロセスに対応しています。',
       introPara2:
         'レンズが創作パートナーとなるとき、それは時間の記録者にもなります。撮影結果だけでなく、あなたと影像の間の進化する関係を記録します。',
       craftLabel: 'CRAFT & MATERIAL',
@@ -93,14 +95,15 @@ export default function ProductE39SpecialIntro() {
       signatureDesc:
         '特別版は組立後も複数回の細部検査を経ます：エッジの移行、彫刻の深さ、ダンピングの一貫性、光学中心検証。真の高級感は派手ではなく、細部の正確さと克制にあります。',
       signatureNote: 'Mandler Quality Protocol · Since 1978',
-      closing: 'E39 特別版、創作のために生まれ、時間のために存在する。',
+      closing: '35mm F/2 特別版、創作のために生まれ、時間のために存在する。',
       primaryButton: 'ストアページを見る',
       secondaryButton: 'ホームに戻る',
     }
     : {
-      breadcrumbTitle: 'E39 Special Edition Intro',
+      breadcrumbTitle: '35mm F/2 Special Edition Intro',
       heroLabel: 'LIMITED COLLECTION',
-      heroTitle: 'E39 Special Edition',
+      heroTitle: '35mm F/2',
+      heroEdition: 'Special Edition',
       heroQuote: 'Crafted excellence, limited collection. Precision optics and collectible value in a single lens.',
       introLabel: 'SPECIAL EDITION ESSAY',
       premiumTitle: 'Special Edition Identity',
@@ -112,7 +115,7 @@ export default function ProductE39SpecialIntro() {
       premiumItem3Value: 'Individual hand verification and sign-off',
       introTitle: 'From Tool to Object of Work',
       introPara1:
-        'The E39 Special Edition is not a simple cosmetic variant. It is a full upgrade of materials, machining, and assembly standards. Each serial number corresponds to a complete hand-calibration process.',
+        'The 35mm F/2 Special Edition is not a simple cosmetic variant. It is a full upgrade of materials, machining, and assembly standards. Each serial number corresponds to a complete hand-calibration process.',
       introPara2:
         'When a lens becomes your creative partner, it also becomes a record of time. It serves not only final images, but your evolving relationship with photography.',
       craftLabel: 'CRAFT & MATERIAL',
@@ -134,7 +137,7 @@ export default function ProductE39SpecialIntro() {
       signatureDesc:
         'After assembly, the Special Edition still goes through multiple detail inspections: edge transitions, engraving depth, damping consistency, and optical centering verification. True luxury is not loud—it is precise and restrained in every detail.',
       signatureNote: 'Mandler Quality Protocol · Since 1978',
-      closing: 'E39 Special Edition, built for creation and preserved for time.',
+      closing: '35mm F/2 Special Edition, built for creation and preserved for time.',
       primaryButton: 'Open Store Page',
       secondaryButton: 'Back to Home',
     };
@@ -174,7 +177,10 @@ export default function ProductE39SpecialIntro() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/20" />
         <div className="relative z-10 container max-w-5xl mx-auto px-6 text-center text-white">
           <p className="text-sm tracking-[0.3em] mb-8 opacity-80">{content.heroLabel}</p>
-          <h1 className="text-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl mb-8 leading-tight">{content.heroTitle}</h1>
+          <h1 className="text-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl mb-8 leading-tight">
+            {content.heroTitle}<br />
+            <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl opacity-80">{content.heroEdition}</span>
+          </h1>
           <div className="w-24 h-px bg-white/50 mx-auto mb-8" />
           <p className="text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed opacity-90">{content.heroQuote}</p>
         </div>
@@ -212,7 +218,7 @@ export default function ProductE39SpecialIntro() {
       </section>
 
       <section className="relative h-[60vh] md:h-[70vh]">
-        <img src="/images/4种颜色镜头产品照-带包装.jpg" alt="E39 Special Edition detail" className="w-full h-full object-cover" />
+        <img src="/images/4种颜色镜头产品照-带包装.jpg" alt="35mm F/2 Special Edition detail" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
       </section>
 
@@ -220,7 +226,7 @@ export default function ProductE39SpecialIntro() {
         <div className="container max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 md:gap-16">
             <div className="lg:col-span-2">
-              <img src="/images/4种颜色镜头产品照-不带包装.jpg" alt="E39 Special material" className="w-full h-auto rounded-lg shadow-2xl" />
+              <img src="/images/4种颜色镜头产品照-不带包装.jpg" alt="35mm F/2 Special material" className="w-full h-auto rounded-lg shadow-2xl" />
             </div>
             <div className="lg:col-span-3 flex flex-col justify-center">
               <p className="text-sm tracking-[0.3em] mb-4 text-foreground/60">{content.craftLabel}</p>
