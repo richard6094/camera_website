@@ -162,7 +162,7 @@ export default function Header({ cartCount = 0 }: HeaderProps) {
             <div className="relative flex-shrink-0">
               <button
                 onClick={() => setLangMenuOpen(!langMenuOpen)}
-                className="flex items-center justify-center gap-1.5 w-[60px] md:w-[70px] py-1.5 text-foreground/70 hover:text-foreground damped-transition border border-foreground/10 hover:border-foreground/20"
+                className="flex items-center justify-center gap-1.5 w-[60px] md:w-[70px] py-1.5 text-foreground/70 hover:text-foreground damped-transition border border-foreground/10 hover:border-foreground/20 bg-foreground/5 hover:bg-foreground/8"
                 style={{ borderRadius: '2px', borderWidth: '0.5px' }}
                 title={language === 'zh' ? 'Switch Language' : '切换语言'}
               >
