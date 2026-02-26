@@ -14,7 +14,7 @@ If any file is missing, stop and report which one is missing.
 - Keep changes minimal and aligned with existing architecture.
 - Follow the design tokens, spacing, typography, and component patterns documented in `docs/manus-context/DESIGN_SYSTEM.md`.
 - Reuse existing components/patterns before creating new ones.
-- For any user-facing code/content changes, update and verify all supported language versions (currently `zh` and `en`) to avoid language mismatch.
+- For any user-facing code/content changes, update and verify all supported language versions (currently `zh`, `en`, and `ja`) to avoid language mismatch.
 
 ## Documentation sync rules (required)
 When code changes are made, update the relevant Manus context docs in the same task:

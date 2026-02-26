@@ -42,6 +42,35 @@ export default function ProductE39Intro() {
       primaryButton: '查看商城页',
       secondaryButton: '返回首页',
     }
+    : language === 'ja'
+    ? {
+      breadcrumbTitle: 'E39 製品紹介',
+      heroLabel: 'PRODUCT ESSAY',
+      heroTitle: 'E39',
+      heroQuote: 'クラシックな焦点距離、ピュアな視点。ストリートと日常のための35mmナラティブレンズ。',
+      introTitle: '世界との適切な距離を保つ方法',
+      introPara1:
+        'E39は35mmを核として、環境と人物を一つの画面に自然に織り込みます。過度に踏み込まず、感情を疎外しない、現実を観察する最も克制された正直な焦点距離です。',
+      introPara2:
+        '光学構造からフォーカスの手触りまで、すべてのディテールが「速く、正確に、安定して」という撮影リズムに奉仕します。カメラを構えた瞬間、構図と表現がほぼ同時に完成します。',
+      designLabel: 'OPTICAL DESIGN',
+      designTitle: 'リアルシーンのためにチューニング',
+      designPara1:
+        'f/1.4大口径は夜間だけでなく、複雑な背景の中で明確な視覚的主従を確立するためにも使用されます。高コントラストのエッジは自然な移行を保ち、シャープさと雰囲気のバランスを取ります。',
+      designPara2:
+        'コンパクトなボディと320gの重量で長時間の携帯負担を軽減。メカニカルダンピングは複数回のキャリブレーションを経て、速いペースのストリート撮影でも安定した操作感を確保します。',
+      scenesTitle: '使用シーン',
+      scene1Title: 'ストリートドキュメンタリー',
+      scene1Desc: '環境情報を保持しながら、人物関係と決定的瞬間を際立たせます。',
+      scene2Title: '旅行・日常',
+      scene2Desc: '一本のレンズでほとんどの撮影ニーズをカバー、交換の手間を軽減。',
+      scene3Title: '低照度ナラティブ',
+      scene3Desc: '夜景や室内光源の中でも実用的なシャッター速度とディテールの階調を維持。',
+      closing:
+        'E39は大げさな技術の誇示ではなく、長期的な創作に寄り添うレンズです。',
+      primaryButton: 'ストアページを見る',
+      secondaryButton: 'ホームに戻る',
+    }
     : {
       breadcrumbTitle: 'E39 Introduction',
       heroLabel: 'PRODUCT ESSAY',
@@ -76,8 +105,8 @@ export default function ProductE39Intro() {
       <div className="container max-w-7xl mx-auto px-6 pt-20 md:pt-24">
         <Breadcrumb
           items={[
-            { label: language === 'zh' ? '首页' : 'Home', href: '/' },
-            { label: language === 'zh' ? '产品' : 'Products', href: '/products' },
+            { label: language === 'zh' ? '首页' : language === 'ja' ? 'ホーム' : 'Home', href: '/' },
+            { label: language === 'zh' ? '产品' : language === 'ja' ? '製品' : 'Products', href: '/products' },
             { label: content.breadcrumbTitle },
           ]}
         />

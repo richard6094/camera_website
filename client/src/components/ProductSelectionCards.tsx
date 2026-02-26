@@ -21,7 +21,7 @@ export function ProductSelectionCards() {
     },
     {
       id: 'e39-special',
-      name: language === 'zh' ? 'E39 特别版' : 'E39 Special Edition',
+      name: language === 'zh' ? 'E39 特别版' : language === 'ja' ? 'E39 特別版' : 'E39 Special Edition',
       image: '/images/3色镜头+相机+木质背景.jpg',
       available: true,
       link: '/products/e39-special-intro',

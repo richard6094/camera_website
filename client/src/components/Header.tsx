@@ -34,7 +34,7 @@ export default function Header({ cartCount = 0 }: HeaderProps) {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [langMenuOpen, setLangMenuOpen] = useState(false);
   const { language, setLanguage, t } = useLanguage();
-  const cartComingSoonText = language === 'zh' ? '商城正在开发中，敬请期待' : 'Store is under development, coming soon';
+  const cartComingSoonText = language === 'zh' ? '商城正在开发中，敬请期待' : language === 'ja' ? 'ストアは開発中です。お楽しみに' : 'Store is under development, coming soon';
 
   const handleCartComingSoon = () => {
     toast.info(cartComingSoonText);
@@ -66,12 +66,12 @@ export default function Header({ cartCount = 0 }: HeaderProps) {
     {
       label: 'E39',
       href: '/products/e39-intro',
-      description: language === 'zh' ? '经典焦段，纯粹视角' : 'Classic Focal Length, Pure Perspective',
+      description: language === 'zh' ? '经典焦段，纯粹视角' : language === 'ja' ? 'クラシックな焦点距離、ピュアな視点' : 'Classic Focal Length, Pure Perspective',
     },
     {
-      label: 'E39 ' + (language === 'zh' ? '特别版' : 'Special Edition'),
+      label: 'E39 ' + (language === 'zh' ? '特别版' : language === 'ja' ? '特別版' : 'Special Edition'),
       href: '/products/e39-special-intro',
-      description: language === 'zh' ? '匠心之作，限量典藏' : 'Crafted Excellence, Limited Collection',
+      description: language === 'zh' ? '匠心之作，限量典藏' : language === 'ja' ? '匠の技、限定コレクション' : 'Crafted Excellence, Limited Collection',
     },
   ];
 
@@ -164,10 +164,10 @@ export default function Header({ cartCount = 0 }: HeaderProps) {
                 onClick={() => setLangMenuOpen(!langMenuOpen)}
                 className="flex items-center justify-center gap-1.5 w-[60px] md:w-[70px] py-1.5 text-foreground/70 hover:text-foreground damped-transition border border-foreground/10 hover:border-foreground/20 bg-foreground/5 hover:bg-foreground/8"
                 style={{ borderRadius: '2px', borderWidth: '0.5px' }}
-                title={language === 'zh' ? 'Switch Language' : '切换语言'}
+                title={language === 'zh' ? 'Switch Language' : language === 'ja' ? '言語切替' : '切换语言'}
               >
-                <span className="text-sm md:text-base leading-none">{language === 'zh' ? '🇨🇳' : '🇺🇸'}</span>
-                <span className="text-xs md:text-sm font-medium tracking-wider whitespace-nowrap">{language === 'zh' ? '中文' : 'EN'}</span>
+                <span className="text-sm md:text-base leading-none">{language === 'zh' ? '🇨🇳' : language === 'ja' ? '🇯🇵' : '🇺🇸'}</span>
+                <span className="text-xs md:text-sm font-medium tracking-wider whitespace-nowrap">{language === 'zh' ? '中文' : language === 'ja' ? 'JP' : 'EN'}</span>
               </button>
               {langMenuOpen && (
                 <>
@@ -193,6 +193,15 @@ export default function Header({ cartCount = 0 }: HeaderProps) {
                     >
                       <span className="text-base leading-none">🇺🇸</span>
                       <span>English</span>
+                    </button>
+                    <button
+                      onClick={() => { setLanguage('ja'); setLangMenuOpen(false); }}
+                      className={`flex items-center gap-2 w-full px-3 py-2 text-sm damped-transition ${
+                        language === 'ja' ? 'text-foreground bg-foreground/5' : 'text-foreground/60 hover:text-foreground hover:bg-foreground/5'
+                      }`}
+                    >
+                      <span className="text-base leading-none">🇯🇵</span>
+                      <span>日本語</span>
                     </button>
                   </div>
                 </>

@@ -34,6 +34,20 @@ export default function ProductE39() {
       { label: '重量', value: '约 320g' },
       { label: '镜头卡口', value: 'M 卡口' },
     ],
+  } : language === 'ja' ? {
+    title: '技術仕様',
+    items: [
+      { label: '焦点距離', value: '35mm' },
+      { label: '最大口径', value: 'f/1.4' },
+      { label: '最小絞り', value: 'f/16' },
+      { label: '光学設計', value: '8群 11枚' },
+      { label: '絞り羽根', value: '11枚（円形絞り）' },
+      { label: '最短撮影距離', value: '0.3m' },
+      { label: 'フィルターサイズ', value: '52mm' },
+      { label: 'サイズ', value: '直径 65mm × 長さ 52mm' },
+      { label: '重量', value: '約 320g' },
+      { label: 'マウント', value: 'M マウント' },
+    ],
   } : {
     title: 'Technical Specifications',
     items: [
@@ -70,6 +84,26 @@ export default function ProductE39() {
         description: '仅重 320g，紧凑的设计让您可以随时随地记录生活。',
       },
     ],
+  } : language === 'ja' ? {
+    title: '製品特徴',
+    items: [
+      {
+        title: 'クラシック焦点距離',
+        description: '35mmはストリートフォトのゴールデンスタンダード。環境の雰囲気と被写体のディテールを同時に捕らえます。',
+      },
+      {
+        title: '大口径設計',
+        description: 'f/1.4大口径による優れた低照度性能と美しいボケ。',
+      },
+      {
+        title: '精密光学',
+        description: '8群11枚の光学設計、11枚の円形絞り羽根で滑らかでクリーミーなボケを実現。',
+      },
+      {
+        title: 'コンパクト・ポータブル',
+        description: 'わずか320g、コンパクトなデザインでいつでもどこでも瞬間を記録。',
+      },
+    ],
   } : {
     title: 'Key Features',
     items: [
@@ -99,6 +133,13 @@ export default function ProductE39() {
     addToCart: '加入购物车',
     buyNow: '立即购买',
     quantityLabel: '数量',
+  } : language === 'ja' ? {
+    price: '¥278,000',
+    currency: 'JPY',
+    inStock: '在庫あり',
+    addToCart: 'カートに追加',
+    buyNow: '今すぐ購入',
+    quantityLabel: '数量',
   } : {
     price: '$1,899',
     currency: 'USD',
@@ -110,6 +151,8 @@ export default function ProductE39() {
 
   const storeNotice = language === 'zh'
     ? '在线商城正在准备中，敬请期待！'
+    : language === 'ja'
+    ? 'オンラインストアは準備中です。お楽しみに！'
     : 'Our online store is in preparation. Stay tuned!';
 
   return (
@@ -119,7 +162,7 @@ export default function ProductE39() {
         <Link to="/">
           <Button variant="outline" size="lg" className="gap-2 hover:bg-muted">
             <ChevronLeft className="w-5 h-5" />
-            <span className="font-medium">{language === 'zh' ? '返回首页' : 'Back to Home'}</span>
+            <span className="font-medium">{language === 'zh' ? '返回首页' : language === 'ja' ? 'ホームに戻る' : 'Back to Home'}</span>
           </Button>
         </Link>
       </div>
@@ -170,6 +213,8 @@ export default function ProductE39() {
               <p className="text-lg text-muted-foreground">
                 {language === 'zh'
                   ? '经典焦段，纯粹视角'
+                  : language === 'ja'
+                  ? 'クラシックな焦点距離、ピュアなビジョン'
                   : 'Classic Focal Length, Pure Vision'}
               </p>
               <div className="flex items-baseline gap-4">
@@ -186,6 +231,8 @@ export default function ProductE39() {
               <p>
                 {language === 'zh'
                   ? '35mm 定焦镜头，街头摄影的理想伴侣。轻巧便携，成像锐利，捕捉生活中每一个真实瞬间。f/1.4 大光圈设计，在弱光环境下依然能够呈现出色的画质，同时营造迷人的焦外虚化效果。'
+                  : language === 'ja'
+                  ? '35mm単焦点レンズ、ストリートフォトの理想的なパートナー。コンパクトで携帯性に優れ、シャープな描写で日常のあらゆる真実の瞬間を捕らえます。f/1.4大口径設計により低照度でも優れた画質と美しいボケを実現。'
                   : '35mm prime lens, the ideal companion for street photography. Compact and portable, with sharp imaging to capture every authentic moment in life. The f/1.4 fast aperture design delivers excellent image quality even in low-light conditions while creating beautiful bokeh.'}
               </p>
             </div>

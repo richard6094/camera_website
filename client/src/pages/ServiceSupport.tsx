@@ -142,6 +142,72 @@ const content = {
     },
     closing: 'Quality is our most enduring promise.',
   },
+  ja: {
+    breadcrumb: 'サービス・サポート',
+    hero: {
+      label: 'サービスの約束',
+      title: 'お客様とともに',
+      subtitle: 'すべての Mandler レンズは、品質への揺るぎないコミットメントを搼えています。ご購入の瞬間から、私たちのサービスチームが常にお客様のそばに寄り添います。',
+    },
+    warranty: {
+      label: '品質保証',
+      title: '生涯限定保証',
+      description: 'すべての Mandler レンズには包括的な生涯限定保証が付きます。光学素子、機械精度、コーティング技術の品質を保証します。',
+      items: [
+        { title: '光学保証', desc: 'レンズ素子の生涯保証。コーティング剥離、内部曇り、光学素子の分離などの工芸欠陥をカバー。' },
+        { title: '機械保証', desc: 'フォーカスリング、絞り羽根、マウントなどの機械部品を5年間保証。一貫した操作感を確保。' },
+        { title: '電子保証', desc: '電子接点とファームウェアシステムを3年間保証。レンズとボディの安定した通信を確保。' },
+      ],
+    },
+    repair: {
+      label: '修理サービス',
+      title: 'プロフェッショナル修理・メンテナンス',
+      description: '当社のサービスセンターは生産ラインと同等の精密機器を備え、経験豊富な光学技術者が全て手作業で完成します。',
+      services: [
+        { title: '定期メンテナンス', desc: 'レンズクリーニング、フォーカス校正、絞り潤滑などの一般サービス。12〜18ヶ月ごとの専門メンテナンスを推奨。', time: '3〜5営業日' },
+        { title: '光学修理', desc: '素子交換、コーティング修復、工場純正部品を使用した光学システムの再校正。', time: '7〜14営業日' },
+        { title: '機械修理', desc: 'フォーカス機構調整、絞り羽根交換、マウント修理などの構造修復。', time: '5〜10営業日' },
+        { title: '外観修復', desc: '表面傷修復、再アノダイズ処理、銘板交換などの外装メンテナンス。', time: '5〜7営業日' },
+      ],
+    },
+    return: {
+      label: '返品ポリシー',
+      title: '7日間無条件返品',
+      subtitle: '製品の品質に自信を持っています。お届けから7日以内であれば、理由を問わず返品・交換が可能です。',
+      conditions: {
+        title: '返品条件',
+        items: [
+          'お届けから7暦日以内に申請',
+          '製品が原状を保ち、損傷や改造がないこと',
+          '元のパッケージ、付属品、保証書が全て揃っていること',
+          'レンズに著しい使用痕跡がないこと（軽微な試用は可）',
+        ],
+      },
+      process: {
+        title: '返品手続き',
+        steps: [
+          { step: '01', title: '申請提出', desc: 'メールまたは電話で注文番号と返品理由をお知らせください。' },
+          { step: '02', title: '審査・確認', desc: '1営業日以内に審査・確認し、返送先をご案内します。' },
+          { step: '03', title: '商品返送', desc: '製品を丁寧に梱包して返送してください。返送料は当社負担（品質問題以外の場合を除く）。' },
+          { step: '04', title: '返金処理', desc: '返送品の受領・検品後、3〜5営業日以内に元のお支払い方法で返金します。' },
+        ],
+      },
+      exchange: {
+        title: '交換ポリシー',
+        desc: '同一または別モデルへの交換の場合、返送品受領後1〜2営業日以内に発送します。価格差額は別途決済となります。',
+      },
+    },
+    contact: {
+      label: 'お問い合わせ',
+      title: 'いつでもお客様のために',
+      description: 'ご不明な点がございましたら、専任サポートチームがお手伝いいたします。',
+      phone: '+86 400-888-LENS (5367)',
+      email: 'mandler_optics@163.com',
+      hours: '月曜〜金曜 9:00〜18:00 · 土日祝日 10:00〜16:00',
+      global: '世界12の国と地域にサービスネットワークを展開',
+    },
+    closing: '品質とは、私たちの最も永く続く約束です。',
+  },
 };
 
 export default function ServiceSupport() {
@@ -154,7 +220,7 @@ export default function ServiceSupport() {
       <div className="container max-w-7xl mx-auto px-6 pt-20 md:pt-24">
         <Breadcrumb
           items={[
-            { label: language === 'zh' ? '首页' : 'Home', href: '/' },
+            { label: language === 'zh' ? '首页' : language === 'ja' ? 'ホーム' : 'Home', href: '/' },
             { label: c.breadcrumb },
           ]}
         />
@@ -347,7 +413,7 @@ export default function ServiceSupport() {
               <div className="flex items-center gap-5 p-6 border border-foreground/10 hover:border-foreground/25 transition-colors duration-300" style={{ borderWidth: '0.5px' }}>
                 <Phone className="w-5 h-5 text-foreground/60 flex-shrink-0" strokeWidth={1.5} />
                 <div>
-                  <p className="text-xs tracking-widest text-foreground/50 mb-1">{language === 'zh' ? '服务热线' : 'SERVICE LINE'}</p>
+                  <p className="text-xs tracking-widest text-foreground/50 mb-1">{language === 'zh' ? '服务热线' : language === 'ja' ? 'サービスライン' : 'SERVICE LINE'}</p>
                   <p className="text-base sm:text-lg font-medium tracking-wide">{c.contact.phone}</p>
                 </div>
               </div>
@@ -355,7 +421,7 @@ export default function ServiceSupport() {
               <div className="flex items-center gap-5 p-6 border border-foreground/10 hover:border-foreground/25 transition-colors duration-300" style={{ borderWidth: '0.5px' }}>
                 <Mail className="w-5 h-5 text-foreground/60 flex-shrink-0" strokeWidth={1.5} />
                 <div>
-                  <p className="text-xs tracking-widest text-foreground/50 mb-1">{language === 'zh' ? '客服邮箱' : 'EMAIL'}</p>
+                  <p className="text-xs tracking-widest text-foreground/50 mb-1">{language === 'zh' ? '客服邮箱' : language === 'ja' ? 'メール' : 'EMAIL'}</p>
                   <p className="text-base sm:text-lg font-medium tracking-wide">{c.contact.email}</p>
                 </div>
               </div>
@@ -363,7 +429,7 @@ export default function ServiceSupport() {
               <div className="flex items-center gap-5 p-6 border border-foreground/10 hover:border-foreground/25 transition-colors duration-300" style={{ borderWidth: '0.5px' }}>
                 <Clock className="w-5 h-5 text-foreground/60 flex-shrink-0" strokeWidth={1.5} />
                 <div>
-                  <p className="text-xs tracking-widest text-foreground/50 mb-1">{language === 'zh' ? '服务时间' : 'HOURS'}</p>
+                  <p className="text-xs tracking-widest text-foreground/50 mb-1">{language === 'zh' ? '服务时间' : language === 'ja' ? 'サービス時間' : 'HOURS'}</p>
                   <p className="text-base sm:text-lg font-medium tracking-wide">{c.contact.hours}</p>
                 </div>
               </div>
@@ -371,7 +437,7 @@ export default function ServiceSupport() {
               <div className="flex items-center gap-5 p-6 border border-foreground/10 hover:border-foreground/25 transition-colors duration-300" style={{ borderWidth: '0.5px' }}>
                 <Globe className="w-5 h-5 text-foreground/60 flex-shrink-0" strokeWidth={1.5} />
                 <div>
-                  <p className="text-xs tracking-widest text-foreground/50 mb-1">{language === 'zh' ? '服务网络' : 'GLOBAL NETWORK'}</p>
+                  <p className="text-xs tracking-widest text-foreground/50 mb-1">{language === 'zh' ? '服务网络' : language === 'ja' ? 'グローバルネットワーク' : 'GLOBAL NETWORK'}</p>
                   <p className="text-base sm:text-lg font-medium tracking-wide">{c.contact.global}</p>
                 </div>
               </div>
