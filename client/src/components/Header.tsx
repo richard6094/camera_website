@@ -32,6 +32,7 @@ export default function Header({ cartCount = 0 }: HeaderProps) {
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [langMenuOpen, setLangMenuOpen] = useState(false);
   const { language, setLanguage, t } = useLanguage();
   const cartComingSoonText = language === 'zh' ? '商城正在开发中，敬请期待' : 'Store is under development, coming soon';
 
@@ -157,20 +158,46 @@ export default function Header({ cartCount = 0 }: HeaderProps) {
 
           {/* Right: Language Switcher & Shopping Cart */}
           <div className="flex items-center justify-end gap-2 md:gap-3 w-[120px] md:w-[140px]">
-            {/* Language Switcher */}
-            <button
-              onClick={() => setLanguage(language === 'zh' ? 'en' : 'zh')}
-              className="flex items-center justify-center gap-1.5 w-[60px] md:w-[70px] py-1.5 text-foreground/70 hover:text-foreground damped-transition border border-foreground/10 hover:border-foreground/20 flex-shrink-0"
-              style={{ borderRadius: '2px', borderWidth: '0.5px' }}
-              title={language === 'zh' ? 'Switch to English' : '切换到中文'}
-            >
-              <svg className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M2 12H22" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M12 2C14.5013 4.73835 15.9228 8.29203 16 12C15.9228 15.708 14.5013 19.2616 12 22C9.49872 19.2616 8.07725 15.708 8 12C8.07725 8.29203 9.49872 4.73835 12 2Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-              <span className="text-xs md:text-sm font-medium tracking-wider whitespace-nowrap">{language === 'zh' ? 'CN' : 'EN'}</span>
-            </button>
+            {/* Language Switcher Dropdown */}
+            <div className="relative flex-shrink-0">
+              <button
+                onClick={() => setLangMenuOpen(!langMenuOpen)}
+                className="flex items-center justify-center gap-1.5 w-[60px] md:w-[70px] py-1.5 text-foreground/70 hover:text-foreground damped-transition border border-foreground/10 hover:border-foreground/20"
+                style={{ borderRadius: '2px', borderWidth: '0.5px' }}
+                title={language === 'zh' ? 'Switch Language' : '切换语言'}
+              >
+                <span className="text-sm md:text-base leading-none">{language === 'zh' ? '🇨🇳' : '🇺🇸'}</span>
+                <span className="text-xs md:text-sm font-medium tracking-wider whitespace-nowrap">{language === 'zh' ? '中文' : 'EN'}</span>
+              </button>
+              {langMenuOpen && (
+                <>
+                  <div className="fixed inset-0 z-40" onClick={() => setLangMenuOpen(false)} />
+                  <div
+                    className="absolute right-0 top-full mt-1 z-50 bg-background/95 backdrop-blur-md border border-foreground/10 shadow-lg overflow-hidden"
+                    style={{ borderRadius: '2px', borderWidth: '0.5px', minWidth: '120px' }}
+                  >
+                    <button
+                      onClick={() => { setLanguage('zh'); setLangMenuOpen(false); }}
+                      className={`flex items-center gap-2 w-full px-3 py-2 text-sm damped-transition ${
+                        language === 'zh' ? 'text-foreground bg-foreground/5' : 'text-foreground/60 hover:text-foreground hover:bg-foreground/5'
+                      }`}
+                    >
+                      <span className="text-base leading-none">🇨🇳</span>
+                      <span>中文</span>
+                    </button>
+                    <button
+                      onClick={() => { setLanguage('en'); setLangMenuOpen(false); }}
+                      className={`flex items-center gap-2 w-full px-3 py-2 text-sm damped-transition ${
+                        language === 'en' ? 'text-foreground bg-foreground/5' : 'text-foreground/60 hover:text-foreground hover:bg-foreground/5'
+                      }`}
+                    >
+                      <span className="text-base leading-none">🇺🇸</span>
+                      <span>English</span>
+                    </button>
+                  </div>
+                </>
+              )}
+            </div>
 
             {/* Shopping Cart */}
             <button
