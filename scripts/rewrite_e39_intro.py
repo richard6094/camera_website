@@ -1,4 +1,18 @@
-import { useLanguage } from '@/contexts/LanguageContext';
+#!/usr/bin/env python3
+"""Rewrite ProductE39Intro.tsx with expanded content sections."""
+
+import os
+
+TARGET = os.path.join(
+    os.path.dirname(__file__),
+    "..",
+    "client",
+    "src",
+    "pages",
+    "ProductE39Intro.tsx",
+)
+
+CONTENT = r"""import { useLanguage } from '@/contexts/LanguageContext';
 import Breadcrumb from '@/components/Breadcrumb';
 import { useLocation } from 'wouter';
 
@@ -464,3 +478,9 @@ export default function ProductE39Intro() {
     </div>
   );
 }
+"""
+
+with open(TARGET, "w", encoding="utf-8") as f:
+    f.write(CONTENT.lstrip("\n"))
+
+print(f"Wrote {len(CONTENT)} chars to {TARGET}")
