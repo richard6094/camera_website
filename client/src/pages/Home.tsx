@@ -9,7 +9,7 @@ import { UserGallery } from '@/components/UserGallery';
 import Footer from '@/components/Footer';
 
 /**
- * Premium Brand Homepage - Leica-Inspired Design
+ * Mandler Lens - Leica-Inspired Design
  * Design Philosophy: 
  * - Unified horizontal scrolling showcase (Hero + Products)
  * - Parallax effects on all cards

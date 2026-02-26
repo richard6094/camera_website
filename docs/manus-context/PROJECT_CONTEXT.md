@@ -1,8 +1,8 @@
-# Mandler Premium Brand Homepage - Project Context
+# Mandler Lens - Project Context
 
 ## Project Overview
 
-This is a premium brand homepage for **Mandler**, a fictional high-end camera lens manufacturer inspired by Leica's design philosophy and craftsmanship. The website showcases the brand's heritage, products (E39 and E39 Special Edition lenses), and commitment to optical excellence.
+This is the official website for **Mandler Lens**, a high-end camera lens manufacturer inspired by Leica's design philosophy and craftsmanship. The website showcases the brand's heritage, products (E39 and E39 Special Edition lenses), and commitment to optical excellence.
 
 ## Design Philosophy
 
@@ -201,18 +201,38 @@ shared/               # Shared constants and types
 ## Deployment
 
 ### Current Setup
-- **Platform**: Manus webdev hosting
-- **Domain**: Auto-generated `.manus.space` subdomain
-- **CDN**: Manus CDN for static assets
-- **GitHub**: Synced to `richard6094/camera_website`
+- **Platform**: Azure Static Web Apps (SWA)
+- **Resource**: `zealous-stone-00bf12300`
+- **Default URL**: `https://zealous-stone-00bf12300.1.azurestaticapps.net`
+- **Custom Domain**: `www.mandler-optics.com`
+- **GitHub**: `richard6094/camera_website`
+
+### CI/CD Pipeline
+- **Workflow**: `.github/workflows/azure-static-web-apps-zealous-stone-00bf12300.yml`
+- **Trigger**: Push to `release` branch (or PR against `release`)
+- **Process**:
+  1. Checkout code
+  2. Setup Node 20 + pnpm 10.4.1 (via corepack)
+  3. `pnpm install --frozen-lockfile`
+  4. `pnpm exec vite build` → outputs to `dist/public`
+  5. Azure SWA deploy action uploads `dist/public` (skip_app_build: true)
+- **Secret**: `AZURE_STATIC_WEB_APPS_API_TOKEN_ZEALOUS_STONE_00BF12300`
+
+### Deployment Workflow
+1. Develop on `main` branch
+2. Commit and push to `origin/main`
+3. `git checkout release && git merge main -m "Merge main into release" && git push origin release`
+4. GitHub Actions automatically builds and deploys to Azure SWA
+5. Switch back: `git checkout main`
 
 ### Build Process
-- Development: `pnpm dev` (Vite dev server on port 3000)
-- Production: Handled by Manus platform
-- Checkpoints: Use `webdev_save_checkpoint` before major changes
+- Development: `pnpm dev` (Vite dev server)
+- Production build: `pnpm exec vite build` (outputs to `dist/public`)
+- Type check: `npx tsc --noEmit`
 
 ## Contact & Resources
 
 - **Repository**: https://github.com/richard6094/camera_website
+- **Live Site**: https://www.mandler-optics.com
 - **Design Inspiration**: Leica Camera AG, premium lens manufacturers
-- **Asset Sources**: Local static assets in `client/public/images` (some originally migrated from Manus CDN)
+- **Asset Sources**: Local static assets in `client/public/images`
