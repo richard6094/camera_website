@@ -303,7 +303,7 @@ export const translations = {
     'footer.about.description': 'Mandler represents the pinnacle of photographic equipment manufacturing. Every lens is a perfect combination of precision engineering and artistic vision, crafted for photographers who demand excellence.',
     'footer.about.tagline': 'TO HELP YOU SEE MORE FREELY',
     'footer.contact.address.line1': 'Wancheng District, Nanyang City, Henan',
-    'footer.contact.address.line2': 'China Ordnance Xiangdong Industrial Park',
+    'footer.contact.address.line2': 'China North Industries Group Xiangdong Industrial Park',
     'footer.quick.title': 'Quick Links',
     'footer.contact.title': 'Contact Us',
     'footer.contact.phone': 'Phone',
