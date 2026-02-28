@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import { ImageLightbox } from './ImageLightbox';
 
 interface UserGalleryProps {
@@ -8,11 +8,14 @@ interface UserGalleryProps {
 export function UserGallery({ images }: UserGalleryProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
   const [translateX, setTranslateX] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
+  const [autoPlay, setAutoPlay] = useState(true);
   const containerRef = useRef<HTMLDivElement>(null);
+  const dragStartX = useRef(0);
+  const dragStartRelX = useRef(0);
+  const hasDragged = useRef(false);
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
@@ -27,38 +30,51 @@ export function UserGallery({ images }: UserGalleryProps) {
     setIsLightboxOpen(false);
   };
 
-  // Handle drag start
+  const nextImage = useCallback(() => {
+    setCurrentIndex((prev) => (prev + 1) % images.length);
+  }, [images.length]);
+
+  useEffect(() => {
+    if (!autoPlay || isLightboxOpen) return;
+    const timer = setInterval(nextImage, 4000);
+    return () => clearInterval(timer);
+  }, [autoPlay, isLightboxOpen, nextImage]);
+
   const handleDragStart = (clientX: number) => {
     setIsDragging(true);
-    setStartX(clientX);
+    setAutoPlay(false);
+    dragStartX.current = clientX;
+    hasDragged.current = false;
+    const rect = containerRef.current?.getBoundingClientRect();
+    dragStartRelX.current = rect ? (clientX - rect.left) / rect.width : 0.5;
   };
 
-  // Handle drag move
   const handleDragMove = (clientX: number) => {
     if (!isDragging) return;
-    const diff = clientX - startX;
-    setTranslateX(diff);
+    const offset = clientX - dragStartX.current;
+    if (Math.abs(offset) > 5) hasDragged.current = true;
+    setTranslateX(offset);
   };
 
-  // Handle drag end
-  const handleDragEnd = () => {
+  const handleDragEnd = (clientX: number) => {
     if (!isDragging) return;
     setIsDragging(false);
 
-    // Threshold for switching slides (20% on mobile, 30% on desktop)
-    const isMobile = window.innerWidth < 768;
-    const thresholdPercent = isMobile ? 0.2 : 0.3;
-    const threshold = containerRef.current ? containerRef.current.offsetWidth * thresholdPercent : 200;
-
-    if (translateX > threshold) {
-      // Swipe right - go to previous
-      setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-    } else if (translateX < -threshold) {
-      // Swipe left - go to next
-      setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+    if (hasDragged.current) {
+      const rect = containerRef.current?.getBoundingClientRect();
+      const endRelX = rect ? (clientX - rect.left) / rect.width : 0.5;
+      // Forward (next): started right half, ended left half
+      if (dragStartRelX.current > 0.5 && endRelX < 0.5) {
+        setCurrentIndex((currentIndex + 1) % images.length);
+      // Backward (prev): started left half, ended right half
+      } else if (dragStartRelX.current < 0.5 && endRelX > 0.5) {
+        setCurrentIndex((currentIndex - 1 + images.length) % images.length);
+      }
     }
+    // Lightbox is handled separately via onClick on the image
 
     setTranslateX(0);
+    setAutoPlay(true);
   };
 
   // Mouse events
@@ -71,13 +87,14 @@ export function UserGallery({ images }: UserGalleryProps) {
     handleDragMove(e.clientX);
   };
 
-  const handleMouseUp = () => {
-    handleDragEnd();
+  const handleMouseUp = (e: React.MouseEvent) => {
+    handleDragEnd(e.clientX);
   };
 
   const handleMouseLeave = () => {
     if (isDragging) {
-      handleDragEnd();
+      setIsDragging(false);
+      setTranslateX(0);
     }
   };
 
@@ -90,8 +107,9 @@ export function UserGallery({ images }: UserGalleryProps) {
     handleDragMove(e.touches[0].clientX);
   };
 
-  const handleTouchEnd = () => {
-    handleDragEnd();
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const touch = e.changedTouches[0];
+    handleDragEnd(touch.clientX);
   };
 
   // Calculate indices for previous and next images
@@ -110,22 +128,28 @@ export function UserGallery({ images }: UserGalleryProps) {
       {/* Carousel Container */}
       <div
         ref={containerRef}
-        className="relative h-[400px] sm:h-[500px] md:h-[600px] lg:h-[650px] overflow-hidden cursor-grab active:cursor-grabbing touch-pan-y"
+        className="relative h-[400px] sm:h-[500px] md:h-[600px] lg:h-[650px] overflow-hidden select-none touch-pan-y"
+        style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
-        onMouseLeave={handleMouseLeave}
+        onMouseEnter={() => setAutoPlay(false)}
+        onMouseLeave={() => {
+          if (isDragging) {
+            setIsDragging(false);
+            setTranslateX(0);
+          }
+          setAutoPlay(true);
+        }}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
         <div
-          className="flex items-center h-full transition-transform duration-300 ease-out"
+          className="flex items-center h-full"
           style={{
-            // Offset by 1 to account for the prepended previous image
-            // Show 85% of each image (15% overlap on each side)
             transform: `translateX(calc(-${(currentIndex + 1) * 85}% + ${translateX}px))`,
-            transition: isDragging ? 'none' : 'transform 300ms ease-out',
+            transition: isDragging ? 'none' : 'transform 500ms ease-in-out',
             gap: '0',
           }}
         >
@@ -143,12 +167,11 @@ export function UserGallery({ images }: UserGalleryProps) {
               <img
                 src={image}
                 alt={`Sample ${index + 1}`}
-                className="w-full h-full object-cover rounded-lg shadow-2xl cursor-pointer hover:opacity-90 damped-transition"
+                className="w-full h-full object-cover shadow-2xl"
+                style={{ borderRadius: '8px' }}
                 draggable={false}
                 onClick={() => {
-                  // Only open lightbox if not dragging
-                  if (Math.abs(translateX) < 10) {
-                    // Map extended index back to original index
+                  if (!hasDragged.current) {
                     let originalIndex = index - 1;
                     if (originalIndex < 0) originalIndex = images.length - 1;
                     if (originalIndex >= images.length) originalIndex = 0;

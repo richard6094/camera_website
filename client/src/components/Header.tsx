@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useLocation } from 'wouter';
 import { ShoppingCart, Menu, X, ChevronRight } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { FlagIcon } from './FlagIcon';
 import { toast } from 'sonner';
 
 /**
@@ -162,19 +163,19 @@ export default function Header({ cartCount = 0 }: HeaderProps) {
             <div className="relative flex-shrink-0">
               <button
                 onClick={() => setLangMenuOpen(!langMenuOpen)}
-                className="flex items-center justify-center gap-1.5 w-[60px] md:w-[70px] py-1.5 text-foreground/70 hover:text-foreground damped-transition border border-foreground/10 hover:border-foreground/20 bg-foreground/5 hover:bg-foreground/8"
-                style={{ borderRadius: '2px', borderWidth: '0.5px' }}
+                className="flex items-center justify-center gap-1.5 px-2.5 md:px-3 py-1.5 text-foreground/70 hover:text-foreground damped-transition border border-foreground/10 hover:border-foreground/20 bg-foreground/5 hover:bg-foreground/8"
+                style={{ borderWidth: '0.5px', borderRadius: '4px' }}
                 title={language === 'zh' ? 'Switch Language' : language === 'ja' ? '言語切替' : '切换语言'}
               >
-                <span className="text-sm md:text-base leading-none">{language === 'zh' ? '🇨🇳' : language === 'ja' ? '🇯🇵' : '🇺🇸'}</span>
-                <span className="text-xs md:text-sm font-medium tracking-wider whitespace-nowrap">{language === 'zh' ? '中文' : language === 'ja' ? 'JP' : 'EN'}</span>
+                <FlagIcon country={language === 'zh' ? 'cn' : language === 'ja' ? 'jp' : 'us'} className="w-5 h-3.5 rounded-[1px] overflow-hidden" />
+                <span className="text-xs md:text-sm font-medium tracking-wider whitespace-nowrap">{language === 'zh' ? '中文' : language === 'ja' ? '日本語' : 'EN'}</span>
               </button>
               {langMenuOpen && (
                 <>
                   <div className="fixed inset-0 z-40" onClick={() => setLangMenuOpen(false)} />
                   <div
                     className="absolute right-0 top-full mt-1 z-50 bg-background/95 backdrop-blur-md border border-foreground/10 shadow-lg overflow-hidden"
-                    style={{ borderRadius: '2px', borderWidth: '0.5px', minWidth: '120px' }}
+                    style={{ borderWidth: '0.5px', minWidth: '120px', borderRadius: '8px' }}
                   >
                     <button
                       onClick={() => { setLanguage('zh'); setLangMenuOpen(false); }}
@@ -182,7 +183,7 @@ export default function Header({ cartCount = 0 }: HeaderProps) {
                         language === 'zh' ? 'text-foreground bg-foreground/5' : 'text-foreground/60 hover:text-foreground hover:bg-foreground/5'
                       }`}
                     >
-                      <span className="text-base leading-none">🇨🇳</span>
+                      <FlagIcon country="cn" className="w-5 h-3.5 rounded-[1px] overflow-hidden" />
                       <span>中文</span>
                     </button>
                     <button
@@ -191,7 +192,7 @@ export default function Header({ cartCount = 0 }: HeaderProps) {
                         language === 'en' ? 'text-foreground bg-foreground/5' : 'text-foreground/60 hover:text-foreground hover:bg-foreground/5'
                       }`}
                     >
-                      <span className="text-base leading-none">🇺🇸</span>
+                      <FlagIcon country="us" className="w-5 h-3.5 rounded-[1px] overflow-hidden" />
                       <span>English</span>
                     </button>
                     <button
@@ -200,7 +201,7 @@ export default function Header({ cartCount = 0 }: HeaderProps) {
                         language === 'ja' ? 'text-foreground bg-foreground/5' : 'text-foreground/60 hover:text-foreground hover:bg-foreground/5'
                       }`}
                     >
-                      <span className="text-base leading-none">🇯🇵</span>
+                      <FlagIcon country="jp" className="w-5 h-3.5 rounded-[1px] overflow-hidden" />
                       <span>日本語</span>
                     </button>
                   </div>

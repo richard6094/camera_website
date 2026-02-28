@@ -210,7 +210,7 @@ export default function Products() {
         <Breadcrumb
           items={[
             { label: language === 'zh' ? '首页' : language === 'ja' ? 'ホーム' : 'Home', href: '/' },
-            { label: language === 'zh' ? '产品' : language === 'ja' ? '製品' : 'Products' },
+            { label: language === 'zh' ? '产品系列' : language === 'ja' ? '製品シリーズ' : 'Products' },
           ]}
         />
       </div>
