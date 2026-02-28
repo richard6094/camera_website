@@ -13,10 +13,10 @@ import ProductDetail from "./pages/ProductDetail";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import BrandStory from "./pages/BrandStory";
-import ProductE39 from "./pages/ProductE39";
-import ProductE39Special from "./pages/ProductE39Special";
-import ProductE39Intro from "./pages/ProductE39Intro";
-import ProductE39SpecialIntro from "./pages/ProductE39SpecialIntro";
+import Product35mmF2 from "./pages/Product35mmF2";
+import Product35mmF2Special from "./pages/Product35mmF2Special";
+import Product35mmF2Intro from "./pages/Product35mmF2Intro";
+import Product35mmF2SpecialIntro from "./pages/Product35mmF2SpecialIntro";
 import ServiceSupport from "./pages/ServiceSupport";
 
 
@@ -29,10 +29,10 @@ function Router() {
         <Route path="/" component={Home} />
         <Route path="/story" component={BrandStory} />
         <Route path="/products" component={Products} />
-        <Route path="/products/e39-intro" component={ProductE39Intro} />
-        <Route path="/products/e39-special-intro" component={ProductE39SpecialIntro} />
-        <Route path="/products/e39" component={ProductE39} />
-        <Route path="/products/e39-special" component={ProductE39Special} />
+        <Route path="/products/35mm-f2-intro" component={Product35mmF2Intro} />
+        <Route path="/products/35mm-f2-special-intro" component={Product35mmF2SpecialIntro} />
+        <Route path="/products/35mm-f2" component={Product35mmF2} />
+        <Route path="/products/35mm-f2-special" component={Product35mmF2Special} />
         <Route path="/products/:id" component={ProductDetail} />
         <Route path="/product/:id" component={ProductDetail} />
         <Route path="/support" component={ServiceSupport} />

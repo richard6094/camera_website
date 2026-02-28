@@ -5,11 +5,11 @@ import { Link } from 'wouter';
 import { Button } from '@/components/ui/button';
 
 /**
- * E39 Product Detail Page
+ * 35mm F/2 Product Detail Page
  * Design Philosophy: Premium product showcase with detailed specifications
  */
 
-export default function ProductE39() {
+export default function Product35mmF2() {
   const { language } = useLanguage();
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);

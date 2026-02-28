@@ -111,13 +111,13 @@ The product menu is defined internally:
 ```tsx
 const products = [
   {
-    label: 'E39',
-    href: '/products/e39-intro',
+    label: '35mm F/2',
+    href: '/products/35mm-f2-intro',
     description: language === 'zh' ? '经典焦段，纯粹视角' : 'Classic Focal Length, Pure Perspective',
   },
   {
-    label: 'E39 ' + (language === 'zh' ? '特别版' : 'Special Edition'),
-    href: '/products/e39-special-intro',
+    label: '35mm F/2 ' + (language === 'zh' ? '特别版' : 'Special Edition'),
+    href: '/products/35mm-f2-special-intro',
     description: language === 'zh' ? '匠心之作，限量典藏' : 'Crafted Excellence, Limited Collection',
   },
 ];

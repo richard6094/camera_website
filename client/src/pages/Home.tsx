@@ -43,7 +43,7 @@ export default function Home() {
       image: '/images/AI-generated-images/封面.jpg',
     },
     {
-      id: 'e39',
+      id: '35mm-f2',
       type: 'product' as const,
       name: '35mm F/2',
       tagline: language === 'zh' ? '经典焦段，纯粹视角' : language === 'ja' ? 'クラシックな焦点距離、ピュアなビジョン' : 'Classic Focal Length, Pure Vision',
@@ -51,7 +51,7 @@ export default function Home() {
       image: '/images/银色镜头+相机+暖色背景.jpg',
     },
     {
-      id: 'e39-special',
+      id: '35mm-f2-special',
       type: 'product' as const,
       name: language === 'zh' ? '35mm F/2 特别版' : language === 'ja' ? '35mm F/2 特別版' : '35mm F/2 Special Edition',
       tagline: language === 'zh' ? '匠心之作，限量典藏' : language === 'ja' ? '匠の技、限定コレクション' : 'Masterpiece, Limited Collection',
@@ -93,10 +93,10 @@ export default function Home() {
         onItemClick={(itemId) => {
           if (itemId === 'hero') {
             navigateWithTop('/products');
-          } else if (itemId === 'e39') {
-            navigateWithTop('/products/e39-intro');
-          } else if (itemId === 'e39-special') {
-            navigateWithTop('/products/e39-special-intro');
+          } else if (itemId === '35mm-f2') {
+            navigateWithTop('/products/35mm-f2-intro');
+          } else if (itemId === '35mm-f2-special') {
+            navigateWithTop('/products/35mm-f2-special-intro');
           } else {
             navigateWithTop(`/products/${itemId}`);
           }

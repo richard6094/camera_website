@@ -35,7 +35,7 @@ This is the official website for **Mandler Lens**, a high-end camera lens manufa
    - Detail Page Specs: f/1.4 aperture, 8 groups 11 elements, 11 aperture blades, 0.3m MFD, 52mm filter, 320g, M mount
    - Intro Page Narrative: F2.0, 7E/5G Double Gaussian, purple-gold multi-layer coating, 10-blade aperture, 34mm compact length
    - Stock: In stock
-   - Routes: `/products/e39` (store), `/products/e39-intro` (editorial)
+   - Routes: `/products/35mm-f2` (store), `/products/35mm-f2-intro` (editorial)
 
 3. **35mm F/2 特别版 / Special Edition** (internal code: E39 Special)
    - Type: Limited edition 35mm prime lens
@@ -45,7 +45,7 @@ This is the official website for **Mandler Lens**, a high-end camera lens manufa
    - Key Features: f/1.4 ASPH, 9 groups 12 elements (2 aspherical), brass + titanium body, 0.25m close focus, 340g, M mount
    - Stock: Limited (only 12 remaining), globally limited to 500 units
    - Limit: 3 per customer
-   - Routes: `/products/e39-special` (store), `/products/e39-special-intro` (editorial)
+   - Routes: `/products/35mm-f2-special` (store), `/products/35mm-f2-special-intro` (editorial)
 
 ## Technical Stack
 
@@ -105,7 +105,7 @@ shared/               # Shared constants and types
   - Cart icon shows coming-soon toast notification
 
 ### 3. Product Detail Pages
-- **Pages**: `ProductE39.tsx`, `ProductE39Special.tsx`
+- **Pages**: `Product35mmF2.tsx`, `Product35mmF2Special.tsx`
 - **Features**:
   - Image gallery with thumbnails
   - Detailed specifications table
@@ -116,7 +116,7 @@ shared/               # Shared constants and types
   - Responsive layout (pt-16 md:pt-20 to prevent header overlap)
 
 ### 3.1 Product Introduction Pages (Editorial Style)
-- **Pages**: `ProductE39Intro.tsx`, `ProductE39SpecialIntro.tsx`
+- **Pages**: `Product35mmF2Intro.tsx`, `Product35mmF2SpecialIntro.tsx`
 - **Features**:
   - Brand-story-like full-screen hero with cinematic imagery
   - Two-column editorial narrative sections
@@ -176,8 +176,8 @@ shared/               # Shared constants and types
 - ~~`translations.ts` type mismatch~~ — Fixed (2026-02-27, `as string` cast)
 
 ### Spec Inconsistency (E39)
-- **Detail page** (`ProductE39.tsx`) shows f/1.4, 8 groups 11 elements, 320g
-- **Intro page** (`ProductE39Intro.tsx`) references F2.0, 7E/5G Double Gaussian, 34mm compact length
+- **Detail page** (`Product35mmF2.tsx`) shows f/1.4, 8 groups 11 elements, 320g
+- **Intro page** (`Product35mmF2Intro.tsx`) references F2.0, 7E/5G Double Gaussian, 34mm compact length
 - These two pages intentionally serve different purposes (store vs editorial) but spec numbers diverge — may need alignment
 
 ### Pending Features
@@ -219,10 +219,10 @@ shared/               # Shared constants and types
 | `/` | `Home` | Landing page with hero showcase |
 | `/story` | `BrandStory` | Brand story page |
 | `/products` | `Products` | Product listing page |
-| `/products/e39-intro` | `ProductE39Intro` | E39 editorial intro |
-| `/products/e39-special-intro` | `ProductE39SpecialIntro` | E39 Special editorial intro |
-| `/products/e39` | `ProductE39` | E39 store/detail page |
-| `/products/e39-special` | `ProductE39Special` | E39 Special store/detail page |
+| `/products/35mm-f2-intro` | `Product35mmF2Intro` | 35mm F/2 editorial intro |
+| `/products/35mm-f2-special-intro` | `Product35mmF2SpecialIntro` | 35mm F/2 Special editorial intro |
+| `/products/35mm-f2` | `Product35mmF2` | 35mm F/2 store/detail page |
+| `/products/35mm-f2-special` | `Product35mmF2Special` | 35mm F/2 Special store/detail page |
 | `/products/:id` | `ProductDetail` | Generic product detail |
 | `/support` | `ServiceSupport` | Service & support page |
 | `/cart` | `Cart` | Shopping cart (placeholder) |
