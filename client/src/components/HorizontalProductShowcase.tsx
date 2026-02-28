@@ -149,7 +149,7 @@ export default function HorizontalProductShowcase({
   const handleTouchEnd = (e: React.TouchEvent) => handleDragEnd(e.changedTouches[0].clientX);
 
   return (
-    <section className="relative w-full" style={{ height: '100vh', minHeight: '700px', maxHeight: '1080px' }}>
+    <section className="relative w-full bg-black" style={{ height: '100vh', minHeight: '700px', maxHeight: '1080px' }}>
       {/* Horizontal Scroll Container */}
       <div
         ref={containerRef}
@@ -180,7 +180,7 @@ export default function HorizontalProductShowcase({
         {items.map((item, idx) => (
           <div
             key={item.id}
-            className="flex-shrink-0 w-full h-full relative overflow-hidden"
+            className="flex-shrink-0 w-full h-full relative overflow-hidden bg-black"
           >
             {item.type === 'hero' ? (
               // Hero Image/Video Card
