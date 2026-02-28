@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import { ChevronRight, ChevronDown } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -46,36 +46,20 @@ export default function HorizontalProductShowcase({
 }: HorizontalProductShowcaseProps) {
   const { t } = useLanguage();
   const [activeIndex, setActiveIndex] = useState(0);
-  const [parallaxOffsets, setParallaxOffsets] = useState<number[]>(items.map(() => 0));
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragOffset, setDragOffset] = useState(0);
+  const [autoPlay, setAutoPlay] = useState(true);
+  const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const autoScrollTimerRef = useRef<NodeJS.Timeout | null>(null);
-  const AUTO_SCROLL_INTERVAL = 5000; // 5 seconds
+  const dragStartX = useRef(0);
+  const dragStartRelX = useRef(0);
+  const hasDragged = useRef(false);
 
-  // Handle horizontal scroll to update active index and parallax
-  useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (!container) return;
-
-    const handleScroll = () => {
-      const scrollLeft = container.scrollLeft;
-      const cardWidth = container.offsetWidth;
-      const newIndex = Math.round(scrollLeft / cardWidth);
-      setActiveIndex(newIndex);
-
-      // Calculate parallax offsets for each card based on horizontal scroll
-      const newOffsets = items.map((_, idx) => {
-        const cardScrollPosition = scrollLeft - idx * cardWidth;
-        // Parallax effect: background moves slower (0.3x speed) relative to scroll
-        return cardScrollPosition * 0.3;
-      });
-      setParallaxOffsets(newOffsets);
-    };
-
-    container.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Initial calculation
-    return () => container.removeEventListener('scroll', handleScroll);
-  }, [items]);
+  // Compute parallax offsets based on activeIndex
+  const cWidth = containerRef.current?.offsetWidth || (typeof window !== 'undefined' ? window.innerWidth : 0);
+  const parallaxOffsets = items.map((_, idx) => {
+    return (activeIndex - idx) * cWidth * 0.3;
+  });
 
   // Video loading progress
   useEffect(() => {
@@ -102,110 +86,101 @@ export default function HorizontalProductShowcase({
     };
   }, [onVideoLoadProgress]);
 
-  // Auto-scroll functionality
+  // Next slide callback
+  const nextSlide = useCallback(() => {
+    setActiveIndex((prev) => (prev + 1) % items.length);
+  }, [items.length]);
+
+  // Auto-scroll
   useEffect(() => {
-    const startAutoScroll = () => {
-      if (autoScrollTimerRef.current) {
-        clearInterval(autoScrollTimerRef.current);
-      }
-      
-      autoScrollTimerRef.current = setInterval(() => {
-        setActiveIndex((prevIndex) => {
-          const nextIndex = (prevIndex + 1) % items.length;
-          scrollToItem(nextIndex);
-          return nextIndex;
-        });
-      }, AUTO_SCROLL_INTERVAL);
-    };
+    if (!autoPlay) return;
+    const timer = setInterval(nextSlide, 5000);
+    return () => clearInterval(timer);
+  }, [autoPlay, nextSlide]);
 
-    startAutoScroll();
-
-    // Pause auto-scroll when user interacts
-    const container = scrollContainerRef.current;
-    if (container) {
-      const pauseAutoScroll = () => {
-        if (autoScrollTimerRef.current) {
-          clearInterval(autoScrollTimerRef.current);
-          autoScrollTimerRef.current = null;
-        }
-        // Restart after 10 seconds of inactivity
-        setTimeout(startAutoScroll, 10000);
-      };
-
-      container.addEventListener('touchstart', pauseAutoScroll);
-      container.addEventListener('mousedown', pauseAutoScroll);
-
-      return () => {
-        if (autoScrollTimerRef.current) {
-          clearInterval(autoScrollTimerRef.current);
-        }
-        container.removeEventListener('touchstart', pauseAutoScroll);
-        container.removeEventListener('mousedown', pauseAutoScroll);
-      };
-    }
-
-    return () => {
-      if (autoScrollTimerRef.current) {
-        clearInterval(autoScrollTimerRef.current);
-      }
-    };
-  }, [items.length, AUTO_SCROLL_INTERVAL]);
-
-  // Scroll to specific item
-  const scrollToItem = (index: number) => {
-    const container = scrollContainerRef.current;
-    if (!container) return;
-
-    const cardWidth = container.offsetWidth;
-    container.scrollTo({
-      left: cardWidth * index,
-      behavior: 'smooth',
-    });
-  };
-
-  // Handle manual navigation with auto-scroll pause
+  // Handle manual navigation
   const handleManualNavigation = (index: number) => {
-    // Clear existing auto-scroll timer
-    if (autoScrollTimerRef.current) {
-      clearInterval(autoScrollTimerRef.current);
-      autoScrollTimerRef.current = null;
+    setActiveIndex(index);
+  };
+
+  // Drag handlers (position-based switching)
+  const handleDragStart = (clientX: number) => {
+    setIsDragging(true);
+    setAutoPlay(false);
+    dragStartX.current = clientX;
+    hasDragged.current = false;
+    const rect = containerRef.current?.getBoundingClientRect();
+    dragStartRelX.current = rect ? (clientX - rect.left) / rect.width : 0.5;
+  };
+
+  const handleDragMove = (clientX: number) => {
+    if (!isDragging) return;
+    const offset = clientX - dragStartX.current;
+    if (Math.abs(offset) > 5) hasDragged.current = true;
+    setDragOffset(offset);
+  };
+
+  const handleDragEnd = (clientX: number) => {
+    if (!isDragging) return;
+    setIsDragging(false);
+
+    if (hasDragged.current) {
+      const rect = containerRef.current?.getBoundingClientRect();
+      const endRelX = rect ? (clientX - rect.left) / rect.width : 0.5;
+      if (dragStartRelX.current > 0.5 && endRelX < 0.5) {
+        setActiveIndex((prev) => (prev + 1) % items.length);
+      } else if (dragStartRelX.current < 0.5 && endRelX > 0.5) {
+        setActiveIndex((prev) => (prev - 1 + items.length) % items.length);
+      }
     }
 
-    // Scroll to selected item
-    scrollToItem(index);
-    setActiveIndex(index);
-
-    // Restart auto-scroll after 10 seconds
-    setTimeout(() => {
-      if (autoScrollTimerRef.current) {
-        clearInterval(autoScrollTimerRef.current);
-      }
-      
-      autoScrollTimerRef.current = setInterval(() => {
-        setActiveIndex((prevIndex) => {
-          const nextIndex = (prevIndex + 1) % items.length;
-          scrollToItem(nextIndex);
-          return nextIndex;
-        });
-      }, AUTO_SCROLL_INTERVAL);
-    }, 10000);
+    setDragOffset(0);
+    setAutoPlay(true);
   };
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    e.preventDefault();
+    handleDragStart(e.clientX);
+  };
+  const handleMouseMove = (e: React.MouseEvent) => handleDragMove(e.clientX);
+  const handleMouseUp = (e: React.MouseEvent) => handleDragEnd(e.clientX);
+  const handleTouchStart = (e: React.TouchEvent) => handleDragStart(e.touches[0].clientX);
+  const handleTouchMove = (e: React.TouchEvent) => handleDragMove(e.touches[0].clientX);
+  const handleTouchEnd = (e: React.TouchEvent) => handleDragEnd(e.changedTouches[0].clientX);
 
   return (
     <section className="relative w-full" style={{ height: '100vh', minHeight: '700px', maxHeight: '1080px' }}>
       {/* Horizontal Scroll Container */}
       <div
-        ref={scrollContainerRef}
-        className="flex overflow-x-auto snap-x snap-mandatory h-full scrollbar-hide"
-        style={{
-          scrollbarWidth: 'none',
-          msOverflowStyle: 'none',
+        ref={containerRef}
+        className="relative h-full overflow-hidden select-none"
+        style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        onMouseEnter={() => setAutoPlay(false)}
+        onMouseLeave={() => {
+          if (isDragging) {
+            setIsDragging(false);
+            setDragOffset(0);
+          }
+          setAutoPlay(true);
         }}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
       >
+        <div
+          className="flex h-full"
+          style={{
+            transform: `translateX(calc(-${activeIndex * 100}% + ${dragOffset}px))`,
+            transition: isDragging ? 'none' : 'transform 500ms ease-in-out',
+          }}
+        >
         {items.map((item, idx) => (
           <div
             key={item.id}
-            className="flex-shrink-0 w-full h-full snap-start relative overflow-hidden"
+            className="flex-shrink-0 w-full h-full relative overflow-hidden"
           >
             {item.type === 'hero' ? (
               // Hero Image/Video Card
@@ -483,6 +458,7 @@ export default function HorizontalProductShowcase({
             )}
           </div>
         ))}
+        </div>
       </div>
 
       {/* Dot Scroll Indicators */}
@@ -527,12 +503,6 @@ export default function HorizontalProductShowcase({
         </div>
       </div>
 
-      {/* Hide scrollbar globally for this component */}
-      <style>{`
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
     </section>
   );
 }
