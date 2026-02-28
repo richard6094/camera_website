@@ -2,6 +2,36 @@
 
 ## Recent Changes & Optimizations
 
+### 2026-02-28: Shop Page Carousel, UserGallery Enhancements & UI Refinements
+**Summary**: Major overhaul of product shop pages and homepage UserGallery. Replaced thumbnail grids with horizontal-slide carousels, added lightbox, auto-scroll, position-based drag logic, and various UI refinements.
+
+**Scope**:
+- **Shop Page Carousel** (Product35mmF2.tsx, Product35mmF2Special.tsx): Replaced thumbnail grid with `translateX`-based horizontal slide carousel; 4s auto-play interval with dot indicators; mouse/touch drag support with position-based switching (right→left half = next, left→right half = prev); `hasDragged` ref (5px threshold) distinguishes click from drag; removed `aspect-square` constraint, using `object-contain` + `h-auto` for full image display
+- **Lightbox on Shop Pages**: Added click-to-enlarge `ImageLightbox` on main product image; auto-play pauses when lightbox is open
+- **Product Introduction Links**: Added "查看产品介绍 / View Introduction / 製品紹介を見る" link buttons between description and purchase section, linking to respective intro pages
+- **Button Rounded Corners**: Added inline `borderRadius: '6px'` to quantity selector, add-to-cart, and buy-now buttons (workaround for `--radius: 0px` global CSS)
+- **UserGallery Enhancements**: Applied same position-based drag logic; added 4s auto-scroll with pause on hover/drag/lightbox; removed `hover:opacity-90` from images; circular wrap-around for drag (last→first, first→last)
+- **FlagIcon Component** (new): SVG-based flag icons for language switcher (replaces emoji flags for cross-platform consistency)
+- **Header Language Switcher**: Updated to use FlagIcon component
+- **Aperture Sample Images** (new): Added `35mmF2-F2.jpg` and `35mmF2-F4-8.jpg` for intro page aperture comparison section
+- **Copilot Instructions**: Added mandatory pre-read context, documentation sync rules, consolidation policy, pre-commit checklist
+
+**Files Changed**:
+- `client/src/pages/Product35mmF2.tsx` — carousel, lightbox, intro link, button corners, drag logic
+- `client/src/pages/Product35mmF2Special.tsx` — same as above + limited edition badge overlay
+- `client/src/pages/Product35mmF2Intro.tsx` — aperture sample images section, breadcrumb updates
+- `client/src/pages/Product35mmF2SpecialIntro.tsx` — breadcrumb label fix
+- `client/src/components/UserGallery.tsx` — position-based drag, auto-scroll, hover removal, circular wrap
+- `client/src/components/FlagIcon.tsx` (new) — SVG flag icon component
+- `client/src/components/Header.tsx` — FlagIcon integration, language switcher styling
+- `client/src/pages/Products.tsx` — breadcrumb label unification
+- `client/public/images/35mmF2-sample-images/` (new) — aperture comparison images
+- `.github/copilot-instructions.md` — documentation workflow rules
+
+**Rationale**: User requested iterative UI improvements to match magazine-style editorial design: richer product browsing (carousel + lightbox), smoother interactions (drag + auto-scroll), and visual polish.
+
+---
+
 ### 2026-02-27: Product Naming — Remove "7-element" Suffix
 **Summary**: Removed "7-element" suffix from all product display names. Products now display as "35mm F/2" (standard) and "35mm F/2 特别版/特別版/Special Edition" (special). Also fixed `heroEdition` content key in ProductE39SpecialIntro.tsx so the edition label renders on a separate line in the hero section.
 
@@ -72,106 +102,20 @@
 
 ---
 
-### 2026-02-26: Products Page Duplicate Header Removed
-**Change**: Removed the Products page's own local `<header>` which duplicated the global `Header` component and became visible after the global header auto-hid on scroll.
-
-**Scope**:
-- Removed local sticky `<header>` block (page title, home button, cart icon)
-- Changed `<main>` padding from `py-16 md:py-24` to `pt-28 md:pt-32 pb-16 md:pb-24` to account for global header height
-- Cleaned up unused imports (`useCart`, `itemCount`, `cartComingSoonText`)
-
-**Files Changed**:
-- `client/src/pages/Products.tsx`
-
----
-
-### 2026-02-26: Azure SWA Deployment & CI/CD Pipeline
-**Summary**: Established fully working Azure SWA deployment pipeline from scratch, including SPA routing fix and release-branch strategy.
-
-**Scope**:
-- Deleted broken SWA resource (`ashy-stone-052e5ec00`), created new one: `zealous-stone-00bf12300.1.azurestaticapps.net` (Free tier, East Asia)
-- Workflow: Corepack + pnpm, Node 20, Vite build, `skip_app_build: true`
-- Trigger changed from `main` to `release` branch (push + PR); flow: develop on `main` → merge to `release` → auto-deploy
-- Removed orphaned `ashy-stone` workflow + accidental 14MB zip artifact; added `*.zip` to `.gitignore`
-- Added `client/public/staticwebapp.config.json` with `navigationFallback` rewrite to `/index.html` (fixes SPA 404 on direct sub-route access)
-
-**Files Changed**:
-- `.github/workflows/azure-static-web-apps-zealous-stone-00bf12300.yml`
-- `client/public/staticwebapp.config.json` (new)
-- `.gitignore`
-
----
-
-### 2026-02-26: Hero Section UI Enhancements
-**Summary**: Added dot-style scroll indicators and fixed mobile product card bottom spacing in the Hero showcase.
-
-**Scope**:
-- Dot indicators: active capsule (`w-6 h-1.5 bg-white`) / inactive circles (`w-1.5 h-1.5 bg-white/40`), clickable, `bottom-[72px]`, 300ms transition
-- Mobile spacing: product content container changed from `bottom-20 sm:bottom-24 md:bottom-32` to `bottom-32 sm:bottom-28 md:bottom-32` to avoid overlap with dots and bottom nav
-
-**Files Changed**:
-- `client/src/components/HorizontalProductShowcase.tsx`
-
----
-
-### 2026-02-26: Service & Support Dedicated Page
-**Summary**: Created a full `/support` page and unified Home support section button style.
-
-**Scope**:
-- New page `ServiceSupport.tsx`: magazine-style editorial layout (Hero, Lifetime Warranty, Repair & Maintenance, 7-Day Return Policy dark section, Contact, Closing); full zh/en bilingual content
-- Route `/support` added; Header nav "服务支持 / Support" updated from `/#support` scroll anchor to `/support`
-- Home support section: added "了解详情 / LEARN MORE" CTA linking to `/support`; button restyled to bordered `px-6 py-3 border border-foreground/20` for consistency
-
-**Files Changed**:
-- `client/src/pages/ServiceSupport.tsx` (new)
-- `client/src/App.tsx`
-- `client/src/components/Header.tsx`
-- `client/src/pages/Home.tsx`
-
----
-
-### 2026-02-24: Navigation & Scroll-Top Fixes
-**Summary**: Fixed multiple routing/navigation issues where pages landed at wrong scroll positions, and clarified product card click targets.
-
-**Scope**:
-- Added `navigateWithTop` helper in Header and Home for forced scroll-top on route entry
-- Header: Story entry now uses top-reset navigation; `/#gallery` and `/#support` navigate to home first then scroll
-- Home: "LEARN MORE" story entry + showcase CTAs unified with top-reset behavior
-- Products page: card click targets changed from `/products/e3- Products page: card click targets changed from `/match editorial intro intent
-
-**Files Changed**:
-- `client/src/components/Header.tsx`
-- `client/src/pages/Home.tsx`
-- `client/src/pages/Products.tsx`
-
----
-
-### 2026-02-24: Cart Click Prompt + Product Card Detail Navigation
-**Summary**: Replaced silent disabled cart with clickable coming-soon prompt, ensured product card detail navigation.
-
-**Scope**:
-- Header & Products page cart icons now show toast on click (store under development notice)
-- Products page card-leve- Products page card-leve- Products page card-leve- Products page card-leve- Products page card-leve- Products page ca*Files Changed**:
-- `client/src/components/Header.tsx`
-- `client/src/pages/Products.tsx`
-
----
-
-### 2026-02-24: Brand Story Copy & Timeline Corrections
-**Summary**: Corrected Brand Story milestone years and updated wording to lens-first positioning.
-
-**Scope**:
-- "Classic Reborn" year: `2025` → `2024`; Timeline item 3 year: `2020` → `2023`
-- Product reference updated to `E39` and `E39 Special Edition` lens series
-- Replaced camera wording with lens throughout Brand Story
-- Synced both `zh` and `en`
-
-**Files Changed**:
-- `client/src/lib/translations.ts`
-
----
-
 ## Consolidated Historical Changes
+
+### 2026-02-26: Deployment, UI Enhancements & Page Additions
+- **Azure SWA Deployment**: New resource `zealous-stone-00bf12300`, CI/CD on `release` branch, SPA routing fix (`navigationFallback`), cleanup of orphaned workflows
+- **Hero Section UI**: Dot-style scroll indicators (active capsule/inactive circles), mobile spacing fix for product cards
+- **Service & Support Page**: New `/support` page with magazine-style editorial layout, full zh/en content; Header nav updated from anchor to route
+- **Products Page**: Removed duplicate local header, adjusted padding for global header
+
+### 2026-02-24: Navigation, Cart, Brand Story & Product Pages
+- **Navigation & Scroll-Top Fixes**: `navigateWithTop` helper for forced scroll-top on route entry; Header/Home link targets unified
+- **Cart Click Prompt**: Replaced disabled cart with clickable coming-soon toast notification
+- **Brand Story Corrections**: Timeline years corrected (2025→2024, 2020→2023), lens-first wording
+- **Products Page & Card Entry**: Realigned to E39 range, added E39 Special card, editorial intro pages created (`/products/e39-intro`, `/products/e39-special-intro`)
+- Files: `Header.tsx`, `Home.tsx`, `Products.tsx`, `ProductSelectionCards.tsx`, `ProductE39Intro.tsx`, `ProductE39SpecialIntro.tsx`, `App.tsx`, `translations.ts`
 
 ### 2026-02-24: E39 Special Intro Page — Iterative Design Refinements
 Multiple rounds of styling and layout adjustments to the E39 Special Edition intro page:
@@ -480,4 +424,4 @@ cp /path/to/image.jpg client/public/images/hero-cover.jpg
 For questions or issues:
 - GitHub Issues: `richard6094/camera_website`
 - Project maintained by: Manus AI Agent
-- Last updated: 2026-02-27
+- Last updated: 2026-02-28

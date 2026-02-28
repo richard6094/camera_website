@@ -160,7 +160,7 @@ export default function Product35mmF2SpecialIntro() {
         <Breadcrumb
           items={[
             { label: language === 'zh' ? '首页' : language === 'ja' ? 'ホーム' : 'Home', href: '/' },
-            { label: language === 'zh' ? '产品' : language === 'ja' ? '製品' : 'Products', href: '/products' },
+            { label: language === 'zh' ? '产品系列' : language === 'ja' ? '製品シリーズ' : 'Products', href: '/products' },
             { label: content.breadcrumbTitle },
           ]}
         />

@@ -33,6 +33,16 @@ When `DEVELOPMENT_NOTES.md` contains more than 20 individual change entries (###
 - Preserve all information that is still architecturally relevant; only compress routine/incremental tweaks.
 - For same-day entries, merge thematically related changes into a single entry (e.g. multiple navigation fixes → one "Navigation & Scroll-Top Fixes" entry) while preserving all key scope details and affected files.
 
+## Pre-commit / pre-push checklist
+Before committing or pushing to `main`, verify:
+
+1. **DEVELOPMENT_NOTES.md** — All code changes from this session are logged (date, summary, files changed, rationale).
+2. **COMPONENT_GUIDE.md** — Updated if any component props, behavior, or usage patterns changed.
+3. **DESIGN_SYSTEM.md** — Updated if any visual tokens, spacing, layout, or interaction rules changed.
+4. **PROJECT_CONTEXT.md** — Updated if product scope, feature status, routes, or architecture changed.
+
+If any document is stale, update it before committing. If no update is needed, confirm explicitly in the commit summary.
+
 ## Prioritization
 If there is any conflict:
 1. User request

@@ -1,10 +1,20 @@
+import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Breadcrumb from '@/components/Breadcrumb';
+import { ImageLightbox } from '@/components/ImageLightbox';
 import { useLocation } from 'wouter';
 
 export default function Product35mmF2Intro() {
   const { language } = useLanguage();
   const [, navigate] = useLocation();
+
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+  const apertureSamples = [
+    '/images/35mmF2-sample-images/35mmF2-F2.jpg',
+    '/images/35mmF2-sample-images/35mmF2-F4-8.jpg',
+    '/images/银色镜头不挂机特写.jpg',
+  ];
 
   const navigateWithTop = (path: string) => {
     navigate(path);
@@ -246,7 +256,7 @@ export default function Product35mmF2Intro() {
         <Breadcrumb
           items={[
             { label: language === 'zh' ? '首页' : language === 'ja' ? 'ホーム' : 'Home', href: '/' },
-            { label: language === 'zh' ? '产品' : language === 'ja' ? '製品' : 'Products', href: '/products' },
+            { label: language === 'zh' ? '产品系列' : language === 'ja' ? '製品シリーズ' : 'Products', href: '/products' },
             { label: content.breadcrumbTitle },
           ]}
         />
@@ -357,14 +367,26 @@ export default function Product35mmF2Intro() {
               <div className="absolute -left-4 top-0 w-px h-full bg-foreground/15 hidden md:block" />
               <p className="text-xs tracking-[0.2em] text-foreground/40 mb-3 uppercase">F2.0 Wide Open</p>
               <div className="w-10 h-px bg-foreground/20 mb-6" />
-              <p className="text-foreground/80 leading-relaxed text-lg">{content.aperturePara1}</p>
+              <p className="text-foreground/80 leading-relaxed text-lg mb-8">{content.aperturePara1}</p>
+              <img
+                src="/images/35mmF2-sample-images/35mmF2-F2.jpg"
+                alt="F2.0 wide open sample – bokeh"
+                className="w-full h-auto shadow-lg cursor-pointer hover:opacity-90 transition-opacity"
+                onClick={() => { setLightboxIndex(0); setLightboxOpen(true); }}
+              />
             </div>
             {/* Stopped down */}
             <div className="relative">
               <div className="absolute -left-4 top-0 w-px h-full bg-foreground/15 hidden md:block" />
               <p className="text-xs tracking-[0.2em] text-foreground/40 mb-3 uppercase">F4 – F8 Stopped Down</p>
               <div className="w-10 h-px bg-foreground/20 mb-6" />
-              <p className="text-foreground/80 leading-relaxed text-lg">{content.aperturePara2}</p>
+              <p className="text-foreground/80 leading-relaxed text-lg mb-8">{content.aperturePara2}</p>
+              <img
+                src="/images/35mmF2-sample-images/35mmF2-F4-8.jpg"
+                alt="F4–F8 stopped down sample – cityscape"
+                className="w-full h-auto shadow-lg cursor-pointer hover:opacity-90 transition-opacity"
+                onClick={() => { setLightboxIndex(1); setLightboxOpen(true); }}
+              />
             </div>
           </div>
         </div>
@@ -373,8 +395,8 @@ export default function Product35mmF2Intro() {
       {/* ── Full-bleed divider ── */}
       <section className="relative h-[50vh] md:h-[60vh]">
         <img
-          src="/images/银色镜头不挂机特写.jpg"
-          alt="35mm F/2 lens body"
+          src="/images/银色镜头套装.jpg"
+          alt="35mm F/2 lens kit"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-background/30" />
@@ -384,7 +406,7 @@ export default function Product35mmF2Intro() {
       <section className="py-20 md:py-32 bg-foreground/5">
         <div className="container max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 md:gap-16">
-            <div className="lg:col-span-3 flex flex-col justify-center order-2 lg:order-1">
+            <div className="lg:col-span-3 flex flex-col justify-center order-1 lg:order-1">
               <p className="text-sm tracking-[0.3em] mb-4 text-foreground/60">{content.craftLabel}</p>
               <h2 className="text-display text-3xl md:text-4xl lg:text-5xl mb-8 leading-tight">{content.craftTitle}</h2>
               <div className="space-y-6 text-foreground/80 leading-relaxed text-lg">
@@ -392,11 +414,12 @@ export default function Product35mmF2Intro() {
                 <p>{content.craftPara2}</p>
               </div>
             </div>
-            <div className="lg:col-span-2 order-1 lg:order-2">
+            <div className="lg:col-span-2 order-2 lg:order-2">
               <img
-                src="/images/银色镜头套装.jpg"
-                alt="35mm F/2 kit"
-                className="w-full h-auto rounded-lg shadow-2xl"
+                src="/images/银色镜头不挂机特写.jpg"
+                alt="35mm F/2 lens body"
+                className="w-full h-auto rounded-lg shadow-2xl cursor-pointer hover:opacity-90 transition-opacity"
+                onClick={() => { setLightboxIndex(2); setLightboxOpen(true); }}
               />
             </div>
           </div>
@@ -461,6 +484,12 @@ export default function Product35mmF2Intro() {
           </div>
         </div>
       </section>
+      <ImageLightbox
+        images={apertureSamples}
+        initialIndex={lightboxIndex}
+        isOpen={lightboxOpen}
+        onClose={() => setLightboxOpen(false)}
+      />
     </div>
   );
 }
