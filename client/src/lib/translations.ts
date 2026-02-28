@@ -77,6 +77,7 @@ export const translations = {
     'gallery.heading': '用户样片',
     'gallery.label': '用户样片',
     'gallery.description': '由世界各地的摄影师拍摄，这些图像展示了 Mandler 镜头的卓越品质和多功能性。',
+    'gallery.viewMore': '查看更多',
 
     // Support
     'support.heading': '服务支持',
@@ -287,6 +288,7 @@ export const translations = {
     'gallery.heading': 'User Gallery',
     'gallery.label': 'USER GALLERY',
     'gallery.description': 'Captured by photographers around the world, these images showcase the exceptional quality and versatility of Mandler lenses.',
+    'gallery.viewMore': 'View More',
 
     // Support
     'support.heading': 'Service & Support',
@@ -497,6 +499,7 @@ export const translations = {
     'gallery.heading': 'ギャラリー',
     'gallery.label': 'ギャラリー',
     'gallery.description': '世界中の写真家によって撮影されたこれらの作品は、Mandlerレンズの卓越した品質と多用途性を示しています。',
+    'gallery.viewMore': 'もっと見る',
 
     // Support
     'support.heading': 'サービス＆サポート',

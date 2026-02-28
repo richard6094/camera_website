@@ -224,6 +224,7 @@ shared/               # Shared constants and types
 | `/products/35mm-f2` | `Product35mmF2` | 35mm F/2 store/detail page |
 | `/products/35mm-f2-special` | `Product35mmF2Special` | 35mm F/2 Special store/detail page |
 | `/products/:id` | `ProductDetail` | Generic product detail |
+| `/gallery` | `Gallery` | Full user gallery with all sample photos (Azure Blob Storage) |
 | `/support` | `ServiceSupport` | Service & support page |
 | `/cart` | `Cart` | Shopping cart (placeholder) |
 | `/checkout` | `Checkout` | Checkout (placeholder) |
@@ -266,4 +267,14 @@ shared/               # Shared constants and types
 - **Repository**: https://github.com/richard6094/camera_website
 - **Live Site**: https://www.mandler-optics.com
 - **Design Inspiration**: Leica Camera AG, premium lens manufacturers
-- **Asset Sources**: Local static assets in `client/public/images`
+- **Asset Sources**: Local static assets in `client/public/images`, Azure Blob Storage for user gallery
+
+### Azure Blob Storage (User Gallery Images)
+- **Account**: `mandlergallery`
+- **Container**: `gallery` (public blob access)
+- **Region**: East Asia
+- **Resource Group**: `MandlerWebsite`
+- **Base URL**: `https://mandlergallery.blob.core.windows.net/gallery/`
+- **Content**: 131 user sample photos (~749MB), organized in 6 chapters with Chinese folder names
+- **CORS**: Configured for `www.mandler-optics.com`, SWA domain, and `localhost:3000`
+- **Usage**: Gallery page (`/gallery`) loads images directly from blob storage with lazy loading

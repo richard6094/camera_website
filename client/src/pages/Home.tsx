@@ -159,13 +159,18 @@ export default function Home() {
         <div className="container max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
           {/* Section Header */}
           <div className="text-center mb-12 sm:mb-14 md:mb-16">
-            <p className="text-xs sm:text-sm tracking-widest mb-3 sm:mb-4 text-foreground/60">
-              {t('gallery.label')}
-            </p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-7 md:mb-8 tracking-tight text-foreground">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4 sm:mb-5">
               {t('gallery.heading')}
             </h2>
-            <div className="w-12 sm:w-14 md:w-16 h-px mx-auto mb-6 sm:mb-7 md:mb-8 bg-foreground/20" style={{height: '0.5px'}} />
+            <button
+              onClick={() => navigateWithTop('/gallery')}
+              className="inline-flex items-center gap-1.5 text-xs tracking-widest text-foreground/40 hover:text-foreground/70 transition-colors cursor-pointer group mb-6 sm:mb-7 md:mb-8"
+            >
+              <span className="border-b border-foreground/20 group-hover:border-foreground/50 pb-px transition-colors">
+                {t('gallery.viewMore')}
+              </span>
+              <ChevronRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" strokeWidth={1.5} />
+            </button>
             <p className="text-base sm:text-lg leading-relaxed text-foreground/80 max-w-3xl mx-auto">
               {t('gallery.description')}
             </p>

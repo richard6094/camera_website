@@ -18,6 +18,7 @@ import Product35mmF2Special from "./pages/Product35mmF2Special";
 import Product35mmF2Intro from "./pages/Product35mmF2Intro";
 import Product35mmF2SpecialIntro from "./pages/Product35mmF2SpecialIntro";
 import ServiceSupport from "./pages/ServiceSupport";
+import Gallery from "./pages/Gallery";
 
 
 function Router() {
@@ -36,6 +37,7 @@ function Router() {
         <Route path="/products/:id" component={ProductDetail} />
         <Route path="/product/:id" component={ProductDetail} />
         <Route path="/support" component={ServiceSupport} />
+        <Route path="/gallery" component={Gallery} />
         <Route path="/cart" component={Cart} />
         <Route path="/checkout" component={Checkout} />
         <Route path="/404" component={NotFound} />
