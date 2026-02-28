@@ -5,11 +5,11 @@ import { Link } from 'wouter';
 import { Button } from '@/components/ui/button';
 
 /**
- * E39 Special Edition Product Detail Page
+ * 35mm F/2 Special Edition Product Detail Page
  * Design Philosophy: Premium limited edition showcase
  */
 
-export default function ProductE39Special() {
+export default function Product35mmF2Special() {
   const { language } = useLanguage();
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);

@@ -18,7 +18,7 @@ import { toast } from 'sonner';
  */
 
 interface Product {
-  id: 'e39' | 'e39-special';
+  id: '35mm-f2' | '35mm-f2-special';
   route: string;
   categoryKey: 'standard' | 'special';
   name: string;
@@ -99,8 +99,8 @@ export default function Products() {
   const products: Product[] = language === 'zh'
     ? [
       {
-        id: 'e39',
-        route: '/products/e39-intro',
+        id: '35mm-f2',
+        route: '/products/35mm-f2-intro',
         categoryKey: 'standard',
         name: '35mm F/2',
         categoryLabel: copy.categoryStandard,
@@ -113,8 +113,8 @@ export default function Products() {
         stockLabel: copy.inStock,
       },
       {
-        id: 'e39-special',
-        route: '/products/e39-special-intro',
+        id: '35mm-f2-special',
+        route: '/products/35mm-f2-special-intro',
         categoryKey: 'special',
         name: '35mm F/2 特别版',
         categoryLabel: copy.categorySpecial,
@@ -130,8 +130,8 @@ export default function Products() {
     : language === 'ja'
     ? [
       {
-        id: 'e39',
-        route: '/products/e39-intro',
+        id: '35mm-f2',
+        route: '/products/35mm-f2-intro',
         categoryKey: 'standard',
         name: '35mm F/2',
         categoryLabel: copy.categoryStandard,
@@ -144,8 +144,8 @@ export default function Products() {
         stockLabel: copy.inStock,
       },
       {
-        id: 'e39-special',
-        route: '/products/e39-special-intro',
+        id: '35mm-f2-special',
+        route: '/products/35mm-f2-special-intro',
         categoryKey: 'special',
         name: '35mm F/2 特別版',
         categoryLabel: copy.categorySpecial,
@@ -160,8 +160,8 @@ export default function Products() {
     ]
     : [
       {
-        id: 'e39',
-        route: '/products/e39-intro',
+        id: '35mm-f2',
+        route: '/products/35mm-f2-intro',
         categoryKey: 'standard',
         name: '35mm F/2',
         categoryLabel: copy.categoryStandard,
@@ -174,8 +174,8 @@ export default function Products() {
         stockLabel: copy.inStock,
       },
       {
-        id: 'e39-special',
-        route: '/products/e39-special-intro',
+        id: '35mm-f2-special',
+        route: '/products/35mm-f2-special-intro',
         categoryKey: 'special',
         name: '35mm F/2 Special Edition',
         categoryLabel: copy.categorySpecial,

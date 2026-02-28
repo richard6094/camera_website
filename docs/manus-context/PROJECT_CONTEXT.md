@@ -15,7 +15,7 @@ This is the official website for **Mandler Lens**, a high-end camera lens manufa
 ### Visual Language
 - **Color Palette**: Monochromatic with subtle warm accents (see DESIGN_SYSTEM.md)
 - **Typography**: Clean, readable fonts with generous spacing
-- **Imagery**: Black & white photography, artisan craftsmanship, vintage cameras
+- **Imagery**: Product photography, artisan craftsmanship, AI-generated cover art
 - **Motion**: Smooth parallax effects, gentle transitions, auto-scrolling galleries
 
 ## Product Structure
@@ -23,24 +23,29 @@ This is the official website for **Mandler Lens**, a high-end camera lens manufa
 ### Current Products
 1. **Mandler (Hero/Brand Story)**
    - Type: Brand introduction hero section
-   - Image: Artisan hand-crafting camera
+   - Image: AI-generated cover (`/images/AI-generated-images/封面.jpg`)
    - Tagline: "光，拥有自己的语言" (Light has its own language)
    - Description: Continuing the legendary optical designer's classic
 
-2. **E39**
+2. **35mm F/2** (internal code: E39)
    - Type: 35mm prime lens
-   - Price: ¥12,800
+   - Display Name: "35mm F/2"
+   - Pricing: ¥12,800 (CNY) / ¥278,000 (JPY) / $1,899 (USD)
    - Tagline: "经典焦段，纯粹视角" (Classic focal length, pure perspective)
-   - Key Features: f/1.4 aperture, 8 groups 11 elements, 320g weight
+   - Detail Page Specs: f/1.4 aperture, 8 groups 11 elements, 11 aperture blades, 0.3m MFD, 52mm filter, 320g, M mount
+   - Intro Page Narrative: F2.0, 7E/5G Double Gaussian, purple-gold multi-layer coating, 10-blade aperture, 34mm compact length
    - Stock: In stock
+   - Routes: `/products/35mm-f2` (store), `/products/35mm-f2-intro` (editorial)
 
-3. **E39 Special Edition**
+3. **35mm F/2 特别版 / Special Edition** (internal code: E39 Special)
    - Type: Limited edition 35mm prime lens
-   - Price: ¥28,800 (original ¥32,000)
+   - Display Name: "35mm F/2 特别版" (zh) / "35mm F/2 特別版" (ja) / "35mm F/2 Special Edition" (en)
+   - Pricing: ¥28,800 (orig ¥32,000 CNY) / ¥628,000 (orig ¥698,000 JPY) / $4,299 (orig $4,799 USD)
    - Tagline: "匠心之作，限量典藏" (Crafted excellence, limited collection)
-   - Key Features: f/1.4 ASPH, brass + titanium body, 0.25m close focus
-   - Stock: Limited (only 12 remaining)
+   - Key Features: f/1.4 ASPH, 9 groups 12 elements (2 aspherical), brass + titanium body, 0.25m close focus, 340g, M mount
+   - Stock: Limited (only 12 remaining), globally limited to 500 units
    - Limit: 3 per customer
+   - Routes: `/products/35mm-f2-special` (store), `/products/35mm-f2-special-intro` (editorial)
 
 ## Technical Stack
 
@@ -89,15 +94,18 @@ shared/               # Shared constants and types
 ### 2. Header with Auto-Hide
 - **Component**: `Header.tsx`
 - **Features**:
-  - Fixed position header
+  - Fixed position header with hamburger menu (left), brand logo (center), cart icon (right)
   - Auto-hides on scroll down (after 100px)
   - Reappears on scroll up
   - Always visible at page top (< 10px scroll)
   - Smooth 300ms transition
-  - Responsive product menu (E39, E39 Special Edition)
+  - Compact dropdown navigation panel with submenu support
+  - Responsive product menu (35mm F/2, 35mm F/2 Special Edition)
+  - Trilingual language switcher (🇨🇳中文 / 🇺🇸English / 🇯🇵日本語)
+  - Cart icon shows coming-soon toast notification
 
 ### 3. Product Detail Pages
-- **Pages**: `ProductE39.tsx`, `ProductE39Special.tsx`
+- **Pages**: `Product35mmF2.tsx`, `Product35mmF2Special.tsx`
 - **Features**:
   - Image gallery with thumbnails
   - Detailed specifications table
@@ -108,7 +116,7 @@ shared/               # Shared constants and types
   - Responsive layout (pt-16 md:pt-20 to prevent header overlap)
 
 ### 3.1 Product Introduction Pages (Editorial Style)
-- **Pages**: `ProductE39Intro.tsx`, `ProductE39SpecialIntro.tsx`
+- **Pages**: `Product35mmF2Intro.tsx`, `Product35mmF2SpecialIntro.tsx`
 - **Features**:
   - Brand-story-like full-screen hero with cinematic imagery
   - Two-column editorial narrative sections
@@ -120,7 +128,9 @@ shared/               # Shared constants and types
 ### 4. Internationalization
 - **Implementation**: `LanguageContext.tsx` + `translations.ts`
 - **Languages**: Chinese (zh), English (en), and Japanese (ja)
-- **Coverage**: All UI text, product descriptions, navigation
+- **Coverage**: All UI text, product descriptions, navigation, breadcrumbs, pricing (CNY/JPY/USD)
+- **Language Switcher**: Dropdown in Header with flag emoji labels
+- **Inline Content**: Product intro pages contain full trilingual editorial content inline (not via translation keys)
 
 ### 5. Shopping Cart (Placeholder)
 - **Context**: `CartContext.tsx`
@@ -164,8 +174,11 @@ shared/               # Shared constants and types
 
 ### TypeScript Errors
 - ~~`translations.ts` type mismatch~~ — Fixed (2026-02-27, `as string` cast)
-- **Impact**: Does not affect runtime, only type checking
-- ~~Fixed~~: Type definitions resolved with `as string` cast in `getTranslation`
+
+### Spec Inconsistency (E39)
+- **Detail page** (`Product35mmF2.tsx`) shows f/1.4, 8 groups 11 elements, 320g
+- **Intro page** (`Product35mmF2Intro.tsx`) references F2.0, 7E/5G Double Gaussian, 34mm compact length
+- These two pages intentionally serve different purposes (store vs editorial) but spec numbers diverge — may need alignment
 
 ### Pending Features
 1. Shopping cart functionality (add/remove items, checkout)
@@ -197,6 +210,24 @@ shared/               # Shared constants and types
 - Test on multiple screen sizes
 - Optimize images and keep runtime references in `client/public/images` (`/images/*` paths)
 - Avoid inline styles except for dynamic values
+
+## Routing
+
+### All Routes (defined in `App.tsx`)
+| Route | Component | Description |
+|-------|-----------|-------------|
+| `/` | `Home` | Landing page with hero showcase |
+| `/story` | `BrandStory` | Brand story page |
+| `/products` | `Products` | Product listing page |
+| `/products/35mm-f2-intro` | `Product35mmF2Intro` | 35mm F/2 editorial intro |
+| `/products/35mm-f2-special-intro` | `Product35mmF2SpecialIntro` | 35mm F/2 Special editorial intro |
+| `/products/35mm-f2` | `Product35mmF2` | 35mm F/2 store/detail page |
+| `/products/35mm-f2-special` | `Product35mmF2Special` | 35mm F/2 Special store/detail page |
+| `/products/:id` | `ProductDetail` | Generic product detail |
+| `/support` | `ServiceSupport` | Service & support page |
+| `/cart` | `Cart` | Shopping cart (placeholder) |
+| `/checkout` | `Checkout` | Checkout (placeholder) |
+| `/404` | `NotFound` | 404 page |
 
 ## Deployment
 

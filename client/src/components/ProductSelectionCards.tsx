@@ -13,18 +13,18 @@ export function ProductSelectionCards() {
 
   const products: ProductCard[] = [
     {
-      id: 'e39',
+      id: '35mm-f2',
       name: '35mm F/2',
       image: '/images/银色镜头挂机特写1.jpg',
       available: true,
-      link: '/products/e39-intro',
+      link: '/products/35mm-f2-intro',
     },
     {
-      id: 'e39-special',
+      id: '35mm-f2-special',
       name: language === 'zh' ? '35mm F/2 特别版' : language === 'ja' ? '35mm F/2 特別版' : '35mm F/2 Special Edition',
       image: '/images/3色镜头+相机+木质背景.jpg',
       available: true,
-      link: '/products/e39-special-intro',
+      link: '/products/35mm-f2-special-intro',
     },
     {
       id: 'coming-soon',
@@ -64,7 +64,7 @@ export function ProductSelectionCards() {
               {/* Product Name */}
               <div className="p-4 md:p-6">
                 <h3 className="text-lg md:text-xl font-light tracking-wide text-foreground">
-                  {product.id === 'e39-special' ? (
+                  {product.id === '35mm-f2-special' ? (
                     <>
                       35mm F/2{' '}
                       <span className="whitespace-nowrap">

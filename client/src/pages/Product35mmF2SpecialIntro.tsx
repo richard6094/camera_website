@@ -2,7 +2,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import Breadcrumb from '@/components/Breadcrumb';
 import { useLocation } from 'wouter';
 
-export default function ProductE39SpecialIntro() {
+export default function Product35mmF2SpecialIntro() {
   const { language } = useLanguage();
   const [, navigate] = useLocation();
 
@@ -279,7 +279,7 @@ export default function ProductE39SpecialIntro() {
           <div className="w-24 h-px bg-foreground/30 mx-auto mt-12" />
           <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
             <button
-              onClick={() => navigateWithTop('/products/e39-special')}
+              onClick={() => navigateWithTop('/products/35mm-f2-special')}
               className="px-8 py-3 border border-foreground/20 text-foreground hover:bg-foreground hover:text-background transition-colors"
             >
               {content.primaryButton}
