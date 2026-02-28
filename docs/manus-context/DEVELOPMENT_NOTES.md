@@ -2,6 +2,25 @@
 
 ## Recent Changes & Optimizations
 
+### 2026-02-28: Gallery Page & Azure Blob Storage Integration
+**Summary**: Created dedicated `/gallery` page displaying 131 user sample photos from Azure Blob Storage, organized by 6 chapters. Added "查看更多" (View More) link to homepage gallery section heading. Updated header navigation to link to `/gallery` instead of homepage anchor `/#gallery`.
+
+**Scope**:
+- **Gallery page** (`Gallery.tsx`): Hierarchical navigation — chapter tabs (sticky) + section sub-tabs; displays one section at a time with masonry grid; prev/next navigation with position indicator; lightbox scoped to current section; trilingual chapter/section titles with subtitles
+- **Homepage "View More"**: Positioned inline to the right of the "用户样片" heading with subtle underline + chevron, matching editorial design language
+- **Header nav**: Gallery link changed from `/#gallery` anchor to `/gallery` route
+
+**Files Changed**:
+- `client/src/pages/Gallery.tsx` (new) — Section-at-a-time gallery with chapter/section tab navigation, masonry columns, lightbox, prev/next, position counter
+- `client/src/App.tsx` — Added Gallery import and `/gallery` route
+- `client/src/pages/Home.tsx` — Moved "View More" to right of heading with design-forward inline style
+- `client/src/components/Header.tsx` — Changed gallery nav link from `/#gallery` to `/gallery`
+- `client/src/lib/translations.ts` — Added `gallery.viewMore` key in zh/en/ja
+
+**Rationale**: User uploaded 131 sample photos (~749MB) to Azure Blob Storage and requested a dedicated gallery page accessible from homepage. User requested (1) "查看更多" at heading right with design feel, (2) show one section at a time rather than all images at once.
+
+---
+
 ### 2026-02-28: Shop Page Carousel, UserGallery Enhancements & UI Refinements
 **Summary**: Major overhaul of product shop pages and homepage UserGallery. Replaced thumbnail grids with horizontal-slide carousels, added lightbox, auto-scroll, position-based drag logic, and various UI refinements.
 

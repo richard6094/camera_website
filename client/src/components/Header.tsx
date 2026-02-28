@@ -79,7 +79,7 @@ export default function Header({ cartCount = 0 }: HeaderProps) {
   const navItems: NavItem[] = [
     { label: t('header.products'), submenu: products },
     { label: t('header.story'), href: '/story' },
-    { label: t('header.gallery'), href: '/#gallery' },
+    { label: t('header.gallery'), href: '/gallery' },
     { label: t('header.support'), href: '/support' },
   ];
 
