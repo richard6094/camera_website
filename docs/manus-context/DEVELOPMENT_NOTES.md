@@ -2,6 +2,18 @@
 
 ## Recent Changes & Optimizations
 
+### 2026-03-01: Global Button Rounded Corners
+**Summary**: Changed global `--radius` design token from `0px` to `6px`, giving all buttons and UI components subtle rounded corners. Removed inline `borderRadius` workarounds from product page buttons.
+
+**Files Changed**:
+- `client/src/index.css` — `--radius: 0px` → `--radius: 6px` (yields `rounded-md`=4px, `rounded-lg`=6px)
+- `client/src/pages/Product35mmF2.tsx` — Removed inline `borderRadius: '6px'` from quantity selector and purchase buttons, using Tailwind `rounded-md`/`rounded-l-md`/`rounded-r-md` classes instead
+- `client/src/pages/Product35mmF2Special.tsx` — Same cleanup as above
+
+**Rationale**: User requested subtle rounded corners on all buttons. Updating the design token is cleaner than per-button inline styles.
+
+---
+
 ### 2026-03-01: Homepage UserGallery — Real Sample Photos & Full Uncropped Display
 **Summary**: Replaced placeholder sample images in homepage UserGallery carousel with 7 real landscape photos from Azure Blob Storage (WebP), spanning chapters 1–5. Changed display from fixed-height `object-cover` (cropped) to natural aspect ratio `h-auto` (full uncropped) layout.
 
