@@ -389,6 +389,27 @@ export default function Gallery() {
     }
   }, [activeChapter, activeSection, currentChapter]);
 
+  // Track header visibility to position sticky tabs correctly
+  const [headerVisible, setHeaderVisible] = useState(true);
+  const [headerHeight, setHeaderHeight] = useState(64);
+  useEffect(() => {
+    const header = document.querySelector('header');
+    if (!header) return;
+    setHeaderHeight(header.offsetHeight);
+    let lastScrollY = window.scrollY;
+    const onScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY < lastScrollY || currentScrollY < 10) {
+        setHeaderVisible(true);
+      } else if (currentScrollY > 100 && currentScrollY > lastScrollY) {
+        setHeaderVisible(false);
+      }
+      lastScrollY = currentScrollY;
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   const pageTitle = {
     zh: '用户样片',
     en: 'User Gallery',
@@ -416,7 +437,7 @@ export default function Gallery() {
       <section className="pt-8 sm:pt-12 md:pt-16 pb-8 sm:pb-10 bg-background">
         <div className="container max-w-7xl mx-auto px-6 sm:px-8 md:px-12 text-center">
           <p className="text-xs sm:text-sm tracking-widest mb-3 sm:mb-4 text-foreground/60 uppercase">
-            {pageTitle[language]}
+            MANDLER GALLERY
           </p>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight text-foreground">
             {pageTitle[language]}
@@ -428,56 +449,65 @@ export default function Gallery() {
         </div>
       </section>
 
-      {/* Chapter Tabs */}
-      <nav className="border-y border-foreground/10 bg-background/80 backdrop-blur-sm sticky top-16 z-30">
-        <div className="container max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
-          <div className="flex items-center justify-center gap-x-1 sm:gap-x-2 flex-wrap py-0">
-            {galleryData.map((chapter, cIdx) => (
-              <button
-                key={chapter.id}
-                onClick={() => navigateTo(cIdx, 0)}
-                className={`relative py-3 px-3 sm:px-4 text-xs sm:text-sm tracking-wide whitespace-nowrap cursor-pointer ${
-                  cIdx === activeChapter
-                    ? 'text-foreground font-medium'
-                    : 'text-foreground/40'
-                }`}
-              >
-                {chapter.tabLabel[language]}
-                {/* Active indicator line */}
-                {cIdx === activeChapter && (
-                  <span className="absolute bottom-0 left-3 right-3 sm:left-4 sm:right-4 h-[1.5px] bg-foreground" />
-                )}
-              </button>
-            ))}
-          </div>
-        </div>
-      </nav>
-
-      {/* Section Selector (if chapter has multiple sections) */}
-      {currentChapter.sections.length > 1 && (
-        <div className="border-b border-foreground/5 bg-background">
+      {/* Sticky Navigation Container (Chapter Tabs + Section Tabs) */}
+      <div
+        className="sticky z-30 bg-background/80 backdrop-blur-sm"
+        style={{
+          top: headerVisible ? `${headerHeight}px` : '0px',
+          transition: 'top 300ms ease-in-out',
+        }}
+      >
+        {/* Chapter Tabs */}
+        <nav className="border-y border-foreground/10">
           <div className="container max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
-            <div className="flex items-center justify-center gap-x-1 flex-wrap py-0">
-              {currentChapter.sections.map((section, sIdx) => (
+            <div className="flex items-center justify-center gap-x-1 sm:gap-x-2 flex-wrap py-0">
+              {galleryData.map((chapter, cIdx) => (
                 <button
-                  key={sIdx}
-                  onClick={() => navigateTo(activeChapter, sIdx)}
-                  className={`relative py-2.5 px-3 sm:px-4 text-xs tracking-wide whitespace-nowrap cursor-pointer ${
-                    sIdx === activeSection
-                      ? 'text-foreground/80 font-medium'
-                      : 'text-foreground/30'
+                  key={chapter.id}
+                  onClick={() => navigateTo(cIdx, 0)}
+                  className={`relative py-3 px-3 sm:px-4 text-xs sm:text-sm tracking-wide whitespace-nowrap cursor-pointer ${
+                    cIdx === activeChapter
+                      ? 'text-foreground font-medium'
+                      : 'text-foreground/40'
                   }`}
                 >
-                  {section.title[language]}
-                  {sIdx === activeSection && (
-                    <span className="absolute bottom-0 left-3 right-3 sm:left-4 sm:right-4 h-[1px] bg-foreground/40" />
+                  {chapter.tabLabel[language]}
+                  {/* Active indicator line */}
+                  {cIdx === activeChapter && (
+                    <span className="absolute bottom-0 left-3 right-3 sm:left-4 sm:right-4 h-[1.5px] bg-foreground" />
                   )}
                 </button>
               ))}
             </div>
           </div>
-        </div>
-      )}
+        </nav>
+
+        {/* Section Selector (if chapter has multiple sections) */}
+        {currentChapter.sections.length > 1 && (
+          <div className="border-b border-foreground/5">
+            <div className="container max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
+              <div className="flex items-center justify-center gap-x-1 flex-wrap py-0">
+                {currentChapter.sections.map((section, sIdx) => (
+                  <button
+                    key={sIdx}
+                    onClick={() => navigateTo(activeChapter, sIdx)}
+                    className={`relative py-2.5 px-3 sm:px-4 text-xs tracking-wide whitespace-nowrap cursor-pointer ${
+                      sIdx === activeSection
+                        ? 'text-foreground/80 font-medium'
+                        : 'text-foreground/30'
+                    }`}
+                  >
+                    {section.title[language]}
+                    {sIdx === activeSection && (
+                      <span className="absolute bottom-0 left-3 right-3 sm:left-4 sm:right-4 h-[1px] bg-foreground/40" />
+                    )}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
 
       {/* Current Section Content */}
       <div id="gallery-content" className="py-10 sm:py-14 md:py-16">
