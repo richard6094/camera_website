@@ -131,6 +131,10 @@
   body {
     @apply text-foreground;
   }
+  /* Override Tailwind preflight border-radius:0 on buttons */
+  button {
+    border-radius: var(--radius-md);
+  }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
   [type="button"]:not(:disabled),
