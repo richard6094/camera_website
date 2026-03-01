@@ -128,7 +128,7 @@ export function UserGallery({ images }: UserGalleryProps) {
       {/* Carousel Container */}
       <div
         ref={containerRef}
-        className="relative h-[400px] sm:h-[500px] md:h-[600px] lg:h-[650px] overflow-hidden select-none touch-pan-y"
+        className="relative overflow-hidden select-none touch-pan-y"
         style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
@@ -146,7 +146,7 @@ export function UserGallery({ images }: UserGalleryProps) {
         onTouchEnd={handleTouchEnd}
       >
         <div
-          className="flex items-center h-full"
+          className="flex items-center"
           style={{
             transform: `translateX(calc(-${(currentIndex + 1) * 85}% + ${translateX}px))`,
             transition: isDragging ? 'none' : 'transform 500ms ease-in-out',
@@ -156,7 +156,7 @@ export function UserGallery({ images }: UserGalleryProps) {
           {extendedImages.map((image, index) => (
             <div
               key={`${image}-${index}`}
-              className="flex-shrink-0 h-full"
+              className="flex-shrink-0"
               style={{ 
                 width: '85%',
                 userSelect: 'none',
@@ -167,7 +167,7 @@ export function UserGallery({ images }: UserGalleryProps) {
               <img
                 src={image}
                 alt={`Sample ${index + 1}`}
-                className="w-full h-full object-cover shadow-2xl"
+                className="w-full h-auto shadow-2xl"
                 style={{ borderRadius: '8px' }}
                 draggable={false}
                 onClick={() => {

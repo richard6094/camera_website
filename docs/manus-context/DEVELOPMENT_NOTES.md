@@ -2,6 +2,17 @@
 
 ## Recent Changes & Optimizations
 
+### 2026-03-01: Homepage UserGallery — Real Sample Photos & Full Uncropped Display
+**Summary**: Replaced placeholder sample images in homepage UserGallery carousel with 7 real landscape photos from Azure Blob Storage (WebP), spanning chapters 1–5. Changed display from fixed-height `object-cover` (cropped) to natural aspect ratio `h-auto` (full uncropped) layout.
+
+**Files Changed**:
+- `client/src/pages/Home.tsx` — Replaced `/images/sample-*.jpg` placeholders with 7 Azure Blob Storage gallery URLs (landscape images from Geography, Color, Rhythm, Neon, Monochrome chapters)
+- `client/src/components/UserGallery.tsx` — Removed fixed container heights (`h-[400px] sm:h-[500px] md:h-[600px] lg:h-[650px]`), removed `h-full` from flex/slides, changed image from `object-cover` to `w-full h-auto` for natural proportions
+
+**Rationale**: User requested (1) real gallery photos instead of placeholders, (2) landscape-only images displayed at full size without cropping.
+
+---
+
 ### 2026-02-28: Gallery Page & Azure Blob Storage Integration
 **Summary**: Created dedicated `/gallery` page displaying 131 user sample photos from Azure Blob Storage, organized by 6 chapters. Added "查看更多" (View More) link to homepage gallery section heading. Updated header navigation to link to `/gallery` instead of homepage anchor `/#gallery`.
 
