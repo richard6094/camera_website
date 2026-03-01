@@ -298,7 +298,7 @@ export default function Product35mmF2Intro() {
       {/* ── Full-bleed image ── */}
       <section className="relative h-[60vh] md:h-[70vh]">
         <img src="/images/银色镜头挂机特写1.jpg" alt="35mm F/2 detail" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
       </section>
 
       {/* ── Legendary Optical Structure ── */}

@@ -219,7 +219,7 @@ export default function Product35mmF2SpecialIntro() {
 
       <section className="relative h-[60vh] md:h-[70vh]">
         <img src="/images/4种颜色镜头产品照-带包装.jpg" alt="35mm F/2 Special Edition detail" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
       </section>
 
       <section className="py-20 md:py-32 bg-foreground/5">

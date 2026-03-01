@@ -83,7 +83,7 @@ export default function BrandStory() {
           alt="Manufacturing excellence"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
       </section>
 
       {/* Heritage Section */}
