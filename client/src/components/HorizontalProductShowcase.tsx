@@ -144,17 +144,22 @@ export default function HorizontalProductShowcase({
   };
   const handleMouseMove = (e: React.MouseEvent) => handleDragMove(e.clientX);
   const handleMouseUp = (e: React.MouseEvent) => handleDragEnd(e.clientX);
-  const handleTouchStart = (e: React.TouchEvent) => handleDragStart(e.touches[0].clientX);
-  const handleTouchMove = (e: React.TouchEvent) => handleDragMove(e.touches[0].clientX);
+  const handleTouchStart = (e: React.TouchEvent) => {
+    handleDragStart(e.touches[0].clientX);
+  };
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (hasDragged.current) e.preventDefault();
+    handleDragMove(e.touches[0].clientX);
+  };
   const handleTouchEnd = (e: React.TouchEvent) => handleDragEnd(e.changedTouches[0].clientX);
 
   return (
-    <section className="relative w-full bg-black" style={{ height: '100vh', minHeight: '700px', maxHeight: '1080px' }}>
+    <section className="relative w-full bg-black" style={{ height: '100vh', minHeight: '700px', maxHeight: '1080px', WebkitTapHighlightColor: 'transparent' }}>
       {/* Horizontal Scroll Container */}
       <div
         ref={containerRef}
         className="relative h-full overflow-hidden select-none"
-        style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
+        style={{ cursor: isDragging ? 'grabbing' : 'grab', WebkitTapHighlightColor: 'transparent', touchAction: 'pan-y' }}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
