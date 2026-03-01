@@ -36,7 +36,7 @@ export default function BrandStory() {
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: 'url(/images/brand-story-workshop.jpg)',
+            backgroundImage: 'url(/images/银色镜头挂机特写2-正面.jpg)',
             filter: 'brightness(0.4)',
           }}
         />
