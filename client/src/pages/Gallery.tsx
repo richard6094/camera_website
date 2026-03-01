@@ -346,16 +346,10 @@ export default function Gallery() {
     setLightboxOpen(true);
   };
 
-  /** Navigate to a specific chapter + section, scroll to top of gallery content */
+  /** Navigate to a specific chapter + section */
   const navigateTo = useCallback((chapterIdx: number, sectionIdx: number) => {
     setActiveChapter(chapterIdx);
     setActiveSection(sectionIdx);
-    // Scroll to content area
-    const el = document.getElementById('gallery-content');
-    if (el) {
-      const top = el.getBoundingClientRect().top + window.scrollY - 120;
-      window.scrollTo({ top, behavior: 'smooth' });
-    }
   }, []);
 
   /** Go to next section (wraps across chapters) */
@@ -442,10 +436,10 @@ export default function Gallery() {
               <button
                 key={chapter.id}
                 onClick={() => navigateTo(cIdx, 0)}
-                className={`relative py-3 px-3 sm:px-4 text-xs sm:text-sm tracking-wide whitespace-nowrap transition-colors cursor-pointer ${
+                className={`relative py-3 px-3 sm:px-4 text-xs sm:text-sm tracking-wide whitespace-nowrap cursor-pointer ${
                   cIdx === activeChapter
                     ? 'text-foreground font-medium'
-                    : 'text-foreground/40 hover:text-foreground/70'
+                    : 'text-foreground/40'
                 }`}
               >
                 {chapter.tabLabel[language]}
@@ -468,10 +462,10 @@ export default function Gallery() {
                 <button
                   key={sIdx}
                   onClick={() => navigateTo(activeChapter, sIdx)}
-                  className={`relative py-2.5 px-3 sm:px-4 text-xs tracking-wide whitespace-nowrap transition-colors cursor-pointer ${
+                  className={`relative py-2.5 px-3 sm:px-4 text-xs tracking-wide whitespace-nowrap cursor-pointer ${
                     sIdx === activeSection
                       ? 'text-foreground/80 font-medium'
-                      : 'text-foreground/30 hover:text-foreground/60'
+                      : 'text-foreground/30'
                   }`}
                 >
                   {section.title[language]}
