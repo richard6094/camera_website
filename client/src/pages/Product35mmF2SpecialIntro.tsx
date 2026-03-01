@@ -166,7 +166,7 @@ export default function Product35mmF2SpecialIntro() {
         />
       </div>
 
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative flex items-center justify-center overflow-hidden" style={{ height: '85vh' }}>
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
