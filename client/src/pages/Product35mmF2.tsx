@@ -375,19 +375,17 @@ export default function Product35mmF2() {
                 <label className="text-sm font-medium">
                   {pricing.quantityLabel}
                 </label>
-                <div className="flex items-center border" style={{ borderRadius: '6px' }}>
+                <div className="flex items-center border rounded-md">
                   <button
                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    className="px-4 py-2 hover:bg-muted transition-colors"
-                    style={{ borderRadius: '6px 0 0 6px' }}
+                    className="px-4 py-2 hover:bg-muted transition-colors rounded-l-md"
                   >
                     −
                   </button>
                   <span className="px-6 py-2 border-x">{quantity}</span>
                   <button
                     onClick={() => setQuantity(quantity + 1)}
-                    className="px-4 py-2 hover:bg-muted transition-colors"
-                    style={{ borderRadius: '0 6px 6px 0' }}
+                    className="px-4 py-2 hover:bg-muted transition-colors rounded-r-md"
                   >
                     +
                   </button>
@@ -399,13 +397,12 @@ export default function Product35mmF2() {
                   variant="outline"
                   size="lg"
                   className="flex-1 gap-2 disabled:cursor-not-allowed"
-                  style={{ borderRadius: '6px' }}
                   disabled
                 >
                   <ShoppingCart className="w-4 h-4" />
                   {pricing.addToCart}
                 </Button>
-                <Button size="lg" className="flex-1 disabled:cursor-not-allowed" style={{ borderRadius: '6px' }} disabled>
+                <Button size="lg" className="flex-1 disabled:cursor-not-allowed" disabled>
                   {pricing.buyNow}
                 </Button>
               </div>
