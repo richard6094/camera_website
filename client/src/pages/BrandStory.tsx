@@ -92,8 +92,8 @@ export default function BrandStory() {
             {/* Left Column - Image */}
             <div className="lg:col-span-2">
               <img
-                src="/images/brand-story-heritage.jpg"
-                alt="Heritage cameras"
+                src="/images/4种颜色镜头产品照-不带包装.jpg"
+                alt="Mandler lenses"
                 className="w-full h-auto rounded-lg shadow-2xl"
               />
             </div>
