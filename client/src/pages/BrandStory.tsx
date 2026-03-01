@@ -32,13 +32,12 @@ export default function BrandStory() {
       </div>
 
       {/* Hero Section - Magazine Cover Style */}
-      <section className="relative flex items-center justify-center overflow-hidden" style={{ height: '85vh' }}>
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: 'url(/images/银色镜头挂机特写2-正面.jpg)',
-            filter: 'brightness(0.4)',
-          }}
+      <section className="relative flex items-center justify-center overflow-hidden bg-black" style={{ height: '85vh' }}>
+        <img
+          src="/images/3色镜头+相机+不同角度.jpg"
+          alt="Mandler lenses"
+          className="absolute inset-0 w-full h-full object-contain"
+          style={{ filter: 'brightness(0.4)' }}
         />
         <div className="relative z-10 container max-w-5xl mx-auto px-6 text-center text-white">
           <p className="text-sm tracking-[0.3em] mb-8 opacity-80">
