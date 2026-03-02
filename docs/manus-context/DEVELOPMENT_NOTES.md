@@ -2,6 +2,22 @@
 
 ## Recent Changes & Optimizations
 
+### 2026-03-02: Usage Scenes — Add Sample Images from Gallery
+**Summary**: Added sample images from the Azure Blob Storage gallery to each of the 4 usage scenarios in the 35mm F/2 intro page. Each scene now displays a relevant photograph above the title and description.
+
+**Image Assignments**:
+- 人文街拍 (Street) → Portugal streets & trams (第1章 地域/葡萄牙)
+- 环境人像 (Portrait) → People & Objects (第6章 人・物)
+- 旅行纪实 (Travel) → Egypt travel (第1章 地域/埃及)
+- 视频拍摄 (Video) → Neon night scenes (第4章 霓虹)
+
+**Files Changed**:
+- `client/src/pages/Product35mmF2Intro.tsx` — Added `blobUrl` helper, added `image` field to scenes data, updated section layout with `aspect-[16/9] rounded-xl` image cards, increased `space-y` from 12 to 20
+
+**Rationale**: User requested adding relevant sample photos to the usage scenes section for visual richness.
+
+---
+
 ### 2026-03-02: Soft Wide-Screen Frame — Light Background + Rounded Corners
 **Summary**: Replaced the dark (#000) wide-screen frame with a warm light-gray background. The outermost container and global header remain sharp-edged (no rounded corners) for a clean edge-to-edge appearance. Elevation shadows softened to complement the light background.
 
