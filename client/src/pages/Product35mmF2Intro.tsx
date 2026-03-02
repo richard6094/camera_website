@@ -487,9 +487,11 @@ export default function Product35mmF2Intro() {
                 { title: content.chartMTF28Title, desc: content.chartMTF28Desc, src: `/images/optical-charts/mtf-f2.8-${language === 'zh' ? 'zh' : 'en'}.jpg` },
                 { title: content.chartMTF56Title, desc: content.chartMTF56Desc, src: `/images/optical-charts/mtf-f5.6-${language === 'zh' ? 'zh' : 'en'}.jpg` },
               ].map((chart) => (
-                <div key={chart.title} className="border border-foreground/10 rounded-xl overflow-hidden hover:border-foreground/25 transition-colors">
-                  <img src={chart.src} alt={chart.title} className="w-full h-auto" />
-                  <div className="p-5">
+                <div key={chart.title} className="flex flex-col border border-foreground/10 rounded-xl overflow-hidden hover:border-foreground/25 transition-colors">
+                  <div className="aspect-[4/3] overflow-hidden">
+                    <img src={chart.src} alt={chart.title} className="w-full h-full object-contain bg-white" />
+                  </div>
+                  <div className="p-5 flex-1 flex flex-col">
                     <h4 className="text-lg font-semibold mb-2">{chart.title}</h4>
                     <p className="text-foreground/60 text-sm leading-relaxed">{chart.desc}</p>
                   </div>
