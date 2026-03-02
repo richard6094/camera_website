@@ -2,6 +2,17 @@
 
 ## Recent Changes & Optimizations
 
+### 2026-03-02: ParallaxQuote — Rounded Corners & Color-Matched Gradient Background
+**Summary**: Added rounded corners to ParallaxQuote sections. Restructured component with outer `<section>` (padding) + inner `<div>` (rounded-2xl + overflow-hidden). Fixed mobile bottom-edge visibility by increasing background height to 130%. Added `topBg`/`bottomBg` props so the padding area uses a 50/50 linear gradient that exactly matches adjacent section backgrounds, eliminating color mismatch.
+
+**Files Changed**:
+- `client/src/components/ParallaxQuote.tsx` — Added `topBg`/`bottomBg` props, nested structure with rounded-2xl, gradient background, increased parallax image height to 130% with -15% top offset, reduced parallax multiplier to 0.08
+- `client/src/pages/Home.tsx` — Pass `topBg`/`bottomBg` color tokens to both ParallaxQuote instances
+
+**Rationale**: User requested rounded corners on parallax quotes, then iteratively fixed padding size and color mismatch between the parallax section's padding area and adjacent sections.
+
+---
+
 ### 2026-03-02: Usage Scenes — Add Sample Images from Gallery
 **Summary**: Added sample images from the Azure Blob Storage gallery to each of the 4 usage scenarios in the 35mm F/2 intro page. Each scene now displays a relevant photograph above the title and description.
 
