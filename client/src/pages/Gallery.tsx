@@ -24,10 +24,10 @@ function GalleryImage({ src, alt, onClick }: { src: string; alt: string; onClick
       className="mb-3 sm:mb-4 break-inside-avoid cursor-pointer group"
       onClick={onClick}
     >
-      <div className="relative overflow-hidden" style={{ borderRadius: '2px' }}>
+      <div className="relative overflow-hidden rounded-xl">
         {/* Shimmer placeholder */}
         {!loaded && (
-          <div className="w-full bg-foreground/[0.06] animate-pulse" style={{ borderRadius: '2px', aspectRatio: '4/3' }}>
+          <div className="w-full bg-foreground/[0.06] animate-pulse rounded-xl" style={{ aspectRatio: '4/3' }}>
             <div
               className="absolute inset-0"
               style={{
@@ -43,8 +43,7 @@ function GalleryImage({ src, alt, onClick }: { src: string; alt: string; onClick
           alt={alt}
           loading="lazy"
           onLoad={() => setLoaded(true)}
-          className={`w-full h-auto block transition-all duration-500 ${loaded ? 'opacity-100 group-hover:scale-[1.03]' : 'opacity-0 absolute top-0 left-0'}`}
-          style={{ borderRadius: '2px' }}
+          className={`w-full h-auto block transition-all duration-500 rounded-xl ${loaded ? 'opacity-100 group-hover:scale-[1.03]' : 'opacity-0 absolute top-0 left-0'}`}
         />
         {loaded && (
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 pointer-events-none" />

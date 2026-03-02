@@ -226,7 +226,7 @@ export default function Products() {
                 <button
                   key={category.key}
                   onClick={() => setSelectedCategory(category.key)}
-                  className={`px-6 py-2 border transition-all duration-300 ${
+                  className={`px-6 py-2 border rounded-lg transition-all duration-300 ${
                     selectedCategory === category.key
                       ? 'border-foreground bg-foreground text-white'
                       : 'border-foreground/30 text-foreground/60 hover:border-foreground hover:text-foreground'
@@ -255,7 +255,7 @@ export default function Products() {
                 }}
               >
                 {/* Product image */}
-                <div className="relative overflow-hidden aspect-square mb-6">
+                <div className="relative overflow-hidden rounded-xl aspect-square mb-6">
                   <img
                     src={product.image}
                     alt={product.name}
@@ -288,7 +288,7 @@ export default function Products() {
                           e.stopPropagation();
                           setSelectedProduct(product);
                         }}
-                        className="px-3 py-2 border border-foreground/30 text-foreground/60 hover:border-foreground hover:bg-foreground/5 transition-all duration-300 text-xs"
+                        className="px-3 py-2 border rounded-lg border-foreground/30 text-foreground/60 hover:border-foreground hover:bg-foreground/5 transition-all duration-300 text-xs"
                         title={copy.quickPreview}
                         aria-label={copy.quickPreview}
                       >
@@ -300,7 +300,7 @@ export default function Products() {
                           e.stopPropagation();
                           handleStoreComingSoon();
                         }}
-                        className="px-4 py-2 border transition-all duration-300 border-foreground/30 text-foreground/60 hover:border-foreground hover:bg-foreground/5"
+                        className="px-4 py-2 border rounded-lg transition-all duration-300 border-foreground/30 text-foreground/60 hover:border-foreground hover:bg-foreground/5"
                         title={copy.addToCart}
                         aria-label={copy.addToCart}
                       >
@@ -327,7 +327,7 @@ export default function Products() {
           onClick={() => setSelectedProduct(null)}
         >
           <div
-            className="bg-white max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+            className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="p-8">
@@ -389,7 +389,7 @@ export default function Products() {
                         handleStoreComingSoon();
                         setSelectedProduct(null);
                       }}
-                      className="w-full py-3 border transition-all duration-300 border-foreground/30 text-foreground hover:border-foreground hover:bg-foreground/5"
+                      className="w-full py-3 border rounded-lg transition-all duration-300 border-foreground/30 text-foreground hover:border-foreground hover:bg-foreground/5"
                     >
                       {copy.addToCart}
                     </button>
