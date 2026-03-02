@@ -236,12 +236,26 @@ export default function Product35mmF2Intro() {
       secondaryButton: 'Back to Home',
     };
 
-  const perfStats = [
-    { label: content.perfStat1Label, value: content.perfStat1Value, desc: content.perfStat1Desc },
-    { label: content.perfStat2Label, value: content.perfStat2Value, desc: content.perfStat2Desc },
-    { label: content.perfStat3Label, value: content.perfStat3Value, desc: content.perfStat3Desc },
-    { label: content.perfStat4Label, value: content.perfStat4Value, desc: content.perfStat4Desc },
-  ];
+  const perfCharts = language === 'zh'
+    ? [
+      { src: '/images/35mmF2-performance/01-field-curvature-distortion-zh.jpg', alt: '场曲与畸变图表' },
+      { src: '/images/35mmF2-performance/02-field-f2-zh.jpg', alt: 'F2 光圈视场图表' },
+      { src: '/images/35mmF2-performance/03-field-f2_8-zh.jpg', alt: 'F2.8 光圈视场图表' },
+      { src: '/images/35mmF2-performance/04-field-f5_6-zh.jpg', alt: 'F5.6 光圈视场图表' },
+    ]
+    : language === 'ja'
+    ? [
+      { src: '/images/35mmF2-performance/01-field-curvature-distortion-en.jpg', alt: '像面湾曲と歪曲のチャート' },
+      { src: '/images/35mmF2-performance/02-field-f2-en.jpg', alt: 'F2 絞り視野チャート' },
+      { src: '/images/35mmF2-performance/03-field-f2_8-en.jpg', alt: 'F2.8 絞り視野チャート' },
+      { src: '/images/35mmF2-performance/04-field-f5_6-en.jpg', alt: 'F5.6 絞り視野チャート' },
+    ]
+    : [
+      { src: '/images/35mmF2-performance/01-field-curvature-distortion-en.jpg', alt: 'Field curvature and distortion chart' },
+      { src: '/images/35mmF2-performance/02-field-f2-en.jpg', alt: 'F2 aperture field chart' },
+      { src: '/images/35mmF2-performance/03-field-f2_8-en.jpg', alt: 'F2.8 aperture field chart' },
+      { src: '/images/35mmF2-performance/04-field-f5_6-en.jpg', alt: 'F5.6 aperture field chart' },
+    ];
 
   const scenes = [
     { num: '01', title: content.scene1Title, desc: content.scene1Desc },
@@ -431,14 +445,13 @@ export default function Product35mmF2Intro() {
         <div className="container max-w-5xl mx-auto px-6">
           <h2 className="text-display text-3xl md:text-4xl text-center mb-16">{content.perfTitle}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {perfStats.map((s) => (
-              <div
-                key={s.label}
-                className="border border-foreground/10 rounded-xl p-6 md:p-8 hover:border-foreground/25 transition-colors"
-              >
-                <p className="text-xs tracking-widest text-foreground/50 mb-3 uppercase">{s.label}</p>
-                <p className="text-3xl md:text-4xl font-bold mb-4">{s.value}</p>
-                <p className="text-foreground/60 leading-relaxed text-sm">{s.desc}</p>
+            {perfCharts.map((chart) => (
+              <div key={chart.src} className="border border-foreground/10 rounded-xl p-3 md:p-4 bg-background/70">
+                <img
+                  src={chart.src}
+                  alt={chart.alt}
+                  className="w-full h-auto rounded-lg"
+                />
               </div>
             ))}
           </div>
