@@ -123,7 +123,7 @@ shared/               # Shared constants and types
   - Full-bleed image transitions and parallax pull-quote dividers
   - Non-commerce storytelling focused on product philosophy and craftsmanship
   - Route separation from store pages to keep presentation and shopping flows distinct
-  - **E39 Intro expanded sections**: Legendary Optical Architecture (7E/5G Double Gaussian, spec mini-cards), F2 Aperture Character (wide-open vs stopped-down comparison), Full-Metal Craftsmanship (crescent focus ring, 10-blade aperture), Optical Performance Data (4-chart grid with language-aware assets), 4 usage scenarios
+  - **E39 Intro expanded sections**: Legendary Optical Architecture (7E/5G Double Gaussian, spec mini-cards), F2 Aperture Character (wide-open vs stopped-down comparison), Full-Metal Craftsmanship (crescent focus ring, 10-blade aperture), Optical Performance Data (4-card grid), 4 usage scenarios
 
 ### 4. Internationalization
 - **Implementation**: `LanguageContext.tsx` + `translations.ts`

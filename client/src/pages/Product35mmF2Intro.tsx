@@ -79,6 +79,17 @@ export default function Product35mmF2Intro() {
       perfStat4Value: 'F2.0',
       perfStat4Desc: '大光圈配合双高斯结构，日常与弱光环境均可从容应对。',
 
+      chartsTitle: '光学测试图表',
+      chartsIntro: '以下图表展示 35mm F/2 在不同光圈下的实际光学表现，包括场曲与畸变特性以及各光圈下的 MTF（调制传递函数）曲线，以量化数据呈现镜头的分辨率与对比度表现。',
+      chartFCTitle: '场曲与畸变',
+      chartFCDesc: '双高斯对称结构有效控制场曲，畸变低于 ±0.5%，直线几何还原精准。',
+      chartMTF2Title: 'MTF @ F/2.0（全开）',
+      chartMTF2Desc: '全开光圈下中心锐度优秀，边缘柔化自然渐进，呈现经典双高斯镜头的成像个性。',
+      chartMTF28Title: 'MTF @ F/2.8',
+      chartMTF28Desc: '收至 F/2.8，中心与边缘分辨率均显著提升，画面整体对比度增强。',
+      chartMTF56Title: 'MTF @ F/5.6',
+      chartMTF56Desc: '最佳光学光圈，全画面达到高度一致的锐利表现，适合风光与建筑创作。',
+
       scenesTitle: '使用场景',
       scene1Title: '人文街拍',
       scene1Desc: '35mm 视角保留充足的环境信息，同时自然凝聚人物与动作。F2 光圈在弱光巷道中保持可用快门速度，不打扰、不犹豫。',
@@ -150,6 +161,17 @@ export default function Product35mmF2Intro() {
       perfStat4Value: 'F2.0',
       perfStat4Desc: 'ダブルガウス設計との組み合わせで、日常から低照度まで余裕を持って対応。',
 
+      chartsTitle: '光学テストチャート',
+      chartsIntro: '以下のチャートは、35mm F/2の各絞り値における実際の光学性能を示しています。像面湾曲・歪曲収差特性および各絞りでのMTF（変調伝達関数）曲線により、解像力とコントラスト性能を定量的に表現しています。',
+      chartFCTitle: '像面湾曲と歪曲収差',
+      chartFCDesc: 'ダブルガウス対称構造が像面湾曲を効果的に制御。歪曲は±0.5%以下で、直線の幾何学的再現が正確です。',
+      chartMTF2Title: 'MTF @ F/2.0（開放）',
+      chartMTF2Desc: '開放時は中心部の解像力が優秀で、周辺に向かって自然にソフト化——クラシックなダブルガウスレンズの描写個性。',
+      chartMTF28Title: 'MTF @ F/2.8',
+      chartMTF28Desc: 'F/2.8に絞ると中心・周辺ともに解像力が顕著に向上し、画面全体のコントラストが強化されます。',
+      chartMTF56Title: 'MTF @ F/5.6',
+      chartMTF56Desc: '最適光学絞り。画面全域で高度に均一なシャープネスを達成し、風景や建築撮影に最適です。',
+
       scenesTitle: '使用シーン',
       scene1Title: 'ヒューマンストリート',
       scene1Desc: '35mmの画角は豊かな環境情報を保持しながら、被写体と瞬間に自然に注目を集めます。F2の開放値は薄暗い路地でも実用的なシャッター速度を確保——控えめに、躊躇なく。',
@@ -220,6 +242,17 @@ export default function Product35mmF2Intro() {
       perfStat4Value: 'F2.0',
       perfStat4Desc: 'Large aperture paired with Double Gaussian design handles both everyday and low-light scenarios with ease.',
 
+      chartsTitle: 'Optical Test Charts',
+      chartsIntro: 'The charts below illustrate the real-world optical performance of the 35mm F/2 across apertures, including field curvature & distortion characteristics and MTF (Modulation Transfer Function) curves at each f-stop — quantifying resolution and contrast performance.',
+      chartFCTitle: 'Field Curvature & Distortion',
+      chartFCDesc: 'The symmetrical Double Gaussian design effectively controls field curvature, with distortion below ±0.5% for precise straight-line geometry.',
+      chartMTF2Title: 'MTF @ F/2.0 (Wide Open)',
+      chartMTF2Desc: 'Excellent center sharpness with naturally gradual edge softening — the signature rendering character of a classic Double Gaussian lens.',
+      chartMTF28Title: 'MTF @ F/2.8',
+      chartMTF28Desc: 'Stopped down to F/2.8, both center and edge resolution improve significantly with enhanced overall contrast.',
+      chartMTF56Title: 'MTF @ F/5.6',
+      chartMTF56Desc: 'Optimal optical aperture — achieving highly uniform sharpness across the entire frame, ideal for landscape and architectural work.',
+
       scenesTitle: 'Field Scenarios',
       scene1Title: 'Street Documentary',
       scene1Desc: 'The 35mm perspective preserves rich environmental context while naturally drawing attention to subjects and moments. The F2 aperture maintains usable shutter speeds in dim alleyways \u2014 unobtrusive and decisive.',
@@ -236,26 +269,12 @@ export default function Product35mmF2Intro() {
       secondaryButton: 'Back to Home',
     };
 
-  const perfCharts = language === 'zh'
-    ? [
-      { src: '/images/35mmF2-performance/01-field-curvature-distortion-zh.jpg', alt: '场曲与畸变图表' },
-      { src: '/images/35mmF2-performance/02-field-f2-zh.jpg', alt: 'F2 光圈视场图表' },
-      { src: '/images/35mmF2-performance/03-field-f2_8-zh.jpg', alt: 'F2.8 光圈视场图表' },
-      { src: '/images/35mmF2-performance/04-field-f5_6-zh.jpg', alt: 'F5.6 光圈视场图表' },
-    ]
-    : language === 'ja'
-    ? [
-      { src: '/images/35mmF2-performance/01-field-curvature-distortion-en.jpg', alt: '像面湾曲と歪曲のチャート' },
-      { src: '/images/35mmF2-performance/02-field-f2-en.jpg', alt: 'F2 絞り視野チャート' },
-      { src: '/images/35mmF2-performance/03-field-f2_8-en.jpg', alt: 'F2.8 絞り視野チャート' },
-      { src: '/images/35mmF2-performance/04-field-f5_6-en.jpg', alt: 'F5.6 絞り視野チャート' },
-    ]
-    : [
-      { src: '/images/35mmF2-performance/01-field-curvature-distortion-en.jpg', alt: 'Field curvature and distortion chart' },
-      { src: '/images/35mmF2-performance/02-field-f2-en.jpg', alt: 'F2 aperture field chart' },
-      { src: '/images/35mmF2-performance/03-field-f2_8-en.jpg', alt: 'F2.8 aperture field chart' },
-      { src: '/images/35mmF2-performance/04-field-f5_6-en.jpg', alt: 'F5.6 aperture field chart' },
-    ];
+  const perfStats = [
+    { label: content.perfStat1Label, value: content.perfStat1Value, desc: content.perfStat1Desc },
+    { label: content.perfStat2Label, value: content.perfStat2Value, desc: content.perfStat2Desc },
+    { label: content.perfStat3Label, value: content.perfStat3Value, desc: content.perfStat3Desc },
+    { label: content.perfStat4Label, value: content.perfStat4Value, desc: content.perfStat4Desc },
+  ];
 
   const scenes = [
     { num: '01', title: content.scene1Title, desc: content.scene1Desc },
@@ -445,15 +464,38 @@ export default function Product35mmF2Intro() {
         <div className="container max-w-5xl mx-auto px-6">
           <h2 className="text-display text-3xl md:text-4xl text-center mb-16">{content.perfTitle}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {perfCharts.map((chart) => (
-              <div key={chart.src} className="border border-foreground/10 rounded-xl p-3 md:p-4 bg-background/70">
-                <img
-                  src={chart.src}
-                  alt={chart.alt}
-                  className="w-full h-auto rounded-lg"
-                />
+            {perfStats.map((s) => (
+              <div
+                key={s.label}
+                className="border border-foreground/10 rounded-xl p-6 md:p-8 hover:border-foreground/25 transition-colors"
+              >
+                <p className="text-xs tracking-widest text-foreground/50 mb-3 uppercase">{s.label}</p>
+                <p className="text-3xl md:text-4xl font-bold mb-4">{s.value}</p>
+                <p className="text-foreground/60 leading-relaxed text-sm">{s.desc}</p>
               </div>
             ))}
+          </div>
+
+          {/* ── Optical Charts ── */}
+          <div className="mt-20">
+            <h3 className="text-display text-2xl md:text-3xl text-center mb-4">{content.chartsTitle}</h3>
+            <p className="text-foreground/60 text-center max-w-3xl mx-auto mb-12 leading-relaxed">{content.chartsIntro}</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {[
+                { title: content.chartFCTitle, desc: content.chartFCDesc, src: `/images/optical-charts/field-curvature-distortion-${language === 'en' ? 'en' : 'zh'}.jpg` },
+                { title: content.chartMTF2Title, desc: content.chartMTF2Desc, src: `/images/optical-charts/mtf-f2-${language === 'en' ? 'en' : 'zh'}.jpg` },
+                { title: content.chartMTF28Title, desc: content.chartMTF28Desc, src: `/images/optical-charts/mtf-f2.8-${language === 'en' ? 'en' : 'zh'}.jpg` },
+                { title: content.chartMTF56Title, desc: content.chartMTF56Desc, src: `/images/optical-charts/mtf-f5.6-${language === 'en' ? 'en' : 'zh'}.jpg` },
+              ].map((chart) => (
+                <div key={chart.title} className="border border-foreground/10 rounded-xl overflow-hidden hover:border-foreground/25 transition-colors">
+                  <img src={chart.src} alt={chart.title} className="w-full h-auto" />
+                  <div className="p-5">
+                    <h4 className="text-lg font-semibold mb-2">{chart.title}</h4>
+                    <p className="text-foreground/60 text-sm leading-relaxed">{chart.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
