@@ -123,10 +123,10 @@ export default function Header({ cartCount = 0 }: HeaderProps) {
     <>
       {/* Fixed Header Bar */}
       <header 
-        className={`fixed left-0 right-0 z-50 bg-background/70 backdrop-blur-md border-b border-foreground/10 transition-transform duration-300 ease-in-out ${
+        className={`fixed left-0 right-0 z-50 top-0 max-w-[1440px] mx-auto bg-background/70 backdrop-blur-md border-b border-foreground/10 transition-transform duration-300 ease-in-out ${
           isVisible ? 'translate-y-0' : '-translate-y-full'
         }`}
-        style={{borderBottomWidth: '0.5px', top: 0}}
+        style={{borderBottomWidth: '0.5px', boxShadow: '0 2px 16px rgba(0,0,0,0.06)'}}
       >
         <div className="flex items-center justify-between h-16 md:h-20 px-4 md:px-6 lg:px-8">
           {/* Left: Hamburger Menu */}
@@ -230,7 +230,8 @@ export default function Header({ cartCount = 0 }: HeaderProps) {
 
       {/* Compact Dropdown Menu */}
       {menuOpen && (
-        <div className="fixed top-16 md:top-20 left-4 md:left-6 right-4 md:right-auto z-[100] md:flex md:gap-0 md:items-start">
+        <div className="fixed top-16 md:top-20 left-0 right-0 z-[100] max-w-[1440px] mx-auto pointer-events-none">
+        <div className="pointer-events-auto mx-4 md:mx-6 md:w-fit md:flex md:gap-0 md:items-start">
           {/* Main Menu */}
           <div 
             className="bg-[#1a1a1a]/95 backdrop-blur-md border border-[#f5f5f5]/10 transition-all duration-500 ease-out animate-in fade-in slide-in-from-top-4"
@@ -328,6 +329,7 @@ export default function Header({ cartCount = 0 }: HeaderProps) {
               </nav>
             </div>
           )}
+        </div>
         </div>
       )}
 

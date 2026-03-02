@@ -110,14 +110,14 @@ export default function Home() {
       />
 
       {/* ===== BRAND STORY MODULE 1 ===== */}
-      <section key="story" id="story" className="py-16 sm:py-20 md:py-24 lg:py-32 bg-background">
+      <section key="story" id="story" className="py-16 sm:py-20 md:py-24 lg:py-32 bg-background section-raised">
         <div className="container max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 sm:gap-14 md:gap-16 lg:gap-24 items-center">
             {/* Image */}
             <div className="md:order-1">
-              <div className="relative aspect-[4/3] overflow-hidden">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
                 <img 
-                  src="/images/brand-story-workshop.jpg" 
+                  src="/images/brand-story-heritage.jpg" 
                   alt="品牌故事"
                   className="w-full h-full object-cover"
                 />
@@ -155,7 +155,7 @@ export default function Home() {
       />
 
       {/* ===== USER GALLERY - SAMPLE PHOTOS ===== */}
-      <section key="gallery" id="gallery" className="py-16 sm:py-20 md:py-24 lg:py-32 bg-background">
+      <section key="gallery" id="gallery" className="py-16 sm:py-20 md:py-24 lg:py-32 bg-surface-alt section-raised">
         <div className="container max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
           {/* Section Header */}
           <div className="text-center mb-12 sm:mb-14 md:mb-16">
@@ -201,12 +201,12 @@ export default function Home() {
       <ProductSelectionCards />
 
       {/* ===== BRAND STORY MODULE 3 ===== */}
-      <section key="support" id="support" className="py-16 sm:py-20 md:py-24 lg:py-32 bg-background">
+      <section key="support" id="support" className="py-16 sm:py-20 md:py-24 lg:py-32 bg-background section-raised">
         <div className="container max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 sm:gap-14 md:gap-16 lg:gap-24 items-center">
             {/* Image */}
             <div className="md:order-1">
-              <div className="relative aspect-[4/3] overflow-hidden">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
                 <img 
                   src="/images/service-support.jpg" 
                   alt="服务支持"
@@ -251,7 +251,7 @@ export default function Home() {
           </p>
           <button 
             onClick={() => navigateWithTop('/products')}
-            className="px-10 py-4 border border-background text-background hover:bg-background/10 damped-transition text-sm tracking-widest inline-flex items-center gap-2"
+            className="px-10 py-4 border border-white text-white hover:bg-white hover:text-black damped-transition text-sm tracking-widest inline-flex items-center gap-2"
             style={{borderWidth: '0.5px'}}
           >
             {t('cta.button')} <ChevronRight className="w-4 h-4" />
