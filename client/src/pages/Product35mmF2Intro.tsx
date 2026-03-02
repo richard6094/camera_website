@@ -4,6 +4,11 @@ import Breadcrumb from '@/components/Breadcrumb';
 import { ImageLightbox } from '@/components/ImageLightbox';
 import { useLocation } from 'wouter';
 
+const BLOB_BASE = 'https://mandlergallery.blob.core.windows.net/gallery';
+function blobUrl(path: string): string {
+  return `${BLOB_BASE}/${path.replace(/\.jpe?g$/i, '.webp').split('/').map(s => encodeURIComponent(s)).join('/')}`;
+}
+
 export default function Product35mmF2Intro() {
   const { language } = useLanguage();
   const [, navigate] = useLocation();
@@ -277,10 +282,10 @@ export default function Product35mmF2Intro() {
   ];
 
   const scenes = [
-    { num: '01', title: content.scene1Title, desc: content.scene1Desc },
-    { num: '02', title: content.scene2Title, desc: content.scene2Desc },
-    { num: '03', title: content.scene3Title, desc: content.scene3Desc },
-    { num: '04', title: content.scene4Title, desc: content.scene4Desc },
+    { num: '01', title: content.scene1Title, desc: content.scene1Desc, image: blobUrl('第1章  地域/4彩色、黑白   葡萄牙  里斯本&波尔图  从里斯本塔霍河到波尔图杜罗河，镜头记录伊比利亚双城的街巷、电车与山海光影。/3.jpg') },
+    { num: '02', title: content.scene2Title, desc: content.scene2Desc, image: blobUrl('第6章 人・物/1.jpg') },
+    { num: '03', title: content.scene3Title, desc: content.scene3Desc, image: blobUrl('第1章  地域/1彩色-英国 风拂白崖，海映晴空。/1.jpg') },
+    { num: '04', title: content.scene4Title, desc: content.scene4Desc, image: blobUrl('第4章 霓虹/3.jpg') },
   ];
 
   return (
@@ -504,16 +509,19 @@ export default function Product35mmF2Intro() {
 
       {/* ── Usage Scenes ── */}
       <section className="py-20 md:py-32 bg-foreground/5">
-        <div className="container max-w-4xl mx-auto px-6">
+        <div className="container max-w-5xl mx-auto px-6">
           <h2 className="text-display text-3xl md:text-4xl text-center mb-16">{content.scenesTitle}</h2>
-          <div className="space-y-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-16">
             {scenes.map((s) => (
-              <div key={s.num} className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="md:text-right text-foreground/40 text-5xl font-light">{s.num}</div>
-                <div className="md:col-span-2">
-                  <h3 className="text-2xl font-semibold mb-3">{s.title}</h3>
-                  <p className="text-foreground/80 leading-relaxed">{s.desc}</p>
+              <div key={s.num}>
+                <div className="overflow-hidden rounded-xl mb-5">
+                  <img src={s.image} alt={s.title} className="w-full aspect-[16/9] object-cover" loading="lazy" />
                 </div>
+                <div className="flex items-baseline gap-4 mb-3">
+                  <span className="text-foreground/30 text-3xl font-light">{s.num}</span>
+                  <h3 className="text-xl font-semibold">{s.title}</h3>
+                </div>
+                <p className="text-foreground/70 leading-relaxed text-sm">{s.desc}</p>
               </div>
             ))}
           </div>
