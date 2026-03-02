@@ -2,6 +2,17 @@
 
 ## Recent Changes & Optimizations
 
+### 2026-03-02: Product Intro Optical Performance — Replace Stat Cards with Data Charts
+**Summary**: Integrated newly provided optical performance charts into `35mm F/2` intro page. Replaced the former 4-card text stats grid with a 4-chart image grid, with language-aware assets (`zh` uses Chinese charts; `en` and `ja` use English charts).
+
+**Files Changed**:
+- `client/src/pages/Product35mmF2Intro.tsx` — Replaced `perfStats` card rendering with `perfCharts` image rendering; added language-aware chart source mapping and localized alt text
+- `client/public/images/35mmF2-performance/` (new assets) — Added 8 chart files (`zh` + `en`, 4 each)
+
+**Rationale**: User provided updated optical performance chart data and requested to use them in the product page optical performance section. Visual charts are more accurate and authoritative than summarized text cards.
+
+---
+
 ### 2026-03-01: Global Button Rounded Corners
 **Summary**: Changed global `--radius` design token from `0px` to `6px`, giving all buttons and UI components subtle rounded corners. Removed inline `borderRadius` workarounds from product page buttons.
 
