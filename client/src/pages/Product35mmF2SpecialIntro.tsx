@@ -52,6 +52,10 @@ export default function Product35mmF2SpecialIntro() {
       signatureDesc:
         '特别版在装配完成后仍经历多轮细节检视：边缘过渡、刻字深浅、阻尼一致性与光学中心复核。真正的高级感，不在喧哗，而在细节始终保持克制与准确。',
       signatureNote: 'Mandler Quality Protocol · Since 1978',
+      baseModelLabel: 'OPTICAL FOUNDATION',
+      baseModelTitle: '源自同一光学血统',
+      baseModelDesc: '特别版与标准版共享经典双高斯光学内核。了解 35mm F/2 的基础光学性能、MTF 测试数据与实拍表现，感受这一传奇光学结构的完整实力。',
+      baseModelButton: '探索 35mm F/2 光学性能 →',
       closing: '35mm F/2 特别版，为创作而生，也为时间而存。',
       primaryButton: '查看商城页',
       secondaryButton: '返回首页',
@@ -95,6 +99,10 @@ export default function Product35mmF2SpecialIntro() {
       signatureDesc:
         '特別版は組立後も複数回の細部検査を経ます：エッジの移行、彫刻の深さ、ダンピングの一貫性、光学中心検証。真の高級感は派手ではなく、細部の正確さと克制にあります。',
       signatureNote: 'Mandler Quality Protocol · Since 1978',
+      baseModelLabel: 'OPTICAL FOUNDATION',
+      baseModelTitle: '同じ光学の血統から',
+      baseModelDesc: '特別版と標準版は同じクラシックなダブルガウス光学コアを共有しています。35mm F/2 の基礎光学性能、MTFテストデータ、実写サンプルを通じて、この伝説的な光学設計の実力をご体感ください。',
+      baseModelButton: '35mm F/2 の光学性能を探る →',
       closing: '35mm F/2 特別版、創作のために生まれ、時間のために存在する。',
       primaryButton: 'ストアページを見る',
       secondaryButton: 'ホームに戻る',
@@ -137,6 +145,10 @@ export default function Product35mmF2SpecialIntro() {
       signatureDesc:
         'After assembly, the Special Edition still goes through multiple detail inspections: edge transitions, engraving depth, damping consistency, and optical centering verification. True luxury is not loud—it is precise and restrained in every detail.',
       signatureNote: 'Mandler Quality Protocol · Since 1978',
+      baseModelLabel: 'OPTICAL FOUNDATION',
+      baseModelTitle: 'Born from the Same Optical Lineage',
+      baseModelDesc: 'The Special Edition shares the same classic Double Gaussian optical core with the standard model. Explore the 35mm F/2\'s fundamental optical performance, MTF test data, and real-world rendering to experience the full capability of this legendary optical architecture.',
+      baseModelButton: 'Explore 35mm F/2 Optical Performance →',
       closing: '35mm F/2 Special Edition, built for creation and preserved for time.',
       primaryButton: 'Open Store Page',
       secondaryButton: 'Back to Home',
@@ -268,6 +280,39 @@ export default function Product35mmF2SpecialIntro() {
             <div className="md:col-span-9">
               <h2 className="text-display text-3xl md:text-4xl leading-tight mb-8">{content.signatureTitle}</h2>
               <p className="text-base md:text-lg text-foreground/80 leading-relaxed max-w-3xl">{content.signatureDesc}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Cross-reference to Standard 35mm F/2 ── */}
+      <section className="py-16 md:py-24">
+        <div className="container max-w-4xl mx-auto px-6">
+          <div
+            className="relative overflow-hidden border border-foreground/10 rounded-xl cursor-pointer group"
+            onClick={() => navigateWithTop('/products/35mm-f2-intro')}
+          >
+            {/* Background image */}
+            <div
+              className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+              style={{
+                backgroundImage: 'url(/images/银色镜头挂机特写2-正面.jpg)',
+                filter: 'brightness(0.3)',
+              }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent" />
+            {/* Content */}
+            <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-12 p-8 md:p-12">
+              <div className="flex-1">
+                <p className="text-xs tracking-[0.3em] text-white/50 mb-3">{content.baseModelLabel}</p>
+                <h3 className="text-display text-2xl md:text-3xl text-white mb-4 leading-tight">{content.baseModelTitle}</h3>
+                <p className="text-white/70 leading-relaxed max-w-xl">{content.baseModelDesc}</p>
+              </div>
+              <div className="flex-shrink-0">
+                <span className="inline-block px-6 py-3 border border-white/30 text-white text-sm tracking-wide group-hover:bg-white group-hover:text-black transition-colors duration-300">
+                  {content.baseModelButton}
+                </span>
+              </div>
             </div>
           </div>
         </div>
