@@ -309,7 +309,7 @@ export default function Product35mmF2SpecialIntro() {
                 <p className="text-white/70 leading-relaxed max-w-xl">{content.baseModelDesc}</p>
               </div>
               <div className="flex-shrink-0">
-                <span className="inline-block px-6 py-3 border border-white/30 text-white text-sm tracking-wide group-hover:bg-white group-hover:text-black transition-colors duration-300">
+                <span className="inline-block px-6 py-3 border border-white/30 text-white text-sm tracking-wide rounded-md group-hover:bg-white group-hover:text-black transition-colors duration-300">
                   {content.baseModelButton}
                 </span>
               </div>
@@ -325,13 +325,13 @@ export default function Product35mmF2SpecialIntro() {
           <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={() => navigateWithTop('/products/35mm-f2-special')}
-              className="px-8 py-3 border border-foreground/20 text-foreground hover:bg-foreground hover:text-background transition-colors"
+              className="px-8 py-3 border border-foreground/20 text-foreground hover:bg-foreground hover:text-background transition-colors rounded-md"
             >
               {content.primaryButton}
             </button>
             <button
               onClick={() => navigateWithTop('/')}
-              className="px-8 py-3 border border-foreground/20 text-foreground/70 hover:text-foreground hover:bg-foreground/5 transition-colors"
+              className="px-8 py-3 border border-foreground/20 text-foreground/70 hover:text-foreground hover:bg-foreground/5 transition-colors rounded-md"
             >
               {content.secondaryButton}
             </button>
