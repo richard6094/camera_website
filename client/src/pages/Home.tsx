@@ -152,6 +152,8 @@ export default function Home() {
       <ParallaxQuote
         image="/images/银色镜头挂机特写1.jpg"
         quote={t('quote.1')}
+        topBg="var(--background)"
+        bottomBg="var(--surface-alt)"
       />
 
       {/* ===== USER GALLERY - SAMPLE PHOTOS ===== */}
@@ -195,6 +197,8 @@ export default function Home() {
       <ParallaxQuote
         image="/images/银色镜头不挂机特写.jpg"
         quote={t('quote.2')}
+        topBg="var(--surface-alt)"
+        bottomBg="var(--surface-alt)"
       />
 
       {/* ===== PRODUCT SELECTION CARDS ===== */}
