@@ -482,10 +482,10 @@ export default function Product35mmF2Intro() {
             <p className="text-foreground/60 text-center max-w-3xl mx-auto mb-12 leading-relaxed">{content.chartsIntro}</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {[
-                { title: content.chartFCTitle, desc: content.chartFCDesc, src: `/images/optical-charts/field-curvature-distortion-${language === 'en' ? 'en' : 'zh'}.jpg` },
-                { title: content.chartMTF2Title, desc: content.chartMTF2Desc, src: `/images/optical-charts/mtf-f2-${language === 'en' ? 'en' : 'zh'}.jpg` },
-                { title: content.chartMTF28Title, desc: content.chartMTF28Desc, src: `/images/optical-charts/mtf-f2.8-${language === 'en' ? 'en' : 'zh'}.jpg` },
-                { title: content.chartMTF56Title, desc: content.chartMTF56Desc, src: `/images/optical-charts/mtf-f5.6-${language === 'en' ? 'en' : 'zh'}.jpg` },
+                { title: content.chartFCTitle, desc: content.chartFCDesc, src: `/images/optical-charts/field-curvature-distortion-${language === 'zh' ? 'zh' : 'en'}.jpg` },
+                { title: content.chartMTF2Title, desc: content.chartMTF2Desc, src: `/images/optical-charts/mtf-f2-${language === 'zh' ? 'zh' : 'en'}.jpg` },
+                { title: content.chartMTF28Title, desc: content.chartMTF28Desc, src: `/images/optical-charts/mtf-f2.8-${language === 'zh' ? 'zh' : 'en'}.jpg` },
+                { title: content.chartMTF56Title, desc: content.chartMTF56Desc, src: `/images/optical-charts/mtf-f5.6-${language === 'zh' ? 'zh' : 'en'}.jpg` },
               ].map((chart) => (
                 <div key={chart.title} className="border border-foreground/10 rounded-xl overflow-hidden hover:border-foreground/25 transition-colors">
                   <img src={chart.src} alt={chart.title} className="w-full h-auto" />
