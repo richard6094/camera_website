@@ -32,24 +32,26 @@ export default function BrandStory() {
       </div>
 
       {/* Hero Section - Magazine Cover Style */}
-      <section className="relative flex items-center justify-center overflow-hidden bg-black" style={{ height: '85vh' }}>
+      <section className="relative overflow-hidden bg-black">
         <img
           src="/images/3色镜头+相机+不同角度.jpg"
           alt="Mandler lenses"
-          className="absolute inset-0 w-full h-full object-contain"
+          className="w-full h-auto block"
           style={{ filter: 'brightness(0.4)' }}
         />
-        <div className="relative z-10 container max-w-5xl mx-auto px-6 text-center text-white">
-          <p className="text-sm tracking-[0.3em] mb-8 opacity-80">
-            {t.brandStory.subtitle}
-          </p>
-          <h1 className="text-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl mb-8 leading-tight">
-            {t.brandStory.title}
-          </h1>
-          <div className="w-24 h-px bg-white/50 mx-auto mb-8" />
-          <p className="text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed opacity-90">
-            {t.brandStory.heroQuote}
-          </p>
+        <div className="absolute inset-0 z-10 flex items-center justify-center">
+          <div className="container max-w-5xl mx-auto px-6 text-center text-white">
+            <p className="text-xs sm:text-sm tracking-[0.3em] mb-4 sm:mb-6 md:mb-8 opacity-80">
+              {t.brandStory.subtitle}
+            </p>
+            <h1 className="text-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-4 sm:mb-6 md:mb-8 leading-tight">
+              {t.brandStory.title}
+            </h1>
+            <div className="w-16 sm:w-24 h-px bg-white/50 mx-auto mb-4 sm:mb-6 md:mb-8" />
+            <p className="text-sm sm:text-lg md:text-xl lg:text-2xl max-w-3xl mx-auto leading-relaxed opacity-90">
+              {t.brandStory.heroQuote}
+            </p>
+          </div>
         </div>
       </section>
 
