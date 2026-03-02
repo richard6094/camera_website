@@ -347,7 +347,7 @@ export default function Product35mmF2Intro() {
               <img
                 src="/images/银色镜头挂机特写2-正面.jpg"
                 alt="35mm F/2 front element"
-                className="w-full h-auto rounded-lg shadow-2xl"
+                className="w-full h-auto rounded-lg shadow-[0_8px_32px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.08)]"
               />
             </div>
             <div className="lg:col-span-3 flex flex-col justify-center">
@@ -366,7 +366,7 @@ export default function Product35mmF2Intro() {
                   { label: content.opticalSpec2Label, value: content.opticalSpec2Value },
                   { label: content.opticalSpec3Label, value: content.opticalSpec3Value },
                 ].map((s) => (
-                  <div key={s.label} className="border border-foreground/10 rounded-lg p-4 text-center">
+                  <div key={s.label} className="border border-foreground/10 rounded-lg p-4 text-center shadow-[0_4px_16px_rgba(0,0,0,0.08),0_1px_4px_rgba(0,0,0,0.05)]">
                     <p className="text-xs tracking-widest text-foreground/50 mb-2 uppercase">{s.label}</p>
                     <p className="text-lg font-semibold">{s.value}</p>
                   </div>
@@ -409,7 +409,7 @@ export default function Product35mmF2Intro() {
               <img
                 src="/images/35mmF2-sample-images/35mmF2-F2.jpg"
                 alt="F2.0 wide open sample – bokeh"
-                className="w-full h-auto shadow-lg cursor-pointer hover:opacity-90 transition-opacity"
+                className="w-full h-auto shadow-[0_8px_32px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.08)] cursor-pointer hover:opacity-90 transition-opacity"
                 onClick={() => { setLightboxIndex(0); setLightboxOpen(true); }}
               />
             </div>
@@ -422,7 +422,7 @@ export default function Product35mmF2Intro() {
               <img
                 src="/images/35mmF2-sample-images/35mmF2-F4-8.jpg"
                 alt="F4–F8 stopped down sample – cityscape"
-                className="w-full h-auto shadow-lg cursor-pointer hover:opacity-90 transition-opacity"
+                className="w-full h-auto shadow-[0_8px_32px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.08)] cursor-pointer hover:opacity-90 transition-opacity"
                 onClick={() => { setLightboxIndex(1); setLightboxOpen(true); }}
               />
             </div>
@@ -456,7 +456,7 @@ export default function Product35mmF2Intro() {
               <img
                 src="/images/银色镜头不挂机特写.jpg"
                 alt="35mm F/2 lens body"
-                className="w-full h-auto rounded-lg shadow-2xl cursor-pointer hover:opacity-90 transition-opacity"
+                className="w-full h-auto rounded-lg shadow-[0_8px_32px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.08)] cursor-pointer hover:opacity-90 transition-opacity"
                 onClick={() => { setLightboxIndex(2); setLightboxOpen(true); }}
               />
             </div>
@@ -472,7 +472,7 @@ export default function Product35mmF2Intro() {
             {perfStats.map((s) => (
               <div
                 key={s.label}
-                className="border border-foreground/10 rounded-xl p-6 md:p-8 hover:border-foreground/25 transition-colors"
+                className="border border-foreground/10 rounded-xl p-6 md:p-8 hover:border-foreground/25 transition-colors shadow-[0_4px_16px_rgba(0,0,0,0.08),0_1px_4px_rgba(0,0,0,0.05)]"
               >
                 <p className="text-xs tracking-widest text-foreground/50 mb-3 uppercase">{s.label}</p>
                 <p className="text-3xl md:text-4xl font-bold mb-4">{s.value}</p>
@@ -492,7 +492,7 @@ export default function Product35mmF2Intro() {
                 { title: content.chartMTF28Title, desc: content.chartMTF28Desc, src: `/images/optical-charts/mtf-f2.8-${language === 'zh' ? 'zh' : 'en'}.jpg` },
                 { title: content.chartMTF56Title, desc: content.chartMTF56Desc, src: `/images/optical-charts/mtf-f5.6-${language === 'zh' ? 'zh' : 'en'}.jpg` },
               ].map((chart) => (
-                <div key={chart.title} className="flex flex-col border border-foreground/10 rounded-xl overflow-hidden hover:border-foreground/25 transition-colors">
+                <div key={chart.title} className="flex flex-col border border-foreground/10 rounded-xl overflow-hidden hover:border-foreground/25 transition-colors shadow-[0_4px_16px_rgba(0,0,0,0.08),0_1px_4px_rgba(0,0,0,0.05)]">
                   <div className="aspect-[4/3] overflow-hidden">
                     <img src={chart.src} alt={chart.title} className="w-full h-full object-contain bg-white" />
                   </div>
@@ -514,7 +514,7 @@ export default function Product35mmF2Intro() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-16">
             {scenes.map((s) => (
               <div key={s.num}>
-                <div className="overflow-hidden rounded-xl mb-5">
+                <div className="overflow-hidden rounded-xl mb-5 shadow-[0_8px_32px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.08)]">
                   <img src={s.image} alt={s.title} className="w-full aspect-[16/9] object-cover" loading="lazy" />
                 </div>
                 <div className="flex items-baseline gap-4 mb-3">
