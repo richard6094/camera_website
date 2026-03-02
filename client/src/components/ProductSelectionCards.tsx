@@ -41,7 +41,7 @@ export function ProductSelectionCards() {
           {products.map((product) => (
             <div
               key={product.id}
-              className={`group relative overflow-hidden bg-card elevation-1 hover:elevation-2 damped-transition rounded-xl ${
+              className={`group relative overflow-hidden bg-card shadow-[0_8px_32px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.08)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.16),0_4px_12px_rgba(0,0,0,0.1)] damped-transition rounded-xl ${
                 product.available ? 'cursor-pointer' : 'cursor-default'
               }`}
               onClick={() => {

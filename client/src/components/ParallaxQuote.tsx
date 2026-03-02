@@ -34,7 +34,7 @@ export function ParallaxQuote({ image, quote, author, topBg, bottomBg }: Paralla
         background: `linear-gradient(to bottom, ${topBg || 'transparent'} 50%, ${bottomBg || 'transparent'} 50%)`
       } : { backgroundColor: 'transparent' }}
     >
-      <div className="relative h-[40vh] sm:h-[45vh] md:h-[55vh] lg:h-[60vh] overflow-hidden rounded-2xl">
+      <div className="relative h-[40vh] sm:h-[45vh] md:h-[55vh] lg:h-[60vh] overflow-hidden rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.08)]">
       {/* Parallax Background Image */}
       <div 
         className="absolute inset-0 z-0 overflow-hidden"
