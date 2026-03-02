@@ -35,13 +35,13 @@ export function ProductSelectionCards() {
   ];
 
   return (
-    <section className="py-24 md:py-32 bg-background">
+    <section className="py-24 md:py-32 bg-surface-alt section-raised">
       <div className="container">
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8 max-w-6xl mx-auto">
           {products.map((product) => (
             <div
               key={product.id}
-              className={`group relative overflow-hidden bg-card ${
+              className={`group relative overflow-hidden bg-card elevation-1 hover:elevation-2 damped-transition rounded-xl ${
                 product.available ? 'cursor-pointer' : 'cursor-default'
               }`}
               onClick={() => {

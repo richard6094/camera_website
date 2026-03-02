@@ -2,6 +2,62 @@
 
 ## Recent Changes & Optimizations
 
+### 2026-03-02: Soft Wide-Screen Frame — Light Background + Rounded Corners
+**Summary**: Replaced the dark (#000) wide-screen frame with a warm light-gray background. The outermost container and global header remain sharp-edged (no rounded corners) for a clean edge-to-edge appearance. Elevation shadows softened to complement the light background.
+
+**Files Changed**:
+- `client/src/index.css` — Changed `html { background-color: #000 }` → `oklch(0.92 0.006 60)` (warm light gray); softened elevation shadow values; removed heavy `section-raised` box-shadow (now z-index only)
+- `client/src/App.tsx` — No rounded corners on outermost wrapper (sharp edge-to-edge)
+- `client/src/components/Header.tsx` — No rounded corners on header; kept `top-0` fixed positioning
+- `docs/manus-context/DESIGN_SYSTEM.md` — Updated Site Max-Width and Elevation & Depth System sections
+
+**Rationale**: User requested softer visual presentation on wide screens — light background instead of dark, rounded corners instead of sharp hard edges and color blocks. The rounded container + light bg creates a modern, refined "floating card" aesthetic that feels less harsh than the previous dark frame approach.
+
+---
+
+### 2026-03-02: Restore Full-Width Hero Section
+**Summary**: Restored the Hero (HorizontalProductShowcase) to full viewport width, breaking out of the 1440px container constraint. Added `.full-bleed` CSS utility class for elements that need to span the full viewport width while remaining inside a max-width parent.
+
+**Files Changed**:
+- `client/src/index.css` — Added `.full-bleed` utility class (uses `width: 100vw; left: 50%; margin-left: -50vw` technique)
+- `client/src/components/HorizontalProductShowcase.tsx` — Applied `full-bleed` class to the outer `<section>`
+- `client/src/App.tsx` — Added `overflow-x-clip` to the site wrapper to prevent horizontal scrollbar from the full-bleed element
+
+**Rationale**: After the 1440px constraint was applied, the Hero section was no longer full-screen. User requested restoring it to the original full-width design.
+
+---
+
+### 2026-03-02: Visual Depth & Elevation System
+**Summary**: Added a multi-layer depth system to create visual hierarchy between different levels of content. Includes alternating surface backgrounds, elevation shadows, floating section effects, and recessed parallax bands.
+
+**Files Changed**:
+- `client/src/index.css` — Added `--surface-alt` CSS variable (light/dark modes), registered `--color-surface-alt` in Tailwind theme; added `.elevation-1/2/3`, `.section-raised`, `.section-inset` utility classes
+- `client/src/App.tsx` — Added `elevation-3` to the 1440px site wrapper for floating panel shadow
+- `client/src/components/Header.tsx` — Added `boxShadow: '0 2px 16px rgba(0,0,0,0.06)'` to fixed header for floating depth
+- `client/src/components/ParallaxQuote.tsx` — Added `section-inset` class for recessed inner shadow effect
+- `client/src/pages/Home.tsx` — Applied `section-raised` to Brand Story, Gallery, and Support sections; used `bg-surface-alt` on Gallery and Product Cards sections for alternating surface tones
+- `client/src/components/ProductSelectionCards.tsx` — Changed section to `bg-surface-alt section-raised`; added `elevation-1 hover:elevation-2` to individual product cards
+
+**Rationale**: User requested visual hierarchy/depth between different layers of components. The system creates:
+- **Layer 0** (deepest): ParallaxQuote bands with inner shadow — appear recessed
+- **Layer 1**: Content sections with `section-raised` — float above parallax
+- **Layer 2**: Cards with `elevation-1/2` — pop off their parent surface
+- **Layer 3**: Header and site wrapper — top-most floating elements
+
+---
+
+### 2026-03-02: Global Max-Width Constraint (1440px) for Wide Screen Optimization
+**Summary**: Added a global max-width constraint of 1440px to the entire site layout, preventing content from stretching across ultra-wide screens. Content is centered with a dark frame background, inspired by tec.gov.ae's contained layout approach.
+
+**Files Changed**:
+- `client/src/index.css` — Added `html { background-color: #000; }` for dark frame outside content area
+- `client/src/App.tsx` — Wrapped Router content in `max-w-[1440px] mx-auto` container with `bg-background` and `min-h-screen`
+- `client/src/components/Header.tsx` — Added `max-w-[1440px] mx-auto` to fixed header; restructured dropdown menu wrapper with max-width centering and `pointer-events-none/auto` passthrough
+
+**Rationale**: User reported that full-width layout caused image distortion on wide screens. Constraining to 1440px prevents stretching while maintaining the editorial aesthetic. Dark html background creates a premium "floating content" frame effect, like a photographic print on dark matte.
+
+---
+
 ### 2026-03-01: Global Button Rounded Corners
 **Summary**: Changed global `--radius` design token from `0px` to `6px`, giving all buttons and UI components subtle rounded corners. Removed inline `borderRadius` workarounds from product page buttons.
 

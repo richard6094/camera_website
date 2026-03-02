@@ -24,7 +24,7 @@ import Gallery from "./pages/Gallery";
 function Router() {
   const { itemCount } = useCart();
   return (
-    <>
+    <div className="max-w-[1440px] mx-auto bg-background min-h-screen relative elevation-3">
       <Header cartCount={itemCount} />
       <Switch>
         <Route path="/" component={Home} />
@@ -44,7 +44,7 @@ function Router() {
         {/* Final fallback route */}
         <Route component={NotFound} />
       </Switch>
-    </>
+    </div>
   );
 }
 

@@ -26,7 +26,7 @@ export function ParallaxQuote({ image, quote, author }: ParallaxQuoteProps) {
   }, [image]);
 
   return (
-    <section className="relative h-[40vh] sm:h-[45vh] md:h-[55vh] lg:h-[60vh] overflow-hidden">
+    <section className="relative h-[40vh] sm:h-[45vh] md:h-[55vh] lg:h-[60vh] overflow-hidden section-inset">
       {/* Parallax Background Image */}
       <div 
         className="absolute inset-0 z-0 overflow-hidden"

@@ -105,6 +105,32 @@ Mobile (8) → Tablet (10) → Desktop (12)
 
 ## Layout & Grid
 
+### Site Max-Width & Wide-Screen Frame
+The entire site is constrained to **1440px** (`max-w-[1440px]`) max-width, centered on the viewport with `mx-auto`. On screens wider than 1440px, a warm light-gray frame (`oklch(0.92 0.006 60)` background on `html`) appears on both sides, creating a soft "floating content" aesthetic. The outermost container and global header do **not** use rounded corners — corners remain sharp at the page level for a clean edge-to-edge appearance.
+
+### Elevation & Depth System
+
+The site uses a layered depth system to create visual hierarchy between components:
+
+| Utility Class | Shadow | Usage |
+|---------------|--------|-------|
+| `.elevation-1` | `0 1px 3px rgba(0,0,0,0.05)` | Cards, subtle lift |
+| `.elevation-2` | `0 4px 12px rgba(0,0,0,0.06)` | Hovered cards, floating elements |
+| `.elevation-3` | `0 4px 24px rgba(0,0,0,0.08)` | Site wrapper on light background |
+| `.section-raised` | (z-index only, no shadow) | Content sections layered above parallax |
+| `.section-inset` | `inset 0 ±6px 16px rgba(0,0,0,0.12)` | Parallax/image bands (recessed look) |
+
+**Surface Colors** (alternating section backgrounds):
+- `bg-background` (`--background`): Primary surface — warm white (light) / deep charcoal (dark)
+- `bg-surface-alt` (`--surface-alt`): Alternate surface — slightly cooler/darker tone for visual rhythm
+
+**Depth Layers** (back to front):
+1. **Layer 0**: ParallaxQuote bands — `section-inset` makes them appear recessed behind content
+2. **Layer 1**: Content sections — `section-raised` makes them float above parallax
+3. **Layer 2**: Cards within sections — `elevation-1` / `elevation-2` on hover
+4. **Layer 3**: Header — `boxShadow` + `backdrop-blur` floats above everything
+5. **Layer 4**: Site wrapper — `elevation-3` against dark `html` background
+
 ### Container Widths
 - **Mobile**: Full width with 1rem (16px) padding
 - **Tablet**: Full width with 2rem (32px) padding
