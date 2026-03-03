@@ -158,9 +158,14 @@ export function ScrollExpandGallery({
         <div className="sticky top-0 h-dvh overflow-hidden">
           <div
             ref={shrinkFrameRef}
-            className="seg-fade-out absolute inset-0"
+            className="seg-fade-out"
             style={{
-              background: `linear-gradient(to bottom, ${bgColor} 0%, ${bgColor} 30%, transparent 100%)`
+              position: 'absolute',
+              left: 0,
+              right: 0,
+              top: 0,
+              height: '200%',
+              background: `linear-gradient(to bottom, ${bgColor} 0%, ${bgColor} 20%, oklch(0.65 0.020 75) 50%, oklch(0.92 0.035 75) 80%, oklch(0.92 0.035 75) 100%)`
             }}
           />
         </div>
