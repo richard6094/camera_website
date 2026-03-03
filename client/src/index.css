@@ -659,20 +659,25 @@
     transition: none;
   }
 
-  /* ── Fade-out: full-width bg dissolves top-to-bottom via linear mask ── */
+  /* ── Fade-out: full-width bg dissolves via vertical mask + opacity ── */
   .seg-fade-out {
     --shrink-p: 0;
+    opacity: calc(1 - var(--shrink-p));
     -webkit-mask-image: linear-gradient(
       to bottom,
-      transparent calc(-10% + 110% * var(--shrink-p)),
-      black calc(10% + 110% * var(--shrink-p))
+      transparent calc(-5% + 50% * var(--shrink-p)),
+      black calc(0% + 45% * var(--shrink-p)),
+      black calc(100% - 45% * var(--shrink-p)),
+      transparent calc(105% - 50% * var(--shrink-p))
     );
     mask-image: linear-gradient(
       to bottom,
-      transparent calc(-10% + 110% * var(--shrink-p)),
-      black calc(10% + 110% * var(--shrink-p))
+      transparent calc(-5% + 50% * var(--shrink-p)),
+      black calc(0% + 45% * var(--shrink-p)),
+      black calc(100% - 45% * var(--shrink-p)),
+      transparent calc(105% - 50% * var(--shrink-p))
     );
-    will-change: mask-image, -webkit-mask-image;
+    will-change: opacity, mask-image, -webkit-mask-image;
   }
 
 

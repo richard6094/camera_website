@@ -10,7 +10,7 @@ interface ParallaxQuoteProps {
 }
 
 export function ParallaxQuote({ image, quote, author, topBg, bottomBg }: ParallaxQuoteProps) {
-  const spRef = useScrollProgress<HTMLElement>({ start: 1.15 });
+  const spRef = useScrollProgress<HTMLElement>({ start: 1.4 });
   const [offsetY, setOffsetY] = useState(0);
 
   useEffect(() => {
