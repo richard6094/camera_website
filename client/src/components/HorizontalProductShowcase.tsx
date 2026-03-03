@@ -490,7 +490,7 @@ export default function HorizontalProductShowcase({
       </div>
 
       {/* Bottom Thumbnail Navigation */}
-      <div className="absolute bottom-0 left-0 right-0 z-20 bg-background/95 backdrop-blur-sm border-t border-foreground/10" style={{ borderTopWidth: '0.5px' }}>
+      <div className="absolute bottom-0 left-0 right-0 z-20 bg-[oklch(0.945_0.018_75/0.95)] backdrop-blur-sm border-t border-foreground/10" style={{ borderTopWidth: '0.5px' }}>
         <div className="max-w-7xl mx-auto px-8 md:px-12 lg:px-16 py-4">
           <div className="flex gap-6 overflow-x-auto scrollbar-hide">
             {items.map((item, idx) => (
