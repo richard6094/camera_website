@@ -143,14 +143,14 @@ export function ScrollExpandGallery({
         </div>
       </section>
 
-      {/* ═══════════ SHRINK TRACK ═══════════
-          200vh tall → 100vh effective scroll range.
-          BG-color block shrinks, gains rounded corners, and fades. */}
-      <div ref={shrinkTrackRef} className="relative" style={{ height: '200vh' }}>
-        <div className="sticky top-0 h-dvh flex items-center justify-center overflow-hidden">
+      {/* ═══════════ FADE-OUT TRACK ═══════════
+          150vh tall → 50vh effective scroll range.
+          Full-width bg color fades out smoothly, no visible edges. */}
+      <div ref={shrinkTrackRef} className="relative" style={{ height: '150vh' }}>
+        <div className="sticky top-0 h-dvh overflow-hidden">
           <div
             ref={shrinkFrameRef}
-            className="seg-shrink-frame"
+            className="seg-fade-out absolute inset-0"
             style={{ backgroundColor: bgColor }}
           />
         </div>
