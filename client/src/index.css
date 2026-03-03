@@ -379,23 +379,47 @@
      ============================================ */
   .silk-bg {
     --silk-t: 0;
-    background-color: oklch(0.935 0.020 75);
+    background-color: oklch(0.935 0.028 75);
     background-attachment: fixed;
     background-image:
-      /* Silk noise texture overlay */
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E"),
-      /* Each blob sweeps 500% vertically — only ONE near viewport at
-         any scroll position. Huge 120% radius fills entire screen.
+      /* ── Silk weave texture ──
+         Diagonal micro-stripes simulate the directional sheen of silk.
+         Two opposing angles create the cross-hatch of warp & weft. */
+      repeating-linear-gradient(
+        135deg,
+        oklch(1 0 0 / 0.04) 0px,
+        transparent 1px,
+        transparent 3px
+      ),
+      repeating-linear-gradient(
+        45deg,
+        oklch(0 0 0 / 0.025) 0px,
+        transparent 1px,
+        transparent 5px
+      ),
+      /* ── Silk lustre sheen: diagonal highlight band that shifts with scroll ── */
+      linear-gradient(
+        135deg,
+        transparent calc(20% + 30% * var(--silk-t)),
+        oklch(0.97 0.010 80 / 0.35) calc(35% + 20% * var(--silk-t)),
+        oklch(0.97 0.010 80 / 0.45) calc(50% + 10% * var(--silk-t)),
+        oklch(0.97 0.010 80 / 0.35) calc(55% + 10% * var(--silk-t)),
+        transparent calc(70% + 5% * var(--silk-t))
+      ),
+      /* ── Grain noise for organic silk feel ── */
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"),
+      /* ── Color blobs: gold/khaki/brown family, higher chroma ──
+         Each sweeps 500% vertically — one dominates per section.
          Peak: blob1 t≈0, blob2 t≈0.33, blob3 t≈0.67, blob4 t≈1 */
       /* 1 — Light gold: dominates page top (t ≈ 0) */
       radial-gradient(
         circle at
           calc(35% + 30% * var(--silk-t))
           calc(50% + 500% * var(--silk-t)),
-        oklch(0.90 0.045 80 / 0.90),
-        oklch(0.90 0.045 80 / 0.65) 25%,
-        oklch(0.90 0.045 80 / 0.30) 50%,
-        oklch(0.90 0.045 80 / 0.08) 80%,
+        oklch(0.88 0.072 80 / 0.90),
+        oklch(0.88 0.072 80 / 0.65) 25%,
+        oklch(0.88 0.072 80 / 0.30) 50%,
+        oklch(0.88 0.072 80 / 0.08) 80%,
         transparent 120%
       ),
       /* 2 — Warm khaki: dominates ≈1/3 scroll */
@@ -403,10 +427,10 @@
         circle at
           calc(65% - 30% * var(--silk-t))
           calc(-115% + 500% * var(--silk-t)),
-        oklch(0.88 0.050 68 / 0.88),
-        oklch(0.88 0.050 68 / 0.60) 25%,
-        oklch(0.88 0.050 68 / 0.28) 50%,
-        oklch(0.88 0.050 68 / 0.07) 80%,
+        oklch(0.86 0.068 68 / 0.88),
+        oklch(0.86 0.068 68 / 0.60) 25%,
+        oklch(0.86 0.068 68 / 0.28) 50%,
+        oklch(0.86 0.068 68 / 0.07) 80%,
         transparent 120%
       ),
       /* 3 — Soft brown: dominates ≈2/3 scroll */
@@ -414,10 +438,10 @@
         circle at
           calc(40% + 20% * var(--silk-t))
           calc(-285% + 500% * var(--silk-t)),
-        oklch(0.87 0.042 55 / 0.85),
-        oklch(0.87 0.042 55 / 0.55) 25%,
-        oklch(0.87 0.042 55 / 0.25) 50%,
-        oklch(0.87 0.042 55 / 0.06) 80%,
+        oklch(0.85 0.065 55 / 0.85),
+        oklch(0.85 0.065 55 / 0.55) 25%,
+        oklch(0.85 0.065 55 / 0.25) 50%,
+        oklch(0.85 0.065 55 / 0.06) 80%,
         transparent 120%
       ),
       /* 4 — Warm sand: dominates page bottom (t ≈ 1) */
@@ -425,10 +449,10 @@
         circle at
           calc(60% - 20% * var(--silk-t))
           calc(-450% + 500% * var(--silk-t)),
-        oklch(0.89 0.040 45 / 0.85),
-        oklch(0.89 0.040 45 / 0.55) 25%,
-        oklch(0.89 0.040 45 / 0.25) 50%,
-        oklch(0.89 0.040 45 / 0.06) 80%,
+        oklch(0.87 0.060 45 / 0.85),
+        oklch(0.87 0.060 45 / 0.55) 25%,
+        oklch(0.87 0.060 45 / 0.25) 50%,
+        oklch(0.87 0.060 45 / 0.06) 80%,
         transparent 120%
       );
   }
