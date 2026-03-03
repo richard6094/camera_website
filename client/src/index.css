@@ -620,13 +620,15 @@
     will-change: opacity;
   }
 
-  /* ── Expand frame: image grows from 65 % → 100 %, corners shrink ── */
+  /* ── Expand frame: image grows from max-w-7xl → 100 %, corners shrink ── */
   .seg-expand-frame {
     --expand-p: 0;
     container-type: inline-size;
     /* Feather: 50px soft edge → 0 over first 33 % of expansion */
     --seg-feather: calc(50px * max(0, 1 - var(--expand-p) * 3));
-    width:  calc(78% + 22% * var(--expand-p));
+    /* Start at min(68rem, 88%) to be slightly narrower than the page's max-w-7xl container, expand to 100% */
+    --seg-start-w: min(68rem, 88%);
+    width:  calc(var(--seg-start-w) + (100% - var(--seg-start-w)) * var(--expand-p));
     height: calc(55% + 45% * var(--expand-p));
     border-radius: calc(24px * max(0, 1 - var(--expand-p) * 1.15));
     -webkit-mask-image:
@@ -642,7 +644,8 @@
   /* On mobile, start a bit wider */
   @media (max-width: 639px) {
     .seg-expand-frame {
-      width:  calc(90% + 10% * var(--expand-p));
+      --seg-start-w: 92%;
+      width:  calc(var(--seg-start-w) + (100% - var(--seg-start-w)) * var(--expand-p));
       height: calc(50% + 50% * var(--expand-p));
     }
   }

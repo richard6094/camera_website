@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { ChevronRight, Play, FileText } from 'lucide-react';
 import { useLocation } from 'wouter';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -8,6 +8,7 @@ import { ParallaxQuote } from '@/components/ParallaxQuote';
 import { ScrollExpandGallery } from '@/components/ScrollExpandGallery';
 import { ProductSelectionCards } from '@/components/ProductSelectionCards';
 import { UserGallery } from '@/components/UserGallery';
+import { ImageLightbox } from '@/components/ImageLightbox';
 import Footer from '@/components/Footer';
 
 /**
@@ -24,6 +25,8 @@ export default function Home() {
   const [, navigate] = useLocation();
   const [videoLoaded, setVideoLoaded] = useState<boolean>(false);
   const [videoProgress, setVideoProgress] = useState<number>(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
   const { t, language } = useLanguage();
 
   // Scroll-progress refs (continuous, bidirectional — mandler.shop style)
@@ -39,6 +42,23 @@ export default function Home() {
       window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
     });
   };
+
+  // Aperture animation frame sequence (36 frames, scroll-driven)
+  const apertureFrames = useMemo(() =>
+    Array.from({ length: 36 }, (_, i) => `/images/aperture-frames/aperture_${String(i).padStart(3, '0')}.webp`),
+    []
+  );
+
+  // Gallery images for lightbox
+  const galleryImages = [
+    `https://mandlergallery.blob.core.windows.net/gallery/${encodeURIComponent('第1章  地域')}/${encodeURIComponent('1彩色-英国 风拂白崖，海映晴空。')}/1.webp`,
+    `https://mandlergallery.blob.core.windows.net/gallery/${encodeURIComponent('第1章  地域')}/${encodeURIComponent('2彩色-新西兰 异域相遇，帧藏多元')}/3.webp`,
+    `https://mandlergallery.blob.core.windows.net/gallery/${encodeURIComponent('第1章  地域')}/${encodeURIComponent('3彩色-埃及  沙漠与海相拥，烟火与古迹共生')}/2.webp`,
+    `https://mandlergallery.blob.core.windows.net/gallery/${encodeURIComponent('第2章  色彩乐园')}/${encodeURIComponent('色彩乐园2  绮梦')}/1.webp`,
+    `https://mandlergallery.blob.core.windows.net/gallery/${encodeURIComponent('第3章  韵律')}/7.webp`,
+    `https://mandlergallery.blob.core.windows.net/gallery/${encodeURIComponent('第4章 霓虹')}/1.webp`,
+    `https://mandlergallery.blob.core.windows.net/gallery/${encodeURIComponent('第5章  黑白之间')}/5.webp`,
+  ];
 
   // Unified showcase items - Hero + Products
   const showcaseItems = [
@@ -177,15 +197,11 @@ export default function Home() {
 
           {/* User Gallery Component — real sample photos from Azure Blob Storage */}
           <UserGallery 
-            images={[
-              `https://mandlergallery.blob.core.windows.net/gallery/${encodeURIComponent('第1章  地域')}/${encodeURIComponent('1彩色-英国 风拂白崖，海映晴空。')}/1.webp`,
-              `https://mandlergallery.blob.core.windows.net/gallery/${encodeURIComponent('第1章  地域')}/${encodeURIComponent('2彩色-新西兰 异域相遇，帧藏多元')}/3.webp`,
-              `https://mandlergallery.blob.core.windows.net/gallery/${encodeURIComponent('第1章  地域')}/${encodeURIComponent('3彩色-埃及  沙漠与海相拥，烟火与古迹共生')}/2.webp`,
-              `https://mandlergallery.blob.core.windows.net/gallery/${encodeURIComponent('第2章  色彩乐园')}/${encodeURIComponent('色彩乐园2  绮梦')}/1.webp`,
-              `https://mandlergallery.blob.core.windows.net/gallery/${encodeURIComponent('第3章  韵律')}/7.webp`,
-              `https://mandlergallery.blob.core.windows.net/gallery/${encodeURIComponent('第4章 霓虹')}/1.webp`,
-              `https://mandlergallery.blob.core.windows.net/gallery/${encodeURIComponent('第5章  黑白之间')}/5.webp`,
-            ]}
+            images={galleryImages}
+            onImageClick={(index) => {
+              setLightboxIndex(index);
+              setLightboxOpen(true);
+            }}
           />
         </div>
       </ScrollExpandGallery>
@@ -361,6 +377,14 @@ export default function Home() {
 
       {/* ===== FOOTER ===== */}
       <Footer />
+
+      {/* ===== LIGHTBOX (rendered at page root to escape z-index stacking contexts) ===== */}
+      <ImageLightbox
+        images={galleryImages}
+        initialIndex={lightboxIndex}
+        isOpen={lightboxOpen}
+        onClose={() => setLightboxOpen(false)}
+      />
     </div>
   );
 }

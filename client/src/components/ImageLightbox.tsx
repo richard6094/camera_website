@@ -26,6 +26,14 @@ export function ImageLightbox({ images, initialIndex, isOpen, onClose }: ImageLi
     setPosition({ x: 0, y: 0 });
   }, [initialIndex, isOpen]);
 
+  // Lock body scroll when lightbox is open (prevents Lenis + native scroll)
+  useEffect(() => {
+    if (!isOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = prev; };
+  }, [isOpen]);
+
   useEffect(() => {
     if (!isOpen) return;
 
@@ -195,6 +203,7 @@ export function ImageLightbox({ images, initialIndex, isOpen, onClose }: ImageLi
   return (
     <div 
       className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-sm"
+      data-lenis-prevent
       onClick={onClose}
     >
       {/* Close Button */}

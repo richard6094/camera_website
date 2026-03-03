@@ -252,15 +252,18 @@ interface ParallaxQuoteProps {
 **Props**:
 ```typescript
 interface ScrollExpandGalleryProps {
-  image: string;            // Hero image source
+  image?: string;           // Hero image source (static image mode)
+  frames?: string[];        // Frame sequence URLs (overrides image; scroll-driven animation)
+  frameBg?: string;         // Background behind transparent frames (default: '#1a1a1a')
   quote: string;            // Quote overlaid on image (fades during expansion)
   children: ReactNode;      // Gallery content
   gallerySectionId?: string; // Optional id for anchor links
-  bgColor?: string;         // Background color (default: oklch(0.92 0.035 75))
+  bgColor?: string;         // Background color (default: oklch(0.92 0.028 68))
+  darkGallery?: boolean;    // Whether gallery uses light text on dark bg
 }
 ```
 
-**Usage**:
+**Usage (static image)**:
 ```tsx
 <ScrollExpandGallery
   image="/images/photo.jpg"
@@ -272,13 +275,40 @@ interface ScrollExpandGalleryProps {
 </ScrollExpandGallery>
 ```
 
+**Usage (frame sequence — aperture animation)**:
+```tsx
+const frames = useMemo(() =>
+  Array.from({ length: 36 }, (_, i) => `/images/aperture-frames/aperture_${String(i).padStart(3, '0')}.webp`),
+  []
+);
+
+<ScrollExpandGallery
+  image="/images/fallback.jpg"
+  frames={frames}
+  frameBg="oklch(0.35 0.008 75)"
+  quote={t('quote.1')}
+  gallerySectionId="gallery"
+  bgColor="oklch(0.35 0.008 75)"
+  darkGallery
+>
+  ...
+</ScrollExpandGallery>
+```
+
+**Frame sequence architecture**:
+- Images are preloaded in a `useEffect` and stored in a ref array
+- A `<canvas>` element replaces the `<img>` when frames are provided
+- The `drawFrame(p)` callback maps scroll progress (0→1) to frame index and draws to canvas
+- Canvas resolution matches display size × devicePixelRatio for sharpness
+- Frames should be transparent PNG/WebP (chroma-keyed); `frameBg` fills behind them
+
 **CSS classes** (defined in `index.css`):
 - `.seg-expand-frame` — width/height/border-radius driven by `--expand-p`
-- `.seg-shrink-frame` — reverse animation driven by `--shrink-p`
 - `.seg-quote` — quote opacity fades out in first 40 % of expansion
 - `.seg-color-overlay` — background-color overlay fades in during last 30 %
+- `.seg-backdrop` — blurred background behind static image (hidden in frame mode)
 
-**Mobile**: On `< 640 px`, the image starts wider (82 %) to avoid feeling too small on narrow screens.
+**Mobile**: On `< 640 px`, the image starts wider (92 %) to avoid feeling too small on narrow screens.
 
 ---
 
