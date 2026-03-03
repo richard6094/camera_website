@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, Play, FileText } from 'lucide-react';
 import { useLocation } from 'wouter';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
@@ -30,6 +30,8 @@ export default function Home() {
   const storyContentRef = useScrollReveal<HTMLDivElement>({ animation: 'fade-left', delay: 150 });
   const storyLineRef = useScrollReveal<HTMLDivElement>({ animation: 'line-grow', delay: 350 });
   const galleryHeaderRef = useScrollReveal<HTMLDivElement>({ animation: 'fade-up' });
+  const reviewsHeaderRef = useScrollReveal<HTMLDivElement>({ animation: 'fade-up' });
+  const reviewsGridRef = useScrollReveal<HTMLDivElement>({ animation: 'stagger', staggerDelay: 150 });
   const supportImageRef = useScrollReveal<HTMLDivElement>({ animation: 'clip-reveal-left', duration: 1200 });
   const supportContentRef = useScrollReveal<HTMLDivElement>({ animation: 'fade-right', delay: 150 });
   const supportLineRef = useScrollReveal<HTMLDivElement>({ animation: 'line-grow', delay: 350 });
@@ -190,6 +192,101 @@ export default function Home() {
               `https://mandlergallery.blob.core.windows.net/gallery/${encodeURIComponent('第5章  黑白之间')}/5.webp`,
             ]}
           />
+        </div>
+      </section>
+
+      {/* ===== MEDIA REVIEWS — PRESS VOICES ===== */}
+      <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-surface-alt">
+        <div className="container max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
+          {/* Section Header */}
+          <div ref={reviewsHeaderRef} className="text-center mb-12 sm:mb-14 md:mb-16">
+            <p className="text-xs sm:text-sm tracking-widest mb-3 sm:mb-4 text-foreground/60">
+              {t('home.reviews.label')}
+            </p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4 sm:mb-5">
+              {t('home.reviews.heading')}
+            </h2>
+            <div className="w-12 sm:w-14 md:w-16 h-px mx-auto bg-foreground/20" style={{height: '0.5px'}} />
+          </div>
+
+          {/* Reviews Grid */}
+          <div ref={reviewsGridRef} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            {[
+              {
+                type: 'video' as const,
+                platform: 'YouTube',
+                author: 'Camera Review Weekly',
+                title: language === 'zh' ? 'Mandler 35mm F/2 — 一枚现代经典？' : language === 'ja' ? 'Mandler 35mm F/2 — モダンクラシック？' : 'Mandler 35mm F/2 — A Modern Classic?',
+                excerpt: language === 'zh' ? '我们在东京街头对 Mandler 35mm F/2 进行了实拍体验。双高斯光学设计带来了现代镜头中罕见的优美成像特性。' : language === 'ja' ? '東京の街でMandler 35mmを試写。ダブルガウス設計による自然なボケ味と、コンパクトな鏡筒設計が印象的でした。' : 'We put the Mandler 35mm F/2 through its paces on the streets of Tokyo. The double-Gaussian design delivers beautiful rendering rarely seen in modern lenses.',
+                thumbnail: '/images/银色镜头挂机特则2-正面.jpg',
+              },
+              {
+                type: 'article' as const,
+                platform: language === 'zh' ? '摄影笔记' : 'LensRentals',
+                author: language === 'zh' ? '李明远' : 'Roger Cicala',
+                title: language === 'zh' ? '双高斯结构的现代演绎' : language === 'ja' ? '光学ベンチテスト：Mandler vs Summicron' : 'Optical Bench Test: Mandler vs Summicron',
+                excerpt: language === 'zh' ? '从光学设计到机械做工，这颗来自南阳的 35mm 镜头展现了令人惊喜的品质。紫金镀膜在逆光下的表现尤为出色。' : language === 'ja' ? 'MTF性能においてSummicron 35mmと互角の勝負を繰り広げ、歪曲収差が著しく低く、心地よいボケ味を実現。' : 'Our optical bench data shows the Mandler 35mm trading blows with the Summicron in MTF, with notably lower distortion and a more pleasing bokeh.',
+                thumbnail: '/images/银色镜头不挂机特写.jpg',
+              },
+              {
+                type: 'video' as const,
+                platform: 'Bilibili',
+                author: language === 'zh' ? '光影实验室' : language === 'ja' ? 'カメラ部TV' : 'Camera Lab',
+                title: language === 'zh' ? '特别版开箱 & 上手体验' : language === 'ja' ? '特別版 開封 & ファーストインプレッション' : 'Special Edition Unboxing & Hands-on',
+                excerpt: language === 'zh' ? '限量 500 枚的特别版终于到手！钛合金+黄铜机身带来的质感无与伦比，实拍样片展示了独特的成像个性。' : language === 'ja' ? '限定500本のスペシャルエディションを入手！チタン＋真鍮ボディの質感は格別で、実写サンプルも独特の描写個性を示しました。' : 'The limited 500-unit Special Edition has finally arrived! The brass + titanium body delivers unmatched tactile quality.',
+                thumbnail: '/images/银色镜头套装.jpg',
+              },
+            ].map((item, i) => (
+              <div
+                key={i}
+                onClick={() => navigateWithTop('/reviews')}
+                className="group cursor-pointer flex flex-col overflow-hidden rounded-xl shadow-[0_8px_32px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.08)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.16),0_4px_12px_rgba(0,0,0,0.1)] damped-transition bg-card"
+              >
+                {/* Thumbnail */}
+                <div className="relative aspect-[16/10] overflow-hidden image-hover-zoom">
+                  <img
+                    src={item.thumbnail}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  {/* Type badge */}
+                  <div className="absolute top-3 right-3 flex items-center gap-1.5 px-2.5 py-1 bg-black/50 backdrop-blur-sm rounded-full text-white text-xs tracking-wider uppercase">
+                    {item.type === 'video' ? (
+                      <><Play className="w-2.5 h-2.5" fill="white" /> Video</>
+                    ) : (
+                      <><FileText className="w-2.5 h-2.5" /> Article</>
+                    )}
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="flex-1 flex flex-col p-5 sm:p-6">
+                  <div className="flex items-center gap-2 mb-3 text-xs tracking-widest text-foreground/40">
+                    <span>{item.platform}</span>
+                    <span className="w-3 h-px bg-foreground/15" />
+                    <span>{item.author}</span>
+                  </div>
+                  <h3 className="text-base font-medium mb-2.5 leading-snug group-hover:text-foreground/80 transition-colors line-clamp-2 text-foreground">
+                    {item.title}
+                  </h3>
+                  <p className="text-foreground/60 text-sm leading-relaxed line-clamp-3">
+                    {item.excerpt}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* View All CTA */}
+          <div className="text-center mt-12 sm:mt-14">
+            <button
+              onClick={() => navigateWithTop('/reviews')}
+              className="inline-flex items-center gap-2 px-6 py-3 border border-foreground/20 text-foreground hover:bg-foreground hover:text-background damped-transition"
+            >
+              <span className="text-sm tracking-wide">{t('home.reviews.viewAll')}</span>
+              <ChevronRight className="w-4 h-4" strokeWidth={1.5} />
+            </button>
+          </div>
         </div>
       </section>
 
