@@ -159,7 +159,9 @@ export function ScrollExpandGallery({
           <div
             ref={shrinkFrameRef}
             className="seg-fade-out absolute inset-0"
-            style={{ backgroundColor: bgColor }}
+            style={{
+              background: `linear-gradient(to bottom, ${bgColor} 0%, ${bgColor} 30%, transparent 100%)`
+            }}
           />
         </div>
       </div>
