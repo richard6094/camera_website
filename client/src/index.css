@@ -616,16 +616,16 @@
   .seg-backdrop {
     filter: blur(60px) saturate(1.2);
     transform: scale(1.15); /* prevent blur edge artifacts */
-    opacity: clamp(0, calc(var(--expand-p, 0) * 2.5), 1);
+    opacity: clamp(0, calc(var(--expand-p, 0) * 2), 1);
     will-change: opacity;
   }
 
-  /* ── Expand frame: image grows from 65 % → 100 %, corners grow ── */
+  /* ── Expand frame: image grows from 65 % → 100 %, corners shrink ── */
   .seg-expand-frame {
     --expand-p: 0;
     width:  calc(65% + 35% * var(--expand-p));
     height: calc(55% + 45% * var(--expand-p));
-    border-radius: calc(16px + 34vw * var(--expand-p));
+    border-radius: calc(24px * max(0, 1 - var(--expand-p) * 1.15));
     will-change: width, height, border-radius;
   }
   /* On mobile, start a bit wider */
