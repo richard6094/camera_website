@@ -2,6 +2,16 @@
 
 ## Recent Changes & Optimizations
 
+### 2026-03-04: Warranty Content Update — 12-Month Official Warranty
+**Summary**: Updated the Service Support page warranty section across all three languages (zh/en/ja) to match the official Mandler warranty card. Changed from "Lifetime Limited Warranty" to "12-Month Official Warranty" with restructured items: Warranty Period, Coverage Scope (materials/craftsmanship defects), and Exclusions (accidental damage, normal wear, unauthorized repairs).
+
+**Files Changed**:
+- `client/src/pages/ServiceSupport.tsx` — Replaced warranty `title`, `description`, and `items` in zh, en, and ja content objects.
+
+**Rationale**: Warranty card image specified 12-month coverage, not lifetime. Content now accurately reflects official warranty terms including specific coverage scope and exclusion list.
+
+---
+
 ### 2026-03-03: SEG Color Transition Smoothing
 **Summary**: Fixed two color seam issues at the top and bottom of ScrollExpandGallery. (1) Replaced solid bgColor on the expand track with a gradient from transparent→bgColor over the first 40vh, so the section blends smoothly from the silk-bg above instead of an abrupt dark-grey jump. (2) Rewrote the fade-out mask gradient to start fully opaque at shrink-p=0 (transparent edges pushed outside element bounds), eliminating the light band that appeared where silk-bg bled through the 8% transparent strip. Added 2px overlap between gallery section and fade-out track to prevent sub-pixel gaps.
 
