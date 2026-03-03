@@ -613,11 +613,12 @@
     will-change: transform, opacity;
   }
 
-  /* --- Scale Subtle: gentle size+opacity, never fully hidden --- */
+  /* --- Scale Subtle: gentle size+opacity+blur, never fully hidden --- */
   .sp-scale-subtle {
     opacity: calc(0.4 + 0.6 * var(--sp, 0));
     transform: scale(calc(0.88 + 0.12 * var(--sp, 0)));
-    will-change: transform, opacity;
+    filter: blur(calc(4px * (1 - var(--sp, 0))));
+    will-change: transform, opacity, filter;
   }
 
   /* --- Clip Reveal bottom-up (continuous, soft leading edge) --- */
