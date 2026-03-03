@@ -382,35 +382,51 @@
     background-color: oklch(0.92 0.035 75);
     background-attachment: fixed;
     background-image:
-      /* ── Silk flowing folds (ultra-dense) ──
-         Repeating gradients create dense periodic waves.
-         Different periods + angles = organic silk interference. */
-      /* shadow waves — 4 layers at different periods */
+      /* ── Silk flowing folds ──
+         Dense repeating waves with irrational-ratio periods
+         so they never perfectly align. Large-scale modulation
+         layers break uniformity for organic look. */
+
+      /* ── Large-scale modulation: make some areas fold-rich,
+            others smooth, like real draped silk ── */
+      linear-gradient(128deg,
+        oklch(0.90 0.02 75 / 0) 0%, oklch(0.90 0.02 75 / 0.18) 15%,
+        oklch(0.90 0.02 75 / 0) 30%, oklch(0.90 0.02 75 / 0.10) 52%,
+        oklch(0.90 0.02 75 / 0) 68%, oklch(0.90 0.02 75 / 0.14) 85%,
+        oklch(0.90 0.02 75 / 0) 100%),
+      linear-gradient(145deg,
+        oklch(0.96 0.01 78 / 0) 0%, oklch(0.96 0.01 78 / 0.15) 22%,
+        oklch(0.96 0.01 78 / 0) 40%, oklch(0.96 0.01 78 / 0.20) 62%,
+        oklch(0.96 0.01 78 / 0) 80%, oklch(0.96 0.01 78 / 0.12) 95%,
+        oklch(0.96 0.01 78 / 0) 100%),
+
+      /* ── Dense waves: irrational-ratio periods ── */
+      /* shadow waves */
       repeating-linear-gradient(131deg,
-        oklch(0.87 0.02 75 / 0) 0%, oklch(0.87 0.02 75 / 0.14) 1.8%,
-        oklch(0.87 0.02 75 / 0) 3.6%),
-      repeating-linear-gradient(136deg,
-        oklch(0.86 0.02 70 / 0) 0%, oklch(0.86 0.02 70 / 0.12) 2.2%,
-        oklch(0.86 0.02 70 / 0) 4.4%),
-      repeating-linear-gradient(142deg,
-        oklch(0.85 0.02 68 / 0) 0%, oklch(0.85 0.02 68 / 0.10) 2.8%,
-        oklch(0.85 0.02 68 / 0) 5.6%),
-      repeating-linear-gradient(134deg,
-        oklch(0.86 0.02 72 / 0) 0%, oklch(0.86 0.02 72 / 0.11) 3.5%,
-        oklch(0.86 0.02 72 / 0) 7%),
-      /* highlight waves — 4 layers at different periods */
+        oklch(0.87 0.02 75 / 0) 0%, oklch(0.87 0.02 75 / 0.14) 1.85%,
+        oklch(0.87 0.02 75 / 0) 3.7%),
+      repeating-linear-gradient(138deg,
+        oklch(0.86 0.02 70 / 0) 0%, oklch(0.86 0.02 70 / 0.12) 2.65%,
+        oklch(0.86 0.02 70 / 0) 5.3%),
+      repeating-linear-gradient(143deg,
+        oklch(0.85 0.02 68 / 0) 0%, oklch(0.85 0.02 68 / 0.10) 4.45%,
+        oklch(0.85 0.02 68 / 0) 8.9%),
       repeating-linear-gradient(133deg,
-        oklch(0.97 0.01 78 / 0) 0%, oklch(0.97 0.01 78 / 0.18) 2%,
-        oklch(0.97 0.01 78 / 0) 4%),
-      repeating-linear-gradient(139deg,
-        oklch(0.96 0.012 72 / 0) 0%, oklch(0.96 0.012 72 / 0.15) 2.5%,
-        oklch(0.96 0.012 72 / 0) 5%),
-      repeating-linear-gradient(137deg,
-        oklch(0.97 0.008 80 / 0) 0%, oklch(0.97 0.008 80 / 0.12) 3.2%,
-        oklch(0.97 0.008 80 / 0) 6.4%),
-      repeating-linear-gradient(141deg,
-        oklch(0.96 0.01 76 / 0) 0%, oklch(0.96 0.01 76 / 0.10) 4%,
-        oklch(0.96 0.01 76 / 0) 8%),
+        oklch(0.86 0.02 72 / 0) 0%, oklch(0.86 0.02 72 / 0.11) 3.35%,
+        oklch(0.86 0.02 72 / 0) 6.7%),
+      /* highlight waves */
+      repeating-linear-gradient(135deg,
+        oklch(0.97 0.01 78 / 0) 0%, oklch(0.97 0.01 78 / 0.18) 2.15%,
+        oklch(0.97 0.01 78 / 0) 4.3%),
+      repeating-linear-gradient(140deg,
+        oklch(0.96 0.012 72 / 0) 0%, oklch(0.96 0.012 72 / 0.15) 3.05%,
+        oklch(0.96 0.012 72 / 0) 6.1%),
+      repeating-linear-gradient(129deg,
+        oklch(0.97 0.008 80 / 0) 0%, oklch(0.97 0.008 80 / 0.12) 5.15%,
+        oklch(0.97 0.008 80 / 0) 10.3%),
+      repeating-linear-gradient(144deg,
+        oklch(0.96 0.01 76 / 0) 0%, oklch(0.96 0.01 76 / 0.10) 1.55%,
+        oklch(0.96 0.01 76 / 0) 3.1%),
       /* ── Silk lustre sheens (scroll-linked) ── */
       /* primary sheen — wide diagonal glow */
       linear-gradient(
