@@ -17,13 +17,14 @@ interface ScrollExpandGalleryProps {
 }
 
 /**
- * Scroll-driven expand → gallery → shrink section.
+ * Scroll-driven expand → gallery → gradient-fade section.
  *
- * 1. Image starts small (65 %) with rounded corners.
+ * 1. Image starts small (78 %) with rounded corners.
  * 2. Scrolling expands it to fill the viewport; corners go to 0.
  * 3. Image cross-fades to `bgColor`.
  * 4. Gallery content lives on that background.
- * 5. After gallery, background shrinks back with rounded corners and fades out.
+ * 5. After gallery, a static gradient smoothly transitions bgColor → transparent,
+ *    revealing the page background beneath like a natural color blend.
  *
  * Uses position: sticky + rAF-driven CSS custom properties for smooth
  * 60 fps animation with zero React re-renders.
@@ -37,18 +38,14 @@ export function ScrollExpandGallery({
   darkGallery = false,
 }: ScrollExpandGalleryProps) {
   const expandTrackRef = useRef<HTMLDivElement>(null);
-  const shrinkTrackRef = useRef<HTMLDivElement>(null);
   const expandFrameRef = useRef<HTMLDivElement>(null);
-  const shrinkFrameRef = useRef<HTMLDivElement>(null);
   const rafRef = useRef<number>(0);
   const lastExpandP = useRef<number>(-1);
-  const lastShrinkP = useRef<number>(-1);
 
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
     if (mq.matches) {
       expandFrameRef.current?.style.setProperty('--expand-p', '1');
-      shrinkFrameRef.current?.style.setProperty('--shrink-p', '1');
       return;
     }
 
@@ -65,19 +62,6 @@ export function ScrollExpandGallery({
         if (Math.abs(p - lastExpandP.current) > 0.0005) {
           lastExpandP.current = p;
           expandFrameRef.current.style.setProperty('--expand-p', p.toFixed(4));
-        }
-      }
-
-      // ── Shrink phase ──
-      if (shrinkTrackRef.current && shrinkFrameRef.current) {
-        const rect = shrinkTrackRef.current.getBoundingClientRect();
-        const stickyRange = rect.height - vh;
-        const scrolled = -rect.top;
-        const p = Math.min(1, Math.max(0, scrolled / stickyRange));
-
-        if (Math.abs(p - lastShrinkP.current) > 0.0005) {
-          lastShrinkP.current = p;
-          shrinkFrameRef.current.style.setProperty('--shrink-p', p.toFixed(4));
         }
       }
 
@@ -151,18 +135,17 @@ export function ScrollExpandGallery({
         </div>
       </section>
 
-      {/* ═══════════ FADE-OUT TRACK ═══════════
-          150vh tall → 50vh effective scroll range.
-          Full-width bg color fades out smoothly, no visible edges. */}
-      <div ref={shrinkTrackRef} className="relative" style={{ height: '140vh' }}>
-        <div className="sticky top-0 h-dvh overflow-hidden">
-          <div
-            ref={shrinkFrameRef}
-            className="seg-fade-out absolute inset-0"
-            style={{ backgroundColor: bgColor }}
-          />
-        </div>
-      </div>
+      {/* ═══════════ GRADIENT FADE-OUT ═══════════
+          Static gradient from bgColor → transparent.
+          Scrolling past it naturally reveals the page background,
+          like a seamless color blend. */}
+      <div
+        style={{
+          height: '40vh',
+          background: `linear-gradient(to bottom, ${bgColor}, transparent)`,
+          marginTop: '-2px',
+        }}
+      />
     </div>
   );
 }
