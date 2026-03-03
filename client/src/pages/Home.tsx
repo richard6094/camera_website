@@ -5,6 +5,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { useScrollProgress } from '@/hooks/useScrollProgress';
 import HorizontalProductShowcase from '@/components/HorizontalProductShowcase';
 import { ParallaxQuote } from '@/components/ParallaxQuote';
+import { ScrollExpandGallery } from '@/components/ScrollExpandGallery';
 import { ProductSelectionCards } from '@/components/ProductSelectionCards';
 import { UserGallery } from '@/components/UserGallery';
 import Footer from '@/components/Footer';
@@ -146,16 +147,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== PARALLAX QUOTE 1 ===== */}
-      <ParallaxQuote
+      {/* ===== SCROLL-EXPAND IMAGE → GALLERY → SHRINK ===== */}
+      <ScrollExpandGallery
         image="/images/银色镜头挂机特写1.jpg"
         quote={t('quote.1')}
-      />
-
-      {/* ===== USER GALLERY - SAMPLE PHOTOS ===== */}
-      <section key="gallery" id="gallery" ref={gallerySectionRef} className="py-16 sm:py-20 md:py-24 lg:py-32 section-raised">
-        <div className="container max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
-          {/* Section Header */}
+        gallerySectionId="gallery"
+      >
+        {/* Gallery Section Header */}
+        <div ref={gallerySectionRef}>
           <div className="sp-fade-up text-center mb-12 sm:mb-14 md:mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4 sm:mb-5">
               {t('gallery.heading')}
@@ -187,7 +186,7 @@ export default function Home() {
             ]}
           />
         </div>
-      </section>
+      </ScrollExpandGallery>
 
       {/* ===== MEDIA REVIEWS — PRESS VOICES ===== */}
       <section ref={reviewsSectionRef} className="py-16 sm:py-20 md:py-24 lg:py-32">

@@ -607,6 +607,57 @@
   }
 
   /* ============================================
+     SCROLL-EXPAND GALLERY (SEG)
+     Scroll-driven image-expand → gallery-bg → shrink effect.
+     Driven by --expand-p / --shrink-p (0→1) set via rAF in the component.
+     ============================================ */
+
+  /* ── Expand frame: image grows from 65 % → 100 %, corners shrink ── */
+  .seg-expand-frame {
+    --expand-p: 0;
+    width:  calc(65% + 35% * var(--expand-p));
+    height: calc(55% + 45% * var(--expand-p));
+    border-radius: calc(24px * max(0, 1 - var(--expand-p) * 1.15));
+    will-change: width, height, border-radius;
+  }
+  /* On mobile, start a bit wider */
+  @media (max-width: 639px) {
+    .seg-expand-frame {
+      width:  calc(82% + 18% * var(--expand-p));
+      height: calc(50% + 50% * var(--expand-p));
+    }
+  }
+
+  /* Quote overlay — fades out in first 40 % of expansion */
+  .seg-quote {
+    opacity: clamp(0, calc(1 - var(--expand-p, 0) * 2.5), 1);
+    transition: none;
+  }
+
+  /* BG-color overlay — fades in during last 30 % of expansion */
+  .seg-color-overlay {
+    opacity: clamp(0, calc((var(--expand-p, 0) - 0.7) * 3.33), 1);
+    transition: none;
+  }
+
+  /* ── Shrink frame: 100 % → 65 %, corners & opacity reverse ── */
+  .seg-shrink-frame {
+    --shrink-p: 0;
+    width:  calc(100% - 35% * var(--shrink-p));
+    height: calc(100% - 45% * var(--shrink-p));
+    border-radius: calc(24px * min(1, var(--shrink-p) * 1.15));
+    opacity: calc(1 - var(--shrink-p));
+    will-change: width, height, border-radius, opacity;
+  }
+  @media (max-width: 639px) {
+    .seg-shrink-frame {
+      width:  calc(100% - 18% * var(--shrink-p));
+      height: calc(100% - 50% * var(--shrink-p));
+    }
+  }
+
+
+  /* ============================================
      SCROLL-PROGRESS ANIMATION SYSTEM
      Continuous, bidirectional scroll-linked effects.
      Driven by --sp (0→1) CSS custom property set by useScrollProgress.
@@ -782,6 +833,21 @@
     }
     .silk-bg {
       --silk-t: 0.35 !important;
+    }
+    /* Scroll-expand gallery: show everything at rest state */
+    .seg-expand-frame {
+      --expand-p: 1 !important;
+      will-change: auto !important;
+    }
+    .seg-shrink-frame {
+      --shrink-p: 1 !important;
+      will-change: auto !important;
+    }
+    .seg-quote {
+      opacity: 0 !important;
+    }
+    .seg-color-overlay {
+      opacity: 1 !important;
     }
   }
 }

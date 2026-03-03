@@ -2,6 +2,19 @@
 
 ## Recent Changes & Optimizations
 
+### 2026-03-03: Scroll-Expand Gallery Effect (mandler.shop-inspired)
+**Summary**: Added a scroll-driven image-expand → gallery-background → shrink effect. Replaces the first ParallaxQuote with a cinematic scroll animation where an image starts small with rounded corners, expands to fill the viewport, cross-fades to a warm background color, and that background serves as the gallery section's backdrop. After the gallery is scrolled past, the background shrinks back with rounded corners and fades out, revealing the silk-bg gradient behind it.
+
+**Files Changed**:
+- `client/src/components/ScrollExpandGallery.tsx` — New component: expand track (250vh, sticky), gallery section (normal flow, bgColor), shrink track (200vh, sticky). Uses rAF-driven `--expand-p` / `--shrink-p` CSS custom properties for 60 fps animation with zero React re-renders.
+- `client/src/index.css` — Added SEG CSS classes: `.seg-expand-frame` (width/height/border-radius driven by `--expand-p`), `.seg-shrink-frame` (reverse animation driven by `--shrink-p`), `.seg-quote` (opacity fade-out), `.seg-color-overlay` (bg-color cross-fade), mobile overrides, reduced-motion support.
+- `client/src/pages/Home.tsx` — Replaced `<ParallaxQuote>` #1 + standalone `<section id="gallery">` with `<ScrollExpandGallery>` wrapping the gallery content. Added `ScrollExpandGallery` import.
+- `docs/manus-context/COMPONENT_GUIDE.md` — Added ScrollExpandGallery component documentation.
+
+**Rationale**: User requested mandler.shop-inspired scroll-driven expand/shrink effect to create a more immersive transition into the user sample gallery section.
+
+---
+
 ### 2026-03-03: Scroll-Progress Continuous Animations (mandler.shop style)
 **Summary**: Replaced one-shot IntersectionObserver scroll-reveals with a continuous, bidirectional scroll-progress system. Elements now animate **proportionally to scroll position** — sliding, fading, and revealing as you scroll down, and reversing when you scroll back up. This creates the "assembling/dispersing" effect seen on mandler.shop, where content layers converge at different speeds.
 
