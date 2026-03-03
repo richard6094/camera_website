@@ -141,8 +141,8 @@ export function ScrollExpandGallery({
           like a seamless color blend. */}
       <div
         style={{
-          height: '40vh',
-          background: `linear-gradient(to bottom, ${bgColor}, transparent)`,
+          height: '70vh',
+          background: `linear-gradient(to bottom, ${bgColor} 15%, transparent 100%)`,
           marginTop: '-2px',
         }}
       />
