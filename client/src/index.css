@@ -341,4 +341,170 @@
     background-color: currentColor;
     opacity: 0.25;
   }
+
+
+  /* ============================================
+     SCROLL-REVEAL ANIMATION SYSTEM
+     Scroll-triggered reveal effects
+     ============================================ */
+
+  /* Base: all scroll-reveal elements start invisible */
+  .scroll-reveal {
+    will-change: transform, opacity, clip-path;
+  }
+
+  /* --- Fade Up --- */
+  .sr-fade-up {
+    opacity: 0;
+    transform: translateY(36px);
+    transition:
+      opacity var(--sr-duration, 800ms) cubic-bezier(0.25, 0.46, 0.45, 0.94) var(--sr-delay, 0ms),
+      transform var(--sr-duration, 800ms) cubic-bezier(0.25, 0.46, 0.45, 0.94) var(--sr-delay, 0ms);
+  }
+  .sr-fade-up.sr-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* --- Fade Down --- */
+  .sr-fade-down {
+    opacity: 0;
+    transform: translateY(-36px);
+    transition:
+      opacity var(--sr-duration, 800ms) cubic-bezier(0.25, 0.46, 0.45, 0.94) var(--sr-delay, 0ms),
+      transform var(--sr-duration, 800ms) cubic-bezier(0.25, 0.46, 0.45, 0.94) var(--sr-delay, 0ms);
+  }
+  .sr-fade-down.sr-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* --- Fade Left (from right) --- */
+  .sr-fade-left {
+    opacity: 0;
+    transform: translateX(50px);
+    transition:
+      opacity var(--sr-duration, 900ms) cubic-bezier(0.25, 0.46, 0.45, 0.94) var(--sr-delay, 0ms),
+      transform var(--sr-duration, 900ms) cubic-bezier(0.25, 0.46, 0.45, 0.94) var(--sr-delay, 0ms);
+  }
+  .sr-fade-left.sr-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* --- Fade Right (from left) --- */
+  .sr-fade-right {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition:
+      opacity var(--sr-duration, 900ms) cubic-bezier(0.25, 0.46, 0.45, 0.94) var(--sr-delay, 0ms),
+      transform var(--sr-duration, 900ms) cubic-bezier(0.25, 0.46, 0.45, 0.94) var(--sr-delay, 0ms);
+  }
+  .sr-fade-right.sr-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* --- Fade In (simple opacity) --- */
+  .sr-fade-in {
+    opacity: 0;
+    transition:
+      opacity var(--sr-duration, 1000ms) cubic-bezier(0.25, 0.46, 0.45, 0.94) var(--sr-delay, 0ms);
+  }
+  .sr-fade-in.sr-visible {
+    opacity: 1;
+  }
+
+  /* --- Scale In --- */
+  .sr-scale-in {
+    opacity: 0;
+    transform: scale(0.93);
+    transition:
+      opacity var(--sr-duration, 800ms) cubic-bezier(0.25, 0.46, 0.45, 0.94) var(--sr-delay, 0ms),
+      transform var(--sr-duration, 800ms) cubic-bezier(0.25, 0.46, 0.45, 0.94) var(--sr-delay, 0ms);
+  }
+  .sr-scale-in.sr-visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* --- Clip Reveal (cinematic image reveal from bottom) --- */
+  .sr-clip-reveal {
+    clip-path: inset(100% 0 0 0);
+    transition:
+      clip-path var(--sr-duration, 1100ms) cubic-bezier(0.77, 0, 0.175, 1) var(--sr-delay, 0ms);
+  }
+  .sr-clip-reveal.sr-visible {
+    clip-path: inset(0 0 0 0);
+  }
+
+  /* --- Clip Reveal Left (image reveal from left) --- */
+  .sr-clip-reveal-left {
+    clip-path: inset(0 100% 0 0);
+    transition:
+      clip-path var(--sr-duration, 1100ms) cubic-bezier(0.77, 0, 0.175, 1) var(--sr-delay, 0ms);
+  }
+  .sr-clip-reveal-left.sr-visible {
+    clip-path: inset(0 0 0 0);
+  }
+
+  /* --- Line Grow (divider line scales in) --- */
+  .sr-line-grow {
+    transform: scaleX(0);
+    transform-origin: left;
+    transition:
+      transform var(--sr-duration, 700ms) cubic-bezier(0.25, 0.46, 0.45, 0.94) var(--sr-delay, 0ms);
+  }
+  .sr-line-grow.sr-visible {
+    transform: scaleX(1);
+  }
+
+  /* --- Stagger (children animate in sequence) --- */
+  .sr-stagger {
+    /* Container is visible immediately */
+  }
+  .sr-stagger > * {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 700ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+      transform 700ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .sr-stagger.sr-visible > *:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: calc(var(--sr-stagger, 120ms) * 0); }
+  .sr-stagger.sr-visible > *:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: calc(var(--sr-stagger, 120ms) * 1); }
+  .sr-stagger.sr-visible > *:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: calc(var(--sr-stagger, 120ms) * 2); }
+  .sr-stagger.sr-visible > *:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: calc(var(--sr-stagger, 120ms) * 3); }
+  .sr-stagger.sr-visible > *:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: calc(var(--sr-stagger, 120ms) * 4); }
+  .sr-stagger.sr-visible > *:nth-child(6) { opacity: 1; transform: translateY(0); transition-delay: calc(var(--sr-stagger, 120ms) * 5); }
+
+  /* ============================================
+     IMAGE HOVER EFFECTS
+     Smooth zoom on hover for interactive images
+     ============================================ */
+
+  .image-hover-zoom {
+    overflow: hidden;
+  }
+  .image-hover-zoom img {
+    transition: transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .image-hover-zoom:hover img {
+    transform: scale(1.05);
+  }
+
+  /* Reduce motion for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-reveal {
+      opacity: 1 !important;
+      transform: none !important;
+      clip-path: none !important;
+      transition: none !important;
+      will-change: auto !important;
+    }
+    .sr-stagger > * {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
 }

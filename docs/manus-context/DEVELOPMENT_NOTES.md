@@ -2,6 +2,19 @@
 
 ## Recent Changes & Optimizations
 
+### 2026-03-03: Scroll-Reveal Animations & Image Hover Effects
+**Summary**: Added scroll-triggered reveal animations to the homepage, inspired by mandler.shop's visual effects. Created a reusable `useScrollReveal` hook using IntersectionObserver and a comprehensive CSS animation system. Effects include: clip-path image reveals, fade-up/left/right content animations, divider line growth, staggered card reveals, and smooth image hover zoom. All animations respect `prefers-reduced-motion` for accessibility. Style remains unchanged (industrial Leica aesthetic).
+
+**Files Changed**:
+- `client/src/hooks/useScrollReveal.ts` — New hook: `useScrollReveal` (ref-based) and `useScrollRevealCallback` (callback-ref), supporting 10 animation types with configurable threshold, delay, duration, and stagger
+- `client/src/index.css` — Added scroll-reveal animation system (~150 lines): `sr-fade-up/down/left/right`, `sr-fade-in`, `sr-scale-in`, `sr-clip-reveal`, `sr-clip-reveal-left`, `sr-line-grow`, `sr-stagger` + `image-hover-zoom` effect + reduced-motion overrides
+- `client/src/pages/Home.tsx` — Applied scroll-reveal to Brand Story (clip-reveal image + fade-left content + line-grow divider), Gallery header (fade-up), Support section (clip-reveal-left image + fade-right content), Final CTA (fade-up heading + line-grow divider); added `image-hover-zoom` to story/support images
+- `client/src/components/ProductSelectionCards.tsx` — Added stagger scroll-reveal to product grid, `image-hover-zoom` to product images
+
+**Rationale**: User requested adding scroll-triggered special effects (referencing mandler.shop) to the main branch while keeping the existing industrial design style.
+
+---
+
 ### 2026-03-02: ParallaxQuote — Rounded Corners & Color-Matched Gradient Background
 **Summary**: Added rounded corners to ParallaxQuote sections. Restructured component with outer `<section>` (padding) + inner `<div>` (rounded-2xl + overflow-hidden). Fixed mobile bottom-edge visibility by increasing background height to 130%. Added `topBg`/`bottomBg` props so the padding area uses a 50/50 linear gradient that exactly matches adjacent section backgrounds, eliminating color mismatch.
 
