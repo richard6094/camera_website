@@ -380,7 +380,22 @@
   .silk-bg {
     --silk-t: 0;
     background-color: oklch(0.92 0.035 75);
-    background-attachment: fixed;
+    /* Per-layer attachment:
+       1 directional-light = fixed
+       2-4 density-modulation zones = scroll
+       5-8 primary folds = scroll
+       9-12 cross folds = scroll
+       13-15 shallow folds = scroll
+       16-18 lustre sheens = fixed
+       19-22 color blobs = fixed */
+    background-attachment:
+      fixed,
+      scroll, scroll, scroll,
+      scroll, scroll, scroll, scroll,
+      scroll, scroll, scroll, scroll,
+      scroll, scroll, scroll,
+      fixed, fixed, fixed,
+      fixed, fixed, fixed, fixed;
     background-image:
       /* ── Silk flowing folds ──
          Waves at varied angles create crossing/interleaving folds
