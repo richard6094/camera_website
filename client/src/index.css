@@ -612,21 +612,27 @@
      Driven by --expand-p / --shrink-p (0→1) set via rAF in the component.
      ============================================ */
 
-  /* ── Expand frame: image grows from 65 % → 160 %, corners grow ──
-     Frame overshoots viewport significantly; parent overflow:hidden
-     clips the large border-radius so image appears to fill the screen. */
+  /* ── Blurred backdrop: fills viewport, extends image edge-colors ── */
+  .seg-backdrop {
+    filter: blur(60px) saturate(1.2);
+    transform: scale(1.15); /* prevent blur edge artifacts */
+    opacity: clamp(0, calc(var(--expand-p, 0) * 2.5), 1);
+    will-change: opacity;
+  }
+
+  /* ── Expand frame: image grows from 65 % → 100 %, corners grow ── */
   .seg-expand-frame {
     --expand-p: 0;
-    width:  calc(65% + 95% * var(--expand-p));
-    height: calc(55% + 105% * var(--expand-p));
+    width:  calc(65% + 35% * var(--expand-p));
+    height: calc(55% + 45% * var(--expand-p));
     border-radius: calc(16px + 34vw * var(--expand-p));
     will-change: width, height, border-radius;
   }
   /* On mobile, start a bit wider */
   @media (max-width: 639px) {
     .seg-expand-frame {
-      width:  calc(82% + 78% * var(--expand-p));
-      height: calc(50% + 110% * var(--expand-p));
+      width:  calc(82% + 18% * var(--expand-p));
+      height: calc(50% + 50% * var(--expand-p));
     }
   }
 
@@ -842,6 +848,10 @@
       --silk-t: 0.35 !important;
     }
     /* Scroll-expand gallery: show everything at rest state */
+    .seg-backdrop {
+      opacity: 1 !important;
+      will-change: auto !important;
+    }
     .seg-expand-frame {
       --expand-p: 1 !important;
       will-change: auto !important;

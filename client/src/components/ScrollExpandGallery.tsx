@@ -95,11 +95,19 @@ export function ScrollExpandGallery({
           The sticky child stays pinned while the image expands. */}
       <div ref={expandTrackRef} className="relative" style={{ height: '250vh' }}>
         <div className="sticky top-0 h-dvh flex items-center justify-center overflow-hidden">
+          {/* Blurred backdrop — fills viewport, extends image edge-colors outward */}
+          <img
+            src={image}
+            alt=""
+            className="seg-backdrop absolute inset-0 w-full h-full object-cover"
+            draggable={false}
+          />
+
           <div
             ref={expandFrameRef}
             className="seg-expand-frame relative overflow-hidden"
           >
-            {/* Background image */}
+            {/* Sharp image */}
             <img
               src={image}
               alt=""
