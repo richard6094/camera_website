@@ -236,6 +236,52 @@ interface ParallaxQuoteProps {
 
 ---
 
+### ScrollExpandGallery
+
+**Location**: `client/src/components/ScrollExpandGallery.tsx`
+
+**Purpose**: Scroll-driven image-expand → gallery-background → shrink effect inspired by mandler.shop. An image starts small with rounded corners, expands to fill the viewport on scroll, cross-fades to a background color that becomes the gallery section's backdrop, then shrinks and fades after the gallery is scrolled past.
+
+**Architecture**:
+- **Expand track** (250vh): A tall container with a `position: sticky` child. As the user scrolls through the track, the image frame grows from 65 % → 100 % width and 55 % → 100 % height; `border-radius` shrinks to 0 px at full expansion.
+- **Gallery section**: Normal document-flow section with the matching background color. Content is provided via `children`.
+- **Shrink track** (200vh): Reverse of the expand—background block shrinks from 100 % → 65 %, corners reappear, and opacity fades to 0.
+
+**Scroll tracking**: Uses `useRef` + `requestAnimationFrame` loop. Sets `--expand-p` / `--shrink-p` CSS custom properties (0→1) on the frame elements. CSS classes (`seg-expand-frame`, `seg-shrink-frame`, `seg-quote`, `seg-color-overlay`) consume these variables for zero-React-state rendering.
+
+**Props**:
+```typescript
+interface ScrollExpandGalleryProps {
+  image: string;            // Hero image source
+  quote: string;            // Quote overlaid on image (fades during expansion)
+  children: ReactNode;      // Gallery content
+  gallerySectionId?: string; // Optional id for anchor links
+  bgColor?: string;         // Background color (default: oklch(0.92 0.035 75))
+}
+```
+
+**Usage**:
+```tsx
+<ScrollExpandGallery
+  image="/images/photo.jpg"
+  quote={t('quote.1')}
+  gallerySectionId="gallery"
+>
+  <h2>Gallery heading</h2>
+  <UserGallery images={[...]} />
+</ScrollExpandGallery>
+```
+
+**CSS classes** (defined in `index.css`):
+- `.seg-expand-frame` — width/height/border-radius driven by `--expand-p`
+- `.seg-shrink-frame` — reverse animation driven by `--shrink-p`
+- `.seg-quote` — quote opacity fades out in first 40 % of expansion
+- `.seg-color-overlay` — background-color overlay fades in during last 30 %
+
+**Mobile**: On `< 640 px`, the image starts wider (82 %) to avoid feeling too small on narrow screens.
+
+---
+
 ### UserGallery
 
 **Location**: `client/src/components/UserGallery.tsx`
