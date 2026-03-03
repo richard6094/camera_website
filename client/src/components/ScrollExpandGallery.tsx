@@ -34,7 +34,7 @@ export function ScrollExpandGallery({
   quote,
   children,
   gallerySectionId,
-  bgColor = 'oklch(0.92 0.035 75)',
+  bgColor = 'oklch(0.92 0.028 68)',
   darkGallery = false,
 }: ScrollExpandGalleryProps) {
   const expandTrackRef = useRef<HTMLDivElement>(null);
@@ -106,7 +106,7 @@ export function ScrollExpandGallery({
               <blockquote className="text-center max-w-[85%]">
                 <p
                   className="text-white font-light leading-relaxed"
-                  style={{ fontSize: 'clamp(1rem, 3.5cqi, 2.5rem)', textShadow: '0 2px 12px rgba(0,0,0,0.8)' }}
+                  style={{ fontSize: 'calc(clamp(1rem, 3.5cqi, 2.5rem) * (1 + var(--expand-p, 0) * 0.35))', textShadow: '0 2px 12px rgba(0,0,0,0.8)' }}
                 >
                   &ldquo;{quote}&rdquo;
                 </p>
