@@ -346,26 +346,26 @@
   .soft-edge {
     -webkit-mask-image: linear-gradient(to bottom,
       transparent,
-      black 6%,
-      black 94%,
+      black 2%,
+      black 98%,
       transparent
     ),
     linear-gradient(to right,
       transparent,
-      black 6%,
-      black 94%,
+      black 2%,
+      black 98%,
       transparent
     );
     mask-image: linear-gradient(to bottom,
       transparent,
-      black 6%,
-      black 94%,
+      black 2%,
+      black 98%,
       transparent
     ),
     linear-gradient(to right,
       transparent,
-      black 6%,
-      black 94%,
+      black 2%,
+      black 98%,
       transparent
     );
     -webkit-mask-composite: destination-in;
@@ -620,16 +620,52 @@
     will-change: transform, opacity;
   }
 
-  /* --- Clip Reveal bottom-up (continuous) --- */
+  /* --- Clip Reveal bottom-up (continuous, soft leading edge) --- */
   .sp-clip-reveal {
-    clip-path: inset(calc(100% * (1 - var(--sp, 0))) 0 0 0);
-    will-change: clip-path;
+    -webkit-mask-image:
+      linear-gradient(to bottom,
+        transparent,
+        transparent calc((1 - var(--sp, 0)) * 100%),
+        black calc((1 - var(--sp, 0)) * 100% + 4%),
+        black 98%,
+        transparent
+      ),
+      linear-gradient(to right, transparent, black 2%, black 98%, transparent);
+    mask-image:
+      linear-gradient(to bottom,
+        transparent,
+        transparent calc((1 - var(--sp, 0)) * 100%),
+        black calc((1 - var(--sp, 0)) * 100% + 4%),
+        black 98%,
+        transparent
+      ),
+      linear-gradient(to right, transparent, black 2%, black 98%, transparent);
+    -webkit-mask-composite: destination-in;
+    mask-composite: intersect;
+    will-change: mask-image, -webkit-mask-image;
   }
 
-  /* --- Clip Reveal left-to-right (continuous) --- */
+  /* --- Clip Reveal left-to-right (continuous, soft leading edge) --- */
   .sp-clip-reveal-left {
-    clip-path: inset(0 calc(100% * (1 - var(--sp, 0))) 0 0);
-    will-change: clip-path;
+    -webkit-mask-image:
+      linear-gradient(to bottom, transparent, black 2%, black 98%, transparent),
+      linear-gradient(to right,
+        transparent,
+        black 2%,
+        black calc(var(--sp, 0) * 100% - 4%),
+        transparent calc(var(--sp, 0) * 100%)
+      );
+    mask-image:
+      linear-gradient(to bottom, transparent, black 2%, black 98%, transparent),
+      linear-gradient(to right,
+        transparent,
+        black 2%,
+        black calc(var(--sp, 0) * 100% - 4%),
+        transparent calc(var(--sp, 0) * 100%)
+      );
+    -webkit-mask-composite: destination-in;
+    mask-composite: intersect;
+    will-change: mask-image, -webkit-mask-image;
   }
 
   /* --- Line Grow (continuous) --- */
