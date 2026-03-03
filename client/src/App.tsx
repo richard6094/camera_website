@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
@@ -24,8 +25,30 @@ import MediaReviews from "./pages/MediaReviews";
 
 function Router() {
   const { itemCount } = useCart();
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
+  // Drive silk gradient flow with page scroll progress
+  useEffect(() => {
+    const el = wrapperRef.current;
+    if (!el) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    let ticking = false;
+    const update = () => {
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      const t = total > 0 ? Math.min(window.scrollY / total, 1) : 0;
+      el.style.setProperty('--silk-t', t.toFixed(4));
+      ticking = false;
+    };
+    const onScroll = () => {
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    };
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   return (
-    <div className="max-w-[1440px] mx-auto bg-background min-h-screen relative elevation-3">
+    <div ref={wrapperRef} className="max-w-[1440px] mx-auto silk-bg min-h-screen relative elevation-3">
       <Header cartCount={itemCount} />
       <Switch>
         <Route path="/" component={Home} />
