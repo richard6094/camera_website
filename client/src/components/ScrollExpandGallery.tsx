@@ -154,7 +154,7 @@ export function ScrollExpandGallery({
       {/* ═══════════ FADE-OUT TRACK ═══════════
           150vh tall → 50vh effective scroll range.
           Full-width bg color fades out smoothly, no visible edges. */}
-      <div ref={shrinkTrackRef} className="relative" style={{ height: '150vh' }}>
+      <div ref={shrinkTrackRef} className="relative" style={{ height: '100vh' }}>
         <div className="sticky top-0 h-dvh overflow-hidden">
           <div
             ref={shrinkFrameRef}

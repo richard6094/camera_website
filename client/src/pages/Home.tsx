@@ -191,10 +191,12 @@ export default function Home() {
       </ScrollExpandGallery>
 
       {/* ===== PARALLAX QUOTE 2 ===== */}
-      <ParallaxQuote
-        image="/images/银色镜头不挂机特写.jpg"
-        quote={t('quote.2')}
-      />
+      <div style={{ marginTop: '-50vh', position: 'relative', zIndex: 5 }}>
+        <ParallaxQuote
+          image="/images/银色镜头不挂机特写.jpg"
+          quote={t('quote.2')}
+        />
+      </div>
 
       {/* ===== PRODUCT SELECTION CARDS ===== */}
       <ProductSelectionCards />
