@@ -136,13 +136,13 @@ export function ScrollExpandGallery({
       </section>
 
       {/* ═══════════ GRADIENT FADE-OUT ═══════════
-          Static gradient from bgColor → transparent.
-          Scrolling past it naturally reveals the page background,
-          like a seamless color blend. */}
+          Eased gradient from bgColor → page background.
+          Uses multiple color stops for a smooth, natural transition
+          without any hard edge. */}
       <div
         style={{
           height: '70vh',
-          background: `linear-gradient(to bottom, ${bgColor} 5%, oklch(0.92 0.035 75) 100%)`,
+          background: `linear-gradient(to bottom, ${bgColor} 0%, ${bgColor} 5%, color-mix(in oklch, ${bgColor} 85%, transparent) 20%, color-mix(in oklch, ${bgColor} 60%, transparent) 40%, color-mix(in oklch, ${bgColor} 35%, transparent) 60%, color-mix(in oklch, ${bgColor} 15%, transparent) 80%, transparent 100%)`,
           marginTop: '-2px',
         }}
       />
