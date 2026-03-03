@@ -382,59 +382,99 @@
     background-color: oklch(0.92 0.035 75);
     background-attachment: fixed;
     background-image:
-      /* ── Silk flowing folds ──
-         Multiple overlapping linear gradients at near-parallel angles
-         create directional flowing highlights and shadows.
-         Pure CSS — no SVG tiles, no hard edges. */
-      /* fold shadow 1 — main diagonal */
+      /* ── Silk flowing folds (high density) ──
+         8 overlapping linear gradients at near-parallel angles
+         with dense, closely-spaced peaks for rich silk texture. */
+      /* shadow fold A */
       linear-gradient(
-        132deg,
-        oklch(0.88 0.02 75 / 0) 0%,
-        oklch(0.88 0.02 75 / 0.12) 18%,
-        oklch(0.88 0.02 75 / 0) 28%,
-        oklch(0.88 0.02 75 / 0.08) 42%,
-        oklch(0.88 0.02 75 / 0) 55%,
-        oklch(0.88 0.02 75 / 0.10) 72%,
-        oklch(0.88 0.02 75 / 0) 85%,
-        oklch(0.88 0.02 75 / 0.06) 95%,
-        oklch(0.88 0.02 75 / 0) 100%
+        131deg,
+        oklch(0.87 0.02 75 / 0) 0%, oklch(0.87 0.02 75 / 0.13) 6%,
+        oklch(0.87 0.02 75 / 0) 12%, oklch(0.87 0.02 75 / 0.09) 20%,
+        oklch(0.87 0.02 75 / 0) 27%, oklch(0.87 0.02 75 / 0.14) 35%,
+        oklch(0.87 0.02 75 / 0) 42%, oklch(0.87 0.02 75 / 0.08) 50%,
+        oklch(0.87 0.02 75 / 0) 58%, oklch(0.87 0.02 75 / 0.12) 66%,
+        oklch(0.87 0.02 75 / 0) 73%, oklch(0.87 0.02 75 / 0.10) 82%,
+        oklch(0.87 0.02 75 / 0) 90%, oklch(0.87 0.02 75 / 0.07) 96%,
+        oklch(0.87 0.02 75 / 0) 100%
       ),
-      /* fold shadow 2 — slight offset angle */
+      /* shadow fold B */
       linear-gradient(
-        138deg,
-        oklch(0.86 0.02 70 / 0) 0%,
-        oklch(0.86 0.02 70 / 0.09) 12%,
-        oklch(0.86 0.02 70 / 0) 22%,
-        oklch(0.86 0.02 70 / 0.14) 38%,
-        oklch(0.86 0.02 70 / 0) 50%,
-        oklch(0.86 0.02 70 / 0.07) 65%,
-        oklch(0.86 0.02 70 / 0) 78%,
-        oklch(0.86 0.02 70 / 0.11) 90%,
-        oklch(0.86 0.02 70 / 0) 100%
+        137deg,
+        oklch(0.86 0.02 70 / 0) 0%, oklch(0.86 0.02 70 / 0.10) 8%,
+        oklch(0.86 0.02 70 / 0) 15%, oklch(0.86 0.02 70 / 0.15) 24%,
+        oklch(0.86 0.02 70 / 0) 32%, oklch(0.86 0.02 70 / 0.08) 40%,
+        oklch(0.86 0.02 70 / 0) 48%, oklch(0.86 0.02 70 / 0.13) 57%,
+        oklch(0.86 0.02 70 / 0) 64%, oklch(0.86 0.02 70 / 0.09) 72%,
+        oklch(0.86 0.02 70 / 0) 80%, oklch(0.86 0.02 70 / 0.12) 88%,
+        oklch(0.86 0.02 70 / 0) 95%, oklch(0.86 0.02 70 / 0.06) 100%
       ),
-      /* fold highlight 1 — light catching crests */
+      /* shadow fold C */
       linear-gradient(
         134deg,
-        oklch(0.97 0.01 78 / 0) 0%,
-        oklch(0.97 0.01 78 / 0.15) 15%,
-        oklch(0.97 0.01 78 / 0) 25%,
-        oklch(0.97 0.01 78 / 0.20) 45%,
-        oklch(0.97 0.01 78 / 0) 58%,
-        oklch(0.97 0.01 78 / 0.12) 75%,
-        oklch(0.97 0.01 78 / 0) 88%,
-        oklch(0.97 0.01 78 / 0.08) 96%,
-        oklch(0.97 0.01 78 / 0) 100%
+        oklch(0.85 0.02 68 / 0) 0%, oklch(0.85 0.02 68 / 0.07) 5%,
+        oklch(0.85 0.02 68 / 0) 10%, oklch(0.85 0.02 68 / 0.11) 18%,
+        oklch(0.85 0.02 68 / 0) 25%, oklch(0.85 0.02 68 / 0.13) 33%,
+        oklch(0.85 0.02 68 / 0) 41%, oklch(0.85 0.02 68 / 0.09) 49%,
+        oklch(0.85 0.02 68 / 0) 56%, oklch(0.85 0.02 68 / 0.14) 63%,
+        oklch(0.85 0.02 68 / 0) 71%, oklch(0.85 0.02 68 / 0.08) 79%,
+        oklch(0.85 0.02 68 / 0) 87%, oklch(0.85 0.02 68 / 0.10) 94%,
+        oklch(0.85 0.02 68 / 0) 100%
       ),
-      /* fold highlight 2 — secondary crests */
+      /* shadow fold D */
       linear-gradient(
-        140deg,
-        oklch(0.96 0.012 72 / 0) 0%,
-        oklch(0.96 0.012 72 / 0.10) 20%,
-        oklch(0.96 0.012 72 / 0) 32%,
-        oklch(0.96 0.012 72 / 0.16) 52%,
-        oklch(0.96 0.012 72 / 0) 65%,
-        oklch(0.96 0.012 72 / 0.08) 80%,
+        141deg,
+        oklch(0.86 0.02 72 / 0) 0%, oklch(0.86 0.02 72 / 0.11) 9%,
+        oklch(0.86 0.02 72 / 0) 17%, oklch(0.86 0.02 72 / 0.08) 26%,
+        oklch(0.86 0.02 72 / 0) 34%, oklch(0.86 0.02 72 / 0.14) 43%,
+        oklch(0.86 0.02 72 / 0) 51%, oklch(0.86 0.02 72 / 0.10) 60%,
+        oklch(0.86 0.02 72 / 0) 68%, oklch(0.86 0.02 72 / 0.12) 77%,
+        oklch(0.86 0.02 72 / 0) 85%, oklch(0.86 0.02 72 / 0.07) 93%,
+        oklch(0.86 0.02 72 / 0) 100%
+      ),
+      /* highlight fold A */
+      linear-gradient(
+        133deg,
+        oklch(0.97 0.01 78 / 0) 0%, oklch(0.97 0.01 78 / 0.16) 7%,
+        oklch(0.97 0.01 78 / 0) 14%, oklch(0.97 0.01 78 / 0.20) 22%,
+        oklch(0.97 0.01 78 / 0) 30%, oklch(0.97 0.01 78 / 0.12) 38%,
+        oklch(0.97 0.01 78 / 0) 46%, oklch(0.97 0.01 78 / 0.18) 54%,
+        oklch(0.97 0.01 78 / 0) 62%, oklch(0.97 0.01 78 / 0.14) 70%,
+        oklch(0.97 0.01 78 / 0) 78%, oklch(0.97 0.01 78 / 0.10) 86%,
+        oklch(0.97 0.01 78 / 0) 94%, oklch(0.97 0.01 78 / 0.08) 100%
+      ),
+      /* highlight fold B */
+      linear-gradient(
+        139deg,
+        oklch(0.96 0.012 72 / 0) 0%, oklch(0.96 0.012 72 / 0.12) 10%,
+        oklch(0.96 0.012 72 / 0) 19%, oklch(0.96 0.012 72 / 0.17) 28%,
+        oklch(0.96 0.012 72 / 0) 36%, oklch(0.96 0.012 72 / 0.10) 44%,
+        oklch(0.96 0.012 72 / 0) 52%, oklch(0.96 0.012 72 / 0.15) 61%,
+        oklch(0.96 0.012 72 / 0) 69%, oklch(0.96 0.012 72 / 0.11) 78%,
+        oklch(0.96 0.012 72 / 0) 86%, oklch(0.96 0.012 72 / 0.08) 94%,
         oklch(0.96 0.012 72 / 0) 100%
+      ),
+      /* highlight fold C */
+      linear-gradient(
+        136deg,
+        oklch(0.97 0.008 80 / 0) 0%, oklch(0.97 0.008 80 / 0.09) 4%,
+        oklch(0.97 0.008 80 / 0) 9%, oklch(0.97 0.008 80 / 0.14) 17%,
+        oklch(0.97 0.008 80 / 0) 24%, oklch(0.97 0.008 80 / 0.11) 32%,
+        oklch(0.97 0.008 80 / 0) 40%, oklch(0.97 0.008 80 / 0.16) 48%,
+        oklch(0.97 0.008 80 / 0) 55%, oklch(0.97 0.008 80 / 0.10) 63%,
+        oklch(0.97 0.008 80 / 0) 71%, oklch(0.97 0.008 80 / 0.13) 79%,
+        oklch(0.97 0.008 80 / 0) 87%, oklch(0.97 0.008 80 / 0.07) 95%,
+        oklch(0.97 0.008 80 / 0) 100%
+      ),
+      /* highlight fold D */
+      linear-gradient(
+        142deg,
+        oklch(0.96 0.01 76 / 0) 0%, oklch(0.96 0.01 76 / 0.08) 11%,
+        oklch(0.96 0.01 76 / 0) 20%, oklch(0.96 0.01 76 / 0.13) 30%,
+        oklch(0.96 0.01 76 / 0) 39%, oklch(0.96 0.01 76 / 0.09) 47%,
+        oklch(0.96 0.01 76 / 0) 55%, oklch(0.96 0.01 76 / 0.15) 64%,
+        oklch(0.96 0.01 76 / 0) 72%, oklch(0.96 0.01 76 / 0.11) 81%,
+        oklch(0.96 0.01 76 / 0) 89%, oklch(0.96 0.01 76 / 0.06) 97%,
+        oklch(0.96 0.01 76 / 0) 100%
       ),
       /* ── Silk lustre sheens (scroll-linked) ── */
       /* primary sheen — wide diagonal glow */
