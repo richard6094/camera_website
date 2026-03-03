@@ -384,8 +384,16 @@
     background-image:
       /* ── Silk flowing folds ──
          Waves at varied angles create crossing/interleaving folds
-         like real draped silk. Mix of near-parallel + crossing
-         directions for organic texture. */
+         like real draped silk. Directional light from the left
+         illuminates the left side and casts subtle shadow on right. */
+
+      /* ── Directional light: left → right ── */
+      linear-gradient(90deg,
+        oklch(0.97 0.01 78 / 0.28) 0%,
+        oklch(0.96 0.012 76 / 0.14) 25%,
+        oklch(0.93 0.02 74 / 0) 50%,
+        oklch(0.88 0.025 72 / 0.10) 78%,
+        oklch(0.86 0.03 70 / 0.18) 100%),
 
       /* ── Large-scale modulation ── */
       linear-gradient(128deg,
@@ -436,32 +444,32 @@
       repeating-linear-gradient(172deg,
         oklch(0.87 0.015 70 / 0) 0%, oklch(0.87 0.015 70 / 0.09) 6.15%,
         oklch(0.87 0.015 70 / 0) 12.3%),
-      /* ── Silk lustre sheens (scroll-linked) ── */
-      /* primary sheen — wide diagonal glow */
+      /* ── Silk lustre sheens (scroll-linked, left-lit) ── */
+      /* primary sheen — originates left, sweeps diagonally */
       linear-gradient(
-        135deg,
-        transparent 0%,
-        oklch(0.97 0.015 78 / 0.14) calc(15% + 20% * var(--silk-t)),
-        oklch(0.97 0.015 78 / 0.38) calc(35% + 20% * var(--silk-t)),
-        oklch(0.97 0.015 78 / 0.14) calc(55% + 20% * var(--silk-t)),
+        120deg,
+        oklch(0.98 0.012 78 / 0.20) 0%,
+        oklch(0.97 0.015 78 / 0.40) calc(20% + 18% * var(--silk-t)),
+        oklch(0.97 0.015 78 / 0.16) calc(42% + 18% * var(--silk-t)),
+        transparent calc(65% + 18% * var(--silk-t)),
         transparent 100%
       ),
-      /* secondary sheen — counter-angle */
+      /* secondary sheen — left-biased counter-angle */
       linear-gradient(
-        -50deg,
-        transparent 0%,
-        oklch(0.97 0.010 65 / 0.10) calc(30% - 15% * var(--silk-t)),
-        oklch(0.97 0.010 65 / 0.28) calc(50% - 15% * var(--silk-t)),
-        oklch(0.97 0.010 65 / 0.10) calc(70% - 15% * var(--silk-t)),
+        -40deg,
+        oklch(0.97 0.010 65 / 0.12) 0%,
+        oklch(0.97 0.010 65 / 0.30) calc(22% - 12% * var(--silk-t)),
+        oklch(0.97 0.010 65 / 0.10) calc(45% - 12% * var(--silk-t)),
+        transparent calc(68% - 12% * var(--silk-t)),
         transparent 100%
       ),
-      /* tertiary sheen — horizontal shimmer */
+      /* tertiary sheen — near-horizontal left shimmer */
       linear-gradient(
-        85deg,
-        transparent 0%,
-        oklch(0.96 0.012 72 / 0.08) calc(25% + 25% * var(--silk-t)),
-        oklch(0.96 0.012 72 / 0.22) calc(45% + 25% * var(--silk-t)),
-        oklch(0.96 0.012 72 / 0.08) calc(65% + 25% * var(--silk-t)),
+        95deg,
+        oklch(0.97 0.012 72 / 0.14) 0%,
+        oklch(0.96 0.012 72 / 0.26) calc(18% + 22% * var(--silk-t)),
+        oklch(0.96 0.012 72 / 0.08) calc(40% + 22% * var(--silk-t)),
+        transparent calc(60% + 22% * var(--silk-t)),
         transparent 100%
       ),
       /* ── Color blobs: gold/khaki/brown, boosted chroma ──
