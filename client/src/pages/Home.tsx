@@ -111,7 +111,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 sm:gap-14 md:gap-16 lg:gap-24 items-center">
             {/* Image — clip-reveal linked to scroll */}
             <div className="md:order-1">
-              <div className="sp-clip-reveal soft-edge relative aspect-[4/3] overflow-hidden rounded-xl image-hover-zoom">
+              <div className="sp-clip-reveal relative aspect-[4/3] overflow-hidden rounded-xl image-hover-zoom">
                 <img 
                   src="/images/brand-story-heritage.jpg" 
                   alt="品牌故事"
@@ -299,7 +299,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 sm:gap-14 md:gap-16 lg:gap-24 items-center">
             {/* Image — clip-reveal from left, linked to scroll */}
             <div className="md:order-1">
-              <div className="sp-clip-reveal-left soft-edge relative aspect-[4/3] overflow-hidden rounded-xl image-hover-zoom">
+              <div className="sp-clip-reveal-left relative aspect-[4/3] overflow-hidden rounded-xl image-hover-zoom">
                 <img 
                   src="/images/service-support.jpg" 
                   alt="服务支持"
