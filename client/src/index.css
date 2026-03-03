@@ -648,12 +648,11 @@
     transition: none;
   }
 
-  /* ── Fade-out: gradient dissolves upward as user scrolls past ── */
+  /* ── Fade-out: tall gradient slides upward, blending bgColor → silk-bg ── */
   .seg-fade-out {
     --shrink-p: 0;
-    opacity: calc(1 - var(--shrink-p) * 0.6);
     transform: translateY(calc(-50% * var(--shrink-p)));
-    will-change: opacity, transform;
+    will-change: transform;
   }
 
 
