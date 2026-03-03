@@ -387,37 +387,37 @@
       /* Each blob sweeps 500% vertically — only ONE near viewport at
          any scroll position. Huge 120% radius fills entire screen.
          Peak: blob1 t≈0, blob2 t≈0.33, blob3 t≈0.67, blob4 t≈1 */
-      /* 1 — Gold khaki: dominates page top (t ≈ 0) */
+      /* 1 — Light gold: dominates page top (t ≈ 0) */
       radial-gradient(
         circle at
           calc(35% + 30% * var(--silk-t))
           calc(50% + 500% * var(--silk-t)),
-        oklch(0.86 0.095 78 / 0.95),
-        oklch(0.86 0.095 78 / 0.70) 25%,
-        oklch(0.86 0.095 78 / 0.35) 50%,
-        oklch(0.86 0.095 78 / 0.10) 80%,
+        oklch(0.90 0.045 80 / 0.90),
+        oklch(0.90 0.045 80 / 0.65) 25%,
+        oklch(0.90 0.045 80 / 0.30) 50%,
+        oklch(0.90 0.045 80 / 0.08) 80%,
         transparent 120%
       ),
-      /* 2 — Dusty rose: dominates ≈1/3 scroll */
+      /* 2 — Warm khaki: dominates ≈1/3 scroll */
       radial-gradient(
         circle at
           calc(65% - 30% * var(--silk-t))
           calc(-115% + 500% * var(--silk-t)),
-        oklch(0.84 0.095 20 / 0.92),
-        oklch(0.84 0.095 20 / 0.65) 25%,
-        oklch(0.84 0.095 20 / 0.30) 50%,
-        oklch(0.84 0.095 20 / 0.08) 80%,
+        oklch(0.88 0.050 68 / 0.88),
+        oklch(0.88 0.050 68 / 0.60) 25%,
+        oklch(0.88 0.050 68 / 0.28) 50%,
+        oklch(0.88 0.050 68 / 0.07) 80%,
         transparent 120%
       ),
-      /* 3 — Mauve lavender: dominates ≈2/3 scroll */
+      /* 3 — Soft brown: dominates ≈2/3 scroll */
       radial-gradient(
         circle at
           calc(40% + 20% * var(--silk-t))
           calc(-285% + 500% * var(--silk-t)),
-        oklch(0.83 0.090 330 / 0.90),
-        oklch(0.83 0.090 330 / 0.60) 25%,
-        oklch(0.83 0.090 330 / 0.28) 50%,
-        oklch(0.83 0.090 330 / 0.07) 80%,
+        oklch(0.87 0.042 55 / 0.85),
+        oklch(0.87 0.042 55 / 0.55) 25%,
+        oklch(0.87 0.042 55 / 0.25) 50%,
+        oklch(0.87 0.042 55 / 0.06) 80%,
         transparent 120%
       ),
       /* 4 — Warm sand: dominates page bottom (t ≈ 1) */
@@ -425,10 +425,10 @@
         circle at
           calc(60% - 20% * var(--silk-t))
           calc(-450% + 500% * var(--silk-t)),
-        oklch(0.87 0.085 55 / 0.90),
-        oklch(0.87 0.085 55 / 0.60) 25%,
-        oklch(0.87 0.085 55 / 0.28) 50%,
-        oklch(0.87 0.085 55 / 0.07) 80%,
+        oklch(0.89 0.040 45 / 0.85),
+        oklch(0.89 0.040 45 / 0.55) 25%,
+        oklch(0.89 0.040 45 / 0.25) 50%,
+        oklch(0.89 0.040 45 / 0.06) 80%,
         transparent 120%
       );
   }
