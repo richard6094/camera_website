@@ -30,7 +30,7 @@ export default function Home() {
   const gallerySectionRef = useScrollProgress<HTMLDivElement>();
   const reviewsSectionRef = useScrollProgress<HTMLDivElement>();
   const supportSectionRef = useScrollProgress<HTMLDivElement>();
-  const ctaSectionRef = useScrollProgress<HTMLDivElement>({ end: 0.4 });
+  const ctaSectionRef = useScrollProgress<HTMLDivElement>();
 
   const navigateWithTop = (path: string) => {
     navigate(path);

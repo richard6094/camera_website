@@ -37,8 +37,8 @@ interface ScrollProgressOptions {
   start?: number;
   /**
    * Viewport fraction where animation is COMPLETE.
-   * 0.3 = element reaches 30% from top → fully visible.
-   * Default: 0.35
+   * 0.55 = element reaches 55% from top (just before center) → fully visible.
+   * Default: 0.55
    */
   end?: number;
   /** Disable the hook (for reduced-motion, etc.) */
@@ -77,7 +77,7 @@ function computeProgress(
 export function useScrollProgress<T extends HTMLElement = HTMLDivElement>(
   options: ScrollProgressOptions = {}
 ) {
-  const { start = 0.95, end = 0.35, disabled = false } = options;
+  const { start = 0.95, end = 0.55, disabled = false } = options;
   const ref = useRef<T>(null);
   const rafRef = useRef<number>(0);
   const lastProgressRef = useRef<number>(-1);
@@ -127,7 +127,7 @@ export function useScrollProgress<T extends HTMLElement = HTMLDivElement>(
 export function useScrollProgressValue<T extends HTMLElement = HTMLDivElement>(
   options: ScrollProgressOptions = {}
 ) {
-  const { start = 0.95, end = 0.35, disabled = false } = options;
+  const { start = 0.95, end = 0.55, disabled = false } = options;
   const ref = useRef<T>(null);
   const rafRef = useRef<number>(0);
   const [progress, setProgress] = useState(0);
@@ -173,7 +173,7 @@ export function useScrollProgressValue<T extends HTMLElement = HTMLDivElement>(
 export function useMultiScrollProgress(
   options: ScrollProgressOptions = {}
 ) {
-  const { start = 0.95, end = 0.35, disabled = false } = options;
+  const { start = 0.95, end = 0.55, disabled = false } = options;
   const elementsRef = useRef<Set<HTMLElement>>(new Set());
   const rafRef = useRef<number>(0);
   const progressMapRef = useRef<Map<HTMLElement, number>>(new Map());
