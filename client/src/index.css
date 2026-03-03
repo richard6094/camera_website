@@ -380,22 +380,33 @@
   .silk-bg {
     --silk-t: 0;
     background-color: oklch(0.92 0.035 75);
-    /* Per-layer attachment:
-       1 directional-light = fixed
-       2-4 density-modulation zones = scroll
-       5-8 primary folds = scroll
-       9-12 cross folds = scroll
-       13-15 shallow folds = scroll
-       16-18 lustre sheens = fixed
-       19-22 color blobs = fixed */
-    background-attachment:
-      fixed,
-      scroll, scroll, scroll,
-      scroll, scroll, scroll, scroll,
-      scroll, scroll, scroll, scroll,
-      scroll, scroll, scroll,
-      fixed, fixed, fixed,
-      fixed, fixed, fixed, fixed;
+    background-attachment: fixed;
+    /* Fold/modulation layers shift with scroll via background-position,
+       sheens & blobs stay centred (their own --silk-t movement). */
+    background-position:
+      /* directional light */ 0 0,
+      /* density zones A-C: slow parallax drift */
+      0 calc(var(--silk-t) * -120px),
+      0 calc(var(--silk-t) * -90px),
+      0 calc(var(--silk-t) * -150px),
+      /* primary folds: medium drift, varied speeds */
+      0 calc(var(--silk-t) * -200px),
+      0 calc(var(--silk-t) * -170px),
+      0 calc(var(--silk-t) * -230px),
+      0 calc(var(--silk-t) * -190px),
+      /* cross folds: slightly different speeds */
+      0 calc(var(--silk-t) * -160px),
+      0 calc(var(--silk-t) * -210px),
+      0 calc(var(--silk-t) * -180px),
+      0 calc(var(--silk-t) * -140px),
+      /* shallow folds */
+      0 calc(var(--silk-t) * -250px),
+      0 calc(var(--silk-t) * -220px),
+      0 calc(var(--silk-t) * -270px),
+      /* lustre sheens: stay put */
+      0 0, 0 0, 0 0,
+      /* color blobs: stay put */
+      0 0, 0 0, 0 0, 0 0;
     background-image:
       /* ── Silk flowing folds ──
          Waves at varied angles create crossing/interleaving folds
