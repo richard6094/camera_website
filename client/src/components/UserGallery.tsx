@@ -200,7 +200,7 @@ export function UserGallery({ images }: UserGalleryProps) {
           >
             {/* Scale mark - mimics camera dial marks */}
             <div
-              className="bg-gray-800 transition-all duration-300 ease-out"
+              className="bg-current transition-all duration-300 ease-out"
               style={{
                 width: '1.5px',
                 height: currentIndex === index ? '28px' : '12px',
@@ -208,7 +208,7 @@ export function UserGallery({ images }: UserGalleryProps) {
             />
             {/* Subtle hover effect */}
             <div
-              className="w-1 h-1 rounded-full bg-gray-800 invisible group-hover:visible transition-opacity duration-200 mt-1"
+              className="w-1 h-1 rounded-full bg-current invisible group-hover:visible transition-opacity duration-200 mt-1"
             />
           </button>
         ))}
@@ -216,7 +216,7 @@ export function UserGallery({ images }: UserGalleryProps) {
 
       {/* Current slide number - mimics camera display */}
       <div className="mt-6 text-center">
-        <span className="text-sm font-mono text-gray-500">
+        <span className="text-sm font-mono opacity-50">
           {String(currentIndex + 1).padStart(2, '0')} / {String(images.length).padStart(2, '0')}
         </span>
       </div>
