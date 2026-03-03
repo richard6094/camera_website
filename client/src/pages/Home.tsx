@@ -147,49 +147,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== SCROLL-EXPAND IMAGE → GALLERY → SHRINK ===== */}
-      <ScrollExpandGallery
-        image="/images/银色镜头挂机特写1.jpg"
-        quote={t('quote.1')}
-        gallerySectionId="gallery"
-        bgColor="oklch(0.35 0.008 75)"
-        darkGallery
-      >
-        {/* Gallery Section Header */}
-        <div ref={gallerySectionRef}>
-          <div className="sp-fade-up text-center mb-12 sm:mb-14 md:mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-4 sm:mb-5">
-              {t('gallery.heading')}
-            </h2>
-            <button
-              onClick={() => navigateWithTop('/gallery')}
-              className="inline-flex items-center gap-1.5 text-xs tracking-widest text-white/40 hover:text-white/70 transition-colors cursor-pointer group mb-6 sm:mb-7 md:mb-8"
-            >
-              <span className="border-b border-white/20 group-hover:border-white/50 pb-px transition-colors">
-                {t('gallery.viewMore')}
-              </span>
-              <ChevronRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" strokeWidth={1.5} />
-            </button>
-            <p className="text-base sm:text-lg leading-relaxed text-white/70 max-w-3xl mx-auto">
-              {t('gallery.description')}
-            </p>
-          </div>
-
-          {/* User Gallery Component — real sample photos from Azure Blob Storage */}
-          <UserGallery 
-            images={[
-              `https://mandlergallery.blob.core.windows.net/gallery/${encodeURIComponent('第1章  地域')}/${encodeURIComponent('1彩色-英国 风拂白崖，海映晴空。')}/1.webp`,
-              `https://mandlergallery.blob.core.windows.net/gallery/${encodeURIComponent('第1章  地域')}/${encodeURIComponent('2彩色-新西兰 异域相遇，帧藏多元')}/3.webp`,
-              `https://mandlergallery.blob.core.windows.net/gallery/${encodeURIComponent('第1章  地域')}/${encodeURIComponent('3彩色-埃及  沙漠与海相拥，烟火与古迹共生')}/2.webp`,
-              `https://mandlergallery.blob.core.windows.net/gallery/${encodeURIComponent('第2章  色彩乐园')}/${encodeURIComponent('色彩乐园2  绮梦')}/1.webp`,
-              `https://mandlergallery.blob.core.windows.net/gallery/${encodeURIComponent('第3章  韵律')}/7.webp`,
-              `https://mandlergallery.blob.core.windows.net/gallery/${encodeURIComponent('第4章 霓虹')}/1.webp`,
-              `https://mandlergallery.blob.core.windows.net/gallery/${encodeURIComponent('第5章  黑白之间')}/5.webp`,
-            ]}
-          />
-        </div>
-      </ScrollExpandGallery>
-
       {/* ===== MEDIA REVIEWS — PRESS VOICES ===== */}
       <section ref={reviewsSectionRef} className="py-16 sm:py-20 md:py-24 lg:py-32">
         <div className="container max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
@@ -284,6 +241,49 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ===== SCROLL-EXPAND IMAGE → GALLERY → SHRINK ===== */}
+      <ScrollExpandGallery
+        image="/images/银色镜头挂机特写1.jpg"
+        quote={t('quote.1')}
+        gallerySectionId="gallery"
+        bgColor="oklch(0.35 0.008 75)"
+        darkGallery
+      >
+        {/* Gallery Section Header */}
+        <div ref={gallerySectionRef}>
+          <div className="sp-fade-up text-center mb-12 sm:mb-14 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-4 sm:mb-5">
+              {t('gallery.heading')}
+            </h2>
+            <button
+              onClick={() => navigateWithTop('/gallery')}
+              className="inline-flex items-center gap-1.5 text-xs tracking-widest text-white/40 hover:text-white/70 transition-colors cursor-pointer group mb-6 sm:mb-7 md:mb-8"
+            >
+              <span className="border-b border-white/20 group-hover:border-white/50 pb-px transition-colors">
+                {t('gallery.viewMore')}
+              </span>
+              <ChevronRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" strokeWidth={1.5} />
+            </button>
+            <p className="text-base sm:text-lg leading-relaxed text-white/70 max-w-3xl mx-auto">
+              {t('gallery.description')}
+            </p>
+          </div>
+
+          {/* User Gallery Component — real sample photos from Azure Blob Storage */}
+          <UserGallery 
+            images={[
+              `https://mandlergallery.blob.core.windows.net/gallery/${encodeURIComponent('第1章  地域')}/${encodeURIComponent('1彩色-英国 风拂白崖，海映晴空。')}/1.webp`,
+              `https://mandlergallery.blob.core.windows.net/gallery/${encodeURIComponent('第1章  地域')}/${encodeURIComponent('2彩色-新西兰 异域相遇，帧藏多元')}/3.webp`,
+              `https://mandlergallery.blob.core.windows.net/gallery/${encodeURIComponent('第1章  地域')}/${encodeURIComponent('3彩色-埃及  沙漠与海相拥，烟火与古迹共生')}/2.webp`,
+              `https://mandlergallery.blob.core.windows.net/gallery/${encodeURIComponent('第2章  色彩乐园')}/${encodeURIComponent('色彩乐园2  绮梦')}/1.webp`,
+              `https://mandlergallery.blob.core.windows.net/gallery/${encodeURIComponent('第3章  韵律')}/7.webp`,
+              `https://mandlergallery.blob.core.windows.net/gallery/${encodeURIComponent('第4章 霓虹')}/1.webp`,
+              `https://mandlergallery.blob.core.windows.net/gallery/${encodeURIComponent('第5章  黑白之间')}/5.webp`,
+            ]}
+          />
+        </div>
+      </ScrollExpandGallery>
 
       {/* ===== PARALLAX QUOTE 2 ===== */}
       <ParallaxQuote
