@@ -93,7 +93,7 @@ export function ScrollExpandGallery({
       {/* ═══════════ EXPAND TRACK ═══════════
           250vh tall → 150vh effective scroll range.
           The sticky child stays pinned while the image expands. */}
-      <div ref={expandTrackRef} className="relative" style={{ height: '250vh' }}>
+      <div ref={expandTrackRef} className="relative" style={{ height: '250vh', backgroundColor: bgColor }}>
         <div className="sticky top-0 h-dvh flex items-center justify-center overflow-hidden">
           <div
             ref={expandFrameRef}
