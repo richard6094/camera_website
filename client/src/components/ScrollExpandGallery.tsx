@@ -12,6 +12,8 @@ interface ScrollExpandGalleryProps {
   /** Background color that the image transitions into.
    *  Default matches the silk-bg base color. */
   bgColor?: string;
+  /** Whether the gallery uses light text on a dark background */
+  darkGallery?: boolean;
 }
 
 /**
@@ -32,6 +34,7 @@ export function ScrollExpandGallery({
   children,
   gallerySectionId,
   bgColor = 'oklch(0.92 0.035 75)',
+  darkGallery = false,
 }: ScrollExpandGalleryProps) {
   const expandTrackRef = useRef<HTMLDivElement>(null);
   const shrinkTrackRef = useRef<HTMLDivElement>(null);
@@ -132,7 +135,7 @@ export function ScrollExpandGallery({
           so the transition is visually seamless. */}
       <section
         id={gallerySectionId}
-        className="relative z-10 py-16 sm:py-20 md:py-24 lg:py-32"
+        className={`relative z-10 py-16 sm:py-20 md:py-24 lg:py-32${darkGallery ? ' text-white' : ''}`}
         style={{ backgroundColor: bgColor }}
       >
         <div className="container max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
