@@ -29,7 +29,7 @@ export const translations = {
 
     // Brand Story
     'story.heading': '品牌故事',
-    'story.label': '品牌故事',
+    'story.label': '源于热爱，忠于光学',
     'story.content': '光，拥有自己的语言。它讲述时间的肌理，雕刻记忆的形状，也藏匿瞬间的情绪。Mandler，便是这样一个译者——在传奇设计师停笔之处，续写这个时代的光的故事。',
 
     // Brand Story Page
@@ -75,13 +75,13 @@ export const translations = {
 
     // User Gallery
     'gallery.heading': '用户样片',
-    'gallery.label': '用户样片',
+    'gallery.label': '用光影讲述真实故事',
     'gallery.description': '由世界各地的摄影师拍摄，这些图像展示了 Mandler 镜头的卓越品质和多功能性。',
     'gallery.viewMore': '查看更多',
 
     // Support
     'support.heading': '服务支持',
-    'support.label': '服务支持',
+    'support.label': '值得信赖的终身承诺',
     'support.content': '我们的承诺超越了购买本身。凭借终身支持、专家维护和全球服务中心网络，您的 Mandler 镜头将伴随您世代传承。',
 
     // CTA Section
@@ -240,7 +240,7 @@ export const translations = {
 
     // Brand Story
     'story.heading': 'Our Story',
-    'story.label': 'OUR STORY',
+    'story.label': 'Born from Passion, Devoted to Optics',
     'story.content': 'Light has its own language. It narrates the texture of time, sculpts the shape of memory, and conceals the emotions of moments. Mandler is such a translator—continuing the story of light where legendary designers left off.',
 
     // Brand Story Page
@@ -286,13 +286,13 @@ export const translations = {
 
     // User Gallery
     'gallery.heading': 'User Gallery',
-    'gallery.label': 'USER GALLERY',
+    'gallery.label': 'Real Stories Through Light and Shadow',
     'gallery.description': 'Captured by photographers around the world, these images showcase the exceptional quality and versatility of Mandler lenses.',
     'gallery.viewMore': 'View More',
 
     // Support
     'support.heading': 'Service & Support',
-    'support.label': 'SUPPORT',
+    'support.label': 'A Lifetime Commitment You Can Trust',
     'support.content': 'Our commitment extends beyond the purchase. With lifetime support, expert maintenance, and a global network of service centers, your Mandler lens is built to last generations.',
 
     // CTA Section
@@ -451,7 +451,7 @@ export const translations = {
 
     // Brand Story
     'story.heading': 'ブランドストーリー',
-    'story.label': 'ブランドストーリー',
+    'story.label': '情熱から生まれ、光学に捧げる',
     'story.content': '光は自らの言語を持つ。時の肌理を語り、記憶の形を刻み、瞬間の感情を秘める。Mandlerはその翻訳者——伝説的なデザイナーが筆を置いた場所から、この時代の光の物語を紡ぎ続けます。',
 
     // Brand Story Page
@@ -497,13 +497,13 @@ export const translations = {
 
     // User Gallery
     'gallery.heading': 'ギャラリー',
-    'gallery.label': 'ギャラリー',
+    'gallery.label': '光と影で紡ぐ物語',
     'gallery.description': '世界中の写真家によって撮影されたこれらの作品は、Mandlerレンズの卓越した品質と多用途性を示しています。',
     'gallery.viewMore': 'もっと見る',
 
     // Support
     'support.heading': 'サービス＆サポート',
-    'support.label': 'サポート',
+    'support.label': '信頼できる生涯のお約束',
     'support.content': '私たちの約束は購入を超えて続きます。生涯サポート、専門メンテナンス、そしてグローバルなサービスセンターネットワークにより、あなたのMandlerレンズは世代を超えて受け継がれます。',
 
     // CTA Section

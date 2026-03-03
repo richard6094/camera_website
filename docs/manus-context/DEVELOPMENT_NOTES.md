@@ -2,6 +2,102 @@
 
 ## Recent Changes & Optimizations
 
+### 2026-03-03: Scroll-Reveal Animations & Image Hover Effects
+**Summary**: Added scroll-triggered reveal animations to the homepage, inspired by mandler.shop's visual effects. Created a reusable `useScrollReveal` hook using IntersectionObserver and a comprehensive CSS animation system. Effects include: clip-path image reveals, fade-up/left/right content animations, divider line growth, staggered card reveals, and smooth image hover zoom. All animations respect `prefers-reduced-motion` for accessibility. Style remains unchanged (industrial Leica aesthetic).
+
+**Files Changed**:
+- `client/src/hooks/useScrollReveal.ts` — New hook: `useScrollReveal` (ref-based) and `useScrollRevealCallback` (callback-ref), supporting 10 animation types with configurable threshold, delay, duration, and stagger
+- `client/src/index.css` — Added scroll-reveal animation system (~150 lines): `sr-fade-up/down/left/right`, `sr-fade-in`, `sr-scale-in`, `sr-clip-reveal`, `sr-clip-reveal-left`, `sr-line-grow`, `sr-stagger` + `image-hover-zoom` effect + reduced-motion overrides
+- `client/src/pages/Home.tsx` — Applied scroll-reveal to Brand Story (clip-reveal image + fade-left content + line-grow divider), Gallery header (fade-up), Support section (clip-reveal-left image + fade-right content), Final CTA (fade-up heading + line-grow divider); added `image-hover-zoom` to story/support images
+- `client/src/components/ProductSelectionCards.tsx` — Added stagger scroll-reveal to product grid, `image-hover-zoom` to product images
+
+**Rationale**: User requested adding scroll-triggered special effects (referencing mandler.shop) to the main branch while keeping the existing industrial design style.
+
+---
+
+### 2026-03-02: ParallaxQuote — Rounded Corners & Color-Matched Gradient Background
+**Summary**: Added rounded corners to ParallaxQuote sections. Restructured component with outer `<section>` (padding) + inner `<div>` (rounded-2xl + overflow-hidden). Fixed mobile bottom-edge visibility by increasing background height to 130%. Added `topBg`/`bottomBg` props so the padding area uses a 50/50 linear gradient that exactly matches adjacent section backgrounds, eliminating color mismatch.
+
+**Files Changed**:
+- `client/src/components/ParallaxQuote.tsx` — Added `topBg`/`bottomBg` props, nested structure with rounded-2xl, gradient background, increased parallax image height to 130% with -15% top offset, reduced parallax multiplier to 0.08
+- `client/src/pages/Home.tsx` — Pass `topBg`/`bottomBg` color tokens to both ParallaxQuote instances
+
+**Rationale**: User requested rounded corners on parallax quotes, then iteratively fixed padding size and color mismatch between the parallax section's padding area and adjacent sections.
+
+---
+
+### 2026-03-02: Usage Scenes — Add Sample Images from Gallery
+**Summary**: Added sample images from the Azure Blob Storage gallery to each of the 4 usage scenarios in the 35mm F/2 intro page. Each scene now displays a relevant photograph above the title and description.
+
+**Image Assignments**:
+- 人文街拍 (Street) → Portugal streets & trams (第1章 地域/葡萄牙)
+- 环境人像 (Portrait) → People & Objects (第6章 人・物)
+- 旅行纪实 (Travel) → Egypt travel (第1章 地域/埃及)
+- 视频拍摄 (Video) → Neon night scenes (第4章 霓虹)
+
+**Files Changed**:
+- `client/src/pages/Product35mmF2Intro.tsx` — Added `blobUrl` helper, added `image` field to scenes data, updated section layout with `aspect-[16/9] rounded-xl` image cards, increased `space-y` from 12 to 20
+
+**Rationale**: User requested adding relevant sample photos to the usage scenes section for visual richness.
+
+---
+
+### 2026-03-02: Soft Wide-Screen Frame — Light Background + Rounded Corners
+**Summary**: Replaced the dark (#000) wide-screen frame with a warm light-gray background. The outermost container and global header remain sharp-edged (no rounded corners) for a clean edge-to-edge appearance. Elevation shadows softened to complement the light background.
+
+**Files Changed**:
+- `client/src/index.css` — Changed `html { background-color: #000 }` → `oklch(0.92 0.006 60)` (warm light gray); softened elevation shadow values; removed heavy `section-raised` box-shadow (now z-index only)
+- `client/src/App.tsx` — No rounded corners on outermost wrapper (sharp edge-to-edge)
+- `client/src/components/Header.tsx` — No rounded corners on header; kept `top-0` fixed positioning
+- `docs/manus-context/DESIGN_SYSTEM.md` — Updated Site Max-Width and Elevation & Depth System sections
+
+**Rationale**: User requested softer visual presentation on wide screens — light background instead of dark, rounded corners instead of sharp hard edges and color blocks. The rounded container + light bg creates a modern, refined "floating card" aesthetic that feels less harsh than the previous dark frame approach.
+
+---
+
+### 2026-03-02: Restore Full-Width Hero Section
+**Summary**: Restored the Hero (HorizontalProductShowcase) to full viewport width, breaking out of the 1440px container constraint. Added `.full-bleed` CSS utility class for elements that need to span the full viewport width while remaining inside a max-width parent.
+
+**Files Changed**:
+- `client/src/index.css` — Added `.full-bleed` utility class (uses `width: 100vw; left: 50%; margin-left: -50vw` technique)
+- `client/src/components/HorizontalProductShowcase.tsx` — Applied `full-bleed` class to the outer `<section>`
+- `client/src/App.tsx` — Added `overflow-x-clip` to the site wrapper to prevent horizontal scrollbar from the full-bleed element
+
+**Rationale**: After the 1440px constraint was applied, the Hero section was no longer full-screen. User requested restoring it to the original full-width design.
+
+---
+
+### 2026-03-02: Visual Depth & Elevation System
+**Summary**: Added a multi-layer depth system to create visual hierarchy between different levels of content. Includes alternating surface backgrounds, elevation shadows, floating section effects, and recessed parallax bands.
+
+**Files Changed**:
+- `client/src/index.css` — Added `--surface-alt` CSS variable (light/dark modes), registered `--color-surface-alt` in Tailwind theme; added `.elevation-1/2/3`, `.section-raised`, `.section-inset` utility classes
+- `client/src/App.tsx` — Added `elevation-3` to the 1440px site wrapper for floating panel shadow
+- `client/src/components/Header.tsx` — Added `boxShadow: '0 2px 16px rgba(0,0,0,0.06)'` to fixed header for floating depth
+- `client/src/components/ParallaxQuote.tsx` — Added `section-inset` class for recessed inner shadow effect
+- `client/src/pages/Home.tsx` — Applied `section-raised` to Brand Story, Gallery, and Support sections; used `bg-surface-alt` on Gallery and Product Cards sections for alternating surface tones
+- `client/src/components/ProductSelectionCards.tsx` — Changed section to `bg-surface-alt section-raised`; added `elevation-1 hover:elevation-2` to individual product cards
+
+**Rationale**: User requested visual hierarchy/depth between different layers of components. The system creates:
+- **Layer 0** (deepest): ParallaxQuote bands with inner shadow — appear recessed
+- **Layer 1**: Content sections with `section-raised` — float above parallax
+- **Layer 2**: Cards with `elevation-1/2` — pop off their parent surface
+- **Layer 3**: Header and site wrapper — top-most floating elements
+
+---
+
+### 2026-03-02: Global Max-Width Constraint (1440px) for Wide Screen Optimization
+**Summary**: Added a global max-width constraint of 1440px to the entire site layout, preventing content from stretching across ultra-wide screens. Content is centered with a dark frame background, inspired by tec.gov.ae's contained layout approach.
+
+**Files Changed**:
+- `client/src/index.css` — Added `html { background-color: #000; }` for dark frame outside content area
+- `client/src/App.tsx` — Wrapped Router content in `max-w-[1440px] mx-auto` container with `bg-background` and `min-h-screen`
+- `client/src/components/Header.tsx` — Added `max-w-[1440px] mx-auto` to fixed header; restructured dropdown menu wrapper with max-width centering and `pointer-events-none/auto` passthrough
+
+**Rationale**: User reported that full-width layout caused image distortion on wide screens. Constraining to 1440px prevents stretching while maintaining the editorial aesthetic. Dark html background creates a premium "floating content" frame effect, like a photographic print on dark matte.
+
+---
+
 ### 2026-03-01: Global Button Rounded Corners
 **Summary**: Changed global `--radius` design token from `0px` to `6px`, giving all buttons and UI components subtle rounded corners. Removed inline `borderRadius` workarounds from product page buttons.
 

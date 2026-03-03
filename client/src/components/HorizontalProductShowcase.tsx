@@ -502,7 +502,7 @@ export default function HorizontalProductShowcase({
                     ? 'text-foreground border-foreground'
                     : 'text-foreground/50 border-transparent hover:text-foreground/80'
                 }`}
-                style={{ borderBottomWidth: activeIndex === idx ? '2px' : '0px' }}
+                style={{ borderRadius: 0 }}
               >
                 {item.name}
               </button>

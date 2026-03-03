@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ChevronRight } from 'lucide-react';
 import { useLocation } from 'wouter';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 import HorizontalProductShowcase from '@/components/HorizontalProductShowcase';
 import { ParallaxQuote } from '@/components/ParallaxQuote';
 import { ProductSelectionCards } from '@/components/ProductSelectionCards';
@@ -23,6 +24,17 @@ export default function Home() {
   const [videoLoaded, setVideoLoaded] = useState<boolean>(false);
   const [videoProgress, setVideoProgress] = useState<number>(0);
   const { t, language } = useLanguage();
+
+  // Scroll reveal refs
+  const storyImageRef = useScrollReveal<HTMLDivElement>({ animation: 'clip-reveal', duration: 1200 });
+  const storyContentRef = useScrollReveal<HTMLDivElement>({ animation: 'fade-left', delay: 150 });
+  const storyLineRef = useScrollReveal<HTMLDivElement>({ animation: 'line-grow', delay: 350 });
+  const galleryHeaderRef = useScrollReveal<HTMLDivElement>({ animation: 'fade-up' });
+  const supportImageRef = useScrollReveal<HTMLDivElement>({ animation: 'clip-reveal-left', duration: 1200 });
+  const supportContentRef = useScrollReveal<HTMLDivElement>({ animation: 'fade-right', delay: 150 });
+  const supportLineRef = useScrollReveal<HTMLDivElement>({ animation: 'line-grow', delay: 350 });
+  const ctaRef = useScrollReveal<HTMLDivElement>({ animation: 'fade-up', delay: 100 });
+  const ctaLineRef = useScrollReveal<HTMLDivElement>({ animation: 'line-grow', delay: 0 });
 
   const navigateWithTop = (path: string) => {
     navigate(path);
@@ -110,14 +122,14 @@ export default function Home() {
       />
 
       {/* ===== BRAND STORY MODULE 1 ===== */}
-      <section key="story" id="story" className="py-16 sm:py-20 md:py-24 lg:py-32 bg-background">
+      <section key="story" id="story" className="py-16 sm:py-20 md:py-24 lg:py-32 bg-background section-raised">
         <div className="container max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 sm:gap-14 md:gap-16 lg:gap-24 items-center">
             {/* Image */}
             <div className="md:order-1">
-              <div className="relative aspect-[4/3] overflow-hidden">
+              <div ref={storyImageRef} className="relative aspect-[4/3] overflow-hidden rounded-xl shadow-[0_8px_32px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.08)] image-hover-zoom">
                 <img 
-                  src="/images/brand-story-workshop.jpg" 
+                  src="/images/brand-story-heritage.jpg" 
                   alt="品牌故事"
                   className="w-full h-full object-cover"
                 />
@@ -125,14 +137,14 @@ export default function Home() {
             </div>
 
             {/* Content */}
-            <div className="md:order-2">
+            <div ref={storyContentRef} className="md:order-2">
               <p className="text-xs sm:text-sm tracking-widest mb-3 sm:mb-4 text-foreground/60">
                 {t('story.label')}
               </p>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-7 md:mb-8 tracking-tight text-foreground">
                 {t('story.heading')}
               </h2>
-              <div className="w-12 sm:w-14 md:w-16 h-px mb-6 sm:mb-7 md:mb-8 bg-foreground/20" style={{height: '0.5px'}} />
+              <div ref={storyLineRef} className="w-12 sm:w-14 md:w-16 h-px mb-6 sm:mb-7 md:mb-8 bg-foreground/20" style={{height: '0.5px'}} />
               <p className="text-base sm:text-lg leading-relaxed text-foreground/80 mb-8">
                 {t('story.content')}
               </p>
@@ -152,13 +164,15 @@ export default function Home() {
       <ParallaxQuote
         image="/images/银色镜头挂机特写1.jpg"
         quote={t('quote.1')}
+        topBg="var(--background)"
+        bottomBg="var(--surface-alt)"
       />
 
       {/* ===== USER GALLERY - SAMPLE PHOTOS ===== */}
-      <section key="gallery" id="gallery" className="py-16 sm:py-20 md:py-24 lg:py-32 bg-background">
+      <section key="gallery" id="gallery" className="py-16 sm:py-20 md:py-24 lg:py-32 bg-surface-alt section-raised">
         <div className="container max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
           {/* Section Header */}
-          <div className="text-center mb-12 sm:mb-14 md:mb-16">
+          <div ref={galleryHeaderRef} className="text-center mb-12 sm:mb-14 md:mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4 sm:mb-5">
               {t('gallery.heading')}
             </h2>
@@ -195,18 +209,20 @@ export default function Home() {
       <ParallaxQuote
         image="/images/银色镜头不挂机特写.jpg"
         quote={t('quote.2')}
+        topBg="var(--surface-alt)"
+        bottomBg="var(--surface-alt)"
       />
 
       {/* ===== PRODUCT SELECTION CARDS ===== */}
       <ProductSelectionCards />
 
       {/* ===== BRAND STORY MODULE 3 ===== */}
-      <section key="support" id="support" className="py-16 sm:py-20 md:py-24 lg:py-32 bg-background">
+      <section key="support" id="support" className="py-16 sm:py-20 md:py-24 lg:py-32 bg-background section-raised">
         <div className="container max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 sm:gap-14 md:gap-16 lg:gap-24 items-center">
             {/* Image */}
             <div className="md:order-1">
-              <div className="relative aspect-[4/3] overflow-hidden">
+              <div ref={supportImageRef} className="relative aspect-[4/3] overflow-hidden rounded-xl shadow-[0_8px_32px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.08)] image-hover-zoom">
                 <img 
                   src="/images/service-support.jpg" 
                   alt="服务支持"
@@ -216,14 +232,14 @@ export default function Home() {
             </div>
 
             {/* Content */}
-            <div className="md:order-2">
+            <div ref={supportContentRef} className="md:order-2">
               <p className="text-xs sm:text-sm tracking-widest mb-3 sm:mb-4 text-foreground/60">
                 {t('support.label')}
               </p>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-7 md:mb-8 tracking-tight text-foreground">
                 {t('support.heading')}
               </h2>
-              <div className="w-12 sm:w-14 md:w-16 h-px mb-6 sm:mb-7 md:mb-8 bg-foreground/20" style={{height: '0.5px'}} />
+              <div ref={supportLineRef} className="w-12 sm:w-14 md:w-16 h-px mb-6 sm:mb-7 md:mb-8 bg-foreground/20" style={{height: '0.5px'}} />
               <p className="text-base sm:text-lg leading-relaxed text-foreground/80">
                 {t('support.content')}
               </p>
@@ -242,16 +258,18 @@ export default function Home() {
       {/* ===== FINAL CTA SECTION ===== */}
       <section className="relative py-32 md:py-40 bg-black text-white overflow-hidden">
         <div className="relative z-10 container max-w-4xl mx-auto px-8 text-center">
+          <div ref={ctaRef}>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 tracking-tight">
             {t('cta.heading')}
           </h2>
-          <div className="w-24 h-px bg-white/40 mx-auto mb-8" style={{height: '0.5px'}} />
+          </div>
+          <div ref={ctaLineRef} className="w-24 h-px bg-white/40 mx-auto mb-8" style={{height: '0.5px'}} />
           <p className="text-xl md:text-2xl mb-12 text-white/80 font-light">
             {t('cta.tagline')}
           </p>
           <button 
             onClick={() => navigateWithTop('/products')}
-            className="px-10 py-4 border border-background text-background hover:bg-background/10 damped-transition text-sm tracking-widest inline-flex items-center gap-2"
+            className="px-10 py-4 border border-white text-white hover:bg-white hover:text-black damped-transition text-sm tracking-widest inline-flex items-center gap-2"
             style={{borderWidth: '0.5px'}}
           >
             {t('cta.button')} <ChevronRight className="w-4 h-4" />

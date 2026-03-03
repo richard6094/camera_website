@@ -4,9 +4,11 @@ interface ParallaxQuoteProps {
   image: string;
   quote: string;
   author?: string;
+  topBg?: string;
+  bottomBg?: string;
 }
 
-export function ParallaxQuote({ image, quote, author }: ParallaxQuoteProps) {
+export function ParallaxQuote({ image, quote, author, topBg, bottomBg }: ParallaxQuoteProps) {
   const [offsetY, setOffsetY] = useState(0);
 
   useEffect(() => {
@@ -26,15 +28,21 @@ export function ParallaxQuote({ image, quote, author }: ParallaxQuoteProps) {
   }, [image]);
 
   return (
-    <section className="relative h-[40vh] sm:h-[45vh] md:h-[55vh] lg:h-[60vh] overflow-hidden">
+    <section
+      className="px-2 sm:px-3 md:px-4 py-4 sm:py-6 md:py-8"
+      style={topBg || bottomBg ? {
+        background: `linear-gradient(to bottom, ${topBg || 'transparent'} 50%, ${bottomBg || 'transparent'} 50%)`
+      } : { backgroundColor: 'transparent' }}
+    >
+      <div className="relative h-[40vh] sm:h-[45vh] md:h-[55vh] lg:h-[60vh] overflow-hidden rounded-2xl">
       {/* Parallax Background Image */}
       <div 
         className="absolute inset-0 z-0 overflow-hidden"
         style={{
-          transform: `translateY(${offsetY * 0.1}px)`,
+          transform: `translateY(${offsetY * 0.08}px)`,
           willChange: 'transform',
-          height: '115%',
-          top: '-7.5%'
+          height: '130%',
+          top: '-15%'
         }}
       >
         <img 
@@ -58,6 +66,7 @@ export function ParallaxQuote({ image, quote, author }: ParallaxQuoteProps) {
             </footer>
           )}
         </blockquote>
+      </div>
       </div>
     </section>
   );

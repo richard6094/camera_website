@@ -4,6 +4,11 @@ import Breadcrumb from '@/components/Breadcrumb';
 import { ImageLightbox } from '@/components/ImageLightbox';
 import { useLocation } from 'wouter';
 
+const BLOB_BASE = 'https://mandlergallery.blob.core.windows.net/gallery';
+function blobUrl(path: string): string {
+  return `${BLOB_BASE}/${path.replace(/\.jpe?g$/i, '.webp').split('/').map(s => encodeURIComponent(s)).join('/')}`;
+}
+
 export default function Product35mmF2Intro() {
   const { language } = useLanguage();
   const [, navigate] = useLocation();
@@ -277,10 +282,10 @@ export default function Product35mmF2Intro() {
   ];
 
   const scenes = [
-    { num: '01', title: content.scene1Title, desc: content.scene1Desc },
-    { num: '02', title: content.scene2Title, desc: content.scene2Desc },
-    { num: '03', title: content.scene3Title, desc: content.scene3Desc },
-    { num: '04', title: content.scene4Title, desc: content.scene4Desc },
+    { num: '01', title: content.scene1Title, desc: content.scene1Desc, image: blobUrl('第1章  地域/4彩色、黑白   葡萄牙  里斯本&波尔图  从里斯本塔霍河到波尔图杜罗河，镜头记录伊比利亚双城的街巷、电车与山海光影。/3.jpg') },
+    { num: '02', title: content.scene2Title, desc: content.scene2Desc, image: blobUrl('第6章 人・物/1.jpg') },
+    { num: '03', title: content.scene3Title, desc: content.scene3Desc, image: blobUrl('第1章  地域/1彩色-英国 风拂白崖，海映晴空。/1.jpg') },
+    { num: '04', title: content.scene4Title, desc: content.scene4Desc, image: blobUrl('第4章 霓虹/3.jpg') },
   ];
 
   return (
@@ -342,7 +347,7 @@ export default function Product35mmF2Intro() {
               <img
                 src="/images/银色镜头挂机特写2-正面.jpg"
                 alt="35mm F/2 front element"
-                className="w-full h-auto rounded-lg shadow-2xl"
+                className="w-full h-auto rounded-lg shadow-[0_8px_32px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.08)]"
               />
             </div>
             <div className="lg:col-span-3 flex flex-col justify-center">
@@ -361,7 +366,7 @@ export default function Product35mmF2Intro() {
                   { label: content.opticalSpec2Label, value: content.opticalSpec2Value },
                   { label: content.opticalSpec3Label, value: content.opticalSpec3Value },
                 ].map((s) => (
-                  <div key={s.label} className="border border-foreground/10 rounded-lg p-4 text-center">
+                  <div key={s.label} className="border border-foreground/10 rounded-lg p-4 text-center shadow-[0_4px_16px_rgba(0,0,0,0.08),0_1px_4px_rgba(0,0,0,0.05)]">
                     <p className="text-xs tracking-widest text-foreground/50 mb-2 uppercase">{s.label}</p>
                     <p className="text-lg font-semibold">{s.value}</p>
                   </div>
@@ -404,7 +409,7 @@ export default function Product35mmF2Intro() {
               <img
                 src="/images/35mmF2-sample-images/35mmF2-F2.jpg"
                 alt="F2.0 wide open sample – bokeh"
-                className="w-full h-auto shadow-lg cursor-pointer hover:opacity-90 transition-opacity"
+                className="w-full h-auto shadow-[0_8px_32px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.08)] cursor-pointer hover:opacity-90 transition-opacity"
                 onClick={() => { setLightboxIndex(0); setLightboxOpen(true); }}
               />
             </div>
@@ -417,7 +422,7 @@ export default function Product35mmF2Intro() {
               <img
                 src="/images/35mmF2-sample-images/35mmF2-F4-8.jpg"
                 alt="F4–F8 stopped down sample – cityscape"
-                className="w-full h-auto shadow-lg cursor-pointer hover:opacity-90 transition-opacity"
+                className="w-full h-auto shadow-[0_8px_32px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.08)] cursor-pointer hover:opacity-90 transition-opacity"
                 onClick={() => { setLightboxIndex(1); setLightboxOpen(true); }}
               />
             </div>
@@ -451,7 +456,7 @@ export default function Product35mmF2Intro() {
               <img
                 src="/images/银色镜头不挂机特写.jpg"
                 alt="35mm F/2 lens body"
-                className="w-full h-auto rounded-lg shadow-2xl cursor-pointer hover:opacity-90 transition-opacity"
+                className="w-full h-auto rounded-lg shadow-[0_8px_32px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.08)] cursor-pointer hover:opacity-90 transition-opacity"
                 onClick={() => { setLightboxIndex(2); setLightboxOpen(true); }}
               />
             </div>
@@ -467,7 +472,7 @@ export default function Product35mmF2Intro() {
             {perfStats.map((s) => (
               <div
                 key={s.label}
-                className="border border-foreground/10 rounded-xl p-6 md:p-8 hover:border-foreground/25 transition-colors"
+                className="border border-foreground/10 rounded-xl p-6 md:p-8 hover:border-foreground/25 transition-colors shadow-[0_4px_16px_rgba(0,0,0,0.08),0_1px_4px_rgba(0,0,0,0.05)]"
               >
                 <p className="text-xs tracking-widest text-foreground/50 mb-3 uppercase">{s.label}</p>
                 <p className="text-3xl md:text-4xl font-bold mb-4">{s.value}</p>
@@ -487,7 +492,7 @@ export default function Product35mmF2Intro() {
                 { title: content.chartMTF28Title, desc: content.chartMTF28Desc, src: `/images/optical-charts/mtf-f2.8-${language === 'zh' ? 'zh' : 'en'}.jpg` },
                 { title: content.chartMTF56Title, desc: content.chartMTF56Desc, src: `/images/optical-charts/mtf-f5.6-${language === 'zh' ? 'zh' : 'en'}.jpg` },
               ].map((chart) => (
-                <div key={chart.title} className="flex flex-col border border-foreground/10 rounded-xl overflow-hidden hover:border-foreground/25 transition-colors">
+                <div key={chart.title} className="flex flex-col border border-foreground/10 rounded-xl overflow-hidden hover:border-foreground/25 transition-colors shadow-[0_4px_16px_rgba(0,0,0,0.08),0_1px_4px_rgba(0,0,0,0.05)]">
                   <div className="aspect-[4/3] overflow-hidden">
                     <img src={chart.src} alt={chart.title} className="w-full h-full object-contain bg-white" />
                   </div>
@@ -504,16 +509,19 @@ export default function Product35mmF2Intro() {
 
       {/* ── Usage Scenes ── */}
       <section className="py-20 md:py-32 bg-foreground/5">
-        <div className="container max-w-4xl mx-auto px-6">
+        <div className="container max-w-5xl mx-auto px-6">
           <h2 className="text-display text-3xl md:text-4xl text-center mb-16">{content.scenesTitle}</h2>
-          <div className="space-y-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-16">
             {scenes.map((s) => (
-              <div key={s.num} className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="md:text-right text-foreground/40 text-5xl font-light">{s.num}</div>
-                <div className="md:col-span-2">
-                  <h3 className="text-2xl font-semibold mb-3">{s.title}</h3>
-                  <p className="text-foreground/80 leading-relaxed">{s.desc}</p>
+              <div key={s.num}>
+                <div className="overflow-hidden rounded-xl mb-5 shadow-[0_8px_32px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.08)]">
+                  <img src={s.image} alt={s.title} className="w-full aspect-[16/9] object-cover" loading="lazy" />
                 </div>
+                <div className="flex items-baseline gap-4 mb-3">
+                  <span className="text-foreground/30 text-3xl font-light">{s.num}</span>
+                  <h3 className="text-xl font-semibold">{s.title}</h3>
+                </div>
+                <p className="text-foreground/70 leading-relaxed text-sm">{s.desc}</p>
               </div>
             ))}
           </div>

@@ -238,7 +238,7 @@ export default function Product35mmF2SpecialIntro() {
         <div className="container max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 md:gap-16">
             <div className="lg:col-span-2">
-              <img src="/images/4种颜色镜头产品照-不带包装.jpg" alt="35mm F/2 Special material" className="w-full h-auto rounded-lg shadow-2xl" />
+              <img src="/images/4种颜色镜头产品照-不带包装.jpg" alt="35mm F/2 Special material" className="w-full h-auto rounded-lg shadow-[0_8px_32px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.08)]" />
             </div>
             <div className="lg:col-span-3 flex flex-col justify-center">
               <p className="text-sm tracking-[0.3em] mb-4 text-foreground/60">{content.craftLabel}</p>
@@ -289,7 +289,7 @@ export default function Product35mmF2SpecialIntro() {
       <section className="py-16 md:py-24">
         <div className="container max-w-4xl mx-auto px-6">
           <div
-            className="relative overflow-hidden border border-foreground/10 rounded-xl cursor-pointer group"
+            className="relative overflow-hidden border border-foreground/10 rounded-xl cursor-pointer group shadow-[0_8px_32px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.08)]"
             onClick={() => navigateWithTop('/products/35mm-f2-intro')}
           >
             {/* Background image */}

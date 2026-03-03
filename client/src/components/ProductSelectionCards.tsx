@@ -1,4 +1,5 @@
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 interface ProductCard {
   id: string;
@@ -10,6 +11,7 @@ interface ProductCard {
 
 export function ProductSelectionCards() {
   const { t, language } = useLanguage();
+  const gridRef = useScrollReveal<HTMLDivElement>({ animation: 'stagger', staggerDelay: 180 });
 
   const products: ProductCard[] = [
     {
@@ -35,13 +37,13 @@ export function ProductSelectionCards() {
   ];
 
   return (
-    <section className="py-24 md:py-32 bg-background">
+    <section className="py-24 md:py-32 bg-surface-alt section-raised">
       <div className="container">
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8 max-w-6xl mx-auto">
+        <div ref={gridRef} className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8 max-w-6xl mx-auto">
           {products.map((product) => (
             <div
               key={product.id}
-              className={`group relative overflow-hidden bg-card ${
+              className={`group relative overflow-hidden bg-card shadow-[0_8px_32px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.08)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.16),0_4px_12px_rgba(0,0,0,0.1)] damped-transition rounded-xl ${
                 product.available ? 'cursor-pointer' : 'cursor-default'
               }`}
               onClick={() => {
@@ -51,7 +53,7 @@ export function ProductSelectionCards() {
               }}
             >
               {/* Product Image */}
-              <div className="aspect-square overflow-hidden">
+              <div className="aspect-square overflow-hidden image-hover-zoom">
                 <img
                   src={product.image}
                   alt={product.name}

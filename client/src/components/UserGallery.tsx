@@ -164,11 +164,11 @@ export function UserGallery({ images }: UserGalleryProps) {
                 paddingRight: '1.5%',
               }}
             >
+              <div className="overflow-hidden rounded-xl aspect-[3/2]">
               <img
                 src={image}
                 alt={`Sample ${index + 1}`}
-                className="w-full h-auto shadow-2xl"
-                style={{ borderRadius: '8px' }}
+                className="w-full h-full object-cover"
                 draggable={false}
                 onClick={() => {
                   if (!hasDragged.current) {
@@ -179,18 +179,23 @@ export function UserGallery({ images }: UserGalleryProps) {
                   }
                 }}
               />
+              </div>
             </div>
           ))}
         </div>
       </div>
 
       {/* Camera Scale Indicator */}
-      <div className="mt-8 md:mt-12 flex items-end justify-center gap-0">
+      <div className="mt-8 md:mt-12 flex items-end justify-center" style={{ height: '36px' }}>
         {images.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
             className="relative flex flex-col items-center transition-all duration-300 ease-out group"
+            style={{
+              paddingLeft: index === 0 ? '0' : '8px',
+              paddingRight: index === images.length - 1 ? '0' : '8px',
+            }}
             aria-label={`Go to image ${index + 1}`}
           >
             {/* Scale mark - mimics camera dial marks */}
@@ -199,14 +204,11 @@ export function UserGallery({ images }: UserGalleryProps) {
               style={{
                 width: '1.5px',
                 height: currentIndex === index ? '28px' : '12px',
-                marginLeft: index === 0 ? '0' : '8px',
-                marginRight: index === images.length - 1 ? '0' : '8px',
               }}
             />
             {/* Subtle hover effect */}
             <div
-              className="absolute -bottom-1 w-1 h-1 rounded-full bg-gray-800 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-              style={{ bottom: '-4px' }}
+              className="w-1 h-1 rounded-full bg-gray-800 invisible group-hover:visible transition-opacity duration-200 mt-1"
             />
           </button>
         ))}
