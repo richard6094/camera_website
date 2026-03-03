@@ -342,6 +342,36 @@
     opacity: 0.25;
   }
 
+  /* Soft feathered edge — blends image borders into surrounding background */
+  .soft-edge {
+    -webkit-mask-image: linear-gradient(to bottom,
+      transparent,
+      black 6%,
+      black 94%,
+      transparent
+    ),
+    linear-gradient(to right,
+      transparent,
+      black 6%,
+      black 94%,
+      transparent
+    );
+    mask-image: linear-gradient(to bottom,
+      transparent,
+      black 6%,
+      black 94%,
+      transparent
+    ),
+    linear-gradient(to right,
+      transparent,
+      black 6%,
+      black 94%,
+      transparent
+    );
+    -webkit-mask-composite: destination-in;
+    mask-composite: intersect;
+  }
+
   /* ============================================
      SILK GRADIENT BACKGROUND
      Warm khaki mesh gradient with scroll-driven liquid flow.
