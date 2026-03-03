@@ -2,6 +2,25 @@
 
 ## Recent Changes & Optimizations
 
+### 2026-03-03: Scroll-Progress Continuous Animations (mandler.shop style)
+**Summary**: Replaced one-shot IntersectionObserver scroll-reveals with a continuous, bidirectional scroll-progress system. Elements now animate **proportionally to scroll position** — sliding, fading, and revealing as you scroll down, and reversing when you scroll back up. This creates the "assembling/dispersing" effect seen on mandler.shop, where content layers converge at different speeds.
+
+**Key concepts**:
+- `useScrollProgress` hook sets `--sp` (0→1) CSS custom property on each section via rAF loop
+- CSS classes (`sp-fade-up`, `sp-clip-reveal`, `sp-parallax-fast/slow`, `sp-stagger-children`, etc.) consume `--sp` for zero-JS-state rendering
+- Multi-layer differential speeds: title moves faster than body text, creating depth
+- Fully bidirectional: scroll up reverses all effects smoothly
+- Respects `prefers-reduced-motion`
+
+**Files Changed**:
+- `client/src/hooks/useScrollProgress.ts` — New hook: `useScrollProgress` (CSS custom property driver), `useScrollProgressValue` (React state variant), `useMultiScrollProgress` (callback ref for lists). Computes element-center-to-viewport-zone mapping, updates via rAF with dirty-check optimization
+- `client/src/index.css` — Added scroll-progress CSS system (~100 lines): `sp-fade-up/down/left/right`, `sp-scale-in`, `sp-clip-reveal`, `sp-clip-reveal-left`, `sp-line-grow`, `sp-parallax-fast/slow`, `sp-stagger-children` (differential translateY per child), reduced-motion overrides
+- `client/src/pages/Home.tsx` — Replaced 11 `useScrollReveal` refs with 5 `useScrollProgress` section refs; updated Brand Story (sp-clip-reveal image + sp-parallax-fast title + sp-parallax-slow body + sp-line-grow divider), Gallery header (sp-fade-up), Reviews section (sp-fade-up header + sp-stagger-children grid), Support section (sp-clip-reveal-left image + parallax content), CTA section (sp-parallax-fast heading + sp-line-grow + sp-parallax-slow tagline + sp-fade-up button)
+
+**Rationale**: User requested mandler.shop-style scroll animations where content assembles/disperses continuously with scroll position, rather than triggering once.
+
+---
+
 ### 2026-03-03: Restore Lost Wording Fixes & Add Media Reviews Feature
 **Summary**: Restored homepage wording refinements and the full Media Reviews feature that were present on the luxury-homepage branch but missing from main. This includes: (1) refined parallax quote #2 text and footer about description in all 3 languages, (2) new Media Reviews homepage section with 3 featured review cards, (3) dedicated /reviews page with hero, filter tabs, featured review, and reviews grid, (4) header navigation link to reviews page.
 
