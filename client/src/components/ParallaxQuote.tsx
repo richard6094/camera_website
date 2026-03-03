@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useScrollProgress } from '@/hooks/useScrollProgress';
 
 interface ParallaxQuoteProps {
   image: string;
@@ -9,6 +10,7 @@ interface ParallaxQuoteProps {
 }
 
 export function ParallaxQuote({ image, quote, author, topBg, bottomBg }: ParallaxQuoteProps) {
+  const spRef = useScrollProgress<HTMLElement>();
   const [offsetY, setOffsetY] = useState(0);
 
   useEffect(() => {
@@ -29,12 +31,13 @@ export function ParallaxQuote({ image, quote, author, topBg, bottomBg }: Paralla
 
   return (
     <section
+      ref={spRef}
       className="px-2 sm:px-3 md:px-4 py-4 sm:py-6 md:py-8"
       style={topBg || bottomBg ? {
         background: `linear-gradient(to bottom, ${topBg || 'transparent'} 50%, ${bottomBg || 'transparent'} 50%)`
       } : { backgroundColor: 'transparent' }}
     >
-      <div className="relative h-[40vh] sm:h-[45vh] md:h-[55vh] lg:h-[60vh] overflow-hidden rounded-2xl">
+      <div className="sp-scale-subtle relative h-[40vh] sm:h-[45vh] md:h-[55vh] lg:h-[60vh] overflow-hidden rounded-2xl">
       {/* Parallax Background Image */}
       <div 
         className="absolute inset-0 z-0 overflow-hidden"

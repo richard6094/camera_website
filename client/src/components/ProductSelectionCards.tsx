@@ -1,5 +1,5 @@
 import { useLanguage } from '@/contexts/LanguageContext';
-import { useScrollReveal } from '@/hooks/useScrollReveal';
+import { useScrollProgress } from '@/hooks/useScrollProgress';
 
 interface ProductCard {
   id: string;
@@ -11,7 +11,7 @@ interface ProductCard {
 
 export function ProductSelectionCards() {
   const { t } = useLanguage();
-  const gridRef = useScrollReveal<HTMLDivElement>({ animation: 'stagger', staggerDelay: 180 });
+  const sectionRef = useScrollProgress<HTMLDivElement>();
 
   const products: ProductCard[] = [
     {
@@ -30,9 +30,9 @@ export function ProductSelectionCards() {
   ];
 
   return (
-    <section className="py-24 md:py-32 bg-surface-alt section-raised">
+    <section ref={sectionRef} className="py-24 md:py-32 bg-surface-alt section-raised">
       <div className="container">
-        <div ref={gridRef} className="grid grid-cols-2 gap-4 md:gap-6 lg:gap-8 max-w-4xl mx-auto">
+        <div className="sp-stagger-children grid grid-cols-2 gap-4 md:gap-6 lg:gap-8 max-w-4xl mx-auto">
           {products.map((product) => (
             <div
               key={product.id}

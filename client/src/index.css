@@ -492,6 +492,118 @@
     transform: scale(1.05);
   }
 
+  /* ============================================
+     SCROLL-PROGRESS ANIMATION SYSTEM
+     Continuous, bidirectional scroll-linked effects.
+     Driven by --sp (0→1) CSS custom property set by useScrollProgress.
+     ============================================ */
+
+  /* --- Fade Up (continuous) --- */
+  .sp-fade-up {
+    opacity: var(--sp, 0);
+    transform: translateY(calc(40px * (1 - var(--sp, 0))));
+    will-change: transform, opacity;
+  }
+
+  /* --- Fade Down (continuous) --- */
+  .sp-fade-down {
+    opacity: var(--sp, 0);
+    transform: translateY(calc(-40px * (1 - var(--sp, 0))));
+    will-change: transform, opacity;
+  }
+
+  /* --- Fade Left (slides from right, continuous) --- */
+  .sp-fade-left {
+    opacity: var(--sp, 0);
+    transform: translateX(calc(60px * (1 - var(--sp, 0))));
+    will-change: transform, opacity;
+  }
+
+  /* --- Fade Right (slides from left, continuous) --- */
+  .sp-fade-right {
+    opacity: var(--sp, 0);
+    transform: translateX(calc(-60px * (1 - var(--sp, 0))));
+    will-change: transform, opacity;
+  }
+
+  /* --- Scale In (continuous) --- */
+  .sp-scale-in {
+    opacity: var(--sp, 0);
+    transform: scale(calc(0.9 + 0.1 * var(--sp, 0)));
+    will-change: transform, opacity;
+  }
+
+  /* --- Scale Subtle: gentle size+opacity, never fully hidden --- */
+  .sp-scale-subtle {
+    opacity: calc(0.4 + 0.6 * var(--sp, 0));
+    transform: scale(calc(0.88 + 0.12 * var(--sp, 0)));
+    will-change: transform, opacity;
+  }
+
+  /* --- Clip Reveal bottom-up (continuous) --- */
+  .sp-clip-reveal {
+    clip-path: inset(calc(100% * (1 - var(--sp, 0))) 0 0 0);
+    will-change: clip-path;
+  }
+
+  /* --- Clip Reveal left-to-right (continuous) --- */
+  .sp-clip-reveal-left {
+    clip-path: inset(0 calc(100% * (1 - var(--sp, 0))) 0 0);
+    will-change: clip-path;
+  }
+
+  /* --- Line Grow (continuous) --- */
+  .sp-line-grow {
+    transform: scaleX(var(--sp, 0));
+    transform-origin: left;
+    will-change: transform;
+  }
+
+  /* --- Multi-layer parallax helpers --- */
+  /* Apply to children: faster/slower differential movement */
+  .sp-parallax-fast {
+    opacity: var(--sp, 0);
+    transform: translateY(calc(70px * (1 - var(--sp, 0))));
+    will-change: transform, opacity;
+  }
+  .sp-parallax-slow {
+    opacity: var(--sp, 0);
+    transform: translateY(calc(25px * (1 - var(--sp, 0))));
+    will-change: transform, opacity;
+  }
+
+  /* --- Stagger children with differential speeds --- */
+  .sp-stagger-children > *:nth-child(1) {
+    opacity: var(--sp, 0);
+    transform: translateY(calc(40px * (1 - var(--sp, 0))));
+    will-change: transform, opacity;
+  }
+  .sp-stagger-children > *:nth-child(2) {
+    opacity: var(--sp, 0);
+    transform: translateY(calc(55px * (1 - var(--sp, 0))));
+    will-change: transform, opacity;
+  }
+  .sp-stagger-children > *:nth-child(3) {
+    opacity: var(--sp, 0);
+    transform: translateY(calc(70px * (1 - var(--sp, 0))));
+    will-change: transform, opacity;
+  }
+  .sp-stagger-children > *:nth-child(4) {
+    opacity: var(--sp, 0);
+    transform: translateY(calc(85px * (1 - var(--sp, 0))));
+    will-change: transform, opacity;
+  }
+  .sp-stagger-children > *:nth-child(5) {
+    opacity: var(--sp, 0);
+    transform: translateY(calc(100px * (1 - var(--sp, 0))));
+    will-change: transform, opacity;
+  }
+  .sp-stagger-children > *:nth-child(6) {
+    opacity: var(--sp, 0);
+    transform: translateY(calc(115px * (1 - var(--sp, 0))));
+    will-change: transform, opacity;
+  }
+
   /* Reduce motion for accessibility */
   @media (prefers-reduced-motion: reduce) {
     .scroll-reveal {
@@ -505,6 +617,17 @@
       opacity: 1 !important;
       transform: none !important;
       transition: none !important;
+    }
+    [class*="sp-"] {
+      opacity: 1 !important;
+      transform: none !important;
+      clip-path: none !important;
+      will-change: auto !important;
+    }
+    .sp-stagger-children > * {
+      opacity: 1 !important;
+      transform: none !important;
+      will-change: auto !important;
     }
   }
 }
