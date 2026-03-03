@@ -119,9 +119,9 @@ export function ScrollExpandGallery({
             <div
               className="seg-quote absolute inset-0 z-10 flex items-center justify-center px-6 sm:px-10 md:px-16"
             >
-              <blockquote className="max-w-4xl text-center">
+              <blockquote className="text-center" style={{ width: 'min(90vw, 56rem)' }}>
                 <p
-                  className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-light leading-relaxed"
+                  className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-light leading-relaxed whitespace-nowrap sm:whitespace-normal"
                   style={{ textShadow: '0 2px 12px rgba(0,0,0,0.8)' }}
                 >
                   &ldquo;{quote}&rdquo;
