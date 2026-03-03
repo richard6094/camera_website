@@ -382,16 +382,61 @@
     background-color: oklch(0.92 0.035 75);
     background-attachment: fixed;
     background-image:
-      /* ── Silk flowing shadows ──
-         Two layers of smooth fractalNoise + Gaussian blur create
-         soft, flowing shadow undulations like light on draped silk. */
-      /* Large flowing folds — smooth, visible shadows */
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='800'%3E%3Cfilter id='s1'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.008' numOctaves='4' seed='3' stitchTiles='stitch'/%3E%3CfeGaussianBlur stdDeviation='2'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.22' intercept='0'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='800' height='800' filter='url(%23s1)'/%3E%3C/svg%3E"),
-      /* Smaller ripples — finer detail within folds */
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='500'%3E%3Cfilter id='s2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.018' numOctaves='3' seed='7' stitchTiles='stitch'/%3E%3CfeGaussianBlur stdDeviation='1.5'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.14' intercept='0'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='500' height='500' filter='url(%23s2)'/%3E%3C/svg%3E"),
-      /* ── Silk lustre sheens ──
-         Wide gradients with uniform scroll speed per band.
-         Opacity balanced: visible sheen without hard stripes. */
+      /* ── Silk flowing folds ──
+         Multiple overlapping linear gradients at near-parallel angles
+         create directional flowing highlights and shadows.
+         Pure CSS — no SVG tiles, no hard edges. */
+      /* fold shadow 1 — main diagonal */
+      linear-gradient(
+        132deg,
+        oklch(0.88 0.02 75 / 0) 0%,
+        oklch(0.88 0.02 75 / 0.12) 18%,
+        oklch(0.88 0.02 75 / 0) 28%,
+        oklch(0.88 0.02 75 / 0.08) 42%,
+        oklch(0.88 0.02 75 / 0) 55%,
+        oklch(0.88 0.02 75 / 0.10) 72%,
+        oklch(0.88 0.02 75 / 0) 85%,
+        oklch(0.88 0.02 75 / 0.06) 95%,
+        oklch(0.88 0.02 75 / 0) 100%
+      ),
+      /* fold shadow 2 — slight offset angle */
+      linear-gradient(
+        138deg,
+        oklch(0.86 0.02 70 / 0) 0%,
+        oklch(0.86 0.02 70 / 0.09) 12%,
+        oklch(0.86 0.02 70 / 0) 22%,
+        oklch(0.86 0.02 70 / 0.14) 38%,
+        oklch(0.86 0.02 70 / 0) 50%,
+        oklch(0.86 0.02 70 / 0.07) 65%,
+        oklch(0.86 0.02 70 / 0) 78%,
+        oklch(0.86 0.02 70 / 0.11) 90%,
+        oklch(0.86 0.02 70 / 0) 100%
+      ),
+      /* fold highlight 1 — light catching crests */
+      linear-gradient(
+        134deg,
+        oklch(0.97 0.01 78 / 0) 0%,
+        oklch(0.97 0.01 78 / 0.15) 15%,
+        oklch(0.97 0.01 78 / 0) 25%,
+        oklch(0.97 0.01 78 / 0.20) 45%,
+        oklch(0.97 0.01 78 / 0) 58%,
+        oklch(0.97 0.01 78 / 0.12) 75%,
+        oklch(0.97 0.01 78 / 0) 88%,
+        oklch(0.97 0.01 78 / 0.08) 96%,
+        oklch(0.97 0.01 78 / 0) 100%
+      ),
+      /* fold highlight 2 — secondary crests */
+      linear-gradient(
+        140deg,
+        oklch(0.96 0.012 72 / 0) 0%,
+        oklch(0.96 0.012 72 / 0.10) 20%,
+        oklch(0.96 0.012 72 / 0) 32%,
+        oklch(0.96 0.012 72 / 0.16) 52%,
+        oklch(0.96 0.012 72 / 0) 65%,
+        oklch(0.96 0.012 72 / 0.08) 80%,
+        oklch(0.96 0.012 72 / 0) 100%
+      ),
+      /* ── Silk lustre sheens (scroll-linked) ── */
       /* primary sheen — wide diagonal glow */
       linear-gradient(
         135deg,
@@ -419,8 +464,6 @@
         oklch(0.96 0.012 72 / 0.08) calc(65% + 25% * var(--silk-t)),
         transparent 100%
       ),
-      /* ── Subtle grain for depth ── */
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.5' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"),
       /* ── Color blobs: gold/khaki/brown, boosted chroma ──
          Each sweeps 500% vertically — one dominates per section.
          Peak: blob1 t≈0, blob2 t≈0.33, blob3 t≈0.67, blob4 t≈1 */
