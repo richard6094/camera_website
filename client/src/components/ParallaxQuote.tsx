@@ -37,7 +37,7 @@ export function ParallaxQuote({ image, quote, author, topBg, bottomBg }: Paralla
         background: `linear-gradient(to bottom, ${topBg || 'transparent'} 50%, ${bottomBg || 'transparent'} 50%)`
       } : { backgroundColor: 'transparent' }}
     >
-      <div className="relative h-[40vh] sm:h-[45vh] md:h-[55vh] lg:h-[60vh] overflow-hidden rounded-2xl">
+      <div className="sp-scale-subtle relative h-[40vh] sm:h-[45vh] md:h-[55vh] lg:h-[60vh] overflow-hidden rounded-2xl">
       {/* Parallax Background Image */}
       <div 
         className="absolute inset-0 z-0 overflow-hidden"
@@ -58,7 +58,7 @@ export function ParallaxQuote({ image, quote, author, topBg, bottomBg }: Paralla
       {/* Dark Overlay removed per user request */}
 
       {/* Quote Content */}
-      <div className="sp-scale-subtle relative z-10 h-full flex flex-col items-center justify-center px-6 sm:px-8 md:px-12 lg:px-16">
+      <div className="relative z-10 h-full flex flex-col items-center justify-center px-6 sm:px-8 md:px-12 lg:px-16">
         <blockquote className="max-w-4xl text-center">
           <p className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-light leading-relaxed mb-3 sm:mb-4" style={{ textShadow: '0 2px 12px rgba(0,0,0,0.8)' }}>
             "{quote}"
