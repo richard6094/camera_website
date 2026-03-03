@@ -142,7 +142,7 @@ export function ScrollExpandGallery({
       <div
         style={{
           height: '70vh',
-          background: `linear-gradient(to bottom, ${bgColor} 15%, transparent 100%)`,
+          background: `linear-gradient(to bottom, ${bgColor} 5%, oklch(0.92 0.035 75) 100%)`,
           marginTop: '-2px',
         }}
       />
