@@ -30,22 +30,18 @@ This is the official website for **Mandler Lens**, a high-end camera lens manufa
 2. **35mm F/2** (internal code: E39)
    - Type: 35mm prime lens
    - Display Name: "35mm F/2"
-   - Pricing: ¥12,800 (CNY) / ¥278,000 (JPY) / $1,899 (USD)
+   - **Material Variants**: Aluminum (standard) / Brass · Special Edition (limited)
+   - Standard Pricing: ¥12,800 (CNY) / ¥278,000 (JPY) / $1,899 (USD)
+   - Special Edition Pricing: ¥28,800 (orig ¥32,000 CNY) / ¥628,000 (orig ¥698,000 JPY) / $4,299 (orig $4,799 USD)
    - Tagline: "经典焦段，纯粹视角" (Classic focal length, pure perspective)
-   - Detail Page Specs: f/1.4 aperture, 8 groups 11 elements, 11 aperture blades, 0.3m MFD, 52mm filter, 320g, M mount
+   - SE Tagline: "匠心之作，限量典藏" (Crafted excellence, limited collection)
+   - Detail Page Specs: f/2 aperture, 5 groups 7 elements, 10 aperture blades, 0.7m MFD, E39 filter, 150g (aluminum) / 200g (brass), M mount
+   - SE-only Specs: Brass + multi-color anodized body, globally limited to 500 units
    - Intro Page Narrative: F2.0, 7E/5G Double Gaussian, purple-gold multi-layer coating, 10-blade aperture, 34mm compact length
-   - Stock: In stock
+   - Stock: Standard in stock; SE limited (only 12 remaining), max 3 per customer
    - Routes: `/products/35mm-f2` (store), `/products/35mm-f2-intro` (editorial)
-
-3. **35mm F/2 特别版 / Special Edition** (internal code: E39 Special)
-   - Type: Limited edition 35mm prime lens
-   - Display Name: "35mm F/2 特别版" (zh) / "35mm F/2 特別版" (ja) / "35mm F/2 Special Edition" (en)
-   - Pricing: ¥28,800 (orig ¥32,000 CNY) / ¥628,000 (orig ¥698,000 JPY) / $4,299 (orig $4,799 USD)
-   - Tagline: "匠心之作，限量典藏" (Crafted excellence, limited collection)
-   - Key Features: f/1.4 ASPH, 9 groups 12 elements (2 aspherical), brass + titanium body, 0.25m close focus, 340g, M mount
-   - Stock: Limited (only 12 remaining), globally limited to 500 units
-   - Limit: 3 per customer
-   - Routes: `/products/35mm-f2-special` (store), `/products/35mm-f2-special-intro` (editorial)
+   - SE Routes (legacy, still accessible): `/products/35mm-f2-special` (store), `/products/35mm-f2-special-intro` (editorial)
+   - Variant Selector: Material toggle on product detail page (Aluminum / Brass · Special Edition)
 
 ## Technical Stack
 

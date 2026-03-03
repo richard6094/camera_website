@@ -2,6 +2,34 @@
 
 ## Recent Changes & Optimizations
 
+### 2026-03-03: Restore Lost Wording Fixes & Add Media Reviews Feature
+**Summary**: Restored homepage wording refinements and the full Media Reviews feature that were present on the luxury-homepage branch but missing from main. This includes: (1) refined parallax quote #2 text and footer about description in all 3 languages, (2) new Media Reviews homepage section with 3 featured review cards, (3) dedicated /reviews page with hero, filter tabs, featured review, and reviews grid, (4) header navigation link to reviews page.
+
+**Files Changed**:
+- `client/src/lib/translations.ts` — Refined `quote.2` text (3 langs), refined `footer.about.description` (3 langs), added `header.reviews` key (3 langs), added `reviews.*` keys (12 keys × 3 langs), added `home.reviews.*` keys (3 keys × 3 langs)
+- `client/src/pages/Home.tsx` — Added Play/FileText imports, added reviewsHeaderRef/reviewsGridRef scroll-reveal refs, inserted Media Reviews section (3-card grid with video/article badges, thumbnails, platform/author meta, excerpts, "View All" CTA) between gallery and parallax quote #2
+- `client/src/components/Header.tsx` — Added `{ label: t('header.reviews'), href: '/reviews' }` to navItems array
+- `client/src/pages/MediaReviews.tsx` — New file: full media reviews page with hero section, filter tabs (All/Video/Article), featured review card (21:9 aspect ratio with gradient overlay), reviews grid (3-col), ReviewCard sub-component; 6 placeholder review items covering YouTube/Bilibili/摄影笔记/LensRentals/色影无忌/カメラ部TV
+- `client/src/App.tsx` — Added MediaReviews import and `/reviews` route
+
+**Rationale**: User noticed homepage wording changes and the Media Reviews feature from the luxury-homepage branch were lost after the SE variant merge on main. All content changes were applied with styling adapted to main's industrial aesthetic (no gold accents or luxury typography).
+
+---
+
+### 2026-03-03: Merge Special Edition into 35mm F/2 as Material Variant
+**Summary**: Merged the standalone Special Edition product into the 35mm F/2 product page as a material variant selector (Aluminum vs Brass · Special Edition). Users can now toggle between standard and special edition on a single product page. Removed all SE-specific navigation entries, showcase cards, and product listings. The SE intro/detail pages remain accessible via direct URL but are no longer linked from main navigation.
+
+**Files Changed**:
+- `client/src/pages/Product35mmF2.tsx` — Added `type Variant = 'standard' | 'special'`, variant state, separate `standardImages`/`specialImages` arrays, variant-aware specs (weight, body material, limited edition rows), variant-aware features (limited collection, premium materials, exclusive accessories for SE), variant-aware pricing (SE: discounted from original, limited availability, remaining count), material/variant selector UI, Limited Edition badge (Award icon), variant-conditional description, max-3 quantity limit for SE, "What's Included" packaging list for SE
+- `client/src/components/Header.tsx` — Removed SE submenu entry from products navigation
+- `client/src/pages/Home.tsx` — Removed SE showcase item and its click handler from horizontal product showcase
+- `client/src/components/ProductSelectionCards.tsx` — Removed SE card, simplified grid from 3-col to 2-col, removed SE-specific name rendering logic
+- `client/src/pages/Products.tsx` — Removed SE product entries from all 3 language arrays, removed category filter (only 1 product now), simplified Product type and copy strings
+
+**Rationale**: Product integration — the Special Edition is a material variant of the same lens, not a separate product. Consolidating improves UX and reduces navigation complexity.
+
+---
+
 ### 2026-03-03: Scroll-Reveal Animations & Image Hover Effects
 **Summary**: Added scroll-triggered reveal animations to the homepage, inspired by mandler.shop's visual effects. Created a reusable `useScrollReveal` hook using IntersectionObserver and a comprehensive CSS animation system. Effects include: clip-path image reveals, fade-up/left/right content animations, divider line growth, staggered card reveals, and smooth image hover zoom. All animations respect `prefers-reduced-motion` for accessibility. Style remains unchanged (industrial Leica aesthetic).
 

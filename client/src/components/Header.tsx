@@ -69,17 +69,13 @@ export default function Header({ cartCount = 0 }: HeaderProps) {
       href: '/products/35mm-f2-intro',
       description: language === 'zh' ? '经典焦段，纯粹视角' : language === 'ja' ? 'クラシックな焦点距離、ピュアな視点' : 'Classic Focal Length, Pure Perspective',
     },
-    {
-      label: '35mm F/2 ' + (language === 'zh' ? '特别版' : language === 'ja' ? '特別版' : 'Special Edition'),
-      href: '/products/35mm-f2-special-intro',
-      description: language === 'zh' ? '匠心之作，限量典藏' : language === 'ja' ? '匠の技、限定コレクション' : 'Crafted Excellence, Limited Collection',
-    },
   ];
 
   const navItems: NavItem[] = [
     { label: t('header.products'), submenu: products },
     { label: t('header.story'), href: '/story' },
     { label: t('header.gallery'), href: '/gallery' },
+    { label: t('header.reviews'), href: '/reviews' },
     { label: t('header.support'), href: '/support' },
   ];
 

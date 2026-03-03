@@ -7,6 +7,7 @@ export const translations = {
     'header.story': '品牌故事',
     'header.gallery': '用户样片',
     'header.support': '服务支持',
+    'header.reviews': '媒体评测',
 
     // Hero
     'hero.tagline': '光，拥有自己的语言',
@@ -71,7 +72,7 @@ export const translations = {
 
     // Parallax Quotes
     'quote.1': '每一个被捕捉的瞬间，都是摄影师精准与专注的证明。',
-    'quote.2': '在追求完美影像的过程中，我们创造完美的工具。',
+    'quote.2': '在追求极致影像的路上，我们打磨值得信赖的工具。',
 
     // User Gallery
     'gallery.heading': '用户样片',
@@ -91,7 +92,7 @@ export const translations = {
 
     // Footer
     'footer.about.title': '关于 Mandler',
-    'footer.about.description': 'Mandler 代表着摄影器材制造的巅峰工艺。每一支镜头都是精密工程与艺术视野的完美结合,为追求卓越的摄影师打造。',
+    'footer.about.description': 'Mandler 专注于高品质摄影器材的精工制造。每一支镜头都凝聚着精密工程与艺术视野,为追求卓越的摄影师打造。',
     'footer.about.tagline': '让您，更自由地看见',
     'footer.contact.address.line1': '河南省南阳市宛城区',
     'footer.contact.address.line2': '中国兵器向东工业园',
@@ -204,6 +205,24 @@ export const translations = {
     'product.sl3.review.3.author': '郑明',
     'product.sl3.review.3.comment': '操控体验一流，按键布局非常合理。虽然价格昂贵，但物有所值。',
 
+    // Media Reviews Page
+    'reviews.heroTitle': '媒体评测',
+    'reviews.heroSubtitle': '全球媒体深度评测 · 真实体验',
+    'reviews.heroDesc': '各大摄影媒体及自媒体创作者的深度体验报告，用专业视角解读 Mandler 镜头的光学表现与使用感受。',
+    'reviews.filterAll': '全部',
+    'reviews.filterVideo': '视频评测',
+    'reviews.filterArticle': '图文评测',
+    'reviews.readMore': '阅读全文',
+    'reviews.watchVideo': '观看视频',
+    'reviews.visitSource': '访问原文',
+    'reviews.featured': '精选',
+    'reviews.emptyState': '更多评测内容即将上线，敬请期待。',
+
+    // Home — Media Reviews Highlight
+    'home.reviews.label': '媒体之声',
+    'home.reviews.heading': '业界怎么说',
+    'home.reviews.viewAll': '查看全部评测',
+
     // Lightbox
     'lightbox.zoom': '滚轮缩放',
     'lightbox.close': 'ESC 关闭',
@@ -218,6 +237,7 @@ export const translations = {
     'header.story': 'Our Story',
     'header.gallery': 'Gallery',
     'header.support': 'Support',
+    'header.reviews': 'Reviews',
 
     // Hero
     'hero.tagline': 'Light Has Its Own Language',
@@ -282,7 +302,7 @@ export const translations = {
 
     // Parallax Quotes
     'quote.1': 'Every moment captured is a testament to the precision and dedication of the photographer.',
-    'quote.2': 'In the pursuit of the perfect image, we create the perfect tools.',
+    'quote.2': 'In the pursuit of the finest image, we craft tools you can trust.',
 
     // User Gallery
     'gallery.heading': 'User Gallery',
@@ -302,7 +322,7 @@ export const translations = {
 
     // Footer
     'footer.about.title': 'About Mandler',
-    'footer.about.description': 'Mandler represents the pinnacle of photographic equipment manufacturing. Every lens is a perfect combination of precision engineering and artistic vision, crafted for photographers who demand excellence.',
+    'footer.about.description': 'Mandler is dedicated to the fine craft of photographic equipment. Every lens embodies precision engineering and artistic vision, crafted for photographers who demand excellence.',
     'footer.about.tagline': 'TO HELP YOU SEE MORE FREELY',
     'footer.contact.address.line1': 'Wancheng District, Nanyang City, Henan',
     'footer.contact.address.line2': 'China North Industries Group Xiangdong Industrial Park',
@@ -415,6 +435,24 @@ export const translations = {
     'product.sl3.review.3.author': 'Zheng Ming',
     'product.sl3.review.3.comment': 'First-class control experience with a very reasonable button layout. Although the price is high, it\'s worth every penny.',
 
+    // Media Reviews Page
+    'reviews.heroTitle': 'Media Reviews',
+    'reviews.heroSubtitle': 'In-Depth Reviews from Around the World',
+    'reviews.heroDesc': 'Professional reviews and hands-on experiences from photography media and content creators worldwide, offering expert perspectives on Mandler lenses.',
+    'reviews.filterAll': 'All',
+    'reviews.filterVideo': 'Video',
+    'reviews.filterArticle': 'Article',
+    'reviews.readMore': 'Read More',
+    'reviews.watchVideo': 'Watch Video',
+    'reviews.visitSource': 'Visit Source',
+    'reviews.featured': 'Featured',
+    'reviews.emptyState': 'More reviews coming soon. Stay tuned.',
+
+    // Home — Media Reviews Highlight
+    'home.reviews.label': 'PRESS & MEDIA',
+    'home.reviews.heading': 'What They Say',
+    'home.reviews.viewAll': 'View All Reviews',
+
     // Lightbox
     'lightbox.zoom': 'Scroll to Zoom',
     'lightbox.close': 'ESC to Close',
@@ -429,6 +467,7 @@ export const translations = {
     'header.story': 'ブランドストーリー',
     'header.gallery': 'ギャラリー',
     'header.support': 'サポート',
+    'header.reviews': 'メディアレビュー',
 
     // Hero
     'hero.tagline': '光は、自らの言語を持つ',
@@ -493,7 +532,7 @@ export const translations = {
 
     // Parallax Quotes
     'quote.1': '捉えられたすべての瞬間は、写真家の精密さと献身の証です。',
-    'quote.2': '完璧な映像を追求する中で、私たちは完璧な道具を創造します。',
+    'quote.2': '極上の映像を追い求める中で、信頼に足る道具を磨き上げます。',
 
     // User Gallery
     'gallery.heading': 'ギャラリー',
@@ -513,7 +552,7 @@ export const translations = {
 
     // Footer
     'footer.about.title': 'Mandlerについて',
-    'footer.about.description': 'Mandlerは写真機器製造の頂点を代表します。すべてのレンズは精密工学と芸術的ビジョンの完璧な融合であり、卓越を追求する写真家のために作られています。',
+    'footer.about.description': 'Mandlerは高品質な写真機器の精緻な製造に専念しています。すべてのレンズに精密工学と芸術的ビジョンが込められ、卓越を追求する写真家のために作られています。',
     'footer.about.tagline': 'より自由に、見えるように',
     'footer.contact.address.line1': '河南省南陽市宛城区',
     'footer.contact.address.line2': '中国兵器向東工業園',
@@ -625,6 +664,24 @@ export const translations = {
     'product.sl3.review.2.comment': '8K動画機能は非常に実用的で、画質も素晴らしい。プロカメラとして、すべてのニーズを満たしてくれます。',
     'product.sl3.review.3.author': '小林正義',
     'product.sl3.review.3.comment': '操作性は一流、ボタン配置も非常に合理的。高価ですが、その価値は十分にあります。',
+
+    // Media Reviews Page
+    'reviews.heroTitle': 'メディアレビュー',
+    'reviews.heroSubtitle': '世界各地のメディアによる詳細レビュー',
+    'reviews.heroDesc': '世界中の写真メディアやコンテンツクリエイターによる、Mandlerレンズの光学性能と使用感に関する専門的なレビューをお届けします。',
+    'reviews.filterAll': 'すべて',
+    'reviews.filterVideo': '動画レビュー',
+    'reviews.filterArticle': '記事レビュー',
+    'reviews.readMore': '続きを読む',
+    'reviews.watchVideo': '動画を見る',
+    'reviews.visitSource': '元記事へ',
+    'reviews.featured': '注目',
+    'reviews.emptyState': 'その他のレビューは近日公開予定です。',
+
+    // Home — Media Reviews Highlight
+    'home.reviews.label': 'メディアの声',
+    'home.reviews.heading': '業界の評価',
+    'home.reviews.viewAll': 'すべてのレビューを見る',
 
     // Lightbox
     'lightbox.zoom': 'スクロールで拡大',
