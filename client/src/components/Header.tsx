@@ -119,7 +119,7 @@ export default function Header({ cartCount = 0 }: HeaderProps) {
     <>
       {/* Fixed Header Bar */}
       <header 
-        className={`fixed left-0 right-0 z-50 top-0 max-w-[1440px] mx-auto bg-background/70 backdrop-blur-md border-b border-foreground/10 transition-transform duration-300 ease-in-out ${
+        className={`fixed left-0 right-0 z-50 top-0 max-w-[1440px] mx-auto bg-[oklch(0.945_0.018_75/0.70)] backdrop-blur-md border-b border-foreground/10 transition-transform duration-300 ease-in-out ${
           isVisible ? 'translate-y-0' : '-translate-y-full'
         }`}
         style={{borderBottomWidth: '0.5px', boxShadow: '0 2px 16px rgba(0,0,0,0.06)'}}
