@@ -646,17 +646,17 @@
     opacity: calc(1 - var(--shrink-p));
     -webkit-mask-image: linear-gradient(
       to bottom,
-      transparent 0%,
-      black calc(8% + 40% * var(--shrink-p)),
-      black calc(92% - 40% * var(--shrink-p)),
-      transparent 100%
+      transparent calc(-5% + 50% * var(--shrink-p)),
+      black calc(0% + 45% * var(--shrink-p)),
+      black calc(100% - 45% * var(--shrink-p)),
+      transparent calc(105% - 50% * var(--shrink-p))
     );
     mask-image: linear-gradient(
       to bottom,
-      transparent 0%,
-      black calc(8% + 40% * var(--shrink-p)),
-      black calc(92% - 40% * var(--shrink-p)),
-      transparent 100%
+      transparent calc(-5% + 50% * var(--shrink-p)),
+      black calc(0% + 45% * var(--shrink-p)),
+      black calc(100% - 45% * var(--shrink-p)),
+      transparent calc(105% - 50% * var(--shrink-p))
     );
     will-change: opacity, mask-image, -webkit-mask-image;
   }
