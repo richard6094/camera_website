@@ -19,12 +19,12 @@ const content = {
     },
     warranty: {
       label: '品质保证',
-      title: '终身质保承诺',
-      description: '所有 Mandler 镜头产品均享有终身有限质保服务。我们对每一支镜头的光学元件、机械结构和镀膜工艺负责到底。',
+      title: '12 个月官方保修',
+      description: '所有 Mandler 镜头产品自购买日起，提供 12 个月官方免费保修服务。我们对每一支镜头的材料与工艺品质负责。',
       items: [
-        { title: '光学质保', desc: '镜片组件终身保修，涵盖镀膜脱落、内部起雾及光学元件分离等工艺缺陷。' },
-        { title: '机械质保', desc: '对焦环、光圈叶片、卡口等机械结构保修五年，确保操控手感始终如一。' },
-        { title: '电子质保', desc: '电子触点及固件系统保修三年，保障镜头与机身的稳定通信。' },
+        { title: '保修期限', desc: '自购买日起 12 个月内，凭购买凭证享受官方免费保修服务。' },
+        { title: '保修范围', desc: '仅针对产品本身因材料缺陷、工艺问题导致的故障（如镜片脱膜、对焦异常、光圈调节异常等），提供免费维修或更换零部件服务。保修范围外项目需按成本支付维修费用。' },
+        { title: '不保修范围', desc: '人为损坏（如摔落、碰撞、进水、镜片划伤、私自拆解改装）；正常使用产生的损耗（如镜头盖磨损）；非品牌官方维修点维修过的产品。' },
       ],
     },
     repair: {
@@ -85,12 +85,12 @@ const content = {
     },
     warranty: {
       label: 'QUALITY ASSURANCE',
-      title: 'Lifetime Limited Warranty',
-      description: 'All Mandler lenses are backed by a comprehensive lifetime limited warranty. We stand behind the optical elements, mechanical precision, and coating craftsmanship of every lens.',
+      title: '12-Month Official Warranty',
+      description: 'All Mandler lenses come with a 12-month official warranty from the date of purchase. We stand behind the materials and craftsmanship of every lens we produce.',
       items: [
-        { title: 'Optical Warranty', desc: 'Lifetime coverage on lens elements, including coating defects, internal fogging, and optical element separation.' },
-        { title: 'Mechanical Warranty', desc: 'Five-year coverage on focus rings, aperture blades, lens mount, and all mechanical components for consistent handling.' },
-        { title: 'Electronic Warranty', desc: 'Three-year coverage on electronic contacts and firmware systems, ensuring reliable lens-body communication.' },
+        { title: 'Warranty Period', desc: '12 months of complimentary official warranty service from the date of purchase, with valid proof of purchase.' },
+        { title: 'Coverage Scope', desc: 'Covers defects in materials and craftsmanship (e.g., coating delamination, focus anomalies, aperture irregularities). Free repair or replacement of parts is provided. Out-of-warranty issues are subject to repair fees at cost.' },
+        { title: 'Exclusions', desc: 'Accidental damage (drops, impacts, water damage, lens scratches, unauthorized disassembly or modification); normal wear and tear (e.g., lens cap abrasion); products serviced by unauthorized repair centers.' },
       ],
     },
     repair: {
@@ -151,12 +151,12 @@ const content = {
     },
     warranty: {
       label: '品質保証',
-      title: '生涯限定保証',
-      description: 'すべての Mandler レンズには包括的な生涯限定保証が付きます。光学素子、機械精度、コーティング技術の品質を保証します。',
+      title: '12ヶ月公式保証',
+      description: 'すべての Mandler レンズには、ご購入日から12ヶ月間の公式無料保証サービスが付きます。素材と工芸品質に責任を持ちます。',
       items: [
-        { title: '光学保証', desc: 'レンズ素子の生涯保証。コーティング剥離、内部曇り、光学素子の分離などの工芸欠陥をカバー。' },
-        { title: '機械保証', desc: 'フォーカスリング、絞り羽根、マウントなどの機械部品を5年間保証。一貫した操作感を確保。' },
-        { title: '電子保証', desc: '電子接点とファームウェアシステムを3年間保証。レンズとボディの安定した通信を確保。' },
+        { title: '保証期間', desc: 'ご購入日から12ヶ月間、購入証明書をご提示いただくことで公式無料保証サービスをご利用いただけます。' },
+        { title: '保証範囲', desc: '製品自体の素材欠陥・工芸上の問題による故障（コーティング剥離、フォーカス異常、絞り調整異常など）に対して、無料修理または部品交換サービスを提供します。保証範囲外は実費での修理となります。' },
+        { title: '保証対象外', desc: '人為的損傷（落下、衝撃、浸水、レンズの傷、無許可の分解・改造）；通常使用による消耗（レンズキャップの摩耗など）；正規サービス拠点以外で修理された製品。' },
       ],
     },
     repair: {
