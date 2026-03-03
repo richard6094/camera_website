@@ -612,20 +612,21 @@
      Driven by --expand-p / --shrink-p (0→1) set via rAF in the component.
      ============================================ */
 
-  /* ── Expand frame: image grows from 65 % → 105 %, corners grow ──
-     Frame overshoots viewport; parent overflow:hidden hides the corners. */
+  /* ── Expand frame: image grows from 65 % → 160 %, corners grow ──
+     Frame overshoots viewport significantly; parent overflow:hidden
+     clips the large border-radius so image appears to fill the screen. */
   .seg-expand-frame {
     --expand-p: 0;
-    width:  calc(65% + 40% * var(--expand-p));
-    height: calc(55% + 52% * var(--expand-p));
+    width:  calc(65% + 95% * var(--expand-p));
+    height: calc(55% + 105% * var(--expand-p));
     border-radius: calc(16px + 34vw * var(--expand-p));
     will-change: width, height, border-radius;
   }
   /* On mobile, start a bit wider */
   @media (max-width: 639px) {
     .seg-expand-frame {
-      width:  calc(82% + 26% * var(--expand-p));
-      height: calc(50% + 58% * var(--expand-p));
+      width:  calc(82% + 78% * var(--expand-p));
+      height: calc(50% + 110% * var(--expand-p));
     }
   }
 
