@@ -396,35 +396,36 @@
         transparent 1px,
         transparent 4px
       ),
-      /* ── Silk lustre sheens: multiple diagonal highlight bands ──
-         Three bands at different angles and scroll speeds create
-         the shifting, liquid-light quality of draped silk. */
-      /* primary sheen — wide, warm */
+      /* ── Silk lustre sheens ──
+         Very wide, low-opacity gradients that drift with scroll.
+         All stops use the SAME scroll multiplier to prevent
+         band compression at any scroll position. */
+      /* primary sheen — ultra-wide diagonal glow */
       linear-gradient(
         135deg,
-        transparent calc(10% + 40% * var(--silk-t)),
-        oklch(0.96 0.015 78 / 0.30) calc(25% + 25% * var(--silk-t)),
-        oklch(0.97 0.012 78 / 0.55) calc(42% + 15% * var(--silk-t)),
-        oklch(0.96 0.015 78 / 0.30) calc(55% + 10% * var(--silk-t)),
-        transparent calc(72% + 5% * var(--silk-t))
+        transparent 0%,
+        oklch(0.97 0.012 78 / 0.08) calc(15% + 20% * var(--silk-t)),
+        oklch(0.97 0.012 78 / 0.22) calc(35% + 20% * var(--silk-t)),
+        oklch(0.97 0.012 78 / 0.08) calc(55% + 20% * var(--silk-t)),
+        transparent 100%
       ),
-      /* secondary sheen — narrower, counter-angle */
+      /* secondary sheen — counter-angle, gentler */
       linear-gradient(
-        -45deg,
-        transparent calc(55% - 35% * var(--silk-t)),
-        oklch(0.97 0.010 65 / 0.20) calc(62% - 25% * var(--silk-t)),
-        oklch(0.98 0.008 65 / 0.40) calc(70% - 18% * var(--silk-t)),
-        oklch(0.97 0.010 65 / 0.20) calc(76% - 12% * var(--silk-t)),
-        transparent calc(85% - 5% * var(--silk-t))
+        -50deg,
+        transparent 0%,
+        oklch(0.97 0.008 65 / 0.06) calc(30% - 15% * var(--silk-t)),
+        oklch(0.97 0.008 65 / 0.16) calc(50% - 15% * var(--silk-t)),
+        oklch(0.97 0.008 65 / 0.06) calc(70% - 15% * var(--silk-t)),
+        transparent 100%
       ),
-      /* tertiary sheen — subtle horizontal shimmer */
+      /* tertiary sheen — horizontal whisper */
       linear-gradient(
-        90deg,
-        transparent calc(25% + 50% * var(--silk-t)),
-        oklch(0.96 0.012 72 / 0.18) calc(35% + 35% * var(--silk-t)),
-        oklch(0.97 0.010 72 / 0.30) calc(45% + 20% * var(--silk-t)),
-        oklch(0.96 0.012 72 / 0.18) calc(52% + 15% * var(--silk-t)),
-        transparent calc(65% + 5% * var(--silk-t))
+        85deg,
+        transparent 0%,
+        oklch(0.96 0.010 72 / 0.05) calc(25% + 25% * var(--silk-t)),
+        oklch(0.96 0.010 72 / 0.12) calc(45% + 25% * var(--silk-t)),
+        oklch(0.96 0.010 72 / 0.05) calc(65% + 25% * var(--silk-t)),
+        transparent 100%
       ),
       /* ── Grain noise for organic silk feel ── */
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E"),
