@@ -68,12 +68,15 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(
       el.style.setProperty('--sr-stagger', `${staggerDelay}ms`);
     }
 
+    const reveal = () => {
+      el.classList.add('sr-visible');
+    };
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Trigger animation
-            el.classList.add('sr-visible');
+            reveal();
             if (once) {
               observer.unobserve(el);
             }
@@ -87,7 +90,20 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(
 
     observer.observe(el);
 
+    // Safety net: if the element is already in the viewport when mounted,
+    // the IO callback may not fire in some edge cases (React strict mode,
+    // HMR re-renders). Manually check after a frame.
+    const rafId = requestAnimationFrame(() => {
+      const rect = el.getBoundingClientRect();
+      const inView = rect.top < window.innerHeight && rect.bottom > 0;
+      if (inView && !el.classList.contains('sr-visible')) {
+        reveal();
+        if (once) observer.unobserve(el);
+      }
+    });
+
     return () => {
+      cancelAnimationFrame(rafId);
       observer.unobserve(el);
     };
   }, [animation, threshold, rootMargin, delay, duration, once, staggerDelay]);
