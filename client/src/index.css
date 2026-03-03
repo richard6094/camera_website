@@ -386,49 +386,48 @@
          Tight diagonal micro-stripes in two directions simulate warp & weft. */
       repeating-linear-gradient(
         135deg,
-        oklch(1 0 0 / 0.06) 0px,
+        oklch(1 0 0 / 0.09) 0px,
         transparent 1px,
-        transparent 2.5px
+        transparent 2px
       ),
       repeating-linear-gradient(
         45deg,
-        oklch(0 0 0 / 0.035) 0px,
+        oklch(0 0 0 / 0.055) 0px,
         transparent 1px,
-        transparent 4px
+        transparent 3px
       ),
       /* ── Silk lustre sheens ──
-         Very wide, low-opacity gradients that drift with scroll.
-         All stops use the SAME scroll multiplier to prevent
-         band compression at any scroll position. */
-      /* primary sheen — ultra-wide diagonal glow */
+         Wide gradients with uniform scroll speed per band.
+         Opacity balanced: visible sheen without hard stripes. */
+      /* primary sheen — wide diagonal glow */
       linear-gradient(
         135deg,
         transparent 0%,
-        oklch(0.97 0.012 78 / 0.08) calc(15% + 20% * var(--silk-t)),
-        oklch(0.97 0.012 78 / 0.22) calc(35% + 20% * var(--silk-t)),
-        oklch(0.97 0.012 78 / 0.08) calc(55% + 20% * var(--silk-t)),
+        oklch(0.97 0.015 78 / 0.14) calc(15% + 20% * var(--silk-t)),
+        oklch(0.97 0.015 78 / 0.38) calc(35% + 20% * var(--silk-t)),
+        oklch(0.97 0.015 78 / 0.14) calc(55% + 20% * var(--silk-t)),
         transparent 100%
       ),
-      /* secondary sheen — counter-angle, gentler */
+      /* secondary sheen — counter-angle */
       linear-gradient(
         -50deg,
         transparent 0%,
-        oklch(0.97 0.008 65 / 0.06) calc(30% - 15% * var(--silk-t)),
-        oklch(0.97 0.008 65 / 0.16) calc(50% - 15% * var(--silk-t)),
-        oklch(0.97 0.008 65 / 0.06) calc(70% - 15% * var(--silk-t)),
+        oklch(0.97 0.010 65 / 0.10) calc(30% - 15% * var(--silk-t)),
+        oklch(0.97 0.010 65 / 0.28) calc(50% - 15% * var(--silk-t)),
+        oklch(0.97 0.010 65 / 0.10) calc(70% - 15% * var(--silk-t)),
         transparent 100%
       ),
-      /* tertiary sheen — horizontal whisper */
+      /* tertiary sheen — horizontal shimmer */
       linear-gradient(
         85deg,
         transparent 0%,
-        oklch(0.96 0.010 72 / 0.05) calc(25% + 25% * var(--silk-t)),
-        oklch(0.96 0.010 72 / 0.12) calc(45% + 25% * var(--silk-t)),
-        oklch(0.96 0.010 72 / 0.05) calc(65% + 25% * var(--silk-t)),
+        oklch(0.96 0.012 72 / 0.08) calc(25% + 25% * var(--silk-t)),
+        oklch(0.96 0.012 72 / 0.22) calc(45% + 25% * var(--silk-t)),
+        oklch(0.96 0.012 72 / 0.08) calc(65% + 25% * var(--silk-t)),
         transparent 100%
       ),
       /* ── Grain noise for organic silk feel ── */
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E"),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.055'/%3E%3C/svg%3E"),
       /* ── Color blobs: gold/khaki/brown, boosted chroma ──
          Each sweeps 500% vertically — one dominates per section.
          Peak: blob1 t≈0, blob2 t≈0.33, blob3 t≈0.67, blob4 t≈1 */
