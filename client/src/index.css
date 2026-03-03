@@ -381,133 +381,34 @@
     --silk-t: 0;
     background-color: oklch(0.92 0.035 75);
     background-attachment: fixed;
-    /* 22 layers: scroll-shift fold stripes, keep sheens/blobs static */
-    background-position:
-      /* 1: directional light */  0 0,
-      /* 2-4: density zones */    0 calc(var(--silk-t) * -300px),
-                                  0 calc(var(--silk-t) * -250px),
-                                  0 calc(var(--silk-t) * -350px),
-      /* 5-8: primary folds */    0 calc(var(--silk-t) * -500px),
-                                  0 calc(var(--silk-t) * -420px),
-                                  0 calc(var(--silk-t) * -560px),
-                                  0 calc(var(--silk-t) * -460px),
-      /* 9-12: cross folds */     0 calc(var(--silk-t) * -380px),
-                                  0 calc(var(--silk-t) * -520px),
-                                  0 calc(var(--silk-t) * -440px),
-                                  0 calc(var(--silk-t) * -330px),
-      /* 13-15: shallow folds */  0 calc(var(--silk-t) * -600px),
-                                  0 calc(var(--silk-t) * -550px),
-                                  0 calc(var(--silk-t) * -650px),
-      /* 16-18: lustre sheens */  0 0, 0 0, 0 0,
-      /* 19-22: color blobs */    0 0, 0 0, 0 0, 0 0;
     background-image:
-      /* 1 ── Directional light: left → right ── */
-      linear-gradient(90deg,
-        oklch(0.97 0.01 78 / 0.28) 0%,
-        oklch(0.96 0.012 76 / 0.14) 25%,
-        oklch(0.93 0.02 74 / 0) 50%,
-        oklch(0.88 0.025 72 / 0.10) 78%,
-        oklch(0.86 0.03 70 / 0.18) 100%),
-
-      /* 2-4 ── Density modulation zones ── */
-      linear-gradient(128deg,
-        oklch(0.92 0.035 75 / 0) 0%,
-        oklch(0.92 0.035 75 / 0.55) 12%,
-        oklch(0.92 0.035 75 / 0.60) 20%,
-        oklch(0.92 0.035 75 / 0) 30%,
-        oklch(0.92 0.035 75 / 0) 48%,
-        oklch(0.92 0.035 75 / 0.45) 60%,
-        oklch(0.92 0.035 75 / 0.50) 68%,
-        oklch(0.92 0.035 75 / 0) 78%,
-        oklch(0.92 0.035 75 / 0) 100%),
-      linear-gradient(55deg,
-        oklch(0.92 0.035 75 / 0) 0%,
-        oklch(0.92 0.035 75 / 0) 18%,
-        oklch(0.92 0.035 75 / 0.50) 28%,
-        oklch(0.92 0.035 75 / 0.55) 38%,
-        oklch(0.92 0.035 75 / 0) 48%,
-        oklch(0.92 0.035 75 / 0) 65%,
-        oklch(0.92 0.035 75 / 0.40) 78%,
-        oklch(0.92 0.035 75 / 0) 90%),
-      linear-gradient(175deg,
-        oklch(0.92 0.035 75 / 0) 0%,
-        oklch(0.92 0.035 75 / 0.42) 22%,
-        oklch(0.92 0.035 75 / 0) 35%,
-        oklch(0.92 0.035 75 / 0.48) 55%,
-        oklch(0.92 0.035 75 / 0) 70%,
-        oklch(0.92 0.035 75 / 0.35) 88%,
-        oklch(0.92 0.035 75 / 0) 100%),
-
-      /* 5-8 ── Primary folds (~135°) ── */
-      repeating-linear-gradient(131deg,
-        oklch(0.87 0.02 75 / 0) 0%, oklch(0.87 0.02 75 / 0.14) 1.85%,
-        oklch(0.87 0.02 75 / 0) 3.7%),
-      repeating-linear-gradient(138deg,
-        oklch(0.86 0.02 70 / 0) 0%, oklch(0.86 0.02 70 / 0.12) 2.65%,
-        oklch(0.86 0.02 70 / 0) 5.3%),
-      repeating-linear-gradient(143deg,
-        oklch(0.97 0.01 78 / 0) 0%, oklch(0.97 0.01 78 / 0.16) 2.15%,
-        oklch(0.97 0.01 78 / 0) 4.3%),
-      repeating-linear-gradient(133deg,
-        oklch(0.96 0.012 72 / 0) 0%, oklch(0.96 0.012 72 / 0.13) 3.05%,
-        oklch(0.96 0.012 72 / 0) 6.1%),
-
-      /* 9-12 ── Cross folds (~45-70°) ── */
-      repeating-linear-gradient(48deg,
-        oklch(0.87 0.02 74 / 0) 0%, oklch(0.87 0.02 74 / 0.14) 2.45%,
-        oklch(0.87 0.02 74 / 0) 4.9%),
-      repeating-linear-gradient(62deg,
-        oklch(0.96 0.01 76 / 0) 0%, oklch(0.96 0.01 76 / 0.16) 3.35%,
-        oklch(0.96 0.01 76 / 0) 6.7%),
-      repeating-linear-gradient(55deg,
-        oklch(0.85 0.02 68 / 0) 0%, oklch(0.85 0.02 68 / 0.12) 4.15%,
-        oklch(0.85 0.02 68 / 0) 8.3%),
-      repeating-linear-gradient(42deg,
-        oklch(0.96 0.012 72 / 0) 0%, oklch(0.96 0.012 72 / 0.10) 5.65%,
-        oklch(0.96 0.012 72 / 0) 11.3%),
-
-      /* 13-15 ── Shallow folds (~155-172°) ── */
-      repeating-linear-gradient(165deg,
-        oklch(0.86 0.02 72 / 0) 0%, oklch(0.86 0.02 72 / 0.12) 3.55%,
-        oklch(0.86 0.02 72 / 0) 7.1%),
-      repeating-linear-gradient(158deg,
-        oklch(0.97 0.008 80 / 0) 0%, oklch(0.97 0.008 80 / 0.14) 4.85%,
-        oklch(0.97 0.008 80 / 0) 9.7%),
-      repeating-linear-gradient(172deg,
-        oklch(0.87 0.015 70 / 0) 0%, oklch(0.87 0.015 70 / 0.09) 6.15%,
-        oklch(0.87 0.015 70 / 0) 12.3%),
-
-      /* 16-18 ── Lustre sheens (scroll-linked, left-lit) ── */
-      /* primary sheen — originates left, sweeps diagonally */
+      /* ── Soft light sheens (scroll-linked) ── */
       linear-gradient(
-        120deg,
-        oklch(0.98 0.012 78 / 0.20) 0%,
-        oklch(0.97 0.015 78 / 0.40) calc(20% + 18% * var(--silk-t)),
-        oklch(0.97 0.015 78 / 0.16) calc(42% + 18% * var(--silk-t)),
-        transparent calc(65% + 18% * var(--silk-t)),
+        135deg,
+        transparent 0%,
+        oklch(0.97 0.015 78 / 0.14) calc(15% + 20% * var(--silk-t)),
+        oklch(0.97 0.015 78 / 0.38) calc(35% + 20% * var(--silk-t)),
+        oklch(0.97 0.015 78 / 0.14) calc(55% + 20% * var(--silk-t)),
         transparent 100%
       ),
-      /* secondary sheen — left-biased counter-angle */
       linear-gradient(
-        -40deg,
-        oklch(0.97 0.010 65 / 0.12) 0%,
-        oklch(0.97 0.010 65 / 0.30) calc(22% - 12% * var(--silk-t)),
-        oklch(0.97 0.010 65 / 0.10) calc(45% - 12% * var(--silk-t)),
-        transparent calc(68% - 12% * var(--silk-t)),
+        -50deg,
+        transparent 0%,
+        oklch(0.97 0.010 65 / 0.10) calc(30% - 15% * var(--silk-t)),
+        oklch(0.97 0.010 65 / 0.28) calc(50% - 15% * var(--silk-t)),
+        oklch(0.97 0.010 65 / 0.10) calc(70% - 15% * var(--silk-t)),
         transparent 100%
       ),
-      /* tertiary sheen — near-horizontal left shimmer */
       linear-gradient(
-        95deg,
-        oklch(0.97 0.012 72 / 0.14) 0%,
-        oklch(0.96 0.012 72 / 0.26) calc(18% + 22% * var(--silk-t)),
-        oklch(0.96 0.012 72 / 0.08) calc(40% + 22% * var(--silk-t)),
-        transparent calc(60% + 22% * var(--silk-t)),
+        85deg,
+        transparent 0%,
+        oklch(0.96 0.012 72 / 0.08) calc(25% + 25% * var(--silk-t)),
+        oklch(0.96 0.012 72 / 0.22) calc(45% + 25% * var(--silk-t)),
+        oklch(0.96 0.012 72 / 0.08) calc(65% + 25% * var(--silk-t)),
         transparent 100%
       ),
-      /* ── Color blobs: gold/khaki/brown, boosted chroma ──
-         Each sweeps 500% vertically — one dominates per section.
-         Peak: blob1 t≈0, blob2 t≈0.33, blob3 t≈0.67, blob4 t≈1 */
+      /* ── Color blobs: gold/khaki/brown ──
+         Each sweeps 500% vertically — one dominates per section. */
       /* 1 — Rich gold: dominates page top (t ≈ 0) */
       radial-gradient(
         circle at
