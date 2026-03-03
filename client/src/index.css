@@ -384,41 +384,41 @@
     background-image:
       /* Silk noise texture overlay */
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E"),
-      /* 1 — Gold khaki: warm anchor, drifts gently right */
+      /* 1 — Gold khaki: dominant at top, migrates down-right */
       radial-gradient(
         circle at
-          calc(25% + 35% * var(--silk-t))
-          calc(15% + 40% * var(--silk-t)),
-        oklch(0.90 0.055 78 / 0.65),
-        oklch(0.90 0.055 78 / 0.12) 35%,
-        transparent 55%
-      ),
-      /* 2 — Dusty rose: warm pink, subtle contrast to khaki */
-      radial-gradient(
-        circle at
-          calc(75% - 30% * var(--silk-t))
-          calc(25% + 45% * var(--silk-t)),
-        oklch(0.88 0.055 20 / 0.55),
-        oklch(0.88 0.055 20 / 0.10) 35%,
-        transparent 55%
-      ),
-      /* 3 — Mauve lavender: soft purple tone, rises from bottom */
-      radial-gradient(
-        circle at
-          calc(40% + 30% * var(--silk-t))
-          calc(80% - 55% * var(--silk-t)),
-        oklch(0.87 0.050 330 / 0.45),
-        oklch(0.87 0.050 330 / 0.08) 30%,
+          calc(20% + 60% * var(--silk-t))
+          calc(10% + 80% * var(--silk-t)),
+        oklch(0.89 0.070 78 / 0.70),
+        oklch(0.89 0.070 78 / 0.12) 30%,
         transparent 50%
       ),
-      /* 4 — Warm sand: bridges khaki and rose, orbits center */
+      /* 2 — Dusty rose: dominant mid-page, sweeps across */
       radial-gradient(
         circle at
-          calc(60% - 20% * var(--silk-t))
-          calc(55% - 15% * var(--silk-t)),
-        oklch(0.91 0.045 55 / 0.45),
-        oklch(0.91 0.045 55 / 0.08) 35%,
+          calc(80% - 60% * var(--silk-t))
+          calc(15% + 70% * var(--silk-t)),
+        oklch(0.87 0.070 20 / 0.60),
+        oklch(0.87 0.070 20 / 0.10) 30%,
         transparent 50%
+      ),
+      /* 3 — Mauve lavender: rises from bottom, strong at end */
+      radial-gradient(
+        circle at
+          calc(30% + 50% * var(--silk-t))
+          calc(90% - 80% * var(--silk-t)),
+        oklch(0.86 0.060 330 / 0.55),
+        oklch(0.86 0.060 330 / 0.08) 28%,
+        transparent 48%
+      ),
+      /* 4 — Warm sand: counter-orbits, provides mid-section warmth */
+      radial-gradient(
+        circle at
+          calc(70% - 50% * var(--silk-t))
+          calc(60% - 30% * var(--silk-t)),
+        oklch(0.90 0.055 55 / 0.55),
+        oklch(0.90 0.055 55 / 0.08) 30%,
+        transparent 48%
       );
   }
 
