@@ -1,16 +1,15 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { ImageLightbox } from './ImageLightbox';
 
 interface UserGalleryProps {
   images: string[];
+  /** Called when user clicks an image (not a drag). Receives the image index. */
+  onImageClick?: (index: number) => void;
 }
 
-export function UserGallery({ images }: UserGalleryProps) {
+export function UserGallery({ images, onImageClick }: UserGalleryProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [translateX, setTranslateX] = useState(0);
-  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
-  const [lightboxIndex, setLightboxIndex] = useState(0);
   const [autoPlay, setAutoPlay] = useState(true);
   const containerRef = useRef<HTMLDivElement>(null);
   const dragStartX = useRef(0);
@@ -21,24 +20,15 @@ export function UserGallery({ images }: UserGalleryProps) {
     setCurrentIndex(index);
   };
 
-  const openLightbox = (index: number) => {
-    setLightboxIndex(index);
-    setIsLightboxOpen(true);
-  };
-
-  const closeLightbox = () => {
-    setIsLightboxOpen(false);
-  };
-
   const nextImage = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % images.length);
   }, [images.length]);
 
   useEffect(() => {
-    if (!autoPlay || isLightboxOpen) return;
+    if (!autoPlay) return;
     const timer = setInterval(nextImage, 4000);
     return () => clearInterval(timer);
-  }, [autoPlay, isLightboxOpen, nextImage]);
+  }, [autoPlay, nextImage]);
 
   const handleDragStart = (clientX: number) => {
     setIsDragging(true);
@@ -171,11 +161,11 @@ export function UserGallery({ images }: UserGalleryProps) {
                 className="w-full h-full object-cover"
                 draggable={false}
                 onClick={() => {
-                  if (!hasDragged.current) {
+                  if (!hasDragged.current && onImageClick) {
                     let originalIndex = index - 1;
                     if (originalIndex < 0) originalIndex = images.length - 1;
                     if (originalIndex >= images.length) originalIndex = 0;
-                    openLightbox(originalIndex);
+                    onImageClick(originalIndex);
                   }
                 }}
               />
@@ -220,14 +210,6 @@ export function UserGallery({ images }: UserGalleryProps) {
           {String(currentIndex + 1).padStart(2, '0')} / {String(images.length).padStart(2, '0')}
         </span>
       </div>
-
-      {/* Image Lightbox */}
-      <ImageLightbox
-        images={images}
-        initialIndex={lightboxIndex}
-        isOpen={isLightboxOpen}
-        onClose={closeLightbox}
-      />
     </div>
   );
 }

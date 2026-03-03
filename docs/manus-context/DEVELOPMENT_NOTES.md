@@ -2,6 +2,19 @@
 
 ## Recent Changes & Optimizations
 
+### 2026-03-03: Aperture Animation Frame Sequence in ScrollExpandGallery
+**Summary**: Added scroll-driven lens aperture animation to the ScrollExpandGallery component. Extracted 36 frames from a green-screen video of a Mandler lens aperture opening, chroma-keyed and saved as transparent WebP images. Extended ScrollExpandGallery with a `frames` prop that renders a canvas-based frame sequence driven by scroll position, replacing the static hero image with a cinematic aperture-opening animation as the user scrolls.
+
+**Files Changed**:
+- `client/src/components/ScrollExpandGallery.tsx` — Added `frames`, `frameBg` props; canvas-based rendering with `drawFrame` callback; image preloading with `framesReady` state; conditional rendering (canvas for frames, img for static image).
+- `client/src/pages/Home.tsx` — Added `useMemo` import; added `apertureFrames` array (36 WebP paths); passed `frames` and `frameBg` props to `<ScrollExpandGallery>`.
+- `scripts/extract_aperture_frames.py` — New script: OpenCV-based green-screen video processing (chroma key, edge despill, crop, resize to 720×720, WebP export with alpha).
+- `client/public/images/aperture-frames/` — 36 WebP frames (`aperture_000.webp` – `aperture_035.webp`), ~60 KB each, 2.2 MB total.
+
+**Rationale**: User provided a green-screen video of a Mandler lens aperture and requested the static hero image be replaced with a scroll-driven aperture animation, creating a more immersive introduction to the gallery section.
+
+---
+
 ### 2026-03-04: Warranty Content Update — 12-Month Official Warranty
 **Summary**: Updated the Service Support page warranty section across all three languages (zh/en/ja) to match the official Mandler warranty card. Changed from "Lifetime Limited Warranty" to "12-Month Official Warranty" with restructured items: Warranty Period, Coverage Scope (materials/craftsmanship defects), and Exclusions (accidental damage, normal wear, unauthorized repairs).
 
