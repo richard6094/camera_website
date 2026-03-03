@@ -626,7 +626,7 @@
     container-type: inline-size;
     /* Feather: 50px soft edge → 0 over first 33 % of expansion */
     --seg-feather: calc(50px * max(0, 1 - var(--expand-p) * 3));
-    width:  calc(65% + 35% * var(--expand-p));
+    width:  calc(78% + 22% * var(--expand-p));
     height: calc(55% + 45% * var(--expand-p));
     border-radius: calc(24px * max(0, 1 - var(--expand-p) * 1.15));
     -webkit-mask-image:
@@ -642,7 +642,7 @@
   /* On mobile, start a bit wider */
   @media (max-width: 639px) {
     .seg-expand-frame {
-      width:  calc(82% + 18% * var(--expand-p));
+      width:  calc(90% + 10% * var(--expand-p));
       height: calc(50% + 50% * var(--expand-p));
     }
   }
