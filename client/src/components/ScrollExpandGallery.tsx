@@ -136,13 +136,12 @@ export function ScrollExpandGallery({
       </section>
 
       {/* ═══════════ GRADIENT FADE-OUT ═══════════
-          Eased gradient from bgColor → page background.
-          Uses multiple color stops for a smooth, natural transition
-          without any hard edge. */}
+          Radial gradient from top-center so the center fades slower
+          than the edges, creating a natural dome-shaped transition. */}
       <div
         style={{
           height: '70vh',
-          background: `linear-gradient(to bottom, ${bgColor} 0%, ${bgColor} 5%, color-mix(in oklch, ${bgColor} 85%, transparent) 20%, color-mix(in oklch, ${bgColor} 60%, transparent) 40%, color-mix(in oklch, ${bgColor} 35%, transparent) 60%, color-mix(in oklch, ${bgColor} 15%, transparent) 80%, transparent 100%)`,
+          background: `radial-gradient(ellipse 160% 130% at 50% -5%, ${bgColor} 0%, ${bgColor} 10%, color-mix(in oklch, ${bgColor} 80%, transparent) 30%, color-mix(in oklch, ${bgColor} 50%, transparent) 50%, color-mix(in oklch, ${bgColor} 25%, transparent) 70%, color-mix(in oklch, ${bgColor} 8%, transparent) 85%, transparent 100%)`,
           marginTop: '-2px',
         }}
       />
