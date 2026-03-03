@@ -29,7 +29,7 @@ export default function Home() {
   // Scroll-progress refs (continuous, bidirectional — mandler.shop style)
   const storySectionRef = useScrollProgress<HTMLDivElement>();
   const gallerySectionRef = useScrollProgress<HTMLDivElement>();
-  const reviewsSectionRef = useScrollProgress<HTMLDivElement>();
+  const reviewsSectionRef = useScrollProgress<HTMLDivElement>({ start: 1.15 });
   const supportSectionRef = useScrollProgress<HTMLDivElement>();
   const ctaSectionRef = useScrollProgress<HTMLDivElement>();
 
