@@ -132,7 +132,7 @@
     @apply border-border outline-ring/50;
   }
   html {
-    background-color: oklch(0.92 0.006 60);
+    background-color: oklch(0.91 0.010 78);
   }
   body {
     @apply text-foreground;
@@ -340,6 +340,49 @@
     height: 0.5px;
     background-color: currentColor;
     opacity: 0.25;
+  }
+
+  /* ============================================
+     SILK GRADIENT BACKGROUND
+     Warm khaki mesh gradient with scroll-driven liquid flow.
+     Driven by --silk-t (0 → 1) CSS custom property set via JS.
+     ============================================ */
+  .silk-bg {
+    background-color: oklch(0.945 0.012 80);
+    background-attachment: fixed;
+    background-image:
+      /* Warm golden khaki — drifts down-right */
+      radial-gradient(
+        ellipse 80% 50% at
+          calc(20% + 18% * var(--silk-t, 0))
+          calc(10% + 50% * var(--silk-t, 0)),
+        oklch(0.925 0.025 70 / 0.5),
+        transparent 70%
+      ),
+      /* Cool neutral beige — counter-drifts up-left */
+      radial-gradient(
+        ellipse 65% 55% at
+          calc(80% - 28% * var(--silk-t, 0))
+          calc(75% - 40% * var(--silk-t, 0)),
+        oklch(0.935 0.016 92 / 0.4),
+        transparent 70%
+      ),
+      /* Warm rose-sand — rises vertically */
+      radial-gradient(
+        ellipse 55% 45% at
+          calc(45% + 25% * var(--silk-t, 0))
+          calc(88% - 60% * var(--silk-t, 0)),
+        oklch(0.93 0.020 58 / 0.35),
+        transparent 65%
+      ),
+      /* Deep khaki accent — gentle sink */
+      radial-gradient(
+        ellipse 70% 35% at
+          calc(65% - 18% * var(--silk-t, 0))
+          calc(22% + 35% * var(--silk-t, 0)),
+        oklch(0.91 0.022 85 / 0.25),
+        transparent 60%
+      );
   }
 
 
@@ -628,6 +671,9 @@
       opacity: 1 !important;
       transform: none !important;
       will-change: auto !important;
+    }
+    .silk-bg {
+      --silk-t: 0.35 !important;
     }
   }
 }

@@ -106,7 +106,7 @@ export default function Home() {
       />
 
       {/* ===== BRAND STORY MODULE 1 ===== */}
-      <section key="story" id="story" ref={storySectionRef} className="py-16 sm:py-20 md:py-24 lg:py-32 bg-background section-raised">
+      <section key="story" id="story" ref={storySectionRef} className="py-16 sm:py-20 md:py-24 lg:py-32 section-raised">
         <div className="container max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 sm:gap-14 md:gap-16 lg:gap-24 items-center">
             {/* Image — clip-reveal linked to scroll */}
@@ -150,12 +150,10 @@ export default function Home() {
       <ParallaxQuote
         image="/images/银色镜头挂机特写1.jpg"
         quote={t('quote.1')}
-        topBg="var(--background)"
-        bottomBg="var(--surface-alt)"
       />
 
       {/* ===== USER GALLERY - SAMPLE PHOTOS ===== */}
-      <section key="gallery" id="gallery" ref={gallerySectionRef} className="py-16 sm:py-20 md:py-24 lg:py-32 bg-surface-alt section-raised">
+      <section key="gallery" id="gallery" ref={gallerySectionRef} className="py-16 sm:py-20 md:py-24 lg:py-32 section-raised">
         <div className="container max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
           {/* Section Header */}
           <div className="sp-fade-up text-center mb-12 sm:mb-14 md:mb-16">
@@ -192,7 +190,7 @@ export default function Home() {
       </section>
 
       {/* ===== MEDIA REVIEWS — PRESS VOICES ===== */}
-      <section ref={reviewsSectionRef} className="py-16 sm:py-20 md:py-24 lg:py-32 bg-surface-alt">
+      <section ref={reviewsSectionRef} className="py-16 sm:py-20 md:py-24 lg:py-32">
         <div className="container max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
           {/* Section Header */}
           <div className="sp-fade-up text-center mb-12 sm:mb-14 md:mb-16">
@@ -290,15 +288,13 @@ export default function Home() {
       <ParallaxQuote
         image="/images/银色镜头不挂机特写.jpg"
         quote={t('quote.2')}
-        topBg="var(--surface-alt)"
-        bottomBg="var(--surface-alt)"
       />
 
       {/* ===== PRODUCT SELECTION CARDS ===== */}
       <ProductSelectionCards />
 
       {/* ===== BRAND STORY MODULE 3 ===== */}
-      <section key="support" id="support" ref={supportSectionRef} className="py-16 sm:py-20 md:py-24 lg:py-32 bg-background section-raised">
+      <section key="support" id="support" ref={supportSectionRef} className="py-16 sm:py-20 md:py-24 lg:py-32 section-raised">
         <div className="container max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 sm:gap-14 md:gap-16 lg:gap-24 items-center">
             {/* Image — clip-reveal from left, linked to scroll */}

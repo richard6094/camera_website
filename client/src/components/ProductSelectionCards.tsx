@@ -30,7 +30,7 @@ export function ProductSelectionCards() {
   ];
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-32 bg-surface-alt section-raised">
+    <section ref={sectionRef} className="py-24 md:py-32 section-raised">
       <div className="container">
         <div className="sp-stagger-children grid grid-cols-2 gap-4 md:gap-6 lg:gap-8 max-w-4xl mx-auto">
           {products.map((product) => (
