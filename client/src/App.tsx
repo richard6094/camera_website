@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import { CartProvider, useCart } from "./contexts/CartContext";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { LanguageProvider } from "./contexts/LanguageContext";
+import { useSmoothScroll } from "./hooks/useSmoothScroll";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
 import ProductDetail from "./pages/ProductDetail";
@@ -26,6 +27,9 @@ import MediaReviews from "./pages/MediaReviews";
 function Router() {
   const { itemCount } = useCart();
   const wrapperRef = useRef<HTMLDivElement>(null);
+
+  // Smooth scroll with inertia/damping (Lenis)
+  useSmoothScroll();
 
   // Drive silk gradient flow with page scroll progress
   useEffect(() => {
@@ -48,7 +52,7 @@ function Router() {
   }, []);
 
   return (
-    <div ref={wrapperRef} className="max-w-[1440px] mx-auto silk-bg min-h-screen relative elevation-3">
+    <div ref={wrapperRef} className="silk-bg min-h-screen relative">
       <Header cartCount={itemCount} />
       <Switch>
         <Route path="/" component={Home} />
