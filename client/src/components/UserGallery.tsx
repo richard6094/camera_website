@@ -124,7 +124,7 @@ export function UserGallery({ images }: UserGalleryProps) {
   ];
 
   return (
-    <div className="w-full max-w-7xl mx-auto">
+    <div className="sp-scale-in w-full max-w-7xl mx-auto">
       {/* Carousel Container */}
       <div
         ref={containerRef}
