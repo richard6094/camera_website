@@ -348,40 +348,43 @@
      Driven by --silk-t (0 → 1) CSS custom property set via JS.
      ============================================ */
   .silk-bg {
-    background-color: oklch(0.945 0.012 80);
+    --silk-t: 0;
+    background-color: oklch(0.94 0.018 78);
     background-attachment: fixed;
     background-image:
-      /* Warm golden khaki — drifts down-right */
+      /* Silk noise texture overlay */
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E"),
+      /* 1 — Golden amber: warm focal glow, drifts down-right */
       radial-gradient(
-        ellipse 80% 50% at
-          calc(20% + 18% * var(--silk-t, 0))
-          calc(10% + 50% * var(--silk-t, 0)),
-        oklch(0.925 0.025 70 / 0.5),
+        ellipse 70% 50% at
+          calc(15% + 22% * var(--silk-t))
+          calc(8% + 55% * var(--silk-t)),
+        oklch(0.88 0.065 75 / 0.6),
         transparent 70%
       ),
-      /* Cool neutral beige — counter-drifts up-left */
+      /* 2 — Cool sage: greenish-beige counter-drift up-left */
       radial-gradient(
-        ellipse 65% 55% at
-          calc(80% - 28% * var(--silk-t, 0))
-          calc(75% - 40% * var(--silk-t, 0)),
-        oklch(0.935 0.016 92 / 0.4),
-        transparent 70%
-      ),
-      /* Warm rose-sand — rises vertically */
-      radial-gradient(
-        ellipse 55% 45% at
-          calc(45% + 25% * var(--silk-t, 0))
-          calc(88% - 60% * var(--silk-t, 0)),
-        oklch(0.93 0.020 58 / 0.35),
+        ellipse 60% 55% at
+          calc(85% - 30% * var(--silk-t))
+          calc(70% - 45% * var(--silk-t)),
+        oklch(0.90 0.045 110 / 0.45),
         transparent 65%
       ),
-      /* Deep khaki accent — gentle sink */
+      /* 3 — Rose sand: pinkish warmth, rises vertically */
       radial-gradient(
-        ellipse 70% 35% at
-          calc(65% - 18% * var(--silk-t, 0))
-          calc(22% + 35% * var(--silk-t, 0)),
-        oklch(0.91 0.022 85 / 0.25),
+        ellipse 55% 40% at
+          calc(40% + 28% * var(--silk-t))
+          calc(85% - 65% * var(--silk-t)),
+        oklch(0.89 0.055 45 / 0.4),
         transparent 60%
+      ),
+      /* 4 — Deep ochre: earthy anchor, gentle sink */
+      radial-gradient(
+        ellipse 65% 35% at
+          calc(60% - 20% * var(--silk-t))
+          calc(20% + 40% * var(--silk-t)),
+        oklch(0.87 0.060 85 / 0.35),
+        transparent 55%
       );
   }
 
