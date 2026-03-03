@@ -218,7 +218,7 @@ export default function Home() {
                 author: 'Camera Review Weekly',
                 title: language === 'zh' ? 'Mandler 35mm F/2 — 一枚现代经典？' : language === 'ja' ? 'Mandler 35mm F/2 — モダンクラシック？' : 'Mandler 35mm F/2 — A Modern Classic?',
                 excerpt: language === 'zh' ? '我们在东京街头对 Mandler 35mm F/2 进行了实拍体验。双高斯光学设计带来了现代镜头中罕见的优美成像特性。' : language === 'ja' ? '東京の街でMandler 35mmを試写。ダブルガウス設計による自然なボケ味と、コンパクトな鏡筒設計が印象的でした。' : 'We put the Mandler 35mm F/2 through its paces on the streets of Tokyo. The double-Gaussian design delivers beautiful rendering rarely seen in modern lenses.',
-                thumbnail: '/images/银色镜头挂机特则2-正面.jpg',
+                thumbnail: '/images/银色镜头挂机特写2-正面.jpg',
               },
               {
                 type: 'article' as const,
