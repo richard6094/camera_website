@@ -2,6 +2,17 @@
 
 ## Recent Changes & Optimizations
 
+### 2026-03-03: SEG Color Transition Smoothing
+**Summary**: Fixed two color seam issues at the top and bottom of ScrollExpandGallery. (1) Replaced solid bgColor on the expand track with a gradient from transparent→bgColor over the first 40vh, so the section blends smoothly from the silk-bg above instead of an abrupt dark-grey jump. (2) Rewrote the fade-out mask gradient to start fully opaque at shrink-p=0 (transparent edges pushed outside element bounds), eliminating the light band that appeared where silk-bg bled through the 8% transparent strip. Added 2px overlap between gallery section and fade-out track to prevent sub-pixel gaps.
+
+**Files Changed**:
+- `client/src/components/ScrollExpandGallery.tsx` — Expand track: `backgroundColor` → `background: linear-gradient(transparent→bgColor)`. Gallery section: added `marginBottom: -2px` overlap.
+- `client/src/index.css` — `.seg-fade-out` mask: changed from `transparent 0% / black 8%…` to `transparent calc(-5% + 50%*p) / black calc(0% + 45%*p)…` so mask starts fully opaque.
+
+**Rationale**: Expand track's solid bgColor caused an abrupt dark-grey transition from silk-bg above; fade-out mask's initial 8% transparent edges let silk-bg bleed through as a visible light band.
+
+---
+
 ### 2026-03-03: Scroll-Expand Gallery Effect (mandler.shop-inspired)
 **Summary**: Added a scroll-driven image-expand → gallery-background → shrink effect. Replaces the first ParallaxQuote with a cinematic scroll animation where an image starts small with rounded corners, expands to fill the viewport, cross-fades to a warm background color, and that background serves as the gallery section's backdrop. After the gallery is scrolled past, the background shrinks back with rounded corners and fades out, revealing the silk-bg gradient behind it.
 
