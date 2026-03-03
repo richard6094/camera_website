@@ -12,9 +12,6 @@ interface ScrollExpandGalleryProps {
   /** Background color that the image transitions into.
    *  Default matches the silk-bg base color. */
   bgColor?: string;
-  /** Color the gradient fades into (page background).
-   *  Must be opaque — never use `transparent`. */
-  fadeTo?: string;
   /** Whether the gallery uses light text on a dark background */
   darkGallery?: boolean;
 }
@@ -38,7 +35,6 @@ export function ScrollExpandGallery({
   children,
   gallerySectionId,
   bgColor = 'oklch(0.92 0.035 75)',
-  fadeTo = 'oklch(0.96 0.002 65)',
   darkGallery = false,
 }: ScrollExpandGalleryProps) {
   const expandTrackRef = useRef<HTMLDivElement>(null);
@@ -140,12 +136,13 @@ export function ScrollExpandGallery({
       </section>
 
       {/* ═══════════ GRADIENT FADE-OUT ═══════════
-          Radial gradient from top-center so the center fades slower
-          than the edges, creating a natural dome-shaped transition. */}
+          Eased gradient from bgColor → page background.
+          Uses multiple color stops for a smooth, natural transition
+          without any hard edge. */}
       <div
         style={{
           height: '70vh',
-          background: `radial-gradient(ellipse 160% 130% at 50% -5%, ${bgColor} 0%, ${bgColor} 10%, color-mix(in oklch, ${bgColor} 80%, ${fadeTo} 20%) 30%, color-mix(in oklch, ${bgColor} 50%, ${fadeTo} 50%) 50%, color-mix(in oklch, ${bgColor} 25%, ${fadeTo} 75%) 70%, color-mix(in oklch, ${bgColor} 8%, ${fadeTo} 92%) 85%, ${fadeTo} 100%)`,
+          background: `linear-gradient(to bottom, ${bgColor} 0%, ${bgColor} 5%, color-mix(in oklch, ${bgColor} 85%, transparent) 20%, color-mix(in oklch, ${bgColor} 60%, transparent) 40%, color-mix(in oklch, ${bgColor} 35%, transparent) 60%, color-mix(in oklch, ${bgColor} 15%, transparent) 80%, transparent 100%)`,
           marginTop: '-2px',
         }}
       />
