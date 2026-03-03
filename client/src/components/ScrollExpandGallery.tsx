@@ -93,7 +93,7 @@ export function ScrollExpandGallery({
       {/* ═══════════ EXPAND TRACK ═══════════
           250vh tall → 150vh effective scroll range.
           The sticky child stays pinned while the image expands. */}
-      <div ref={expandTrackRef} className="relative" style={{ height: '250vh', background: `linear-gradient(to bottom, transparent 0%, ${bgColor} 40vh, ${bgColor} 100%)` }}>
+      <div ref={expandTrackRef} className="relative" style={{ height: '250vh' }}>
         <div className="sticky top-0 h-dvh flex items-center justify-center overflow-hidden">
           <div
             ref={expandFrameRef}
@@ -136,7 +136,7 @@ export function ScrollExpandGallery({
       <section
         id={gallerySectionId}
         className={`relative z-10 py-16 sm:py-20 md:py-24 lg:py-32${darkGallery ? ' text-white' : ''}`}
-        style={{ backgroundColor: bgColor, marginBottom: '-2px', paddingBottom: 'calc(2px + 0px)' }}
+        style={{ backgroundColor: bgColor, marginTop: '-2px', paddingTop: '2px', marginBottom: '-2px', paddingBottom: 'calc(2px + 0px)' }}
       >
         <div className="container max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
           {children}
