@@ -18,9 +18,9 @@ import { toast } from 'sonner';
  */
 
 interface Product {
-  id: '35mm-f2' | '35mm-f2-special';
+  id: '35mm-f2';
   route: string;
-  categoryKey: 'standard' | 'special';
+  categoryKey: 'standard';
   name: string;
   categoryLabel: string;
   price: number;
@@ -35,7 +35,6 @@ interface Product {
 export default function Products() {
   const [, navigate] = useLocation();
   const { language } = useLanguage();
-  const [selectedCategory, setSelectedCategory] = useState<'all' | 'standard' | 'special'>('all');
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
 
@@ -43,14 +42,10 @@ export default function Products() {
     ? {
       pageTitle: '产品系列',
       home: '首页',
-      filterTitle: '按产品筛选',
-      categoryAll: '全部',
       categoryStandard: '标准版',
-      categorySpecial: '特别版',
       quickPreview: '快速预览',
       outOfStock: '缺货',
       inStock: '现货供应',
-      limitedStock: '限量供应',
       specifications: '规格参数',
       addToCart: '加入购物车',
       addedToCart: '已加入购物车',
@@ -62,14 +57,10 @@ export default function Products() {
     ? {
       pageTitle: '製品シリーズ',
       home: 'ホーム',
-      filterTitle: '製品で絞り込む',
-      categoryAll: 'すべて',
       categoryStandard: 'スタンダード',
-      categorySpecial: '特別版',
       quickPreview: 'クイックプレビュー',
       outOfStock: '在庫なし',
       inStock: '在庫あり',
-      limitedStock: '限定供給',
       specifications: 'スペック',
       addToCart: 'カートに追加',
       addedToCart: 'カートに追加しました',
@@ -80,14 +71,10 @@ export default function Products() {
     : {
       pageTitle: 'Our Collection',
       home: 'Home',
-      filterTitle: 'Filter by Product',
-      categoryAll: 'All',
       categoryStandard: 'Standard',
-      categorySpecial: 'Special Edition',
       quickPreview: 'Quick Preview',
       outOfStock: 'Out of Stock',
       inStock: 'In Stock',
-      limitedStock: 'Limited Availability',
       specifications: 'Specifications',
       addToCart: 'Add to Cart',
       addedToCart: 'Added to cart',
@@ -112,20 +99,6 @@ export default function Products() {
         inStock: true,
         stockLabel: copy.inStock,
       },
-      {
-        id: '35mm-f2-special',
-        route: '/products/35mm-f2-special-intro',
-        categoryKey: 'special',
-        name: '35mm F/2 特别版',
-        categoryLabel: copy.categorySpecial,
-        price: 28800,
-        priceLabel: '¥28,800',
-        image: '/images/3色镜头+相机+木质背景.jpg',
-        description: '限量特别版，黄铜与钛合金机身，强化光学结构与收藏价值。',
-        specs: ['35mm 焦距', 'f/1.4 ASPH', '9 组 12 片（含非球面）', '全球限量 500 支'],
-        inStock: true,
-        stockLabel: copy.limitedStock,
-      },
     ]
     : language === 'ja'
     ? [
@@ -143,20 +116,6 @@ export default function Products() {
         inStock: true,
         stockLabel: copy.inStock,
       },
-      {
-        id: '35mm-f2-special',
-        route: '/products/35mm-f2-special-intro',
-        categoryKey: 'special',
-        name: '35mm F/2 特別版',
-        categoryLabel: copy.categorySpecial,
-        price: 628000,
-        priceLabel: '¥628,000',
-        image: '/images/3色镜头+相机+木质背景.jpg',
-        description: '限定特別版、真鍮とチタン合金ボディ、強化光学構造とコレクション価値。',
-        specs: ['35mm 焦点距離', 'f/1.4 ASPH', '9群12枚（非球面あり）', '世界限定500本'],
-        inStock: true,
-        stockLabel: copy.limitedStock,
-      },
     ]
     : [
       {
@@ -173,31 +132,9 @@ export default function Products() {
         inStock: true,
         stockLabel: copy.inStock,
       },
-      {
-        id: '35mm-f2-special',
-        route: '/products/35mm-f2-special-intro',
-        categoryKey: 'special',
-        name: '35mm F/2 Special Edition',
-        categoryLabel: copy.categorySpecial,
-        price: 4299,
-        priceLabel: '$4,299',
-        image: '/images/3色镜头+相机+木质背景.jpg',
-        description: 'A limited special edition with brass and titanium alloy construction, upgraded optics, and collector appeal.',
-        specs: ['35mm focal length', 'f/1.4 ASPH', '12 elements in 9 groups (aspherical)', 'Limited to 500 units worldwide'],
-        inStock: true,
-        stockLabel: copy.limitedStock,
-      },
     ];
 
-  const categories = [
-    { key: 'all' as const, label: copy.categoryAll },
-    { key: 'standard' as const, label: copy.categoryStandard },
-    { key: 'special' as const, label: copy.categorySpecial },
-  ];
-
-  const filteredProducts = selectedCategory === 'all'
-    ? products
-    : products.filter((p) => p.categoryKey === selectedCategory);
+  const filteredProducts = products;
 
   const handleStoreComingSoon = () => {
     toast.info(copy.storeComingSoon);
@@ -218,29 +155,6 @@ export default function Products() {
       {/* Main content */}
       <main className="pt-8 pb-16 md:pb-24">
         <div className="container max-w-6xl mx-auto px-4">
-          {/* Category filter */}
-          <div className="mb-16">
-            <h2 className="text-subtitle text-lg mb-8 tracking-wide">{copy.filterTitle}</h2>
-            <div className="flex flex-wrap gap-4">
-              {categories.map((category) => (
-                <button
-                  key={category.key}
-                  onClick={() => setSelectedCategory(category.key)}
-                  className={`px-6 py-2 border rounded-lg transition-all duration-300 ${
-                    selectedCategory === category.key
-                      ? 'border-foreground bg-foreground text-white'
-                      : 'border-foreground/30 text-foreground/60 hover:border-foreground hover:text-foreground'
-                  }`}
-                >
-                  {category.label}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Divider */}
-          <div className="divider-line w-full h-px bg-foreground/10 mb-16" />
-
           {/* Product grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-16">
             {filteredProducts.map((product) => (

@@ -62,14 +62,6 @@ export default function Home() {
       productDescription: language === 'zh' ? '35mm 定焦镜头，街头摄影的理想伴侣。轻巧便携，成像锐利，捕捉生活中每一个真实瞬间。' : language === 'ja' ? '35mm単焦点レンズ、ストリートフォトの理想的なパートナー。コンパクトで携帯性に優れ、シャープな描写で日常のあらゆる真実の瞬間を捕らえます。' : '35mm prime lens, the ideal companion for street photography. Compact and portable, with sharp imaging to capture every authentic moment in life.',
       image: '/images/银色镜头+相机+暖色背景.jpg',
     },
-    {
-      id: '35mm-f2-special',
-      type: 'product' as const,
-      name: language === 'zh' ? '35mm F/2 特别版' : language === 'ja' ? '35mm F/2 特別版' : '35mm F/2 Special Edition',
-      tagline: language === 'zh' ? '匠心之作，限量典藏' : language === 'ja' ? '匠の技、限定コレクション' : 'Masterpiece, Limited Collection',
-      productDescription: language === 'zh' ? '精选材质，手工打磨。每一支镜头都经过严格的光学校准，呈现无与伦比的成像品质。限量发售，独一无二。' : language === 'ja' ? '厄選素材、手作業で磨き上げ。各レンズは厳密な光学キャリブレーションを経て、比類なき描写品質を実現。限定発売、唯一無二。' : 'Premium materials, hand-polished. Each lens undergoes rigorous optical calibration for unparalleled imaging quality. Limited edition, one of a kind.',
-      image: '/images/3色镜头+相机+木质背景.jpg',
-    },
   ];
 
   // Brand story sections
@@ -107,10 +99,6 @@ export default function Home() {
             navigateWithTop('/products');
           } else if (itemId === '35mm-f2') {
             navigateWithTop('/products/35mm-f2-intro');
-          } else if (itemId === '35mm-f2-special') {
-            navigateWithTop('/products/35mm-f2-special-intro');
-          } else {
-            navigateWithTop(`/products/${itemId}`);
           }
         }}
         videoLoaded={videoLoaded}

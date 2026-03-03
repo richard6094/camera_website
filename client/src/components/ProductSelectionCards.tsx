@@ -10,7 +10,7 @@ interface ProductCard {
 }
 
 export function ProductSelectionCards() {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
   const gridRef = useScrollReveal<HTMLDivElement>({ animation: 'stagger', staggerDelay: 180 });
 
   const products: ProductCard[] = [
@@ -20,13 +20,6 @@ export function ProductSelectionCards() {
       image: '/images/银色镜头挂机特写1.jpg',
       available: true,
       link: '/products/35mm-f2-intro',
-    },
-    {
-      id: '35mm-f2-special',
-      name: language === 'zh' ? '35mm F/2 特别版' : language === 'ja' ? '35mm F/2 特別版' : '35mm F/2 Special Edition',
-      image: '/images/3色镜头+相机+木质背景.jpg',
-      available: true,
-      link: '/products/35mm-f2-special-intro',
     },
     {
       id: 'coming-soon',
@@ -39,7 +32,7 @@ export function ProductSelectionCards() {
   return (
     <section className="py-24 md:py-32 bg-surface-alt section-raised">
       <div className="container">
-        <div ref={gridRef} className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8 max-w-6xl mx-auto">
+        <div ref={gridRef} className="grid grid-cols-2 gap-4 md:gap-6 lg:gap-8 max-w-4xl mx-auto">
           {products.map((product) => (
             <div
               key={product.id}
@@ -66,16 +59,7 @@ export function ProductSelectionCards() {
               {/* Product Name */}
               <div className="p-4 md:p-6">
                 <h3 className="text-lg md:text-xl font-light tracking-wide text-foreground">
-                  {product.id === '35mm-f2-special' ? (
-                    <>
-                      35mm F/2{' '}
-                      <span className="whitespace-nowrap">
-                        {language === 'zh' ? '特别版' : language === 'ja' ? '特別版' : 'Special Edition'}
-                      </span>
-                    </>
-                  ) : (
-                    product.name
-                  )}
+                  {product.name}
                 </h3>
                 {!product.available && (
                   <p className="mt-2 text-sm text-muted-foreground tracking-wider">
