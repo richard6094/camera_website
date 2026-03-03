@@ -349,42 +349,46 @@
      ============================================ */
   .silk-bg {
     --silk-t: 0;
-    background-color: oklch(0.94 0.018 78);
+    background-color: oklch(0.94 0.015 78);
     background-attachment: fixed;
     background-image:
       /* Silk noise texture overlay */
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E"),
-      /* 1 — Golden amber: warm focal glow, drifts down-right */
+      /* 1 — Warm peach: top-left, drifts to bottom-right */
       radial-gradient(
-        ellipse 130% 90% at
-          calc(15% + 22% * var(--silk-t))
-          calc(8% + 55% * var(--silk-t)),
-        oklch(0.88 0.065 75 / 0.6),
-        transparent 70%
-      ),
-      /* 2 — Cool sage: greenish-beige counter-drift up-left */
-      radial-gradient(
-        ellipse 120% 95% at
-          calc(85% - 30% * var(--silk-t))
-          calc(70% - 45% * var(--silk-t)),
-        oklch(0.90 0.045 110 / 0.45),
-        transparent 65%
-      ),
-      /* 3 — Rose sand: pinkish warmth, rises vertically */
-      radial-gradient(
-        ellipse 110% 80% at
-          calc(40% + 28% * var(--silk-t))
-          calc(85% - 65% * var(--silk-t)),
-        oklch(0.89 0.055 45 / 0.4),
-        transparent 60%
-      ),
-      /* 4 — Deep ochre: earthy anchor, gentle sink */
-      radial-gradient(
-        ellipse 125% 70% at
-          calc(60% - 20% * var(--silk-t))
-          calc(20% + 40% * var(--silk-t)),
-        oklch(0.87 0.060 85 / 0.35),
+        circle at
+          calc(10% + 70% * var(--silk-t))
+          calc(5% + 80% * var(--silk-t)),
+        oklch(0.88 0.08 55 / 0.7),
+        oklch(0.88 0.08 55 / 0.15) 35%,
         transparent 55%
+      ),
+      /* 2 — Sage green: top-right, drifts to bottom-left */
+      radial-gradient(
+        circle at
+          calc(90% - 65% * var(--silk-t))
+          calc(10% + 75% * var(--silk-t)),
+        oklch(0.90 0.06 140 / 0.6),
+        oklch(0.90 0.06 140 / 0.1) 35%,
+        transparent 55%
+      ),
+      /* 3 — Rose blush: bottom-center, rises to top */
+      radial-gradient(
+        circle at
+          calc(35% + 40% * var(--silk-t))
+          calc(90% - 80% * var(--silk-t)),
+        oklch(0.87 0.07 25 / 0.55),
+        oklch(0.87 0.07 25 / 0.1) 30%,
+        transparent 50%
+      ),
+      /* 4 — Gold khaki: center, orbits gently */
+      radial-gradient(
+        circle at
+          calc(50% + 30% * var(--silk-t))
+          calc(50% - 20% * var(--silk-t)),
+        oklch(0.89 0.065 85 / 0.5),
+        oklch(0.89 0.065 85 / 0.08) 35%,
+        transparent 50%
       );
   }
 
