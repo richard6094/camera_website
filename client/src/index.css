@@ -382,13 +382,11 @@
     background-color: oklch(0.92 0.035 75);
     background-attachment: fixed;
     background-image:
-      /* ── Silk weave texture (organic, irregular) ──
-         Two SVG turbulence layers at different scales create
-         irregular fiber-like patterns reminiscent of real silk. */
-      /* Fine silk fibers — high-frequency, directional */
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='sf'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.015 0.15' numOctaves='3' seed='5' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23sf)' opacity='0.08'/%3E%3C/svg%3E"),
-      /* Coarse silk weave — lower frequency undulation */
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='500'%3E%3Cfilter id='sw'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.06 0.008' numOctaves='2' seed='12' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='500' height='500' filter='url(%23sw)' opacity='0.06'/%3E%3C/svg%3E"),
+      /* ── Silk flowing texture ──
+         Low-frequency fractal noise creates smooth, flowing ripples
+         like light playing across draped silk. No weave/fiber look. */
+      /* Flowing silk ripples — very smooth, large-scale undulation */
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='sr'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.003' numOctaves='3' seed='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.12' intercept='0'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='600' height='600' filter='url(%23sr)'/%3E%3C/svg%3E"),
       /* ── Silk lustre sheens ──
          Wide gradients with uniform scroll speed per band.
          Opacity balanced: visible sheen without hard stripes. */
@@ -419,8 +417,8 @@
         oklch(0.96 0.012 72 / 0.08) calc(65% + 25% * var(--silk-t)),
         transparent 100%
       ),
-      /* ── Grain noise for organic silk feel ── */
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.055'/%3E%3C/svg%3E"),
+      /* ── Subtle grain for depth ── */
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.5' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"),
       /* ── Color blobs: gold/khaki/brown, boosted chroma ──
          Each sweeps 500% vertically — one dominates per section.
          Peak: blob1 t≈0, blob2 t≈0.33, blob3 t≈0.67, blob4 t≈1 */
