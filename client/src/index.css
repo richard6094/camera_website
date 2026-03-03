@@ -618,7 +618,7 @@
     --expand-p: 0;
     width:  calc(65% + 40% * var(--expand-p));
     height: calc(55% + 52% * var(--expand-p));
-    border-radius: calc(16px + 32px * var(--expand-p));
+    border-radius: calc(16px + 34vw * var(--expand-p));
     will-change: width, height, border-radius;
   }
   /* On mobile, start a bit wider */
