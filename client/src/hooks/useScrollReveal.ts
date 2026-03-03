@@ -69,7 +69,14 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(
     }
 
     const reveal = () => {
-      el.classList.add('sr-visible');
+      if (!el.classList.contains('sr-visible')) {
+        el.classList.add('sr-visible');
+      }
+    };
+
+    const isInView = () => {
+      const rect = el.getBoundingClientRect();
+      return rect.top < window.innerHeight + 60 && rect.bottom > -60;
     };
 
     const observer = new IntersectionObserver(
@@ -79,6 +86,7 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(
             reveal();
             if (once) {
               observer.unobserve(el);
+              cleanup();
             }
           } else if (!once) {
             el.classList.remove('sr-visible');
@@ -90,21 +98,45 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(
 
     observer.observe(el);
 
-    // Safety net: if the element is already in the viewport when mounted,
-    // the IO callback may not fire in some edge cases (React strict mode,
-    // HMR re-renders). Manually check after a frame.
+    // Scroll-based fallback: IO may silently fail with clip-path hidden
+    // elements in some browsers. Throttled scroll listener as safety net.
+    let scrollTimer: ReturnType<typeof setTimeout> | null = null;
+    const onScroll = () => {
+      if (scrollTimer) return;
+      scrollTimer = setTimeout(() => {
+        scrollTimer = null;
+        if (isInView() && !el.classList.contains('sr-visible')) {
+          reveal();
+          if (once) {
+            observer.unobserve(el);
+            cleanup();
+          }
+        }
+      }, 100);
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // Also check on mount (rAF) for elements already in viewport
     const rafId = requestAnimationFrame(() => {
-      const rect = el.getBoundingClientRect();
-      const inView = rect.top < window.innerHeight && rect.bottom > 0;
-      if (inView && !el.classList.contains('sr-visible')) {
+      if (isInView() && !el.classList.contains('sr-visible')) {
         reveal();
-        if (once) observer.unobserve(el);
+        if (once) {
+          observer.unobserve(el);
+          cleanup();
+        }
       }
     });
+
+    const cleanup = () => {
+      window.removeEventListener('scroll', onScroll);
+      if (scrollTimer) clearTimeout(scrollTimer);
+    };
 
     return () => {
       cancelAnimationFrame(rafId);
       observer.unobserve(el);
+      cleanup();
     };
   }, [animation, threshold, rootMargin, delay, duration, once, staggerDelay]);
 
