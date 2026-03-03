@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useScrollProgress } from '@/hooks/useScrollProgress';
 
 interface ParallaxQuoteProps {
   image: string;
@@ -9,6 +10,7 @@ interface ParallaxQuoteProps {
 }
 
 export function ParallaxQuote({ image, quote, author, topBg, bottomBg }: ParallaxQuoteProps) {
+  const spRef = useScrollProgress<HTMLElement>();
   const [offsetY, setOffsetY] = useState(0);
 
   useEffect(() => {
@@ -29,6 +31,7 @@ export function ParallaxQuote({ image, quote, author, topBg, bottomBg }: Paralla
 
   return (
     <section
+      ref={spRef}
       className="px-2 sm:px-3 md:px-4 py-4 sm:py-6 md:py-8"
       style={topBg || bottomBg ? {
         background: `linear-gradient(to bottom, ${topBg || 'transparent'} 50%, ${bottomBg || 'transparent'} 50%)`
@@ -55,7 +58,7 @@ export function ParallaxQuote({ image, quote, author, topBg, bottomBg }: Paralla
       {/* Dark Overlay removed per user request */}
 
       {/* Quote Content */}
-      <div className="relative z-10 h-full flex flex-col items-center justify-center px-6 sm:px-8 md:px-12 lg:px-16">
+      <div className="sp-scale-subtle relative z-10 h-full flex flex-col items-center justify-center px-6 sm:px-8 md:px-12 lg:px-16">
         <blockquote className="max-w-4xl text-center">
           <p className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-light leading-relaxed mb-3 sm:mb-4" style={{ textShadow: '0 2px 12px rgba(0,0,0,0.8)' }}>
             "{quote}"

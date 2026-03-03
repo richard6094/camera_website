@@ -533,6 +533,13 @@
     will-change: transform, opacity;
   }
 
+  /* --- Scale Subtle: gentle size+opacity, never fully hidden --- */
+  .sp-scale-subtle {
+    opacity: calc(0.4 + 0.6 * var(--sp, 0));
+    transform: scale(calc(0.88 + 0.12 * var(--sp, 0)));
+    will-change: transform, opacity;
+  }
+
   /* --- Clip Reveal bottom-up (continuous) --- */
   .sp-clip-reveal {
     clip-path: inset(calc(100% * (1 - var(--sp, 0))) 0 0 0);
