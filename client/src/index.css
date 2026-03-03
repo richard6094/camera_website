@@ -384,41 +384,41 @@
     background-image:
       /* Silk noise texture overlay */
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E"),
-      /* 1 — Gold khaki: dominant at top, migrates down-right */
+      /* 1 — Gold khaki: top-left edge, sweeps to bottom-right edge */
       radial-gradient(
         circle at
-          calc(20% + 60% * var(--silk-t))
+          calc(-5% + 50% * var(--silk-t))
+          calc(5% + 90% * var(--silk-t)),
+        oklch(0.88 0.075 78 / 0.75),
+        oklch(0.88 0.075 78 / 0.12) 28%,
+        transparent 48%
+      ),
+      /* 2 — Dusty rose: right edge, sweeps to left side */
+      radial-gradient(
+        circle at
+          calc(105% - 55% * var(--silk-t))
           calc(10% + 80% * var(--silk-t)),
-        oklch(0.89 0.070 78 / 0.70),
-        oklch(0.89 0.070 78 / 0.12) 30%,
-        transparent 50%
-      ),
-      /* 2 — Dusty rose: dominant mid-page, sweeps across */
-      radial-gradient(
-        circle at
-          calc(80% - 60% * var(--silk-t))
-          calc(15% + 70% * var(--silk-t)),
-        oklch(0.87 0.070 20 / 0.60),
-        oklch(0.87 0.070 20 / 0.10) 30%,
-        transparent 50%
-      ),
-      /* 3 — Mauve lavender: rises from bottom, strong at end */
-      radial-gradient(
-        circle at
-          calc(30% + 50% * var(--silk-t))
-          calc(90% - 80% * var(--silk-t)),
-        oklch(0.86 0.060 330 / 0.55),
-        oklch(0.86 0.060 330 / 0.08) 28%,
+        oklch(0.86 0.075 20 / 0.65),
+        oklch(0.86 0.075 20 / 0.10) 28%,
         transparent 48%
       ),
-      /* 4 — Warm sand: counter-orbits, provides mid-section warmth */
+      /* 3 — Mauve lavender: bottom-left, rises to upper-right */
       radial-gradient(
         circle at
-          calc(70% - 50% * var(--silk-t))
-          calc(60% - 30% * var(--silk-t)),
-        oklch(0.90 0.055 55 / 0.55),
-        oklch(0.90 0.055 55 / 0.08) 30%,
-        transparent 48%
+          calc(10% + 60% * var(--silk-t))
+          calc(95% - 90% * var(--silk-t)),
+        oklch(0.85 0.065 330 / 0.60),
+        oklch(0.85 0.065 330 / 0.08) 26%,
+        transparent 46%
+      ),
+      /* 4 — Warm sand: right edge, counter-orbits to left-bottom */
+      radial-gradient(
+        circle at
+          calc(95% - 60% * var(--silk-t))
+          calc(55% + 20% * var(--silk-t)),
+        oklch(0.89 0.060 55 / 0.60),
+        oklch(0.89 0.060 55 / 0.08) 28%,
+        transparent 46%
       );
   }
 
