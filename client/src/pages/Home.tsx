@@ -205,7 +205,7 @@ export default function Home() {
 
           {/* Reviews Grid — staggered differential scroll */}
           <div className="sp-stagger-children grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            {[
+            {([
               {
                 type: 'video' as const,
                 platform: 'YouTube',
@@ -230,11 +230,11 @@ export default function Home() {
                 excerpt: language === 'zh' ? '限量 500 枚的特别版终于到手！钛合金+黄铜机身带来的质感无与伦比，实拍样片展示了独特的成像个性。' : language === 'ja' ? '限定500本のスペシャルエディションを入手！チタン＋真鍮ボディの質感は格別で、実写サンプルも独特の描写個性を示しました。' : 'The limited 500-unit Special Edition has finally arrived! The brass + titanium body delivers unmatched tactile quality.',
                 thumbnail: '/images/银色镜头套装.jpg',
               },
-            ].map((item, i) => (
+            ] as const).map((item, i) => (
               <div
                 key={i}
                 onClick={() => navigateWithTop('/reviews')}
-                className="group cursor-pointer flex flex-col overflow-hidden rounded-xl shadow-[0_8px_32px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.08)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.16),0_4px_12px_rgba(0,0,0,0.1)] damped-transition bg-card"
+                className={`group cursor-pointer flex flex-col overflow-hidden rounded-xl shadow-[0_8px_32px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.08)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.16),0_4px_12px_rgba(0,0,0,0.1)] damped-transition bg-card${i === 2 ? ' hidden md:flex' : ''}`}
               >
                 {/* Thumbnail */}
                 <div className="relative aspect-[16/10] overflow-hidden image-hover-zoom">
