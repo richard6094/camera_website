@@ -117,12 +117,12 @@ export function ScrollExpandGallery({
 
             {/* Quote overlay — fades out during first 40% of expansion */}
             <div
-              className="seg-quote absolute inset-0 z-10 flex items-center justify-center px-6 sm:px-10 md:px-16"
+              className="seg-quote absolute inset-0 z-10 flex items-center justify-center"
             >
-              <blockquote className="text-center" style={{ width: 'min(90vw, 56rem)' }}>
+              <blockquote className="text-center max-w-[85%]">
                 <p
-                  className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-light leading-relaxed whitespace-nowrap sm:whitespace-normal"
-                  style={{ textShadow: '0 2px 12px rgba(0,0,0,0.8)' }}
+                  className="text-white font-light leading-relaxed"
+                  style={{ fontSize: 'clamp(1rem, 3.5cqi, 2.5rem)', textShadow: '0 2px 12px rgba(0,0,0,0.8)' }}
                 >
                   &ldquo;{quote}&rdquo;
                 </p>
