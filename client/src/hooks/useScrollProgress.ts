@@ -57,14 +57,16 @@ function computeProgress(
   const rect = el.getBoundingClientRect();
   const vh = window.innerHeight;
 
-  // Where is the element's center relative to the viewport?
-  const elementCenter = rect.top + rect.height / 2;
+  // Reference point: 30% from top of element (not center).
+  // This makes tall sections (mobile stacked layouts) animate much sooner
+  // since we don't wait for the far-away center to scroll into view.
+  const refPoint = rect.top + rect.height * 0.3;
   // Map from "start" zone to "end" zone
   const startY = vh * start;   // e.g. 0.95 * vh — near bottom
-  const endY = vh * end;       // e.g. 0.35 * vh — upper third
+  const endY = vh * end;       // e.g. 0.45 * vh — upper-mid
 
-  // raw progress: 0 when elementCenter is at startY, 1 when at endY
-  const raw = (startY - elementCenter) / (startY - endY);
+  // raw progress: 0 when refPoint is at startY, 1 when at endY
+  const raw = (startY - refPoint) / (startY - endY);
   const progress = Math.min(1, Math.max(0, raw));
 
   return { progress, raw };
