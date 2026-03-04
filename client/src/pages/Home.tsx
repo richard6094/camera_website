@@ -230,37 +230,43 @@ export default function Home() {
           </div>
 
           {/* Reviews Grid — staggered differential scroll */}
-          <div className="sp-stagger-children grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          <div className={`sp-stagger-children grid grid-cols-1 gap-6 md:gap-8 ${language === 'zh' ? 'md:grid-cols-3' : 'md:grid-cols-2 max-w-4xl mx-auto'}`}>
             {([
               {
                 type: 'video' as const,
-                platform: 'YouTube',
-                author: 'Camera Review Weekly',
-                title: language === 'zh' ? 'Mandler 35mm F/2 — 一枚现代经典？' : language === 'ja' ? 'Mandler 35mm F/2 — モダンクラシック？' : 'Mandler 35mm F/2 — A Modern Classic?',
-                excerpt: language === 'zh' ? '我们在东京街头对 Mandler 35mm F/2 进行了实拍体验。双高斯光学设计带来了现代镜头中罕见的优美成像特性。' : language === 'ja' ? '東京の街でMandler 35mmを試写。ダブルガウス設計による自然なボケ味と、コンパクトな鏡筒設計が印象的でした。' : 'We put the Mandler 35mm F/2 through its paces on the streets of Tokyo. The double-Gaussian design delivers beautiful rendering rarely seen in modern lenses.',
-                thumbnail: '/images/银色镜头挂机特写2-正面.jpg',
+                platform: language === 'zh' ? 'Bilibili' : 'YouTube',
+                author: language === 'zh' ? 'HEMO 林庚辰' : 'Matt Osborne',
+                title: language === 'zh' ? '一分钟售空的国产手动镜头，是富士附体还是真有东西？' : 'Get the Leica Look for £254!! Mandler 35mm f2 7-Elements',
+                excerpt: language === 'zh' ? '一个国产手动镜头凭什么一分钟售空？时隔多年，国产镜头终于站起来了吗？up 自费深度测评曼德勒复刻七枚玉。' : 'Can the Mandler 35mm f2 really deliver that classic Leica rendering at a fraction of the price? Full hands-on review with sample images and comparisons.',
+                thumbnail: language === 'zh' ? '/images/bilibili-cover-BV115xzziEHi.jpg' : '/images/youtube-cover-VuZLgSqOxrU.jpg',
+                url: language === 'zh' ? 'https://www.bilibili.com/video/BV115xzziEHi/' : 'https://youtu.be/VuZLgSqOxrU?si=PfwoMrgkAfMZLk70',
               },
               {
-                type: 'article' as const,
-                platform: language === 'zh' ? '摄影笔记' : 'LensRentals',
-                author: language === 'zh' ? '李明远' : 'Roger Cicala',
-                title: language === 'zh' ? '双高斯结构的现代演绎' : language === 'ja' ? '光学ベンチテスト：Mandler vs Summicron' : 'Optical Bench Test: Mandler vs Summicron',
-                excerpt: language === 'zh' ? '从光学设计到机械做工，这颗来自南阳的 35mm 镜头展现了令人惊喜的品质。紫金镀膜在逆光下的表现尤为出色。' : language === 'ja' ? 'MTF性能においてSummicron 35mmと互角の勝負を繰り広げ、歪曲収差が著しく低く、心地よいボケ味を実現。' : 'Our optical bench data shows the Mandler 35mm trading blows with the Summicron in MTF, with notably lower distortion and a more pleasing bokeh.',
-                thumbnail: '/images/银色镜头不挂机特写.jpg',
+                type: 'video' as const,
+                platform: language === 'zh' ? 'Bilibili' : 'YouTube',
+                author: language === 'zh' ? '相机操作员xhs' : 'Jimmy Cheng',
+                title: language === 'zh' ? '曼德勒Mandler 35mm f2国产七枚玉 买得起！徕卡M口高颜值小巧镜头' : 'Mandler 35mm f2.0 Review (compared to Leica summicron v4 KOB)',
+                excerpt: language === 'zh' ? '徕卡M口高颜值小巧镜头，国产七枚玉实力几何？颜值与成像双重考验，买得起的经典复刻。' : 'A detailed comparison between the Mandler 35mm f2.0 and the Leica Summicron v4 King of Bokeh — optical performance, build quality and real-world rendering.',
+                thumbnail: language === 'zh' ? '/images/bilibili-cover-BV1bydUYYEiF.jpg' : '/images/youtube-cover-QgWP0CPNnow.jpg',
+                url: language === 'zh' ? 'https://www.bilibili.com/video/BV1bydUYYEiF/' : 'https://youtu.be/QgWP0CPNnow?si=lZSp38JHsA6x8I2R',
               },
               {
                 type: 'video' as const,
                 platform: 'Bilibili',
-                author: language === 'zh' ? '光影实验室' : language === 'ja' ? 'カメラ部TV' : 'Camera Lab',
-                title: language === 'zh' ? '特别版开箱 & 上手体验' : language === 'ja' ? '特別版 開封 & ファーストインプレッション' : 'Special Edition Unboxing & Hands-on',
-                excerpt: language === 'zh' ? '限量 500 枚的特别版终于到手！钛合金+黄铜机身带来的质感无与伦比，实拍样片展示了独特的成像个性。' : language === 'ja' ? '限定500本のスペシャルエディションを入手！チタン＋真鍮ボディの質感は格別で、実写サンプルも独特の描写個性を示しました。' : 'The limited 500-unit Special Edition has finally arrived! The brass + titanium body delivers unmatched tactile quality.',
-                thumbnail: '/images/银色镜头套装.jpg',
+                author: 'Bilibili UP 主',
+                title: '靓镜｜曼德勒35/F2复刻七枚玉，不完美但足够有诚意~',
+                excerpt: '不完美但足够有诚意——这颗国产复刻七枚玉的购买价值在哪里？深度上手体验一探究竟。',
+                thumbnail: '/images/bilibili-cover-BV16VUaBCETq.jpg',
+                url: 'https://www.bilibili.com/video/BV16VUaBCETq/',
               },
             ] as const).map((item, i) => (
-              <div
+              <a
                 key={i}
-                onClick={() => navigateWithTop('/reviews')}
-                className={`group cursor-pointer flex flex-col overflow-hidden rounded-xl shadow-[0_8px_32px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.08)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.16),0_4px_12px_rgba(0,0,0,0.1)] damped-transition bg-card${i === 2 ? ' hidden md:flex' : ''}`}
+                href={item.url}
+                target={item.url.startsWith('http') ? '_blank' : undefined}
+                rel={item.url.startsWith('http') ? 'noopener noreferrer' : undefined}
+                onClick={(e) => { if (!item.url.startsWith('http')) { e.preventDefault(); navigateWithTop('/reviews'); } }}
+                className={`group cursor-pointer flex flex-col overflow-hidden rounded-xl shadow-[0_8px_32px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.08)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.16),0_4px_12px_rgba(0,0,0,0.1)] damped-transition bg-card${i === 2 ? (language === 'zh' ? ' hidden md:flex' : ' hidden') : ''}`}
               >
                 {/* Thumbnail */}
                 <div className="relative aspect-[16/10] overflow-hidden image-hover-zoom">
@@ -293,7 +299,7 @@ export default function Home() {
                     {item.excerpt}
                   </p>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
 

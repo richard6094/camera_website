@@ -7,7 +7,7 @@ export const translations = {
     'header.story': '品牌故事',
     'header.gallery': '用户样片',
     'header.support': '服务支持',
-    'header.reviews': '媒体评测',
+    'header.reviews': '玩家评测',
 
     // Hero
     'hero.tagline': '光，拥有自己的语言',
@@ -206,9 +206,9 @@ export const translations = {
     'product.sl3.review.3.comment': '操控体验一流，按键布局非常合理。虽然价格昂贵，但物有所值。',
 
     // Media Reviews Page
-    'reviews.heroTitle': '媒体评测',
-    'reviews.heroSubtitle': '全球媒体深度评测 · 真实体验',
-    'reviews.heroDesc': '各大摄影媒体及自媒体创作者的深度体验报告，用专业视角解读 Mandler 镜头的光学表现与使用感受。',
+    'reviews.heroTitle': '玩家评测',
+    'reviews.heroSubtitle': '真实玩家深度评测 · 真实体验',
+    'reviews.heroDesc': '摄影玩家与自媒体创作者的深度体验报告，用真实视角解读 Mandler 镜头的光学表现与使用感受。',
     'reviews.filterAll': '全部',
     'reviews.filterVideo': '视频评测',
     'reviews.filterArticle': '图文评测',
@@ -220,7 +220,7 @@ export const translations = {
 
     // Home — Media Reviews Highlight
     'home.reviews.label': '媒体之声',
-    'home.reviews.heading': '业界怎么说',
+    'home.reviews.heading': '玩家怎么说',
     'home.reviews.viewAll': '查看全部评测',
 
     // Lightbox
@@ -436,9 +436,9 @@ export const translations = {
     'product.sl3.review.3.comment': 'First-class control experience with a very reasonable button layout. Although the price is high, it\'s worth every penny.',
 
     // Media Reviews Page
-    'reviews.heroTitle': 'Media Reviews',
-    'reviews.heroSubtitle': 'In-Depth Reviews from Around the World',
-    'reviews.heroDesc': 'Professional reviews and hands-on experiences from photography media and content creators worldwide, offering expert perspectives on Mandler lenses.',
+    'reviews.heroTitle': 'Player Reviews',
+    'reviews.heroSubtitle': 'Real Reviews from Real Users',
+    'reviews.heroDesc': 'Hands-on experiences from photographers and content creators worldwide, offering authentic perspectives on Mandler lenses.',
     'reviews.filterAll': 'All',
     'reviews.filterVideo': 'Video',
     'reviews.filterArticle': 'Article',
@@ -450,7 +450,7 @@ export const translations = {
 
     // Home — Media Reviews Highlight
     'home.reviews.label': 'PRESS & MEDIA',
-    'home.reviews.heading': 'What They Say',
+    'home.reviews.heading': 'What Players Say',
     'home.reviews.viewAll': 'View All Reviews',
 
     // Lightbox
@@ -467,7 +467,7 @@ export const translations = {
     'header.story': 'ブランドストーリー',
     'header.gallery': 'ギャラリー',
     'header.support': 'サポート',
-    'header.reviews': 'メディアレビュー',
+    'header.reviews': 'プレイヤーレビュー',
 
     // Hero
     'hero.tagline': '光は、自らの言語を持つ',
@@ -666,9 +666,9 @@ export const translations = {
     'product.sl3.review.3.comment': '操作性は一流、ボタン配置も非常に合理的。高価ですが、その価値は十分にあります。',
 
     // Media Reviews Page
-    'reviews.heroTitle': 'メディアレビュー',
-    'reviews.heroSubtitle': '世界各地のメディアによる詳細レビュー',
-    'reviews.heroDesc': '世界中の写真メディアやコンテンツクリエイターによる、Mandlerレンズの光学性能と使用感に関する専門的なレビューをお届けします。',
+    'reviews.heroTitle': 'プレイヤーレビュー',
+    'reviews.heroSubtitle': 'ユーザーによるリアルレビュー',
+    'reviews.heroDesc': '世界中の写真愛好家やクリエイターによる、Mandlerレンズの光学性能と使用感に関するリアルなレビューをお届けします。',
     'reviews.filterAll': 'すべて',
     'reviews.filterVideo': '動画レビュー',
     'reviews.filterArticle': '記事レビュー',
@@ -680,7 +680,7 @@ export const translations = {
 
     // Home — Media Reviews Highlight
     'home.reviews.label': 'メディアの声',
-    'home.reviews.heading': '業界の評価',
+    'home.reviews.heading': 'プレイヤーの声',
     'home.reviews.viewAll': 'すべてのレビューを見る',
 
     // Lightbox
