@@ -374,12 +374,6 @@ export default function Product35mmF2Intro() {
            Optical Structure → Aperture Character → Performance Data & Charts
            ════════════════════════════════════════ */}
 
-      {/* ── Full-bleed image (Chapter 1 visual intro) ── */}
-      <section className="relative h-[60vh] md:h-[70vh] max-w-[1440px] mx-auto overflow-hidden">
-        <img src="/images/银色镜头挂机特写1.jpg" alt="35mm F/2 detail" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
-      </section>
-
       {/* ── 1.1 Legendary Optical Structure ── */}
       <section className="py-20 md:py-32 max-w-[1440px] mx-auto">
         <div className="container max-w-6xl mx-auto px-6">

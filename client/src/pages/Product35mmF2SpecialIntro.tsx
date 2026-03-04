@@ -168,7 +168,7 @@ export default function Product35mmF2SpecialIntro() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <div className="container max-w-7xl mx-auto px-6 pt-20 md:pt-24">
+      <div className="container max-w-6xl mx-auto px-6 pt-20 md:pt-24">
         <Breadcrumb
           items={[
             { label: language === 'zh' ? '首页' : language === 'ja' ? 'ホーム' : 'Home', href: '/' },
