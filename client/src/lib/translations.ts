@@ -7,7 +7,7 @@ export const translations = {
     'header.story': '品牌故事',
     'header.gallery': '用户样片',
     'header.support': '服务支持',
-    'header.reviews': '媒体评测',
+    'header.reviews': '玩家评测',
 
     // Hero
     'hero.tagline': '光，拥有自己的语言',
@@ -82,8 +82,8 @@ export const translations = {
 
     // Support
     'support.heading': '服务支持',
-    'support.label': '值得信赖的终身承诺',
-    'support.content': '我们的承诺超越了购买本身。凭借终身支持、专家维护和全球服务中心网络，您的 Mandler 镜头将伴随您世代传承。',
+    'support.label': '12个月官方质保',
+    'support.content': '每一支 Mandler 镜头均享有 12 个月官方质保，覆盖材料及工艺缺陷。配合专业维护团队与全球服务网络，为您的创作保驾护航。',
 
     // CTA Section
     'cta.heading': '开启您的摄影之旅',
@@ -206,9 +206,9 @@ export const translations = {
     'product.sl3.review.3.comment': '操控体验一流，按键布局非常合理。虽然价格昂贵，但物有所值。',
 
     // Media Reviews Page
-    'reviews.heroTitle': '媒体评测',
-    'reviews.heroSubtitle': '全球媒体深度评测 · 真实体验',
-    'reviews.heroDesc': '各大摄影媒体及自媒体创作者的深度体验报告，用专业视角解读 Mandler 镜头的光学表现与使用感受。',
+    'reviews.heroTitle': '玩家评测',
+    'reviews.heroSubtitle': '真实玩家深度评测 · 真实体验',
+    'reviews.heroDesc': '摄影玩家与自媒体创作者的深度体验报告，用真实视角解读 Mandler 镜头的光学表现与使用感受。',
     'reviews.filterAll': '全部',
     'reviews.filterVideo': '视频评测',
     'reviews.filterArticle': '图文评测',
@@ -220,7 +220,7 @@ export const translations = {
 
     // Home — Media Reviews Highlight
     'home.reviews.label': '媒体之声',
-    'home.reviews.heading': '业界怎么说',
+    'home.reviews.heading': '玩家怎么说',
     'home.reviews.viewAll': '查看全部评测',
 
     // Lightbox
@@ -312,8 +312,8 @@ export const translations = {
 
     // Support
     'support.heading': 'Service & Support',
-    'support.label': 'A Lifetime Commitment You Can Trust',
-    'support.content': 'Our commitment extends beyond the purchase. With lifetime support, expert maintenance, and a global network of service centers, your Mandler lens is built to last generations.',
+    'support.label': '12-Month Official Warranty',
+    'support.content': 'Every Mandler lens comes with a 12-month official warranty covering materials and craftsmanship defects. Backed by our expert maintenance team and global service network, your creative journey is fully supported.',
 
     // CTA Section
     'cta.heading': 'Begin Your Photography Journey',
@@ -436,9 +436,9 @@ export const translations = {
     'product.sl3.review.3.comment': 'First-class control experience with a very reasonable button layout. Although the price is high, it\'s worth every penny.',
 
     // Media Reviews Page
-    'reviews.heroTitle': 'Media Reviews',
-    'reviews.heroSubtitle': 'In-Depth Reviews from Around the World',
-    'reviews.heroDesc': 'Professional reviews and hands-on experiences from photography media and content creators worldwide, offering expert perspectives on Mandler lenses.',
+    'reviews.heroTitle': 'Player Reviews',
+    'reviews.heroSubtitle': 'Real Reviews from Real Users',
+    'reviews.heroDesc': 'Hands-on experiences from photographers and content creators worldwide, offering authentic perspectives on Mandler lenses.',
     'reviews.filterAll': 'All',
     'reviews.filterVideo': 'Video',
     'reviews.filterArticle': 'Article',
@@ -450,7 +450,7 @@ export const translations = {
 
     // Home — Media Reviews Highlight
     'home.reviews.label': 'PRESS & MEDIA',
-    'home.reviews.heading': 'What They Say',
+    'home.reviews.heading': 'What Players Say',
     'home.reviews.viewAll': 'View All Reviews',
 
     // Lightbox
@@ -467,7 +467,7 @@ export const translations = {
     'header.story': 'ブランドストーリー',
     'header.gallery': 'ギャラリー',
     'header.support': 'サポート',
-    'header.reviews': 'メディアレビュー',
+    'header.reviews': 'プレイヤーレビュー',
 
     // Hero
     'hero.tagline': '光は、自らの言語を持つ',
@@ -542,8 +542,8 @@ export const translations = {
 
     // Support
     'support.heading': 'サービス＆サポート',
-    'support.label': '信頼できる生涯のお約束',
-    'support.content': '私たちの約束は購入を超えて続きます。生涯サポート、専門メンテナンス、そしてグローバルなサービスセンターネットワークにより、あなたのMandlerレンズは世代を超えて受け継がれます。',
+    'support.label': '12ヶ月公式保証',
+    'support.content': 'すべてのMandlerレンズには、素材および製造上の欠陥を対象とした12ヶ月の公式保証が付帯されます。専門メンテナンスチームとグローバルサービスネットワークが、あなたの創作活動を全面的にサポートいたします。',
 
     // CTA Section
     'cta.heading': '写真の旅を始めましょう',
@@ -666,9 +666,9 @@ export const translations = {
     'product.sl3.review.3.comment': '操作性は一流、ボタン配置も非常に合理的。高価ですが、その価値は十分にあります。',
 
     // Media Reviews Page
-    'reviews.heroTitle': 'メディアレビュー',
-    'reviews.heroSubtitle': '世界各地のメディアによる詳細レビュー',
-    'reviews.heroDesc': '世界中の写真メディアやコンテンツクリエイターによる、Mandlerレンズの光学性能と使用感に関する専門的なレビューをお届けします。',
+    'reviews.heroTitle': 'プレイヤーレビュー',
+    'reviews.heroSubtitle': 'ユーザーによるリアルレビュー',
+    'reviews.heroDesc': '世界中の写真愛好家やクリエイターによる、Mandlerレンズの光学性能と使用感に関するリアルなレビューをお届けします。',
     'reviews.filterAll': 'すべて',
     'reviews.filterVideo': '動画レビュー',
     'reviews.filterArticle': '記事レビュー',
@@ -680,7 +680,7 @@ export const translations = {
 
     // Home — Media Reviews Highlight
     'home.reviews.label': 'メディアの声',
-    'home.reviews.heading': '業界の評価',
+    'home.reviews.heading': 'プレイヤーの声',
     'home.reviews.viewAll': 'すべてのレビューを見る',
 
     // Lightbox

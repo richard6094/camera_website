@@ -53,10 +53,17 @@ The color system uses CSS custom properties for theming. Current theme: **Dark m
 
 ### Font Families
 
-**Primary Font**: System font stack for optimal performance and native feel
+**Display Font** (headings, hero titles): Libre Baskerville — classic Baskerville revival with authoritative serifs
 ```css
-font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+font-family: 'Libre Baskerville', 'Noto Serif SC', 'Noto Serif JP', serif;
 ```
+
+**Body Font** (paragraphs, UI text): Source Sans 3 — Adobe's open-source humanist sans-serif, optimized for screen readability
+```css
+font-family: 'Source Sans 3', 'Noto Sans SC', 'Noto Sans JP', sans-serif;
+```
+
+**CJK Support**: Noto Serif SC/JP for Chinese/Japanese headings, Noto Sans SC/JP for Chinese/Japanese body text
 
 **Display Font** (for Mandler logo): Custom script font with elegant curves
 

@@ -118,7 +118,7 @@ export function UserGallery({ images, onImageClick }: UserGalleryProps) {
       {/* Carousel Container */}
       <div
         ref={containerRef}
-        className="relative overflow-hidden select-none touch-pan-y"
+        className="relative overflow-hidden select-none touch-pan-y rounded-xl"
         style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}

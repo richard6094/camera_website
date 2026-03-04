@@ -112,13 +112,6 @@ export default function BrandStory() {
                 <p>{t.brandStory.heritagePara1}</p>
                 <p>{t.brandStory.heritagePara2}</p>
               </div>
-
-              {/* Pull Quote */}
-              <blockquote className="mt-12 pl-8 border-l-2 border-foreground/30">
-                <p className="text-2xl md:text-3xl text-display italic leading-relaxed">
-                  "{t.brandStory.heritageQuote}"
-                </p>
-              </blockquote>
             </div>
           </div>
         </div>

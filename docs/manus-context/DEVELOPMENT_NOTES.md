@@ -2,6 +2,58 @@
 
 ## Recent Changes & Optimizations
 
+### 2026-03-04: Media Reviews — YouTube Links for en/ja
+**Summary**: Added 2 real YouTube review videos for the English and Japanese versions of the homepage media reviews and the `/reviews` page, mirroring the existing Bilibili treatment for zh. YouTube thumbnails downloaded locally to avoid potential CDN issues. Homepage now shows 2-column grid for en/ja (vs 3-column for zh); the 3rd zh-only card is hidden for en/ja. MediaReviews.tsx was refactored to use a unified card grid for all languages (removing the previous placeholder filter-tabs/featured/grid layout for en/ja). Unused `ReviewItem` interface, `reviewData`, `FilterType`, `ReviewCard` component, and related imports removed.
+
+**Videos added**:
+- Matt Osborne — "Get the Leica Look for £254!! Mandler 35mm f2 7-Elements" (VuZLgSqOxrU)
+- Jimmy Cheng — "Mandler 35mm f2.0 Review (compared to Leica summicron v4 KOB)" (QgWP0CPNnow)
+
+**Files Changed**:
+- `client/src/pages/Home.tsx` — Cards 1-2 for en/ja updated with real YouTube data (author, title, excerpt, thumbnail, URL). Card 3 hidden for en/ja. Grid switches to `md:grid-cols-2` for en/ja.
+- `client/src/pages/MediaReviews.tsx` — Added `youtubeReviews` array. Replaced separate zh/en-ja conditional rendering with unified card grid using `reviews` variable. Removed unused code (ReviewItem, reviewData, FilterType, ReviewCard, useState, FileText, Star imports).
+- `client/public/images/youtube-cover-VuZLgSqOxrU.jpg` — Local YouTube thumbnail (Matt Osborne)
+- `client/public/images/youtube-cover-QgWP0CPNnow.jpg` — Local YouTube thumbnail (Jimmy Cheng)
+
+**Rationale**: User requested real YouTube review links for non-Chinese versions, matching the Bilibili card approach used for zh.
+
+---
+
+### 2026-03-04: Media Reviews — Direct Bilibili Links + Cover Thumbnails
+**Summary**: Updated homepage and `/reviews` page so clicking review cards opens the corresponding Bilibili video page (new tab) instead of navigating to the internal `/reviews` route. Card thumbnails now use the actual Bilibili video cover images fetched via API. Also updated the second video's author to the correct UP主 name (相机操作员xhs). The `/reviews` page zh section was changed from iframe embeds to card-based layout with cover images and external links, matching the homepage style.
+
+**Files Changed**:
+- `client/src/pages/Home.tsx` — Cards now render as `<a>` tags with `target="_blank"` linking to Bilibili URLs. Thumbnails use Bilibili cover URLs for zh. Added `url` field to card data.
+- `client/src/pages/MediaReviews.tsx` — zh section replaced iframe embeds with cover-image cards linking directly to Bilibili. Added `cover` field to `zhBilibiliReviews`. Updated 2nd video author.
+
+**Rationale**: User requested cards link to Bilibili pages directly and use video cover images as thumbnails.
+
+---
+
+### 2026-03-04: Media Reviews — Real Bilibili Embeds on Homepage + Standalone Reviews Page (zh)
+**Summary**: Updated the media reviews section on the homepage (`Home.tsx`) and the standalone `/reviews` page (`MediaReviews.tsx`) to show the 3 real Bilibili review videos for the Chinese language version. Homepage cards for zh now display the correct video titles, authors, and platform. The standalone reviews page now conditionally renders a 3-column Bilibili iframe embed grid for `language === 'zh'`, replacing the placeholder card layout. English and Japanese versions are unchanged.
+
+**Files Changed**:
+- `client/src/pages/Home.tsx` — Updated zh-language review card data (platform, author, title, excerpt) for all 3 cards to reference the 3 real Bilibili reviews.
+- `client/src/pages/MediaReviews.tsx` — Added `zhBilibiliReviews` constant with 3 real Bilibili videos (BV115xzziEHi, BV1bydUYYEiF, BV16VUaBCETq). Added conditional rendering: zh shows a 3-column iframe embed grid; en/ja keeps the existing featured + grid card layout.
+- `client/src/pages/Product35mmF2Intro.tsx` — Reverted: removed the erroneously placed media review section added earlier.
+
+**Rationale**: User wanted Chinese media reviews (3 Bilibili third-party review videos) on the homepage media section and the dedicated `/reviews` page, not on the product intro page.
+
+---
+
+### 2026-03-04: Typography Upgrade — Libre Baskerville + Source Sans 3 + Noto Serif/Sans SC/JP
+**Summary**: Replaced Playfair Display + Lato font pairing with higher-quality typography stack for better brand positioning. Display/headings now use Libre Baskerville (classic Baskerville revival with authoritative serifs), body text uses Source Sans 3 (Adobe's screen-optimized humanist sans-serif). Added Noto Serif SC/JP for Chinese/Japanese headings and Noto Sans SC/JP for Chinese/Japanese body text, replacing previous system font CJK fallback.
+
+**Files Changed**:
+- `client/index.html` — Updated Google Fonts link to load Libre Baskerville, Source Sans 3, Noto Serif SC/JP, Noto Sans SC/JP.
+- `client/src/index.css` — Updated `.text-display`, `.text-subtitle`, `.text-body`, `.param-table` font-family declarations.
+- `docs/manus-context/DESIGN_SYSTEM.md` — Updated typography documentation with new font families and CJK support details.
+
+**Rationale**: Previous Playfair Display + Lato pairing lacked the refined, authoritative feel expected of a premium optical brand. Libre Baskerville conveys Zeiss/Leica technical handbook aesthetics; Source Sans 3 provides excellent screen readability; Noto Serif/Sans SC/JP ensure high-quality CJK rendering matching the serif/sans-serif hierarchy.
+
+---
+
 ### 2026-03-03: Aperture Animation Frame Sequence in ScrollExpandGallery
 **Summary**: Added scroll-driven lens aperture animation to the ScrollExpandGallery component. Extracted 36 frames from a green-screen video of a Mandler lens aperture opening, chroma-keyed and saved as transparent WebP images. Extended ScrollExpandGallery with a `frames` prop that renders a canvas-based frame sequence driven by scroll position, replacing the static hero image with a cinematic aperture-opening animation as the user scrolls.
 

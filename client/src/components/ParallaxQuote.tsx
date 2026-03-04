@@ -63,11 +63,11 @@ export function ParallaxQuote({ image, quote, author, topBg, bottomBg }: Paralla
       {/* Quote Content */}
       <div className="relative z-10 h-full flex flex-col items-center justify-center px-6 sm:px-8 md:px-12 lg:px-16">
         <blockquote className="max-w-4xl text-center">
-          <p className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-light leading-relaxed mb-3 sm:mb-4" style={{ textShadow: '0 2px 12px rgba(0,0,0,0.8)' }}>
+          <p className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-light leading-relaxed mb-3 sm:mb-4" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.9), 0 0 30px rgba(0,0,0,0.7), 0 0 60px rgba(0,0,0,0.4)' }}>
             "{quote}"
           </p>
           {author && (
-            <footer className="text-white/70 text-base sm:text-lg md:text-xl font-light" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
+            <footer className="text-white/70 text-base sm:text-lg md:text-xl font-light" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.9), 0 0 30px rgba(0,0,0,0.7), 0 0 60px rgba(0,0,0,0.4)' }}>
               — {author}
             </footer>
           )}
