@@ -2,6 +2,18 @@
 
 ## Recent Changes & Optimizations
 
+### 2026-03-04: Typography Upgrade — Libre Baskerville + Source Sans 3 + Noto Serif/Sans SC/JP
+**Summary**: Replaced Playfair Display + Lato font pairing with higher-quality typography stack for better brand positioning. Display/headings now use Libre Baskerville (classic Baskerville revival with authoritative serifs), body text uses Source Sans 3 (Adobe's screen-optimized humanist sans-serif). Added Noto Serif SC/JP for Chinese/Japanese headings and Noto Sans SC/JP for Chinese/Japanese body text, replacing previous system font CJK fallback.
+
+**Files Changed**:
+- `client/index.html` — Updated Google Fonts link to load Libre Baskerville, Source Sans 3, Noto Serif SC/JP, Noto Sans SC/JP.
+- `client/src/index.css` — Updated `.text-display`, `.text-subtitle`, `.text-body`, `.param-table` font-family declarations.
+- `docs/manus-context/DESIGN_SYSTEM.md` — Updated typography documentation with new font families and CJK support details.
+
+**Rationale**: Previous Playfair Display + Lato pairing lacked the refined, authoritative feel expected of a premium optical brand. Libre Baskerville conveys Zeiss/Leica technical handbook aesthetics; Source Sans 3 provides excellent screen readability; Noto Serif/Sans SC/JP ensure high-quality CJK rendering matching the serif/sans-serif hierarchy.
+
+---
+
 ### 2026-03-03: Aperture Animation Frame Sequence in ScrollExpandGallery
 **Summary**: Added scroll-driven lens aperture animation to the ScrollExpandGallery component. Extracted 36 frames from a green-screen video of a Mandler lens aperture opening, chroma-keyed and saved as transparent WebP images. Extended ScrollExpandGallery with a `frames` prop that renders a canvas-based frame sequence driven by scroll position, replacing the static hero image with a cinematic aperture-opening animation as the user scrolls.
 

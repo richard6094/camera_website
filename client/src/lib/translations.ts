@@ -82,8 +82,8 @@ export const translations = {
 
     // Support
     'support.heading': '服务支持',
-    'support.label': '值得信赖的终身承诺',
-    'support.content': '我们的承诺超越了购买本身。凭借终身支持、专家维护和全球服务中心网络，您的 Mandler 镜头将伴随您世代传承。',
+    'support.label': '12个月官方质保',
+    'support.content': '每一支 Mandler 镜头均享有 12 个月官方质保，覆盖材料及工艺缺陷。配合专业维护团队与全球服务网络，为您的创作保驾护航。',
 
     // CTA Section
     'cta.heading': '开启您的摄影之旅',
@@ -312,8 +312,8 @@ export const translations = {
 
     // Support
     'support.heading': 'Service & Support',
-    'support.label': 'A Lifetime Commitment You Can Trust',
-    'support.content': 'Our commitment extends beyond the purchase. With lifetime support, expert maintenance, and a global network of service centers, your Mandler lens is built to last generations.',
+    'support.label': '12-Month Official Warranty',
+    'support.content': 'Every Mandler lens comes with a 12-month official warranty covering materials and craftsmanship defects. Backed by our expert maintenance team and global service network, your creative journey is fully supported.',
 
     // CTA Section
     'cta.heading': 'Begin Your Photography Journey',
@@ -542,8 +542,8 @@ export const translations = {
 
     // Support
     'support.heading': 'サービス＆サポート',
-    'support.label': '信頼できる生涯のお約束',
-    'support.content': '私たちの約束は購入を超えて続きます。生涯サポート、専門メンテナンス、そしてグローバルなサービスセンターネットワークにより、あなたのMandlerレンズは世代を超えて受け継がれます。',
+    'support.label': '12ヶ月公式保証',
+    'support.content': 'すべてのMandlerレンズには、素材および製造上の欠陥を対象とした12ヶ月の公式保証が付帯されます。専門メンテナンスチームとグローバルサービスネットワークが、あなたの創作活動を全面的にサポートいたします。',
 
     // CTA Section
     'cta.heading': '写真の旅を始めましょう',

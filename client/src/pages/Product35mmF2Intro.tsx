@@ -69,6 +69,18 @@ export default function Product35mmF2Intro() {
         '月牙形对焦环经多轮阻尼校准，以恰到好处的阻力实现顺滑、精确的手动对焦操控，兼顾快速街拍与细致微调。整体镜身采用全金属结构，在 34mm 的紧凑长度内实现坚固与轻量的平衡。',
       craftPara2:
         '10 叶片圆形光圈在各级光圈下始终保持近圆形的光斑形状，令焦外虚化自然柔美，是营造画面氛围的关键设计。每一次拨动光圈环，都能感受到精密齿轮的咬合与反馈。',
+      specialEditionLabel: 'SPECIAL EDITION',
+      specialEditionTitle: '四色限定版',
+      colorVariants: [
+        { name: '黑色', nameEn: 'Black', finish: '哑光黑色涂装，低调内敛，街拍利器。', image: '/images/两种颜色镜头+遮光罩特写.jpg' },
+        { name: '银色', nameEn: 'Silver', finish: '招牌配色，抛光处理镜身，经典御三家美学。', image: '/images/银色镜头不挂机特写.jpg' },
+        { name: '白色', nameEn: 'White', finish: '限定配色，纯白瓷感涂装，配同色遮光罩与 UV 滤镜。', image: '/images/4种颜色镜头产品照-不带包装.jpg' },
+        { name: '黄铜色', nameEn: 'Brass', finish: '限定配色，复古黄铜色涂装，随使用时间变化出独特包浆，配同色遮光罩与 UV 滤镜。', image: '/images/4种颜色镜头产品照-带包装.jpg' },
+      ],
+      craftProcess: '所有配色均采用航空级铝合金镜身，经阳极氧化与精细喷砂工艺处理，手感细腻、耐磨抗氧化。光学结构全系列一致。',
+      specialEditionButton: '了解特别版详情',
+
+      scenesLabel: 'FIELD SCENARIOS',
 
       perfTitle: '光学性能数据',
       perfStat1Label: '场曲控制',
@@ -151,6 +163,18 @@ export default function Product35mmF2Intro() {
         '月牙型フォーカスリングは複数回のダンピング調整を経て、適度な抵抗感でスムーズかつ精確なマニュアルフォーカスを実現。速写的なストリート撮影にも、慎重な微調整にも対応します。全金属鏡筒は34mmのコンパクトな全長で剛性と軽量性のバランスを達成しています。',
       craftPara2:
         '10枚羽根の円形絞りは、すべてのF値でほぼ真円の点光源ボケを維持し、自然で柔らかなボケ味を生み出します——画像の雰囲気を形作る重要なデザイン要素です。絞りリングを操作するたびに、精密な歯車の噛み合いとフィードバックを感じることができます。',
+      specialEditionLabel: 'SPECIAL EDITION',
+      specialEditionTitle: 'スペシャルエディション：4色限定',
+      colorVariants: [
+        { name: 'ブラック', nameEn: 'Black', finish: 'マットブラック塗装。控えめでストリート撮影に最適。', image: '/images/两种颜色镜头+遮光罩特写.jpg' },
+        { name: 'シルバー', nameEn: 'Silver', finish: '定番カラー。ポリッシュ仕上げのクラシックな御三家美学。', image: '/images/银色镜头不挂机特写.jpg' },
+        { name: 'ホワイト', nameEn: 'White', finish: '限定カラー。純白磁器風塗装、同色フード・UVフィルター付属。', image: '/images/4种颜色镜头产品照-不带包装.jpg' },
+        { name: 'ブラス', nameEn: 'Brass', finish: '限定カラー。ヴィンテージ真鍮風塗装、使用とともに独自のパティナが生まれる、同色フード・UVフィルター付属。', image: '/images/4种颜色镜头产品照-带包装.jpg' },
+      ],
+      craftProcess: '全カラーとも航空グレードアルミニウム合金鏡筒、アノダイズ処理＋精密サンドブラスト仕上げ。滑らかな手触り、優れた耐摩耗性・耐酸化性。光学構成は全シリーズ共通。',
+      specialEditionButton: 'スペシャルエディション詳細',
+
+      scenesLabel: 'FIELD SCENARIOS',
 
       perfTitle: '光学性能データ',
       perfStat1Label: '像面湾曲制御',
@@ -232,6 +256,18 @@ export default function Product35mmF2Intro() {
         'The crescent-shaped focus ring is calibrated through multiple rounds of damping adjustment, delivering smooth and precise manual focus control with just the right resistance \u2014 equally suited for rapid street shooting and careful fine-tuning. The all-metal barrel achieves a balance of rigidity and lightness within a compact 34mm length.',
       craftPara2:
         'The 10-blade circular aperture maintains near-perfectly round specular highlights across all f-stops, producing naturally soft and pleasing bokeh \u2014 a key design element for shaping image atmosphere. Each click of the aperture ring delivers the precise tactile feedback of finely machined gearing.',
+      specialEditionLabel: 'SPECIAL EDITION',
+      specialEditionTitle: 'Four Limited Colors',
+      colorVariants: [
+        { name: 'Black', nameEn: 'Black', finish: 'Matte black paint. Low-profile and ideal for street photography.', image: '/images/两种颜色镜头+遮光罩特写.jpg' },
+        { name: 'Silver', nameEn: 'Silver', finish: 'Signature color. Polished barrel with classic Mandler aesthetics.', image: '/images/银色镜头不挂机特写.jpg' },
+        { name: 'White', nameEn: 'White', finish: 'Limited color. Pure white porcelain-like coating with matching hood & UV filter.', image: '/images/4种颜色镜头产品照-不带包装.jpg' },
+        { name: 'Brass', nameEn: 'Brass', finish: 'Limited color. Vintage brass coating that develops a unique patina over time, with matching hood & UV filter.', image: '/images/4种颜色镜头产品照-带包装.jpg' },
+      ],
+      craftProcess: 'All variants feature aerospace-grade aluminum alloy barrels with anodized finishing and precision sandblasting. Silky-smooth tactile feel with superior scratch and oxidation resistance. Optical construction is identical across the entire lineup.',
+      specialEditionButton: 'Explore Special Edition',
+
+      scenesLabel: 'FIELD SCENARIOS',
 
       perfTitle: 'Optical Performance Data',
       perfStat1Label: 'Field Curvature',
@@ -290,7 +326,7 @@ export default function Product35mmF2Intro() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <div className="container max-w-7xl mx-auto px-6 pt-20 md:pt-24">
+      <div className="container max-w-6xl mx-auto px-6 pt-20 md:pt-24">
         <Breadcrumb
           items={[
             { label: language === 'zh' ? '首页' : language === 'ja' ? 'ホーム' : 'Home', href: '/' },
@@ -301,7 +337,7 @@ export default function Product35mmF2Intro() {
       </div>
 
       {/* ── Hero ── */}
-      <section className="relative flex items-center justify-center overflow-hidden" style={{ height: '85vh' }}>
+      <section className="relative flex items-center justify-center overflow-hidden max-w-[1440px] mx-auto" style={{ height: '85vh' }}>
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -309,7 +345,7 @@ export default function Product35mmF2Intro() {
             filter: 'brightness(0.38)',
           }}
         />
-        <div className="relative z-10 container max-w-5xl mx-auto px-6 text-center text-white">
+        <div className="relative z-10 container max-w-6xl mx-auto px-6 text-center text-white">
           <p className="text-sm tracking-[0.3em] mb-8 opacity-80">{content.heroLabel}</p>
           <h1 className="text-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl mb-8 leading-tight">{content.heroTitle}</h1>
           <div className="w-24 h-px bg-white/50 mx-auto mb-8" />
@@ -333,14 +369,19 @@ export default function Product35mmF2Intro() {
         </div>
       </section>
 
-      {/* ── Full-bleed image ── */}
-      <section className="relative h-[60vh] md:h-[70vh]">
+      {/* ════════════════════════════════════════
+           CHAPTER 1 — 光学设计
+           Optical Structure → Aperture Character → Performance Data & Charts
+           ════════════════════════════════════════ */}
+
+      {/* ── Full-bleed image (Chapter 1 visual intro) ── */}
+      <section className="relative h-[60vh] md:h-[70vh] max-w-[1440px] mx-auto overflow-hidden">
         <img src="/images/银色镜头挂机特写1.jpg" alt="35mm F/2 detail" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
       </section>
 
-      {/* ── Legendary Optical Structure ── */}
-      <section className="py-20 md:py-32 bg-foreground/5">
+      {/* ── 1.1 Legendary Optical Structure ── */}
+      <section className="py-20 md:py-32 max-w-[1440px] mx-auto">
         <div className="container max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 md:gap-16">
             <div className="lg:col-span-2">
@@ -377,23 +418,8 @@ export default function Product35mmF2Intro() {
         </div>
       </section>
 
-      {/* ── Aperture Highlight (parallax quote) ── */}
-      <section className="relative h-[40vh] md:h-[50vh] flex items-center justify-center overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: 'url(/images/两种颜色镜头+遮光罩特写.jpg)',
-            filter: 'brightness(0.3)',
-          }}
-        />
-        <div className="relative z-10 container max-w-4xl mx-auto px-6 text-center text-white">
-          <p className="text-2xl md:text-3xl lg:text-4xl text-display leading-relaxed italic opacity-95">
-            "{content.apertureHighlight}"
-          </p>
-        </div>
-      </section>
-
-      {/* ── F2 Large Aperture ── */}
+      {/* ── 1.2 F2 Large Aperture ── */}
+      <hr className="border-foreground/10 max-w-6xl mx-auto" />
       <section className="py-20 md:py-32">
         <div className="container max-w-6xl mx-auto px-6">
           <p className="text-sm tracking-[0.3em] mb-4 text-foreground/60 text-center">{content.apertureLabel}</p>
@@ -430,43 +456,10 @@ export default function Product35mmF2Intro() {
         </div>
       </section>
 
-      {/* ── Full-bleed divider ── */}
-      <section className="relative h-[50vh] md:h-[60vh]">
-        <img
-          src="/images/银色镜头套装.jpg"
-          alt="35mm F/2 lens kit"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-background/30" />
-      </section>
-
-      {/* ── Full-Metal Craftsmanship ── */}
-      <section className="py-20 md:py-32 bg-foreground/5">
-        <div className="container max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 md:gap-16">
-            <div className="lg:col-span-3 flex flex-col justify-center order-1 lg:order-1">
-              <p className="text-sm tracking-[0.3em] mb-4 text-foreground/60">{content.craftLabel}</p>
-              <h2 className="text-display text-3xl md:text-4xl lg:text-5xl mb-8 leading-tight">{content.craftTitle}</h2>
-              <div className="space-y-6 text-foreground/80 leading-relaxed text-lg">
-                <p>{content.craftPara1}</p>
-                <p>{content.craftPara2}</p>
-              </div>
-            </div>
-            <div className="lg:col-span-2 order-2 lg:order-2">
-              <img
-                src="/images/银色镜头不挂机特写.jpg"
-                alt="35mm F/2 lens body"
-                className="w-full h-auto rounded-lg shadow-[0_8px_32px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.08)] cursor-pointer hover:opacity-90 transition-opacity"
-                onClick={() => { setLightboxIndex(2); setLightboxOpen(true); }}
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Performance Data Grid ── */}
+      {/* ── 1.3 Performance Data Grid + Optical Charts ── */}
+      <hr className="border-foreground/10 max-w-6xl mx-auto" />
       <section className="py-20 md:py-32">
-        <div className="container max-w-5xl mx-auto px-6">
+        <div className="container max-w-6xl mx-auto px-6">
           <h2 className="text-display text-3xl md:text-4xl text-center mb-16">{content.perfTitle}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {perfStats.map((s) => (
@@ -507,10 +500,97 @@ export default function Product35mmF2Intro() {
         </div>
       </section>
 
-      {/* ── Usage Scenes ── */}
-      <section className="py-20 md:py-32 bg-foreground/5">
-        <div className="container max-w-5xl mx-auto px-6">
-          <h2 className="text-display text-3xl md:text-4xl text-center mb-16">{content.scenesTitle}</h2>
+      {/* ════════════════════════════════════════
+           CHAPTER 2 — 工艺
+           Full-Metal Craftsmanship
+           ════════════════════════════════════════ */}
+
+      {/* ── Full-bleed image (Chapter 2 visual intro) ── */}
+      <section className="relative h-[50vh] md:h-[60vh] max-w-[1440px] mx-auto overflow-hidden">
+        <img
+          src="/images/银色镜头套装.jpg"
+          alt="35mm F/2 lens kit"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-background/30" />
+      </section>
+
+      {/* ── 2.1 Full-Metal Craftsmanship ── */}
+      <section className="py-20 md:py-32 max-w-[1440px] mx-auto">
+        <div className="container max-w-6xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 md:gap-16">
+            <div className="lg:col-span-3 flex flex-col justify-center order-1 lg:order-1">
+              <p className="text-sm tracking-[0.3em] mb-4 text-foreground/60">{content.craftLabel}</p>
+              <h2 className="text-display text-3xl md:text-4xl lg:text-5xl mb-8 leading-tight">{content.craftTitle}</h2>
+              <div className="space-y-6 text-foreground/80 leading-relaxed text-lg">
+                <p>{content.craftPara1}</p>
+                <p>{content.craftPara2}</p>
+              </div>
+            </div>
+            <div className="lg:col-span-2 order-2 lg:order-2">
+              <img
+                src="/images/银色镜头不挂机特写.jpg"
+                alt="35mm F/2 lens body"
+                className="w-full h-auto rounded-lg shadow-[0_8px_32px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.08)] cursor-pointer hover:opacity-90 transition-opacity"
+                onClick={() => { setLightboxIndex(2); setLightboxOpen(true); }}
+              />
+            </div>
+          </div>
+
+          {/* ── 2.2 Color Variants ── */}
+          <hr className="border-foreground/10 my-16 md:my-20" />
+          <div>
+            <p className="text-sm tracking-[0.3em] mb-4 text-foreground/60">{content.specialEditionLabel}</p>
+            <h3 className="text-display text-2xl md:text-3xl mb-4 leading-tight">{content.specialEditionTitle}</h3>
+            <p className="text-foreground/60 leading-relaxed mb-12 max-w-3xl">{content.craftProcess}</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {content.colorVariants.map((v) => (
+                <div key={v.nameEn} className="group border border-foreground/10 rounded-xl overflow-hidden hover:border-foreground/25 transition-colors shadow-[0_4px_16px_rgba(0,0,0,0.08),0_1px_4px_rgba(0,0,0,0.05)]">
+                  <div className="aspect-[16/10] overflow-hidden">
+                    <img src={v.image} alt={v.nameEn} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  </div>
+                  <div className="p-5">
+                    <p className="text-lg font-semibold mb-1">{v.name}</p>
+                    <p className="text-foreground/60 text-sm leading-relaxed">{v.finish}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-10 text-center">
+              <button
+                onClick={() => navigateWithTop('/products/35mm-f2-special-intro')}
+                className="inline-flex items-center gap-2 px-6 py-3 border border-foreground/20 text-foreground hover:bg-foreground hover:text-background transition-colors text-sm tracking-wide"
+              >
+                {content.specialEditionButton}
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════
+           CHAPTER 3 — 使用场景
+           Field Scenarios
+           ════════════════════════════════════════ */}
+
+      {/* ── Full-bleed image (Chapter 3 visual intro) ── */}
+      <section className="relative h-[40vh] md:h-[50vh] max-w-[1440px] mx-auto overflow-hidden flex items-center justify-center">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: `url(${scenes[0]?.image || ''})`,
+            filter: 'brightness(0.3)',
+          }}
+        />
+        <div className="relative z-10 text-center text-white px-6">
+          <p className="text-sm tracking-[0.3em] mb-4 opacity-80">{content.scenesLabel}</p>
+          <h2 className="text-display text-3xl md:text-4xl lg:text-5xl leading-tight">{content.scenesTitle}</h2>
+        </div>
+      </section>
+
+      {/* ── 3.1 Usage Scenes ── */}
+      <section className="py-20 md:py-32 max-w-[1440px] mx-auto">
+        <div className="container max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-16">
             {scenes.map((s) => (
               <div key={s.num}>
@@ -530,7 +610,7 @@ export default function Product35mmF2Intro() {
 
       {/* ── Closing + CTA ── */}
       <section className="py-20 md:py-32">
-        <div className="container max-w-3xl mx-auto px-6 text-center">
+        <div className="container max-w-6xl mx-auto px-6 text-center">
           <p className="text-2xl md:text-3xl lg:text-4xl text-display leading-relaxed">{content.closing}</p>
           <div className="w-24 h-px bg-foreground/30 mx-auto mt-12" />
           <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">

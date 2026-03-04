@@ -178,7 +178,7 @@ export default function Product35mmF2SpecialIntro() {
         />
       </div>
 
-      <section className="relative flex items-center justify-center overflow-hidden" style={{ height: '85vh' }}>
+      <section className="relative flex items-center justify-center overflow-hidden max-w-[1440px] mx-auto" style={{ height: '85vh' }}>
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -198,7 +198,8 @@ export default function Product35mmF2SpecialIntro() {
         </div>
       </section>
 
-      <section className="py-20 md:py-32 bg-foreground/5">
+      <hr className="border-foreground/10 max-w-[1440px] mx-auto" />
+      <section className="py-20 md:py-32 max-w-[1440px] mx-auto">
         <div className="container max-w-6xl mx-auto px-6">
           <p className="text-sm tracking-[0.3em] mb-4 text-foreground/60">{content.introLabel}</p>
           <h2 className="text-display text-3xl md:text-4xl mb-10 leading-tight">{content.premiumTitle}</h2>
@@ -229,12 +230,13 @@ export default function Product35mmF2SpecialIntro() {
         </div>
       </section>
 
-      <section className="relative h-[60vh] md:h-[70vh]">
+      <section className="relative h-[60vh] md:h-[70vh] max-w-[1440px] mx-auto overflow-hidden">
         <img src="/images/4种颜色镜头产品照-带包装.jpg" alt="35mm F/2 Special Edition detail" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
       </section>
 
-      <section className="py-20 md:py-32 bg-foreground/5">
+      <hr className="border-foreground/10 max-w-[1440px] mx-auto" />
+      <section className="py-20 md:py-32 max-w-[1440px] mx-auto">
         <div className="container max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 md:gap-16">
             <div className="lg:col-span-2">
@@ -270,7 +272,8 @@ export default function Product35mmF2SpecialIntro() {
         </div>
       </section>
 
-      <section className="py-20 md:py-32 bg-foreground/[0.03]">
+      <hr className="border-foreground/10 max-w-[1440px] mx-auto" />
+      <section className="py-20 md:py-32 max-w-[1440px] mx-auto">
         <div className="container max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start">
             <div className="md:col-span-3 space-y-6">
