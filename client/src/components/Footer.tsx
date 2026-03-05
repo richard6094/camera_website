@@ -102,7 +102,7 @@ export default function Footer() {
                 <Phone className="w-4 h-4 text-background/70 mt-0.5 flex-shrink-0" strokeWidth={1.5} />
                 <div>
                   <p className="text-background/50 text-xs">{t('footer.contact.phone')}</p>
-                  <p className="text-background/70 text-sm">+86 400-888-9999</p>
+                  <p className="text-background/70 text-sm">+86 15514110119</p>
                 </div>
               </li>
               <li className="flex items-start gap-3">
