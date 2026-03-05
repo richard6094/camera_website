@@ -653,9 +653,11 @@
     }
   }
 
-  /* Quote overlay — fades out in first 40 % of expansion */
+  /* Quote overlay — fades out in first 60 % of expansion, scales with image */
   .seg-quote {
-    opacity: clamp(0, calc(1 - var(--expand-p, 0) * 2.5), 1);
+    opacity: clamp(0, calc(1 - var(--expand-p, 0) * 1.67), 1);
+    transform: scale(calc(1 + var(--expand-p, 0) * 0.35));
+    transform-origin: center center;
     transition: none;
   }
 

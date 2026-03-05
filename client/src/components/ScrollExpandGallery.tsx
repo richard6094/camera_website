@@ -213,13 +213,13 @@ export function ScrollExpandGallery({
               />
             )}
 
-            {/* Quote overlay — fades out during first 40% of expansion */}
+            {/* Quote overlay — fades out during first 60% of expansion */}
             <div
               className="seg-quote absolute inset-0 z-10 flex items-center justify-center"
             >
-              <blockquote className="text-center max-w-[85%]">
+              <blockquote className="text-center max-w-[58rem] px-6">
                 <p
-                  className="text-white font-light leading-relaxed whitespace-nowrap"
+                  className="text-white font-light leading-relaxed"
                   style={{ fontSize: 'clamp(1rem, 3.5vw, 2.5rem)', textShadow: '0 2px 12px rgba(0,0,0,0.8)' }}
                 >
                   &ldquo;{quote}&rdquo;
